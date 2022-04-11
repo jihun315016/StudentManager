@@ -1,0 +1,16 @@
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\StudentManager_Winforms.exe.config
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\StudentManager_Winforms.exe
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\StudentManager_Winforms.pdb
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.SuggestedBindingRedirects.cache
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Properties.Resources.resources
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.GenerateResource.cache
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.exe
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.pdb
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmLogin.resources
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmFindPw.resources
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmManager.resources
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmEmployee.resources
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmStudent.resources
+C:\Users\admin\source\repos\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmAttendance.resources
