@@ -32,6 +32,7 @@
             this.학생ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.직원ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.출석ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.결제ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +41,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.학생ToolStripMenuItem,
             this.직원ToolStripMenuItem,
-            this.출석ToolStripMenuItem});
+            this.출석ToolStripMenuItem,
+            this.결제ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -68,6 +70,13 @@
             this.출석ToolStripMenuItem.Text = "출석";
             this.출석ToolStripMenuItem.Click += new System.EventHandler(this.출석ToolStripMenuItem_Click);
             // 
+            // 결제ToolStripMenuItem
+            // 
+            this.결제ToolStripMenuItem.Name = "결제ToolStripMenuItem";
+            this.결제ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.결제ToolStripMenuItem.Text = "결제";
+            this.결제ToolStripMenuItem.Click += new System.EventHandler(this.결제ToolStripMenuItem_Click);
+            // 
             // frmManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -91,5 +100,6 @@
         private System.Windows.Forms.ToolStripMenuItem 학생ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 직원ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 출석ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 결제ToolStripMenuItem;
     }
 }

@@ -21,6 +21,8 @@ namespace StudentManager_Winforms
         {
             frmEmployee frm = new frmEmployee();
             frm.MdiParent = this;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Top += 50;
             frm.Show();
         }
 
@@ -28,6 +30,8 @@ namespace StudentManager_Winforms
         {
             frmStudent frm = new frmStudent();
             frm.MdiParent = this;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Top += 50;
             frm.Show();
         }
 
@@ -35,6 +39,17 @@ namespace StudentManager_Winforms
         {
             frmAttendance frm = new frmAttendance();
             frm.MdiParent = this;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Top += 50;
+            frm.Show();
+        }
+
+        private void 결제ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPayment frm = new frmPayment();
+            frm.MdiParent = this;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Top += 50;
             frm.Show();
         }
     }

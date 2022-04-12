@@ -57,7 +57,7 @@ namespace StudentManager_Winforms
 
         private void txtClassNo_Leave(object sender, EventArgs e)
         {
-            Utility.Util.TextBoxHint(txtClassNo, "수강 번호 검색");
+            Utility.Util.TextBoxHint(txtClassNo, "수업 번호 검색");
         }
     }
 }

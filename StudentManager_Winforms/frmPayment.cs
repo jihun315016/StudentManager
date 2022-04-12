@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace StudentManager_Winforms
 {
-    public partial class frmAttendance : Form
+    public partial class frmPayment : Form
     {
-        public frmAttendance()
+        public frmPayment()
         {
             InitializeComponent();
         }
 
-        private void frmAttendance_Load(object sender, EventArgs e)
+        private void frmPayment_Load(object sender, EventArgs e)
         {
-            frmAttendance_Resize(this, null);
+            frmPayment_Resize(this, null);
 
             txtStudentNo_Leave(this, null);
             txtClassNo_Leave(this, null);
         }
 
-        private void frmAttendance_Resize(object sender, EventArgs e)
+        private void frmPayment_Resize(object sender, EventArgs e)
         {
             Utility.Util.PanelLocateCenter(this, pnlEntire);
         }
@@ -48,6 +48,7 @@ namespace StudentManager_Winforms
         private void txtClassNo_Leave(object sender, EventArgs e)
         {
             Utility.Util.TextBoxHint(txtClassNo, "수업 번호 검색");
+
         }
     }
 }
