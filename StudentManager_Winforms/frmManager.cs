@@ -15,50 +15,40 @@ namespace StudentManager_Winforms
         public frmManager()
         {
             InitializeComponent();
-        }
-
-        private void 직원ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmEmployee frm = new frmEmployee();
-            frm.MdiParent = this;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.Top += 50;
-            frm.Show();
-        }
-
-        private void 학생ToolStripMenuItem_Click(object sender, EventArgs e)
+        }        
+       
+        private void btnStudent_Click(object sender, EventArgs e)
         {
             frmStudent frm = new frmStudent();
             frm.MdiParent = this;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.Top += 50;
             frm.Show();
         }
 
-        private void 출석ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btn_Employee_Click(object sender, EventArgs e)
+        {
+            frmEmployee frm = new frmEmployee();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
         {
             frmAttendance frm = new frmAttendance();
             frm.MdiParent = this;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.Top += 50;
             frm.Show();
         }
 
-        private void 결제ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnPayment_Click(object sender, EventArgs e)
         {
             frmPayment frm = new frmPayment();
             frm.MdiParent = this;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.Top += 50;
             frm.Show();
         }
 
-        private void 수상ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnContest_Click(object sender, EventArgs e)
         {
             frmContest frm = new frmContest();
             frm.MdiParent = this;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.Top += 50;
             frm.Show();
         }
     }
