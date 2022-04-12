@@ -52,5 +52,14 @@ namespace StudentManager_Winforms
             frm.Top += 50;
             frm.Show();
         }
+
+        private void 수상ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmContest frm = new frmContest();
+            frm.MdiParent = this;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.Top += 50;
+            frm.Show();
+        }
     }
 }

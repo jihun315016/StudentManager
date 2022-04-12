@@ -33,6 +33,7 @@
             this.직원ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.출석ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.결제ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.수상ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +43,8 @@
             this.학생ToolStripMenuItem,
             this.직원ToolStripMenuItem,
             this.출석ToolStripMenuItem,
-            this.결제ToolStripMenuItem});
+            this.결제ToolStripMenuItem,
+            this.수상ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -77,6 +79,13 @@
             this.결제ToolStripMenuItem.Text = "결제";
             this.결제ToolStripMenuItem.Click += new System.EventHandler(this.결제ToolStripMenuItem_Click);
             // 
+            // 수상ToolStripMenuItem
+            // 
+            this.수상ToolStripMenuItem.Name = "수상ToolStripMenuItem";
+            this.수상ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.수상ToolStripMenuItem.Text = "수상";
+            this.수상ToolStripMenuItem.Click += new System.EventHandler(this.수상ToolStripMenuItem_Click);
+            // 
             // frmManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -101,5 +110,6 @@
         private System.Windows.Forms.ToolStripMenuItem 직원ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 출석ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 결제ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 수상ToolStripMenuItem;
     }
 }

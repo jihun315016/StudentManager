@@ -30,3 +30,4 @@ C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager
 C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.exe
 C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.pdb
 C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmPayment.resources
+C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmContest.resources
