@@ -58,6 +58,18 @@
     <Compile Include="frmContest.Designer.cs">
       <DependentUpon>frmContest.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmContestDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContestDetail.Designer.cs">
+      <DependentUpon>frmContestDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCourse.Designer.cs">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmContest.resx">
       <DependentUpon>frmContest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContestDetail.resx">
+      <DependentUpon>frmContestDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCourse.resx">
+      <DependentUpon>frmCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>

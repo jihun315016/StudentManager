@@ -16,7 +16,7 @@ namespace StudentManager_Winforms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmManager());
+            Application.Run(new frmContestDetail());
             //Application.Run(new frmLogin());
         }
     }

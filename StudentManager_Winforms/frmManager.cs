@@ -51,5 +51,12 @@ namespace StudentManager_Winforms
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void btnCourse_Click(object sender, EventArgs e)
+        {
+            frmCourse frm = new frmCourse();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

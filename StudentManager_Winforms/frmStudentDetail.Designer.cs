@@ -107,7 +107,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 23);
             this.label1.TabIndex = 63;
-            this.label1.Text = "[학생] 강지훈";
+            this.label1.Text = "[학생] 학생명";
             // 
             // pnlEntire
             // 

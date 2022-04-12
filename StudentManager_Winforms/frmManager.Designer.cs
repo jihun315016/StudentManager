@@ -33,8 +33,7 @@
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
             this.btnContest = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCourse = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -99,32 +98,22 @@
             this.btnContest.UseVisualStyleBackColor = true;
             this.btnContest.Click += new System.EventHandler(this.btnContest_Click);
             // 
-            // button1
+            // btnCourse
             // 
-            this.button1.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(0, 400);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 80);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "수강";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(0, 480);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 80);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "과목";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCourse.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCourse.Location = new System.Drawing.Point(0, 400);
+            this.btnCourse.Name = "btnCourse";
+            this.btnCourse.Size = new System.Drawing.Size(200, 80);
+            this.btnCourse.TabIndex = 15;
+            this.btnCourse.Text = "수업";
+            this.btnCourse.UseVisualStyleBackColor = true;
+            this.btnCourse.Click += new System.EventHandler(this.btnCourse_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnPayment);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnStudent);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnCourse);
             this.panel1.Controls.Add(this.btn_Employee);
             this.panel1.Controls.Add(this.btnContest);
             this.panel1.Controls.Add(this.btnAttendance);
@@ -202,8 +191,7 @@
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.Button btnContest;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCourse;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
