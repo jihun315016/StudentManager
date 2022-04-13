@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StudentManager_Winforms
 {
-    public partial class frmEmployyDetail : Form
+    public partial class frmEmployDetail : Form
     {
-        public frmEmployyDetail()
+        public frmEmployDetail()
         {
             InitializeComponent();
         }

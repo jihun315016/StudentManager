@@ -53,3 +53,7 @@ C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\o
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmEmployyDetail.resources
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmCourse.resources
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmContestDetail.resources
+C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmContestDetail.resources
+C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmCourse.resources
+C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmEmployDetail.resources
+C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmStudentDetail.resources
