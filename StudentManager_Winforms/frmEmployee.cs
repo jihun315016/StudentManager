@@ -47,6 +47,5 @@ namespace StudentManager_Winforms
         {
             Utility.Util.PanelLocateCenter(this, pnlEntire);
         }
-
     }
 }

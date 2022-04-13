@@ -38,9 +38,9 @@ namespace StudentManager_Winforms
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlEntire = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlEntire.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +71,7 @@ namespace StudentManager_Winforms
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 82;
-            this.button3.Text = "수정";
+            this.button3.Text = "등록";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // textBox5
@@ -137,15 +137,15 @@ namespace StudentManager_Winforms
             this.pnlEntire.Size = new System.Drawing.Size(520, 325);
             this.pnlEntire.TabIndex = 4;
             // 
-            // label2
+            // label4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(29, 106);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 119;
-            this.label2.Text = "학생명";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(29, 221);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 121;
+            this.label4.Text = "고길동";
             // 
             // label3
             // 
@@ -155,17 +155,17 @@ namespace StudentManager_Winforms
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 120;
-            this.label3.Text = "수업명";
+            this.label3.Text = "파이썬";
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(29, 221);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 121;
-            this.label4.Text = "강사명";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(29, 106);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 119;
+            this.label2.Text = "돌리";
             // 
             // frmCourseDetail
             // 
