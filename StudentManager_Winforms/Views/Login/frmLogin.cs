@@ -29,7 +29,7 @@ namespace StudentManager_Winforms
 
         private void lbl_findPw_Click(object sender, EventArgs e)
         {
-            frmFindPw frm = new frmFindPw();
+            frmFindPw frm = new frmFindPw(); 
             frm.ShowDialog();
         }
 
