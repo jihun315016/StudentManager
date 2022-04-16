@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using StudentManager.Service.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -27,17 +30,26 @@ namespace StudentManager_Winforms
             Utility.Util.PanelLocateCenter(this, pnlLogin);
         }
 
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            LoginService login = new LoginService();
+
+            if (login.LoginCheck(txtId.Text, txtPw.Text))
+            {
+                frmManager frm = new frmManager();
+                frm.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("로그인에 실패했습니다.");
+            }
+        }
         private void lbl_findPw_Click(object sender, EventArgs e)
         {
             frmFindPw frm = new frmFindPw(); 
             frm.ShowDialog();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmManager frm = new frmManager();
-            frm.ShowDialog();
-            this.Close();
         }
     }
 }

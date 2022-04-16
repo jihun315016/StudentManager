@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManager_Winforms", "StudentManager_Winforms\StudentManager_Winforms.csproj", "{2357D05D-3603-4A86-9DA1-C7B8793593DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManager.Service", "StudentManager.Service\StudentManager.Service.csproj", "{3BAA01A6-5346-41A7-9E4F-B893E41A7AF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManager.Data", "StudentManager.Data\StudentManager.Data.csproj", "{2719808F-E3E6-4894-BD83-E78C654EFE9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{2357D05D-3603-4A86-9DA1-C7B8793593DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2357D05D-3603-4A86-9DA1-C7B8793593DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2357D05D-3603-4A86-9DA1-C7B8793593DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BAA01A6-5346-41A7-9E4F-B893E41A7AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BAA01A6-5346-41A7-9E4F-B893E41A7AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BAA01A6-5346-41A7-9E4F-B893E41A7AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BAA01A6-5346-41A7-9E4F-B893E41A7AF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2719808F-E3E6-4894-BD83-E78C654EFE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2719808F-E3E6-4894-BD83-E78C654EFE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2719808F-E3E6-4894-BD83-E78C654EFE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2719808F-E3E6-4894-BD83-E78C654EFE9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
