@@ -37,6 +37,8 @@ namespace StudentManager_Winforms
 
             if (login.LoginCheck(txtId.Text, txtPw.Text))
             {
+                LoginSesstion.Emp_no = Convert.ToInt32(txtId.Text);
+
                 frmManager frm = new frmManager();
                 frm.ShowDialog();
                 this.Close();

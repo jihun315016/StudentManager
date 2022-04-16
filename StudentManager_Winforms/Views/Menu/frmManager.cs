@@ -21,20 +21,10 @@ namespace StudentManager_Winforms
         }        
         private void frmManager_Load(object sender, EventArgs e)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["studentManagerDB"].ConnectionString;
-            MySqlConnection conn = new MySqlConnection(connStr);
-            conn.Open();
-
-            string sql = @"SELECT emp_no, password FROM tb_employee WHERE emp_no = @emp_no";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@emp_no", 10001);
-
-            MySqlDataReader reader = cmd.ExecuteReader(); 
-
             string[] column = { "EMP_NAME", "POSITION" };
             EmployeeService user = new EmployeeService();
 
-            List<string> list = user.GetUserInfo(10001, column);
+            List<string> list = user.GetUserInfo(LoginSesstion.Emp_no, column);
 
             string name = list[0];
             string position = list[1];

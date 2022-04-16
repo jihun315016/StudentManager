@@ -34,7 +34,6 @@ namespace StudentManager.Data.DAC
             cmd.Parameters.AddWithValue("@emp_no", emp_no);
             cmd.Parameters.AddWithValue("@password", password);
 
-            Trace.WriteLine($"{cmd.ExecuteScalar()}");
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
     }

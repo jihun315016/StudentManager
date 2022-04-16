@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StudentManager.Data.DAC
 {
-    public class EmployeeDAC
+    public class EmployeeDAC : IDisposable
     {
         MySqlConnection conn;
 
@@ -17,6 +17,11 @@ namespace StudentManager.Data.DAC
             string connStr = ConfigurationManager.ConnectionStrings["studentManagerDB"].ConnectionString;
             conn = new MySqlConnection(connStr);
             conn.Open();
+        }
+
+        public void Dispose()
+        {
+            conn.Close();
         }
 
         public List<string> GetEmpInfo(int emp_no, string[] col)

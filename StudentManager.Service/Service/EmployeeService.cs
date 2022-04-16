@@ -12,7 +12,9 @@ namespace StudentManager.Service.Service
         public List<string> GetUserInfo(int emp_no, string[] col)
         {
             EmployeeDAC dac = new EmployeeDAC();
-            return dac.GetEmpInfo(emp_no, col);
+            List<string> list = dac.GetEmpInfo(emp_no, col);
+            dac.Dispose();
+            return list;
         }
     }
 }

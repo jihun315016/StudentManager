@@ -21,7 +21,10 @@ namespace StudentManager.Service.Service
                 return false;
             
             LoginDAC dac = new LoginDAC();
-            return dac.GetLoginInfo(emp_no, pw) > 0;
+            bool result = dac.GetLoginInfo(emp_no, pw) > 0;
+            dac.Dispose();
+
+            return result;
         }        
     }
 }
