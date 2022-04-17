@@ -5,7 +5,17 @@
       "ProjectGuid": "2357d05d-3603-4a86-9da1-c7b8793593dc",
       "DisplayName": "StudentManager_Winforms",
       "ColorIndex": 0
+    },
+    "3baa01a6-5346-41a7-9e4f-b893e41a7af5": {
+      "ProjectGuid": "3baa01a6-5346-41a7-9e4f-b893e41a7af5",
+      "DisplayName": "StudentManager.Service",
+      "ColorIndex": 1
+    },
+    "2719808f-e3e6-4894-bd83-e78c654efe9c": {
+      "ProjectGuid": "2719808f-e3e6-4894-bd83-e78c654efe9c",
+      "DisplayName": "StudentManager.Data",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }

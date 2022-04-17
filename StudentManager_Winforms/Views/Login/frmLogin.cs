@@ -1,14 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using StudentManager.Service.Service;
+﻿using StudentManager.Service.Service;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
@@ -27,7 +18,8 @@ namespace StudentManager_Winforms
 
         private void frmLogin_Resize(object sender, EventArgs e)
         {
-            Utility.Util.PanelLocateCenter(this, pnlLogin);
+            pnlLogin.Left = this.Width / 2 - pnlLogin.Width / 2;
+            pnlLogin.Top = this.Height / 2 - pnlLogin.Height / 2 - this.Height / 20;
         }
 
 

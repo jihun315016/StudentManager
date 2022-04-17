@@ -1,4 +1,5 @@
 ﻿using StudentManager.Data.DAC;
+using StudentManager.Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StudentManager.Service.Service
 {
-    public class EmployeeService
+    public class EmployeeService : IEmployee
     {
         public List<string> GetUserInfo(int emp_no, string[] col)
         {
