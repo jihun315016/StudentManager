@@ -9,5 +9,6 @@ namespace StudentManager.Service.Interface
     internal interface ILogin
     {
         bool LoginCheck(string id, string pw);
+        bool SendEmail(string name, string recipient);
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
@@ -17,13 +18,16 @@ namespace StudentManager_Winforms
         {
             frmFindPw_Resize(this, null);
 
+            
             string[] items =
             {
                 "gmail.com",
                 "naver.com",
-                "daum.net"
+                "daum.net",
+                "직접 입력"
             };
-            cboEmail.Items.AddRange(items);            
+
+            cboEmail.Items.AddRange(items);
         }
 
         private void frmFindPw_Resize(object sender, EventArgs e)
@@ -34,47 +38,73 @@ namespace StudentManager_Winforms
 
         private void btnEmail_Click(object sender, EventArgs e)
         {
+            TextBox[] txtArr = { txtName, txtEmp_no, txtEmail1, txtEmail2 };
+            string[] txtNameArr = { "이름", "사번", "이메일", "이메일" };
+
+            StringBuilder sb = ButtonUtil.IsEmptyOrWhiteSpaceArr(txtArr, txtNameArr);
+            if (sb.Length > 0)
+            {
+                lblMessage.Text = $"{sb.ToString()}를 입력해주세요.";
+                lblMessage.ForeColor = Color.Red;
+                return;
+            }            
+
             string[] column = { "EMP_NAME", "EMAIL" };
             EmployeeService user = new EmployeeService();
 
-            int emp_no = Convert.ToInt32(txtEmp_no.Text);            
+            int emp_no = Convert.ToInt32(txtEmp_no.Text);
+            List<string> list = user.GetUserInfo(emp_no, column);            
 
-            List<string> list = user.GetUserInfo(emp_no, column);
-
-            string name = list[0];
-            string email = list[1];
-            string inputEmail = $"{txtEmail1.Text}@{txtEmail2.Text}";
-
-            if (txtName.Text == name && inputEmail == email)
+            if (list != null)
             {
-                LoginService login = new LoginService();
-                if (login.SendEmail(inputEmail))
+                string name = list[0];
+                string email = list[1];
+                string inputEmail = $"{txtEmail1.Text}@{txtEmail2.Text}";
+
+                if (txtName.Text == name && inputEmail == email)
                 {
-                    lblMessage.Text = "임시 비밀번호가 발송되었습니다.";
-                    lblMessage.ForeColor = Color.SeaGreen;
-                }
-                else
-                {
-                    lblMessage.Text = "메일 발송에 실패했습니다.";
-                    lblMessage.ForeColor = Color.Red;
+                    LoginService login = new LoginService();
+                    if (login.SendEmail(name, inputEmail))
+                    {
+                        lblMessage.Text = "임시 비밀번호가 발송되었습니다.";
+                        lblMessage.ForeColor = Color.SeaGreen;
+                        return;
+                    }
+                    else
+                    {
+                        lblMessage.Text = "메일 발송에 실패했습니다.";
+                        lblMessage.ForeColor = Color.Red;
+                        return;
+                    }
                 }
             }
-            else
-            {
-                lblMessage.Text = "잘못된 사용자 정보입니다.";
-                lblMessage.ForeColor = Color.Red;
-            }            
-        }
-
-        private void btnCheck_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            
+            lblMessage.Text = "잘못된 사용자 정보입니다.";
+            lblMessage.ForeColor = Color.Red;                        
         }
 
         private void txtEmp_no_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !e.KeyChar.Equals('\b'))
                 e.Handled = true;
+        }
+
+        private void cboEmail_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 직접 입력
+            if (cboEmail.SelectedIndex == cboEmail.Items.Count - 1)
+            {
+                txtEmail2.Enabled = true;
+            }
+            else
+            {
+                txtEmail2.Enabled = false;
+                txtEmail2.Text = cboEmail.Text;
+            }            
+        }
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

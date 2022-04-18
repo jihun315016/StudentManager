@@ -30,10 +30,11 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public bool SendEmail(string recipient)
+        public bool SendEmail(string name, string recipient)
         {            
             string sender = ConfigurationManager.AppSettings["email"]; // 보내는 메일
             string password = ConfigurationManager.AppSettings["emailPw"]; // 메일 비밀번호
+            string newPassword = MakePassword();
 
             MailMessage mail = new MailMessage();
 
@@ -42,7 +43,7 @@ namespace StudentManager.Service.Service
             mail.To.Add(recipient);
 
             mail.Subject = "임시 비밀번호 안내";
-            mail.Body = "ㅎㅇ <h1>~~~</h1>";
+            mail.Body = GetPassworkMessage(name, newPassword);
             mail.IsBodyHtml = true;
 
             mail.SubjectEncoding = Encoding.UTF8;
@@ -67,6 +68,37 @@ namespace StudentManager.Service.Service
             }
 
             return true;
+        }
+
+        string MakePassword()
+        {
+            Random rnd = new Random();
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (rnd.Next(2) == 0)
+                {
+                    sb.Append(rnd.Next(10).ToString());
+                }
+                else
+                {
+                    sb.Append(((char)rnd.Next('a', 'z' + 1)).ToString());
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        string GetPassworkMessage(string name, string password)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"<strong>{name}</strong>님 안녕하세요.<br>");
+            sb.Append("임시 비밀번호 발급 안내입니다.<br>");
+            sb.Append("로그인 후, '내 정보'에서 비밀번호를 변경하여 주시기 바랍니다.");
+            sb.Append($"<h1>임시 비밀번호 : {password}</h1>");
+
+            return sb.ToString();
         }
     }
 }

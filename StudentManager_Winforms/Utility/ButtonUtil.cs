@@ -9,7 +9,7 @@ namespace StudentManager_Winforms
 {
     public class ButtonUtil
     {
-        public StringBuilder IsEmptyOrWhiteSpaceArr(TextBox[] txtText, string[] txtName)
+        public static StringBuilder IsEmptyOrWhiteSpaceArr(TextBox[] txtText, string[] txtName)
         {
             StringBuilder sb = new StringBuilder();
 

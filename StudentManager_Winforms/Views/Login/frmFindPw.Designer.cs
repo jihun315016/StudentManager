@@ -61,7 +61,7 @@
             this.pnlFindPw.Location = new System.Drawing.Point(12, 12);
             this.pnlFindPw.Name = "pnlFindPw";
             this.pnlFindPw.Size = new System.Drawing.Size(327, 308);
-            this.pnlFindPw.TabIndex = 0;
+            this.pnlFindPw.TabIndex = 3;
             // 
             // lblMessage
             // 
@@ -77,7 +77,7 @@
             this.btnEmail.Location = new System.Drawing.Point(150, 225);
             this.btnEmail.Name = "btnEmail";
             this.btnEmail.Size = new System.Drawing.Size(75, 23);
-            this.btnEmail.TabIndex = 12;
+            this.btnEmail.TabIndex = 5;
             this.btnEmail.Text = "메일 인증";
             this.btnEmail.UseVisualStyleBackColor = true;
             this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
@@ -88,27 +88,31 @@
             this.btnCheck.Location = new System.Drawing.Point(231, 225);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(75, 23);
-            this.btnCheck.TabIndex = 11;
+            this.btnCheck.TabIndex = 6;
             this.btnCheck.Text = "확인";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // txtEmail2
             // 
+            this.txtEmail2.Enabled = false;
             this.txtEmail2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtEmail2.Location = new System.Drawing.Point(140, 179);
             this.txtEmail2.Name = "txtEmail2";
             this.txtEmail2.Size = new System.Drawing.Size(80, 21);
-            this.txtEmail2.TabIndex = 10;
+            this.txtEmail2.TabIndex = 3;
             // 
             // cboEmail
             // 
+            this.cboEmail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEmail.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cboEmail.FormattingEnabled = true;
+            this.cboEmail.ItemHeight = 12;
             this.cboEmail.Location = new System.Drawing.Point(226, 179);
             this.cboEmail.Name = "cboEmail";
             this.cboEmail.Size = new System.Drawing.Size(80, 20);
-            this.cboEmail.TabIndex = 9;
+            this.cboEmail.TabIndex = 4;
+            this.cboEmail.SelectedIndexChanged += new System.EventHandler(this.cboEmail_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -126,7 +130,7 @@
             this.txtEmail1.Location = new System.Drawing.Point(24, 179);
             this.txtEmail1.Name = "txtEmail1";
             this.txtEmail1.Size = new System.Drawing.Size(87, 21);
-            this.txtEmail1.TabIndex = 7;
+            this.txtEmail1.TabIndex = 2;
             // 
             // label3
             // 
@@ -144,7 +148,7 @@
             this.txtEmp_no.Location = new System.Drawing.Point(24, 110);
             this.txtEmp_no.Name = "txtEmp_no";
             this.txtEmp_no.Size = new System.Drawing.Size(282, 21);
-            this.txtEmp_no.TabIndex = 5;
+            this.txtEmp_no.TabIndex = 1;
             this.txtEmp_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmp_no_KeyPress);
             // 
             // label2
@@ -163,7 +167,7 @@
             this.txtName.Location = new System.Drawing.Point(24, 41);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(282, 21);
-            this.txtName.TabIndex = 3;
+            this.txtName.TabIndex = 0;
             // 
             // label1
             // 
