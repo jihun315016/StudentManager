@@ -131,6 +131,7 @@
     <Compile Include="frmEmployDetail.Designer.cs">
       <DependentUpon>frmEmployDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility\ButtonUtil.cs" />
     <Compile Include="Views\Login\frmFindPw.cs">
       <SubType>Form</SubType>
     </Compile>

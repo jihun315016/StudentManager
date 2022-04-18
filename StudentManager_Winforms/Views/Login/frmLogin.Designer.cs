@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.lbl_findPw = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.lbl_findPw = new System.Windows.Forms.Label();
             this.txtPw = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -40,8 +40,8 @@
             // 
             // pnlLogin
             // 
-            this.pnlLogin.Controls.Add(this.btnLogin);
             this.pnlLogin.Controls.Add(this.lbl_findPw);
+            this.pnlLogin.Controls.Add(this.btnLogin);
             this.pnlLogin.Controls.Add(this.txtPw);
             this.pnlLogin.Controls.Add(this.label2);
             this.pnlLogin.Controls.Add(this.txtId);
@@ -50,6 +50,17 @@
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(296, 206);
             this.pnlLogin.TabIndex = 2;
+            // 
+            // lbl_findPw
+            // 
+            this.lbl_findPw.AutoSize = true;
+            this.lbl_findPw.Location = new System.Drawing.Point(21, 167);
+            this.lbl_findPw.Name = "lbl_findPw";
+            this.lbl_findPw.Size = new System.Drawing.Size(81, 12);
+            this.lbl_findPw.TabIndex = 6;
+            this.lbl_findPw.TabStop = true;
+            this.lbl_findPw.Text = "비밀번호 찾기";
+            this.lbl_findPw.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_findPw_LinkClicked);
             // 
             // btnLogin
             // 
@@ -61,18 +72,6 @@
             this.btnLogin.Text = "로그인";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // lbl_findPw
-            // 
-            this.lbl_findPw.AutoSize = true;
-            this.lbl_findPw.Font = new System.Drawing.Font("맑은 고딕", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbl_findPw.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lbl_findPw.Location = new System.Drawing.Point(100, 165);
-            this.lbl_findPw.Name = "lbl_findPw";
-            this.lbl_findPw.Size = new System.Drawing.Size(83, 15);
-            this.lbl_findPw.TabIndex = 4;
-            this.lbl_findPw.Text = "비밀번호 찾기";
-            this.lbl_findPw.Click += new System.EventHandler(this.lbl_findPw_Click);
             // 
             // txtPw
             // 
@@ -86,10 +85,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(20, 100);
+            this.label2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(21, 101);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.Size = new System.Drawing.Size(25, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "PW";
             // 
@@ -104,10 +103,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(20, 20);
+            this.label1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(21, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.Size = new System.Drawing.Size(18, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
@@ -136,6 +135,6 @@
         private System.Windows.Forms.TextBox txtPw;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label lbl_findPw;
+        private System.Windows.Forms.LinkLabel lbl_findPw;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using StudentManager.Service.Service;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
@@ -15,6 +16,14 @@ namespace StudentManager_Winforms
         private void frmFindPw_Load(object sender, EventArgs e)
         {
             frmFindPw_Resize(this, null);
+
+            string[] items =
+            {
+                "gmail.com",
+                "naver.com",
+                "daum.net"
+            };
+            cboEmail.Items.AddRange(items);            
         }
 
         private void frmFindPw_Resize(object sender, EventArgs e)
@@ -28,12 +37,7 @@ namespace StudentManager_Winforms
             string[] column = { "EMP_NAME", "EMAIL" };
             EmployeeService user = new EmployeeService();
 
-            int emp_no;
-            if (!int.TryParse(txtEmp_no.Text, out emp_no))
-            {
-                lblMessage.Text = "잘못된 사번입니다.";
-                return;
-            }
+            int emp_no = Convert.ToInt32(txtEmp_no.Text);            
 
             List<string> list = user.GetUserInfo(emp_no, column);
 
@@ -45,19 +49,32 @@ namespace StudentManager_Winforms
             {
                 LoginService login = new LoginService();
                 if (login.SendEmail(inputEmail))
+                {
                     lblMessage.Text = "임시 비밀번호가 발송되었습니다.";
+                    lblMessage.ForeColor = Color.SeaGreen;
+                }
                 else
+                {
                     lblMessage.Text = "메일 발송에 실패했습니다.";
+                    lblMessage.ForeColor = Color.Red;
+                }
             }
             else
             {
                 lblMessage.Text = "잘못된 사용자 정보입니다.";
+                lblMessage.ForeColor = Color.Red;
             }            
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtEmp_no_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !e.KeyChar.Equals('\b'))
+                e.Handled = true;
         }
     }
 }

@@ -40,9 +40,10 @@ namespace StudentManager_Winforms
                 MessageBox.Show("로그인에 실패했습니다.");
             }
         }
-        private void lbl_findPw_Click(object sender, EventArgs e)
+
+        private void lbl_findPw_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmFindPw frm = new frmFindPw(); 
+            frmFindPw frm = new frmFindPw();
             frm.ShowDialog();
         }
     }

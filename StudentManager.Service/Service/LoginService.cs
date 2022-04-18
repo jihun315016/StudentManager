@@ -32,8 +32,8 @@ namespace StudentManager.Service.Service
 
         public bool SendEmail(string recipient)
         {            
-            string sender = ConfigurationManager.AppSettings["email"];
-            string password = ConfigurationManager.AppSettings["emailPw"];
+            string sender = ConfigurationManager.AppSettings["email"]; // 보내는 메일
+            string password = ConfigurationManager.AppSettings["emailPw"]; // 메일 비밀번호
 
             MailMessage mail = new MailMessage();
 
