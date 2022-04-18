@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace StudentManager_Winforms
 {
-    public class ButtonUtil
+    public class TextBoxUtil
     {
         public static StringBuilder IsEmptyOrWhiteSpaceArr(TextBox[] txtText, string[] txtName)
         {
@@ -31,6 +31,20 @@ namespace StudentManager_Winforms
                 sb.Append(err.Message);
                 return sb;
             }
+        }
+
+        public static int ValidContactCnt(string text)
+        {
+            StringBuilder sb = new StringBuilder();
+            int contactCnt = 0;
+
+            foreach (char c in text)
+            {
+                if (char.IsDigit(c))
+                    contactCnt++;
+            }
+
+            return contactCnt;
         }
     }
 }

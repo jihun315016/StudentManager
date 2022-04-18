@@ -21,6 +21,10 @@ namespace StudentManager_Winforms
         }        
         private void frmManager_Load(object sender, EventArgs e)
         {
+#if DEBUG
+            lblUserInfo.Text = $"[직무] 디버그";
+            return;
+#endif
             string[] column = { "EMP_NAME", "POSITION" };
             EmployeeService user = new EmployeeService();
 

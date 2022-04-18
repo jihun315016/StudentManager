@@ -89,6 +89,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ccTextBoxHint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ccTextBoxHint.Designer.cs">
+      <DependentUpon>ccTextBoxHint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDateFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucDateFilter.Designer.cs">
+      <DependentUpon>ucDateFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,7 +143,7 @@
     <Compile Include="frmEmployDetail.Designer.cs">
       <DependentUpon>frmEmployDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility\ButtonUtil.cs" />
+    <Compile Include="Utility\TextBoxUtil.cs" />
     <Compile Include="Views\Login\frmFindPw.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,10 +169,10 @@
     <Compile Include="frmPayment.Designer.cs">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStudent.cs">
+    <Compile Include="Views\Student\frmStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStudent.Designer.cs">
+    <Compile Include="Views\Student\frmStudent.Designer.cs">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStudentDetail.cs">
@@ -172,6 +184,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\Util.cs" />
+    <EmbeddedResource Include="Controls\ccTextBoxHint.resx">
+      <DependentUpon>ccTextBoxHint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucDateFilter.resx">
+      <DependentUpon>ucDateFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAttendance.resx">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,7 +223,7 @@
     <EmbeddedResource Include="frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStudent.resx">
+    <EmbeddedResource Include="Views\Student\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStudentDetail.resx">

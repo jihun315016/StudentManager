@@ -41,7 +41,7 @@ namespace StudentManager_Winforms
             TextBox[] txtArr = { txtName, txtEmp_no, txtEmail1, txtEmail2 };
             string[] txtNameArr = { "이름", "사번", "이메일", "이메일" };
 
-            StringBuilder sb = ButtonUtil.IsEmptyOrWhiteSpaceArr(txtArr, txtNameArr);
+            StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtArr, txtNameArr);
             if (sb.Length > 0)
             {
                 lblMessage.Text = $"{sb.ToString()}를 입력해주세요.";
