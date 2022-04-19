@@ -95,11 +95,23 @@
     <Compile Include="Controls\ccTextBoxHint.Designer.cs">
       <DependentUpon>ccTextBoxHint.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ccTextBoxNumber.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ccTextBoxNumber.Designer.cs">
+      <DependentUpon>ccTextBoxNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ucDateFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\ucDateFilter.Designer.cs">
       <DependentUpon>ucDateFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucInputEmail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucInputEmail.Designer.cs">
+      <DependentUpon>ucInputEmail.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAttendance.cs">
       <SubType>Form</SubType>
@@ -131,10 +143,10 @@
     <Compile Include="frmCourseDetail.Designer.cs">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEmployee.cs">
+    <Compile Include="Views\Employee\frmEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEmployee.Designer.cs">
+    <Compile Include="Views\Employee\frmEmployee.Designer.cs">
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEmployDetail.cs">
@@ -187,8 +199,14 @@
     <EmbeddedResource Include="Controls\ccTextBoxHint.resx">
       <DependentUpon>ccTextBoxHint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ccTextBoxNumber.resx">
+      <DependentUpon>ccTextBoxNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucDateFilter.resx">
       <DependentUpon>ucDateFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucInputEmail.resx">
+      <DependentUpon>ucInputEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAttendance.resx">
       <DependentUpon>frmAttendance.cs</DependentUpon>
@@ -205,7 +223,7 @@
     <EmbeddedResource Include="frmCourseDetail.resx">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEmployee.resx">
+    <EmbeddedResource Include="Views\Employee\frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmployDetail.resx">

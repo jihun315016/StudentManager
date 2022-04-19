@@ -174,3 +174,7 @@ C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.exe.config
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ucDateFilter.resources
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.ccTextBoxHint.resources
+C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.ccTextBoxHint.resources
+C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ccTextBoxNumber.resources
+C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ucDateFilter.resources
+C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ucInputEmail.resources

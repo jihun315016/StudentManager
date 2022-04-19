@@ -36,7 +36,7 @@
             // dtp1
             // 
             this.dtp1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp1.Location = new System.Drawing.Point(3, 3);
+            this.dtp1.Location = new System.Drawing.Point(0, 0);
             this.dtp1.Name = "dtp1";
             this.dtp1.Size = new System.Drawing.Size(105, 21);
             this.dtp1.TabIndex = 0;
@@ -44,7 +44,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(114, 9);
+            this.label1.Location = new System.Drawing.Point(111, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 12);
             this.label1.TabIndex = 1;
@@ -53,7 +53,7 @@
             // dtp2
             // 
             this.dtp2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp2.Location = new System.Drawing.Point(134, 3);
+            this.dtp2.Location = new System.Drawing.Point(131, 0);
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(105, 21);
             this.dtp2.TabIndex = 2;
@@ -66,7 +66,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtp1);
             this.Name = "ucDateFilter";
-            this.Size = new System.Drawing.Size(242, 27);
+            this.Size = new System.Drawing.Size(238, 22);
             this.Load += new System.EventHandler(this.ucDateFilter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

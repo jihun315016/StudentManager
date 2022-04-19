@@ -12,7 +12,7 @@ namespace StudentManager_Winforms
 {
     public partial class ccTextBoxHint : TextBox
     {
-        public string Message { get; set; }
+        public string Hint { get; set; }
 
         public ccTextBoxHint()
         {
@@ -31,7 +31,7 @@ namespace StudentManager_Winforms
 
         private void ccTextBoxHint_Enter(object sender, EventArgs e)
         {
-            if (this.Text.Equals(this.Message))
+            if (this.Text.Equals(this.Hint))
             {
                 this.Text = string.Empty;
                 this.ForeColor = Color.Black;
@@ -42,7 +42,7 @@ namespace StudentManager_Winforms
         {
             if (this.Text.Equals(string.Empty))
             {
-                this.Text = this.Message;
+                this.Text = this.Hint;
                 this.ForeColor = Color.Gray;
             }            
         }

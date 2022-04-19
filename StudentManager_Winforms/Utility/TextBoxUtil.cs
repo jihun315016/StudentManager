@@ -32,19 +32,5 @@ namespace StudentManager_Winforms
                 return sb;
             }
         }
-
-        public static int ValidContactCnt(string text)
-        {
-            StringBuilder sb = new StringBuilder();
-            int contactCnt = 0;
-
-            foreach (char c in text)
-            {
-                if (char.IsDigit(c))
-                    contactCnt++;
-            }
-
-            return contactCnt;
-        }
     }
 }

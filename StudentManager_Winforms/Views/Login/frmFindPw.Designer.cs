@@ -37,15 +37,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtEmail1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtEmp_no = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ccTxtEmp_no = new StudentManager_Winforms.Controls.ccTextBoxNumber();
             this.pnlFindPw.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFindPw
             // 
+            this.pnlFindPw.Controls.Add(this.ccTxtEmp_no);
             this.pnlFindPw.Controls.Add(this.lblMessage);
             this.pnlFindPw.Controls.Add(this.btnEmail);
             this.pnlFindPw.Controls.Add(this.btnCheck);
@@ -54,7 +55,6 @@
             this.pnlFindPw.Controls.Add(this.label4);
             this.pnlFindPw.Controls.Add(this.txtEmail1);
             this.pnlFindPw.Controls.Add(this.label3);
-            this.pnlFindPw.Controls.Add(this.txtEmp_no);
             this.pnlFindPw.Controls.Add(this.label2);
             this.pnlFindPw.Controls.Add(this.txtName);
             this.pnlFindPw.Controls.Add(this.label1);
@@ -142,15 +142,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "이메일";
             // 
-            // txtEmp_no
-            // 
-            this.txtEmp_no.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtEmp_no.Location = new System.Drawing.Point(24, 110);
-            this.txtEmp_no.Name = "txtEmp_no";
-            this.txtEmp_no.Size = new System.Drawing.Size(282, 21);
-            this.txtEmp_no.TabIndex = 1;
-            this.txtEmp_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmp_no_KeyPress);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -179,6 +170,13 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "이름";
             // 
+            // ccTxtEmp_no
+            // 
+            this.ccTxtEmp_no.Location = new System.Drawing.Point(23, 110);
+            this.ccTxtEmp_no.Name = "ccTxtEmp_no";
+            this.ccTxtEmp_no.Size = new System.Drawing.Size(283, 21);
+            this.ccTxtEmp_no.TabIndex = 1;
+            // 
             // frmFindPw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -204,12 +202,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEmail1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtEmp_no;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEmail;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Label lblMessage;
+        private Controls.ccTextBoxNumber ccTxtEmp_no;
     }
 }

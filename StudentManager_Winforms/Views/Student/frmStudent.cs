@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentManager.Service.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,32 +29,21 @@ namespace StudentManager_Winforms
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
+            StudentService student = new StudentService();
+
             if (string.IsNullOrWhiteSpace(txtName.Text.Trim()))
             {
                 MessageBox.Show("학생 이름을 입력해주세요.");
                 return;
             }
 
-            int studentCnt = TextBoxUtil.ValidContactCnt(txtStudentContact.Text);
-            int GuardianCnt = TextBoxUtil.ValidContactCnt(txtGuardianContact.Text);            
 
-            if(studentCnt + GuardianCnt == 0)
+            StringBuilder sb = student.ValidContact(txtStudentContact.Text, txtGuardianContact.Text);
+            if (sb.Length > 0)
             {
-                MessageBox.Show("학생 연락처와 보호자 연락처 중 하나는 입력해주세요.");
+                MessageBox.Show(sb.ToString());
                 return;
             }
-            
-            if (studentCnt > 0 && studentCnt < 11)
-            {
-                MessageBox.Show("잘못된 학생 연락처입니다.");
-                return;
-            }
-
-            if (GuardianCnt > 0 && GuardianCnt < 11)
-            {
-                MessageBox.Show("잘못된 보호자 연락처입니다.");
-                return;
-            }            
         }    
 
         private void rdo_CheckedChanged(object sender, EventArgs e)

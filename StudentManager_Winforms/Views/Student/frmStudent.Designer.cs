@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlInsert = new System.Windows.Forms.Panel();
+            this.ccTxtAge = new StudentManager_Winforms.Controls.ccTextBoxNumber();
             this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxHint();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
@@ -44,7 +45,6 @@
             this.TxtSchool = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtAge = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@
             // 
             // pnlInsert
             // 
+            this.pnlInsert.Controls.Add(this.ccTxtAge);
             this.pnlInsert.Controls.Add(this.ccTxtSpecialNote);
             this.pnlInsert.Controls.Add(this.dateTimePicker3);
             this.pnlInsert.Controls.Add(this.pnlGuardianRerationship);
@@ -76,7 +77,6 @@
             this.pnlInsert.Controls.Add(this.TxtSchool);
             this.pnlInsert.Controls.Add(this.label6);
             this.pnlInsert.Controls.Add(this.label7);
-            this.pnlInsert.Controls.Add(this.txtAge);
             this.pnlInsert.Controls.Add(this.label4);
             this.pnlInsert.Controls.Add(this.txtName);
             this.pnlInsert.Controls.Add(this.label5);
@@ -87,10 +87,17 @@
             this.pnlInsert.Size = new System.Drawing.Size(320, 530);
             this.pnlInsert.TabIndex = 4;
             // 
+            // ccTxtAge
+            // 
+            this.ccTxtAge.Location = new System.Drawing.Point(9, 125);
+            this.ccTxtAge.Name = "ccTxtAge";
+            this.ccTxtAge.Size = new System.Drawing.Size(132, 21);
+            this.ccTxtAge.TabIndex = 97;
+            // 
             // ccTxtSpecialNote
             // 
             this.ccTxtSpecialNote.Location = new System.Drawing.Point(7, 367);
-            this.ccTxtSpecialNote.Message = "특이사항";
+            this.ccTxtSpecialNote.Hint = "특이사항";
             this.ccTxtSpecialNote.Multiline = true;
             this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
             this.ccTxtSpecialNote.Size = new System.Drawing.Size(306, 118);
@@ -239,14 +246,6 @@
             this.label7.TabIndex = 88;
             this.label7.Text = "학생 연락처";
             // 
-            // txtAge
-            // 
-            this.txtAge.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtAge.Location = new System.Drawing.Point(9, 125);
-            this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(132, 21);
-            this.txtAge.TabIndex = 87;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -310,16 +309,16 @@
             // 
             // ccTxtClassNo
             // 
-            this.ccTxtClassNo.Location = new System.Drawing.Point(128, 502);
-            this.ccTxtClassNo.Message = "수업 번호 검색";
+            this.ccTxtClassNo.Location = new System.Drawing.Point(191, 502);
+            this.ccTxtClassNo.Hint = "수업 번호 검색";
             this.ccTxtClassNo.Name = "ccTxtClassNo";
             this.ccTxtClassNo.Size = new System.Drawing.Size(100, 21);
             this.ccTxtClassNo.TabIndex = 98;
             // 
             // ccTxtStudentNo
             // 
-            this.ccTxtStudentNo.Location = new System.Drawing.Point(3, 502);
-            this.ccTxtStudentNo.Message = "학생 번호 검색";
+            this.ccTxtStudentNo.Location = new System.Drawing.Point(66, 502);
+            this.ccTxtStudentNo.Hint = "학생 번호 검색";
             this.ccTxtStudentNo.Name = "ccTxtStudentNo";
             this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
             this.ccTxtStudentNo.TabIndex = 97;
@@ -337,10 +336,10 @@
             // ucDateFilter1
             // 
             this.ucDateFilter1.EndDate = new System.DateTime(2022, 4, 18, 19, 27, 32, 860);
-            this.ucDateFilter1.Location = new System.Drawing.Point(267, 496);
+            this.ucDateFilter1.Location = new System.Drawing.Point(309, 496);
             this.ucDateFilter1.Name = "ucDateFilter1";
             this.ucDateFilter1.Size = new System.Drawing.Size(242, 27);
-            this.ucDateFilter1.StartDate = new System.DateTime(2022, 3, 18, 21, 14, 22, 375);
+            this.ucDateFilter1.StartDate = new System.DateTime(2022, 3, 19, 15, 31, 52, 584);
             this.ucDateFilter1.TabIndex = 95;
             // 
             // dataGridView1
@@ -366,7 +365,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 536);
+            this.ClientSize = new System.Drawing.Size(980, 537);
             this.Controls.Add(this.pnlSelect);
             this.Controls.Add(this.pnlInsert);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -399,7 +398,6 @@
         private System.Windows.Forms.TextBox TxtSchool;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label5;
@@ -416,5 +414,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton rdoOther;
+        private Controls.ccTextBoxNumber ccTxtAge;
     }
 }

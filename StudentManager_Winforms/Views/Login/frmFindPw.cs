@@ -38,7 +38,7 @@ namespace StudentManager_Winforms
 
         private void btnEmail_Click(object sender, EventArgs e)
         {
-            TextBox[] txtArr = { txtName, txtEmp_no, txtEmail1, txtEmail2 };
+            TextBox[] txtArr = { txtName, ccTxtEmp_no, txtEmail1, txtEmail2 };
             string[] txtNameArr = { "이름", "사번", "이메일", "이메일" };
 
             StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtArr, txtNameArr);
@@ -50,9 +50,9 @@ namespace StudentManager_Winforms
             }            
 
             string[] column = { "EMP_NAME", "EMAIL" };
-            EmployeeService user = new EmployeeService();
+            int emp_no = Convert.ToInt32(ccTxtEmp_no.Text);
 
-            int emp_no = Convert.ToInt32(txtEmp_no.Text);
+            EmployeeService user = new EmployeeService();
             List<string> list = user.GetUserInfo(emp_no, column);            
 
             if (list != null)
@@ -100,7 +100,7 @@ namespace StudentManager_Winforms
             {
                 txtEmail2.Enabled = false;
                 txtEmail2.Text = cboEmail.Text;
-            }            
+            }
         }
         private void btnCheck_Click(object sender, EventArgs e)
         {
