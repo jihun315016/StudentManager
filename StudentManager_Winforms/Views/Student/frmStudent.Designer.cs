@@ -54,9 +54,9 @@
             this.ccTxtClassNo = new StudentManager_Winforms.ccTextBoxHint();
             this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxHint();
             this.btnOpenInsert = new System.Windows.Forms.Button();
-            this.ucDateFilter1 = new StudentManager_Winforms.Controls.ucDateFilter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.ucDateFilter1 = new StudentManager_Winforms.Controls.ucDateFilter();
             this.pnlInsert.SuspendLayout();
             this.pnlGuardianRerationship.SuspendLayout();
             this.pnlSelect.SuspendLayout();
@@ -96,8 +96,8 @@
             // 
             // ccTxtSpecialNote
             // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(7, 367);
             this.ccTxtSpecialNote.Hint = "특이사항";
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(7, 367);
             this.ccTxtSpecialNote.Multiline = true;
             this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
             this.ccTxtSpecialNote.Size = new System.Drawing.Size(306, 118);
@@ -296,10 +296,10 @@
             // 
             // pnlSelect
             // 
+            this.pnlSelect.Controls.Add(this.ucDateFilter1);
             this.pnlSelect.Controls.Add(this.ccTxtClassNo);
             this.pnlSelect.Controls.Add(this.ccTxtStudentNo);
             this.pnlSelect.Controls.Add(this.btnOpenInsert);
-            this.pnlSelect.Controls.Add(this.ucDateFilter1);
             this.pnlSelect.Controls.Add(this.dataGridView1);
             this.pnlSelect.Controls.Add(this.button1);
             this.pnlSelect.Location = new System.Drawing.Point(2, 2);
@@ -309,16 +309,16 @@
             // 
             // ccTxtClassNo
             // 
-            this.ccTxtClassNo.Location = new System.Drawing.Point(191, 502);
             this.ccTxtClassNo.Hint = "수업 번호 검색";
+            this.ccTxtClassNo.Location = new System.Drawing.Point(191, 502);
             this.ccTxtClassNo.Name = "ccTxtClassNo";
             this.ccTxtClassNo.Size = new System.Drawing.Size(100, 21);
             this.ccTxtClassNo.TabIndex = 98;
             // 
             // ccTxtStudentNo
             // 
-            this.ccTxtStudentNo.Location = new System.Drawing.Point(66, 502);
             this.ccTxtStudentNo.Hint = "학생 번호 검색";
+            this.ccTxtStudentNo.Location = new System.Drawing.Point(66, 502);
             this.ccTxtStudentNo.Name = "ccTxtStudentNo";
             this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
             this.ccTxtStudentNo.TabIndex = 97;
@@ -332,15 +332,6 @@
             this.btnOpenInsert.TabIndex = 96;
             this.btnOpenInsert.Text = "+";
             this.btnOpenInsert.UseVisualStyleBackColor = true;
-            // 
-            // ucDateFilter1
-            // 
-            this.ucDateFilter1.EndDate = new System.DateTime(2022, 4, 18, 19, 27, 32, 860);
-            this.ucDateFilter1.Location = new System.Drawing.Point(309, 496);
-            this.ucDateFilter1.Name = "ucDateFilter1";
-            this.ucDateFilter1.Size = new System.Drawing.Size(242, 27);
-            this.ucDateFilter1.StartDate = new System.DateTime(2022, 3, 19, 15, 31, 52, 584);
-            this.ucDateFilter1.TabIndex = 95;
             // 
             // dataGridView1
             // 
@@ -360,6 +351,15 @@
             this.button1.TabIndex = 36;
             this.button1.Text = "검색";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // ucDateFilter1
+            // 
+            this.ucDateFilter1.EndDate = new System.DateTime(2022, 4, 19, 17, 37, 11, 533);
+            this.ucDateFilter1.Location = new System.Drawing.Point(324, 501);
+            this.ucDateFilter1.Name = "ucDateFilter1";
+            this.ucDateFilter1.Size = new System.Drawing.Size(238, 22);
+            this.ucDateFilter1.StartDate = new System.DateTime(2022, 3, 19, 17, 37, 11, 538);
+            this.ucDateFilter1.TabIndex = 99;
             // 
             // frmStudent
             // 
@@ -410,10 +410,10 @@
         private ccTextBoxHint ccTxtClassNo;
         private ccTextBoxHint ccTxtStudentNo;
         private System.Windows.Forms.Button btnOpenInsert;
-        private Controls.ucDateFilter ucDateFilter1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton rdoOther;
         private Controls.ccTextBoxNumber ccTxtAge;
+        private Controls.ucDateFilter ucDateFilter1;
     }
 }

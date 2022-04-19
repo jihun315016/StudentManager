@@ -72,5 +72,17 @@ namespace StudentManager_Winforms
                 txtOtherPosition.Text = cboPosition.Text;
             }
         }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image File|*.jpg;*.jpeg;*.png;*.bmp";
+
+            DialogResult result = dlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ptbEmployee.Image = Image.FromFile(dlg.FileName);
+            }
+        }
     }
 }

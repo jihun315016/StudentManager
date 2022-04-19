@@ -39,8 +39,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnUpload = new System.Windows.Forms.Button();
+            this.ptbEmployee = new System.Windows.Forms.PictureBox();
             this.txtContact = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
             this.ccTxtEmpNo = new StudentManager_Winforms.ccTextBoxHint();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -71,8 +71,8 @@
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.dtpStartDate);
             this.panel4.Controls.Add(this.label10);
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Controls.Add(this.btnUpload);
+            this.panel4.Controls.Add(this.ptbEmployee);
             this.panel4.Controls.Add(this.txtContact);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label5);
@@ -180,26 +180,27 @@
             this.label10.TabIndex = 75;
             this.label10.Text = "고용 날짜";
             // 
-            // button2
+            // btnUpload
             // 
-            this.button2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(84, 192);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 74;
-            this.button2.Text = "업로드";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpload.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnUpload.Location = new System.Drawing.Point(84, 192);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(75, 23);
+            this.btnUpload.TabIndex = 74;
+            this.btnUpload.Text = "업로드";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
-            // pictureBox1
+            // ptbEmployee
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::StudentManager_Winforms.Properties.Resources.man;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 73;
-            this.pictureBox1.TabStop = false;
+            this.ptbEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbEmployee.Image = global::StudentManager_Winforms.Properties.Resources.man;
+            this.ptbEmployee.Location = new System.Drawing.Point(9, 36);
+            this.ptbEmployee.Name = "ptbEmployee";
+            this.ptbEmployee.Size = new System.Drawing.Size(150, 150);
+            this.ptbEmployee.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbEmployee.TabIndex = 73;
+            this.ptbEmployee.TabStop = false;
             // 
             // txtContact
             // 
@@ -306,7 +307,7 @@
             this.ucDateFilter.Location = new System.Drawing.Point(275, 486);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 19, 17, 31, 59, 300);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 19, 17, 38, 35, 318);
             this.ucDateFilter.TabIndex = 100;
             // 
             // ccTxtEmpNo
@@ -329,7 +330,7 @@
             this.Load += new System.EventHandler(this.frmEmployee_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -347,8 +348,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnUpload;
+        private System.Windows.Forms.PictureBox ptbEmployee;
         private System.Windows.Forms.MaskedTextBox txtContact;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
