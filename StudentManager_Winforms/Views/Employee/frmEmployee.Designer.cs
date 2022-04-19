@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.ucInputEmail = new StudentManager_Winforms.Controls.ucInputEmail();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxHint();
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtOtherPosition = new System.Windows.Forms.TextBox();
             this.cboAuthority = new System.Windows.Forms.ComboBox();
@@ -51,8 +53,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
             this.ccTxtEmpNo = new StudentManager_Winforms.ccTextBoxHint();
-            this.ucInputEmail = new StudentManager_Winforms.Controls.ucInputEmail();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxHint();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -83,6 +83,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(292, 514);
             this.panel4.TabIndex = 4;
+            // 
+            // ucInputEmail
+            // 
+            this.ucInputEmail.Location = new System.Drawing.Point(13, 247);
+            this.ucInputEmail.Name = "ucInputEmail";
+            this.ucInputEmail.Size = new System.Drawing.Size(254, 22);
+            this.ucInputEmail.TabIndex = 101;
+            // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Hint = "특이사항";
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(9, 411);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(275, 65);
+            this.ccTxtSpecialNote.TabIndex = 100;
             // 
             // btnInsert
             // 
@@ -133,6 +149,7 @@
             this.cboPosition.Name = "cboPosition";
             this.cboPosition.Size = new System.Drawing.Size(81, 20);
             this.cboPosition.TabIndex = 78;
+            this.cboPosition.SelectedIndexChanged += new System.EventHandler(this.cboPosition_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -289,7 +306,7 @@
             this.ucDateFilter.Location = new System.Drawing.Point(275, 486);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 19, 16, 20, 29, 833);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 19, 17, 31, 59, 300);
             this.ucDateFilter.TabIndex = 100;
             // 
             // ccTxtEmpNo
@@ -299,22 +316,6 @@
             this.ccTxtEmpNo.Name = "ccTxtEmpNo";
             this.ccTxtEmpNo.Size = new System.Drawing.Size(95, 21);
             this.ccTxtEmpNo.TabIndex = 99;
-            // 
-            // ucInputEmail
-            // 
-            this.ucInputEmail.Location = new System.Drawing.Point(13, 247);
-            this.ucInputEmail.Name = "ucInputEmail";
-            this.ucInputEmail.Size = new System.Drawing.Size(254, 22);
-            this.ucInputEmail.TabIndex = 101;
-            // 
-            // ccTxtSpecialNote
-            // 
-            this.ccTxtSpecialNote.Hint = "특이사항";
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(9, 411);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(275, 65);
-            this.ccTxtSpecialNote.TabIndex = 100;
             // 
             // frmEmployee
             // 

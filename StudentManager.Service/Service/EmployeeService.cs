@@ -18,15 +18,12 @@ namespace StudentManager.Service.Service
             return list;
         }
 
-        public string[] NullCheck(object position, object authority)
+        public string NullCheck(dynamic text)
         {
-            if (!(position is string))
-                position = string.Empty;
+            if (!(text is string))
+                text = string.Empty;
 
-            if (!(authority is string))
-                authority = string.Empty;
-
-            return new string[2] { position.ToString(), authority.ToString() };
+            return text;
         }
     }
 }

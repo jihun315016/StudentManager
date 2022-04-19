@@ -9,5 +9,7 @@ namespace StudentManager.Service.Interface
     internal interface IEmployee
     {
         List<string> GetUserInfo(int emp_no, string[] col);
+
+        string NullCheck(dynamic text);
     }
 }

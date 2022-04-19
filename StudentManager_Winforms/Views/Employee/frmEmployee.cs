@@ -41,12 +41,11 @@ namespace StudentManager_Winforms
             }
 
             EmployeeService employee = new EmployeeService();
-            string[] arr = employee.NullCheck(cboPosition.SelectedItem, cboAuthority.SelectedItem);
-            string position = arr[0];
-            string authority = arr[1];
+
+            string position = employee.NullCheck(cboPosition.SelectedItem);
+            string authority = employee.NullCheck(cboAuthority.SelectedItem);
 
             string[] txtArr = { txtName.Text, contact.ToString(), ucInputEmail.email, position, authority };
-
             string[] txtNameArr = { "이름", "연락처", "이메일", "직무", "권한" };
 
             StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtArr, txtNameArr);
@@ -55,7 +54,23 @@ namespace StudentManager_Winforms
                 MessageBox.Show($"{sb.ToString()}를 입력해주세요.");
                 return;
             }
+
+            if (contact.ToString().Length < 11)
+                MessageBox.Show("올바른 연락처를 입력해주세요.");
         }
 
+        private void cboPosition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboPosition.SelectedIndex == cboPosition.Items.Count - 1)
+            {
+                txtOtherPosition.Text = string.Empty;
+                txtOtherPosition.Visible = true;
+            }
+            else
+            {
+                txtOtherPosition.Visible = false;
+                txtOtherPosition.Text = cboPosition.Text;
+            }
+        }
     }
 }
