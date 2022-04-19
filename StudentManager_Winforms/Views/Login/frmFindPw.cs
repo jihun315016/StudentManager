@@ -16,18 +16,7 @@ namespace StudentManager_Winforms
 
         private void frmFindPw_Load(object sender, EventArgs e)
         {
-            frmFindPw_Resize(this, null);
-
-            
-            string[] items =
-            {
-                "gmail.com",
-                "naver.com",
-                "daum.net",
-                "직접 입력"
-            };
-
-            cboEmail.Items.AddRange(items);
+            frmFindPw_Resize(this, null);                       
         }
 
         private void frmFindPw_Resize(object sender, EventArgs e)
@@ -38,14 +27,15 @@ namespace StudentManager_Winforms
 
         private void btnEmail_Click(object sender, EventArgs e)
         {
-            TextBox[] txtArr = { txtName, ccTxtEmp_no, txtEmail1, txtEmail2 };
-            string[] txtNameArr = { "이름", "사번", "이메일", "이메일" };
+            lblMessage.Text = string.Empty;
+
+            string[] txtArr = { txtName.Text, ccTxtEmp_no.Text, ucInputEmail.email};
+            string[] txtNameArr = { "이름", "사번", "이메일" };
 
             StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtArr, txtNameArr);
             if (sb.Length > 0)
             {
-                lblMessage.Text = $"{sb.ToString()}를 입력해주세요.";
-                lblMessage.ForeColor = Color.Red;
+                MessageBox.Show($"{sb.ToString()}를 입력해주세요.");
                 return;
             }            
 
@@ -59,12 +49,11 @@ namespace StudentManager_Winforms
             {
                 string name = list[0];
                 string email = list[1];
-                string inputEmail = $"{txtEmail1.Text}@{txtEmail2.Text}";
 
-                if (txtName.Text == name && inputEmail == email)
+                if (txtName.Text == name && ucInputEmail.email == email)
                 {
                     LoginService login = new LoginService();
-                    if (login.SendEmail(name, inputEmail))
+                    if (login.SendEmail(name, ucInputEmail.email))
                     {
                         lblMessage.Text = "임시 비밀번호가 발송되었습니다.";
                         lblMessage.ForeColor = Color.SeaGreen;
@@ -72,8 +61,7 @@ namespace StudentManager_Winforms
                     }
                     else
                     {
-                        lblMessage.Text = "메일 발송에 실패했습니다.";
-                        lblMessage.ForeColor = Color.Red;
+                        MessageBox.Show("메일 발송에 실패했습니다.");
                         return;
                     }
                 }
@@ -89,19 +77,6 @@ namespace StudentManager_Winforms
                 e.Handled = true;
         }
 
-        private void cboEmail_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // 직접 입력
-            if (cboEmail.SelectedIndex == cboEmail.Items.Count - 1)
-            {
-                txtEmail2.Enabled = true;
-            }
-            else
-            {
-                txtEmail2.Enabled = false;
-                txtEmail2.Text = cboEmail.Text;
-            }
-        }
         private void btnCheck_Click(object sender, EventArgs e)
         {
             this.Close();

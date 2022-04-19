@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentManager.Service.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,15 +22,40 @@ namespace StudentManager_Winforms
         }
         private void frmEmployee_Load(object sender, EventArgs e)
         {
-        }
+            txtOtherPosition.Visible = false;
+            string[] positions = { "강사", "행정", "기타" };
+            cboPosition.Items.AddRange(positions);
+
+            string[] authoritys = { "1", "2", "3" };
+            cboAuthority.Items.AddRange(authoritys);
+        }        
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            //TextBox[] txtArr = { txtName, ccTxtEmp_no, txtEmail1, txtEmail2 };
-            string[] txtNameArr = { "이름", "사번", "이메일", "이메일" };
+            StringBuilder contact = new StringBuilder();            
 
-            //StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtArr, txtNameArr);
-            //TextBoxUtil.IsEmptyOrWhiteSpaceArr()
-        }       
+            foreach (char c in txtContact.Text)
+            {
+                if (char.IsDigit(c))
+                    contact.Append(c);
+            }
+
+            EmployeeService employee = new EmployeeService();
+            string[] arr = employee.NullCheck(cboPosition.SelectedItem, cboAuthority.SelectedItem);
+            string position = arr[0];
+            string authority = arr[1];
+
+            string[] txtArr = { txtName.Text, contact.ToString(), ucInputEmail.email, position, authority };
+
+            string[] txtNameArr = { "이름", "연락처", "이메일", "직무", "권한" };
+
+            StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtArr, txtNameArr);
+            if (sb.Length > 0)
+            {
+                MessageBox.Show($"{sb.ToString()}를 입력해주세요.");
+                return;
+            }
+        }
+
     }
 }

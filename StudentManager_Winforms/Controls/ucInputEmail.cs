@@ -12,6 +12,17 @@ namespace StudentManager_Winforms.Controls
 {
     public partial class ucInputEmail : UserControl
     {
+        public string email 
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(txtEmail1.Text) && string.IsNullOrWhiteSpace(txtEmail2.Text))
+                    return string.Empty;
+
+                return $"{txtEmail1.Text}@{txtEmail2.Text}";
+            }
+        }
+
         public ucInputEmail()
         {
             InitializeComponent();

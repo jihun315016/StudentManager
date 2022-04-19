@@ -32,49 +32,43 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.btnEmail = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
-            this.txtEmail2 = new System.Windows.Forms.TextBox();
-            this.cboEmail = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtEmail1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ucInputEmail = new StudentManager_Winforms.Controls.ucInputEmail();
             this.ccTxtEmp_no = new StudentManager_Winforms.Controls.ccTextBoxNumber();
             this.pnlFindPw.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFindPw
             // 
+            this.pnlFindPw.Controls.Add(this.ucInputEmail);
             this.pnlFindPw.Controls.Add(this.ccTxtEmp_no);
             this.pnlFindPw.Controls.Add(this.lblMessage);
             this.pnlFindPw.Controls.Add(this.btnEmail);
             this.pnlFindPw.Controls.Add(this.btnCheck);
-            this.pnlFindPw.Controls.Add(this.txtEmail2);
-            this.pnlFindPw.Controls.Add(this.cboEmail);
-            this.pnlFindPw.Controls.Add(this.label4);
-            this.pnlFindPw.Controls.Add(this.txtEmail1);
             this.pnlFindPw.Controls.Add(this.label3);
             this.pnlFindPw.Controls.Add(this.label2);
             this.pnlFindPw.Controls.Add(this.txtName);
             this.pnlFindPw.Controls.Add(this.label1);
             this.pnlFindPw.Location = new System.Drawing.Point(12, 12);
             this.pnlFindPw.Name = "pnlFindPw";
-            this.pnlFindPw.Size = new System.Drawing.Size(327, 308);
+            this.pnlFindPw.Size = new System.Drawing.Size(304, 308);
             this.pnlFindPw.TabIndex = 3;
             // 
             // lblMessage
             // 
             this.lblMessage.Location = new System.Drawing.Point(22, 251);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(275, 23);
+            this.lblMessage.Size = new System.Drawing.Size(255, 23);
             this.lblMessage.TabIndex = 13;
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnEmail
             // 
             this.btnEmail.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnEmail.Location = new System.Drawing.Point(150, 225);
+            this.btnEmail.Location = new System.Drawing.Point(121, 225);
             this.btnEmail.Name = "btnEmail";
             this.btnEmail.Size = new System.Drawing.Size(75, 23);
             this.btnEmail.TabIndex = 5;
@@ -85,52 +79,13 @@
             // btnCheck
             // 
             this.btnCheck.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCheck.Location = new System.Drawing.Point(231, 225);
+            this.btnCheck.Location = new System.Drawing.Point(202, 225);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(75, 23);
             this.btnCheck.TabIndex = 6;
             this.btnCheck.Text = "확인";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
-            // 
-            // txtEmail2
-            // 
-            this.txtEmail2.Enabled = false;
-            this.txtEmail2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtEmail2.Location = new System.Drawing.Point(140, 179);
-            this.txtEmail2.Name = "txtEmail2";
-            this.txtEmail2.Size = new System.Drawing.Size(80, 21);
-            this.txtEmail2.TabIndex = 3;
-            // 
-            // cboEmail
-            // 
-            this.cboEmail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEmail.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cboEmail.FormattingEnabled = true;
-            this.cboEmail.ItemHeight = 12;
-            this.cboEmail.Location = new System.Drawing.Point(226, 179);
-            this.cboEmail.Name = "cboEmail";
-            this.cboEmail.Size = new System.Drawing.Size(80, 20);
-            this.cboEmail.TabIndex = 4;
-            this.cboEmail.SelectedIndexChanged += new System.EventHandler(this.cboEmail_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(117, 184);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(16, 11);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "@";
-            // 
-            // txtEmail1
-            // 
-            this.txtEmail1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtEmail1.Location = new System.Drawing.Point(24, 179);
-            this.txtEmail1.Name = "txtEmail1";
-            this.txtEmail1.Size = new System.Drawing.Size(87, 21);
-            this.txtEmail1.TabIndex = 2;
             // 
             // label3
             // 
@@ -157,7 +112,7 @@
             this.txtName.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtName.Location = new System.Drawing.Point(24, 41);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(282, 21);
+            this.txtName.Size = new System.Drawing.Size(253, 21);
             this.txtName.TabIndex = 0;
             // 
             // label1
@@ -170,18 +125,25 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "이름";
             // 
+            // ucInputEmail
+            // 
+            this.ucInputEmail.Location = new System.Drawing.Point(23, 179);
+            this.ucInputEmail.Name = "ucInputEmail";
+            this.ucInputEmail.Size = new System.Drawing.Size(254, 22);
+            this.ucInputEmail.TabIndex = 2;
+            // 
             // ccTxtEmp_no
             // 
             this.ccTxtEmp_no.Location = new System.Drawing.Point(23, 110);
             this.ccTxtEmp_no.Name = "ccTxtEmp_no";
-            this.ccTxtEmp_no.Size = new System.Drawing.Size(283, 21);
+            this.ccTxtEmp_no.Size = new System.Drawing.Size(254, 21);
             this.ccTxtEmp_no.TabIndex = 1;
             // 
             // frmFindPw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 332);
+            this.ClientSize = new System.Drawing.Size(399, 332);
             this.Controls.Add(this.pnlFindPw);
             this.Name = "frmFindPw";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -197,10 +159,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlFindPw;
-        private System.Windows.Forms.TextBox txtEmail2;
-        private System.Windows.Forms.ComboBox cboEmail;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtEmail1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
@@ -209,5 +167,6 @@
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Label lblMessage;
         private Controls.ccTextBoxNumber ccTxtEmp_no;
+        private Controls.ucInputEmail ucInputEmail;
     }
 }

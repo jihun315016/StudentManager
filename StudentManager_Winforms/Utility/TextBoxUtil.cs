@@ -9,7 +9,7 @@ namespace StudentManager_Winforms
 {
     public class TextBoxUtil
     {
-        public static StringBuilder IsEmptyOrWhiteSpaceArr(TextBox[] txtText, string[] txtName)
+        public static StringBuilder IsEmptyOrWhiteSpaceArr(string[] txtText, string[] txtName)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -17,7 +17,7 @@ namespace StudentManager_Winforms
             {
                 for (int i = 0; i < txtText.Length; i++)
                 {
-                    if (string.IsNullOrWhiteSpace(txtText[i].Text.Trim()))
+                    if (string.IsNullOrWhiteSpace(txtText[i].Trim()))
                     {
                         sb.Append(txtName[i]);
                         break;
