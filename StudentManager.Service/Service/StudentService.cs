@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +47,26 @@ namespace StudentManager.Service.Service
             }
 
             return contactCnt;
+        }
+
+        public string test()
+        {
+            string sql = "SELECT SCHOOL_NAME, ADDRESS FROM TB_SCHOOL LIMIT 10";
+            string connStr = ConfigurationManager.ConnectionStrings["studentManagerDB"].ConnectionString;
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            // conn.Open();
+            da.Fill(dt);
+            conn.Close();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (DataRow dr in dt.Rows)
+            {
+                sb.Append($"{dr["SCHOOL_NAME"].ToString()} {dr["ADDRESS"].ToString()}\n");
+            }
+
+            return sb.ToString();
         }
     }
 }

@@ -143,6 +143,12 @@
     <Compile Include="frmCourseDetail.Designer.cs">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Student\frmSearchSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Student\frmSearchSchool.Designer.cs">
+      <DependentUpon>frmSearchSchool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Employee\frmEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCourseDetail.resx">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Student\frmSearchSchool.resx">
+      <DependentUpon>frmSearchSchool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Employee\frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>

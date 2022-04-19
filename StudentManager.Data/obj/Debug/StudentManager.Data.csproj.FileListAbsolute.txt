@@ -1,6 +1,5 @@
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager.Data\bin\Debug\StudentManager.Data.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager.Data\bin\Debug\StudentManager.Data.pdb
-C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager.Data\obj\Debug\StudentManager.Data.csproj.AssemblyReference.cache
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager.Data\obj\Debug\StudentManager.Data.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager.Data\obj\Debug\StudentManager.Data.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager.Data\obj\Debug\StudentManager.Data.pdb

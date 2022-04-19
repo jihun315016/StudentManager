@@ -24,7 +24,7 @@ namespace StudentManager_Winforms
             ccTxtClassNo.SetTextBoxHint();
             ccTxtSpecialNote.SetTextBoxHint();
 
-            //this.Width = 675;
+            //this.Width = 675;            
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -57,6 +57,17 @@ namespace StudentManager_Winforms
             {
                 txtOtherRalationship.Visible = false;
             }
+        }
+
+        private void TxtSchool_MouseClick(object sender, MouseEventArgs e)
+        {
+            frmSearchSchool pop = new frmSearchSchool();
+            pop.ShowDialog();
+        }
+
+        private void TxtSchool_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

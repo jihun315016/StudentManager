@@ -51,12 +51,13 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSelect = new System.Windows.Forms.Panel();
+            this.ucDateFilter1 = new StudentManager_Winforms.Controls.ucDateFilter();
             this.ccTxtClassNo = new StudentManager_Winforms.ccTextBoxHint();
             this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxHint();
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.ucDateFilter1 = new StudentManager_Winforms.Controls.ucDateFilter();
+            this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
             this.pnlInsert.SuspendLayout();
             this.pnlGuardianRerationship.SuspendLayout();
             this.pnlSelect.SuspendLayout();
@@ -225,6 +226,9 @@
             this.TxtSchool.Name = "TxtSchool";
             this.TxtSchool.Size = new System.Drawing.Size(132, 21);
             this.TxtSchool.TabIndex = 90;
+            this.TxtSchool.TabStop = false;
+            this.TxtSchool.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TxtSchool_MouseClick);
+            this.TxtSchool.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSchool_KeyPress);
             // 
             // label6
             // 
@@ -307,6 +311,15 @@
             this.pnlSelect.Size = new System.Drawing.Size(651, 530);
             this.pnlSelect.TabIndex = 5;
             // 
+            // ucDateFilter1
+            // 
+            this.ucDateFilter1.EndDate = new System.DateTime(2022, 4, 19, 17, 37, 11, 533);
+            this.ucDateFilter1.Location = new System.Drawing.Point(324, 501);
+            this.ucDateFilter1.Name = "ucDateFilter1";
+            this.ucDateFilter1.Size = new System.Drawing.Size(238, 22);
+            this.ucDateFilter1.StartDate = new System.DateTime(2022, 3, 20, 0, 46, 15, 39);
+            this.ucDateFilter1.TabIndex = 99;
+            // 
             // ccTxtClassNo
             // 
             this.ccTxtClassNo.Hint = "수업 번호 검색";
@@ -351,15 +364,6 @@
             this.button1.TabIndex = 36;
             this.button1.Text = "검색";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // ucDateFilter1
-            // 
-            this.ucDateFilter1.EndDate = new System.DateTime(2022, 4, 19, 17, 37, 11, 533);
-            this.ucDateFilter1.Location = new System.Drawing.Point(324, 501);
-            this.ucDateFilter1.Name = "ucDateFilter1";
-            this.ucDateFilter1.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter1.StartDate = new System.DateTime(2022, 3, 19, 17, 37, 11, 538);
-            this.ucDateFilter1.TabIndex = 99;
             // 
             // frmStudent
             // 
@@ -415,5 +419,6 @@
         private System.Windows.Forms.RadioButton rdoOther;
         private Controls.ccTextBoxNumber ccTxtAge;
         private Controls.ucDateFilter ucDateFilter1;
+        private MySql.Data.MySqlClient.CustomInstaller customInstaller1;
     }
 }
