@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.pnlSearch = new System.Windows.Forms.Panel();
+            this.lstList = new System.Windows.Forms.ListView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.lstList = new System.Windows.Forms.ListView();
             this.pnlSearch.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +46,15 @@
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Size = new System.Drawing.Size(299, 265);
             this.pnlSearch.TabIndex = 0;
+            // 
+            // lstList
+            // 
+            this.lstList.HideSelection = false;
+            this.lstList.Location = new System.Drawing.Point(5, 46);
+            this.lstList.Name = "lstList";
+            this.lstList.Size = new System.Drawing.Size(289, 216);
+            this.lstList.TabIndex = 7;
+            this.lstList.UseCompatibleStateImageBehavior = false;
             // 
             // btnSearch
             // 
@@ -74,15 +83,6 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(224, 21);
             this.txtSearch.TabIndex = 4;
-            // 
-            // lstList
-            // 
-            this.lstList.HideSelection = false;
-            this.lstList.Location = new System.Drawing.Point(5, 46);
-            this.lstList.Name = "lstList";
-            this.lstList.Size = new System.Drawing.Size(289, 216);
-            this.lstList.TabIndex = 7;
-            this.lstList.UseCompatibleStateImageBehavior = false;
             // 
             // frmSearchSchool
             // 

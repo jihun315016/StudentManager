@@ -36,5 +36,34 @@ namespace StudentManager.Data.DAC
 
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
+
+        public bool ChangePassword(int emp_no, string newPassword)
+        {
+            string sql = @"UPDATE tb_employee 
+                            SET PASSWORD = @PASSWORD 
+                            WHERE EMP_NO = @EMP_NO";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@EMP_NO", emp_no);
+            cmd.Parameters.AddWithValue("@PASSWORD", newPassword);
+
+            int iRow;
+
+            try
+            {
+                iRow = cmd.ExecuteNonQuery();
+
+                if (iRow > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return false;
+            }          
+        }
     }
 }

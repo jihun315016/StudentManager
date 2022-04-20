@@ -40,7 +40,26 @@ namespace StudentManager_Winforms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            lstList.Clear();
 
+            string temp = "가락";
+            string sql = $@"SELECT SCHOOL_NAME FROM tb_school WHERE SCHOOL_NAME LIKE @SCHOOL_NAME LIMIT 30";
+            //  " SELECT ID,Description,Price FROM Catalog WHERE Description LIKE '%'+@SearchTerm+'%' AND 가격 <> '0.00'" ; }
+            string connStr = ConfigurationManager.ConnectionStrings["studentManagerDB"].ConnectionString;
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+
+            da.SelectCommand.Parameters.AddWithValue("@SCHOOL_NAME", "%" +temp + "%");
+
+            da.Fill(dt);
+            conn.Close();
+
+            lstList.View = View.Tile;
+            lstList.FullRowSelect = true;
+            
+            foreach (DataRow dr in dt.Rows)
+                lstList.Items.Add(dr["SCHOOL_NAME"].ToString());
         }
     }
 }

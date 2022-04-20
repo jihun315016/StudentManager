@@ -28,15 +28,14 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public bool SendEmail(string name, string recipient)
+        public bool SendEmail(string name, string recipient, string newPassword)
         {            
             string sender = ConfigurationManager.AppSettings["email"]; // 보내는 메일
             string password = ConfigurationManager.AppSettings["emailPw"]; // 메일 비밀번호
-            string newPassword = MakePassword();
 
             MailMessage mail = new MailMessage();
 
-            mail.From = new MailAddress(sender, "[강지훈] 학원 관리 프로그램", Encoding.UTF8);
+            mail.From = new MailAddress(sender, "[강지훈] 학생 관리 프로그램", Encoding.UTF8);
 
             mail.To.Add(recipient);
 
@@ -55,6 +54,7 @@ namespace StudentManager.Service.Service
             try
             {
                 SmtpServer.Send(mail);
+                return true;
             }
             catch (Exception err)
             {
@@ -65,10 +65,11 @@ namespace StudentManager.Service.Service
                 return false;
             }
 
-            return true;
-        }
+            return false;
+        }        
 
-        string MakePassword()
+
+        public string MakePassword()
         {
             Random rnd = new Random();
             StringBuilder sb = new StringBuilder();
@@ -86,6 +87,15 @@ namespace StudentManager.Service.Service
             }
 
             return sb.ToString();
+        }
+
+        public bool ChangePassword(int emp_no, string newPassword)
+        {
+            LoginDAC dac = new LoginDAC();
+            bool result = dac.ChangePassword(emp_no, newPassword);
+            dac.Dispose();
+
+            return result;
         }
 
         string GetPassworkMessage(string name, string password)

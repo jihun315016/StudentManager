@@ -16,3 +16,4 @@ C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\bin\Debug\MySql.Data.xm
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\obj\Debug\StudentManager.Data.csproj.CopyComplete
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\obj\Debug\StudentManager.Data.dll
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\obj\Debug\StudentManager.Data.pdb
+C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\obj\Debug\StudentManager.Data.csproj.AssemblyReference.cache

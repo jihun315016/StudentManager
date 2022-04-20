@@ -47,13 +47,15 @@ namespace StudentManager_Winforms
 
             if (list != null)
             {
+                LoginService login = new LoginService();
+
                 string name = list[0];
                 string email = list[1];
+                string newPassword = login.MakePassword();
 
                 if (txtName.Text == name && ucInputEmail.email == email)
                 {
-                    LoginService login = new LoginService();
-                    if (login.SendEmail(name, ucInputEmail.email))
+                    if (login.SendEmail(name, ucInputEmail.email, newPassword) && login.ChangePassword(emp_no, newPassword))
                     {
                         lblMessage.Text = "임시 비밀번호가 발송되었습니다.";
                         lblMessage.ForeColor = Color.SeaGreen;
