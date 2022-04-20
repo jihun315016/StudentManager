@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3BAA01A6-5346-41A7-9E4F-B893E41A7AF5}</ProjectGuid>
+    <ProjectGuid>{4E9AC26C-5E85-4811-873D-D5D154900141}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>StudentManager.Service</RootNamespace>
@@ -34,9 +34,9 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
@@ -48,11 +48,8 @@
     <Compile Include="Service\StudentService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\StudentManager.Data\StudentManager.Data.csproj">
-      <Project>{2719808f-e3e6-4894-bd83-e78c654efe9c}</Project>
+      <Project>{13f5f55f-7f91-4c65-80d7-0a19b34e54a9}</Project>
       <Name>StudentManager.Data</Name>
     </ProjectReference>
   </ItemGroup>

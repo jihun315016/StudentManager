@@ -285,7 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StudentManager.Service\StudentManager.Service.csproj">
-      <Project>{3baa01a6-5346-41a7-9e4f-b893e41a7af5}</Project>
+      <Project>{4e9ac26c-5e85-4811-873d-d5d154900141}</Project>
       <Name>StudentManager.Service</Name>
     </ProjectReference>
   </ItemGroup>

@@ -199,7 +199,6 @@ C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\Ubiety.Dn
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\ZstdNet.dll
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\StudentManager.Data.dll
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\StudentManager.Service.pdb
-C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\StudentManager.Service.dll.config
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\Google.Protobuf.pdb
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\Google.Protobuf.xml
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\K4os.Compression.LZ4.xml
@@ -211,7 +210,6 @@ C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\System.Me
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\StudentManager.Data.pdb
-C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\StudentManager.Data.dll.config
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.AssemblyReference.cache
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.ccTextBoxHint.resources
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ccTextBoxNumber.resources
