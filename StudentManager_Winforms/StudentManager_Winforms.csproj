@@ -89,11 +89,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ccTextBoxHint.cs">
+    <Compile Include="Controls\ccTextBoxPlaceHolder.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ccTextBoxHint.Designer.cs">
-      <DependentUpon>ccTextBoxHint.cs</DependentUpon>
+    <Compile Include="Controls\ccTextBoxPlaceHolder.Designer.cs">
+      <DependentUpon>ccTextBoxPlaceHolder.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ccTextBoxNumber.cs">
       <SubType>Component</SubType>
@@ -143,16 +143,16 @@
     <Compile Include="frmCourseDetail.Designer.cs">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Student\frmSearchSchool.cs">
+    <Compile Include="Student\frmSearchSchool.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Student\frmSearchSchool.Designer.cs">
+    <Compile Include="Student\frmSearchSchool.Designer.cs">
       <DependentUpon>frmSearchSchool.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Employee\frmEmployee.cs">
+    <Compile Include="Employee\frmEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Employee\frmEmployee.Designer.cs">
+    <Compile Include="Employee\frmEmployee.Designer.cs">
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEmployDetail.cs">
@@ -162,23 +162,23 @@
       <DependentUpon>frmEmployDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\TextBoxUtil.cs" />
-    <Compile Include="Views\Login\frmFindPw.cs">
+    <Compile Include="Login\frmFindPw.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Login\frmFindPw.Designer.cs">
+    <Compile Include="Login\frmFindPw.Designer.cs">
       <DependentUpon>frmFindPw.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\LoginSesstion.cs" />
-    <Compile Include="Views\Login\frmLogin.cs">
+    <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Login\frmLogin.Designer.cs">
+    <Compile Include="Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Menu\frmManager.cs">
+    <Compile Include="Menu\frmManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Menu\frmManager.Designer.cs">
+    <Compile Include="Menu\frmManager.Designer.cs">
       <DependentUpon>frmManager.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPayment.cs">
@@ -187,10 +187,10 @@
     <Compile Include="frmPayment.Designer.cs">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Student\frmStudent.cs">
+    <Compile Include="Student\frmStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Student\frmStudent.Designer.cs">
+    <Compile Include="Student\frmStudent.Designer.cs">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStudentDetail.cs">
@@ -202,8 +202,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\Util.cs" />
-    <EmbeddedResource Include="Controls\ccTextBoxHint.resx">
-      <DependentUpon>ccTextBoxHint.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\ccTextBoxPlaceHolder.resx">
+      <DependentUpon>ccTextBoxPlaceHolder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ccTextBoxNumber.resx">
       <DependentUpon>ccTextBoxNumber.cs</DependentUpon>
@@ -229,28 +229,28 @@
     <EmbeddedResource Include="frmCourseDetail.resx">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Student\frmSearchSchool.resx">
+    <EmbeddedResource Include="Student\frmSearchSchool.resx">
       <DependentUpon>frmSearchSchool.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Employee\frmEmployee.resx">
+    <EmbeddedResource Include="Employee\frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmployDetail.resx">
       <DependentUpon>frmEmployDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Login\frmFindPw.resx">
+    <EmbeddedResource Include="Login\frmFindPw.resx">
       <DependentUpon>frmFindPw.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Login\frmLogin.resx">
+    <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Menu\frmManager.resx">
+    <EmbeddedResource Include="Menu\frmManager.resx">
       <DependentUpon>frmManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Student\frmStudent.resx">
+    <EmbeddedResource Include="Student\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStudentDetail.resx">
