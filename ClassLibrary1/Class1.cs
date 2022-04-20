@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentManager.Service.Service
+namespace ClassLibrary1
 {
-    public class frmEmployeeService
+    public class Class1
     {
     }
 }

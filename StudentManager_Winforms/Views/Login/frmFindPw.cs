@@ -43,7 +43,7 @@ namespace StudentManager_Winforms
             int emp_no = Convert.ToInt32(ccTxtEmp_no.Text);
 
             EmployeeService user = new EmployeeService();
-            List<string> list = user.GetUserInfo(emp_no, column);            
+            List<string> list = user.GetEmpInfo(emp_no, column);            
 
             if (list != null)
             {

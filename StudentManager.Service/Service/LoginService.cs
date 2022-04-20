@@ -1,5 +1,4 @@
 ﻿using StudentManager.Data.DAC;
-using StudentManager.Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,7 +13,7 @@ using System.Windows.Forms;
 
 namespace StudentManager.Service.Service
 {
-    public class LoginService : ILogin
+    public class LoginService
     {
         public bool LoginCheck(string id, string pw)
         {

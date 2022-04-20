@@ -28,7 +28,7 @@ namespace StudentManager_Winforms
             string[] column = { "EMP_NAME", "POSITION" };
             EmployeeService user = new EmployeeService();
 
-            List<string> list = user.GetUserInfo(LoginSesstion.Emp_no, column);
+            List<string> list = user.GetEmpInfo(LoginSesstion.Emp_no, column);
 
             string name = list[0];
             string position = list[1];

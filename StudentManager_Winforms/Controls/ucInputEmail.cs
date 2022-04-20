@@ -47,6 +47,7 @@ namespace StudentManager_Winforms.Controls
             // 직접 입력
             if (cboEmail.SelectedIndex == cboEmail.Items.Count - 1)
             {
+                txtEmail2.Text = string.Empty;
                 txtEmail2.Enabled = true;
             }
             else

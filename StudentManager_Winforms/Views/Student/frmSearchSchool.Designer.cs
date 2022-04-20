@@ -44,17 +44,19 @@
             this.pnlSearch.Controls.Add(this.txtSearch);
             this.pnlSearch.Location = new System.Drawing.Point(12, 12);
             this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Size = new System.Drawing.Size(456, 265);
+            this.pnlSearch.Size = new System.Drawing.Size(299, 265);
             this.pnlSearch.TabIndex = 0;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(217, 19);
+            this.btnSearch.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSearch.Location = new System.Drawing.Point(235, 19);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(48, 23);
+            this.btnSearch.Size = new System.Drawing.Size(59, 23);
             this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "button1";
+            this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label1
             // 
@@ -70,7 +72,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(5, 19);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(206, 21);
+            this.txtSearch.Size = new System.Drawing.Size(224, 21);
             this.txtSearch.TabIndex = 4;
             // 
             // lstList
@@ -78,7 +80,7 @@
             this.lstList.HideSelection = false;
             this.lstList.Location = new System.Drawing.Point(5, 46);
             this.lstList.Name = "lstList";
-            this.lstList.Size = new System.Drawing.Size(448, 216);
+            this.lstList.Size = new System.Drawing.Size(289, 216);
             this.lstList.TabIndex = 7;
             this.lstList.UseCompatibleStateImageBehavior = false;
             // 
@@ -86,8 +88,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 401);
+            this.ClientSize = new System.Drawing.Size(323, 288);
             this.Controls.Add(this.pnlSearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmSearchSchool";
             this.Text = "frmSearchSchool";
             this.Load += new System.EventHandler(this.frmSearchSchool_Load);
