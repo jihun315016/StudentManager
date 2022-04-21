@@ -54,6 +54,7 @@ namespace StudentManager_Winforms
                 school.Location = new Point(0, 3 + 35 * cnt);
                 school.SchoolName = dr["SCHOOL_NAME"].ToString();
                 school.DisplaySchool += DisplaySchoolButton;
+                school.SelectSchoolName += SelectSchoolName;
                 cnt++;
                 pnlSchool.Controls.Add(school);
             }
