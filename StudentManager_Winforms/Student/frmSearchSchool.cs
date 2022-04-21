@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using StudentManager_Winforms.Controls;
+
 namespace StudentManager_Winforms
 {
     public partial class frmSearchSchool : Form
@@ -31,35 +33,56 @@ namespace StudentManager_Winforms
             da.Fill(dt);
             conn.Close();
 
-            lstList.View = View.Tile;
-            lstList.FullRowSelect = true;
 
-            foreach (DataRow dr in dt.Rows)            
-                lstList.Items.Add(dr["SCHOOL_NAME"].ToString());
+            int cnt = 0;
+            foreach (DataRow dr in dt.Rows)
+            {
+                ucSchoolLabel school = new ucSchoolLabel();
+                school.Location = new Point(0, 3 + 35 * cnt);
+                school.SchoolName = dr["SCHOOL_NAME"].ToString();
+                school.DisplaySchool += DisplaySchoolButton;
+                cnt++;
+                pnlSchool.Controls.Add(school);
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            lstList.Clear();
-
             string temp = "가락";
-            string sql = $@"SELECT SCHOOL_NAME FROM tb_school WHERE SCHOOL_NAME LIKE @SCHOOL_NAME LIMIT 30";
-            //  " SELECT ID,Description,Price FROM Catalog WHERE Description LIKE '%'+@SearchTerm+'%' AND 가격 <> '0.00'" ; }
+            string sql = $@"SELECT SCHOOL_NAME FROM tb_school WHERE SCHOOL_NAME LIKE @SCHOOL_NAME ORDER BY SCHOOL_NAME LIMIT 30";
+
             string connStr = ConfigurationManager.ConnectionStrings["studentManagerDB"].ConnectionString;
             MySqlConnection conn = new MySqlConnection(connStr);
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
 
-            da.SelectCommand.Parameters.AddWithValue("@SCHOOL_NAME", "%" +temp + "%");
+            // like는 sql에 ''쓰면 안되는듯
+            da.SelectCommand.Parameters.AddWithValue("@SCHOOL_NAME", $"%{temp}%");
 
             da.Fill(dt);
             conn.Close();
 
-            lstList.View = View.Tile;
-            lstList.FullRowSelect = true;
-            
+            pnlSchool.Controls.Clear();
+            int cnt = 0;
             foreach (DataRow dr in dt.Rows)
-                lstList.Items.Add(dr["SCHOOL_NAME"].ToString());
+            {
+                ucSchoolLabel school = new ucSchoolLabel();
+                school.Location = new Point(0, 3 + 35 * cnt);
+                school.SchoolName = dr["SCHOOL_NAME"].ToString();
+                school.DisplaySchool += DisplaySchoolButton;
+                cnt++;
+                pnlSchool.Controls.Add(school);
+            }
+        }
+
+        void DisplaySchoolButton(object sender, EventArgs e)
+        {         
+            foreach (ucSchoolLabel school in pnlSchool.Controls)
+                school.UnDisplaySchoolButton();
+
+            ucSchoolLabel selected = sender as ucSchoolLabel;
+            selected.DisplaySchoolButton();
+            //MessageBox.Show(selected.SchoolName);
         }
     }
 }

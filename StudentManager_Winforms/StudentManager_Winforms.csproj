@@ -113,6 +113,12 @@
     <Compile Include="Controls\ucInputEmail.Designer.cs">
       <DependentUpon>ucInputEmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ucSchoolLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucSchoolLabel.Designer.cs">
+      <DependentUpon>ucSchoolLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucInputEmail.resx">
       <DependentUpon>ucInputEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucSchoolLabel.resx">
+      <DependentUpon>ucSchoolLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAttendance.resx">
       <DependentUpon>frmAttendance.cs</DependentUpon>
