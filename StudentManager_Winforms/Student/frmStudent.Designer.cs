@@ -50,7 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSelect = new System.Windows.Forms.Panel();
             this.btnOpenInsert = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvList = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
             this.ucDateFilter1 = new StudentManager_Winforms.Controls.ucDateFilter();
@@ -61,7 +61,7 @@
             this.pnlInsert.SuspendLayout();
             this.pnlGuardianRerationship.SuspendLayout();
             this.pnlSelect.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlInsert
@@ -83,7 +83,7 @@
             this.pnlInsert.Controls.Add(this.label5);
             this.pnlInsert.Controls.Add(this.btnAdd);
             this.pnlInsert.Controls.Add(this.label1);
-            this.pnlInsert.Location = new System.Drawing.Point(659, 2);
+            this.pnlInsert.Location = new System.Drawing.Point(630, 2);
             this.pnlInsert.Name = "pnlInsert";
             this.pnlInsert.Size = new System.Drawing.Size(320, 530);
             this.pnlInsert.TabIndex = 4;
@@ -288,17 +288,17 @@
             this.pnlSelect.Controls.Add(this.ccTxtClassNo);
             this.pnlSelect.Controls.Add(this.ccTxtStudentNo);
             this.pnlSelect.Controls.Add(this.btnOpenInsert);
-            this.pnlSelect.Controls.Add(this.dataGridView1);
+            this.pnlSelect.Controls.Add(this.dgvList);
             this.pnlSelect.Controls.Add(this.button1);
             this.pnlSelect.Location = new System.Drawing.Point(2, 2);
             this.pnlSelect.Name = "pnlSelect";
-            this.pnlSelect.Size = new System.Drawing.Size(651, 530);
+            this.pnlSelect.Size = new System.Drawing.Size(623, 530);
             this.pnlSelect.TabIndex = 5;
             // 
             // btnOpenInsert
             // 
             this.btnOpenInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnOpenInsert.Location = new System.Drawing.Point(598, 7);
+            this.btnOpenInsert.Location = new System.Drawing.Point(570, 7);
             this.btnOpenInsert.Name = "btnOpenInsert";
             this.btnOpenInsert.Size = new System.Drawing.Size(45, 23);
             this.btnOpenInsert.TabIndex = 96;
@@ -306,19 +306,19 @@
             this.btnOpenInsert.UseVisualStyleBackColor = true;
             this.btnOpenInsert.Click += new System.EventHandler(this.btnOpenInsert_Click);
             // 
-            // dataGridView1
+            // dgvList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(640, 449);
-            this.dataGridView1.TabIndex = 94;
+            this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvList.Location = new System.Drawing.Point(3, 36);
+            this.dgvList.Name = "dgvList";
+            this.dgvList.RowTemplate.Height = 23;
+            this.dgvList.Size = new System.Drawing.Size(612, 449);
+            this.dgvList.TabIndex = 94;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(568, 500);
+            this.button1.Location = new System.Drawing.Point(540, 500);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 36;
@@ -328,15 +328,15 @@
             // ucDateFilter1
             // 
             this.ucDateFilter1.EndDate = new System.DateTime(2022, 4, 19, 17, 37, 11, 533);
-            this.ucDateFilter1.Location = new System.Drawing.Point(314, 501);
+            this.ucDateFilter1.Location = new System.Drawing.Point(279, 501);
             this.ucDateFilter1.Name = "ucDateFilter1";
             this.ucDateFilter1.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter1.StartDate = new System.DateTime(2022, 3, 21, 19, 23, 29, 419);
+            this.ucDateFilter1.StartDate = new System.DateTime(2022, 3, 21, 20, 45, 55, 452);
             this.ucDateFilter1.TabIndex = 99;
             // 
             // ccTxtClassNo
             // 
-            this.ccTxtClassNo.Location = new System.Drawing.Point(159, 502);
+            this.ccTxtClassNo.Location = new System.Drawing.Point(142, 502);
             this.ccTxtClassNo.Name = "ccTxtClassNo";
             this.ccTxtClassNo.PlaceHolder = "수업 번호 검색";
             this.ccTxtClassNo.Size = new System.Drawing.Size(100, 21);
@@ -344,7 +344,7 @@
             // 
             // ccTxtStudentNo
             // 
-            this.ccTxtStudentNo.Location = new System.Drawing.Point(10, 502);
+            this.ccTxtStudentNo.Location = new System.Drawing.Point(3, 502);
             this.ccTxtStudentNo.Name = "ccTxtStudentNo";
             this.ccTxtStudentNo.PlaceHolder = "학생 번호 검색";
             this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
@@ -370,7 +370,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 537);
+            this.ClientSize = new System.Drawing.Size(950, 537);
             this.Controls.Add(this.pnlSelect);
             this.Controls.Add(this.pnlInsert);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -385,7 +385,7 @@
             this.pnlGuardianRerationship.PerformLayout();
             this.pnlSelect.ResumeLayout(false);
             this.pnlSelect.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -415,7 +415,7 @@
         private ccTextBoxPlaceHolder ccTxtClassNo;
         private ccTextBoxPlaceHolder ccTxtStudentNo;
         private System.Windows.Forms.Button btnOpenInsert;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton rdoOther;
         private Controls.ccTextBoxNumber ccTxtAge;

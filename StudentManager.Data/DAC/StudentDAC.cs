@@ -43,7 +43,18 @@ namespace StudentManager.Data.DAC
 
             da.Fill(dt);
             return dt;
-        }   
+        }
+
+        public DataTable GetAllStudentInfo()
+        {
+            string sql = @"SELECT STUDENT_NO, STUDENT_NAME, AGE, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP 
+                            FROM tb_student";
+
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.Fill(dt);
+            return dt;
+        }
 
         public bool InsertStudent(string[] data)
         {

@@ -167,6 +167,7 @@
     <Compile Include="frmEmployDetail.Designer.cs">
       <DependentUpon>frmEmployDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility\DataGridViewUtil.cs" />
     <Compile Include="Utility\TextBoxUtil.cs" />
     <Compile Include="Login\frmFindPw.cs">
       <SubType>Form</SubType>

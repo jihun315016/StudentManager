@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManager_Winforms
 {
-    internal class LoginSesstion
+    public class LoginSesstion
     {
         public static int Emp_no { get; set; }
     }

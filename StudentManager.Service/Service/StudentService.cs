@@ -20,6 +20,14 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
+        public DataTable GetAllStudentInfo()
+        {
+            StudentDAC dac = new StudentDAC();
+            DataTable dt = dac.GetAllStudentInfo();
+            dac.Dispose();
+            return dt;
+        }
+
         public bool InsertStudent(string[] data)
         {
             StudentDAC dac = new StudentDAC();

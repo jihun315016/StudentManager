@@ -1,14 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using StudentManager.Service.Service;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
@@ -22,11 +17,27 @@ namespace StudentManager_Winforms
 
         private void frmStudent_Load(object sender, EventArgs e)
         {
+            // TextBox PlaceHolder 설정
             ccTxtStudentNo.SetTextBoxPlaceHolder();
             ccTxtClassNo.SetTextBoxPlaceHolder();
             ccTxtSpecialNote.SetTextBoxPlaceHolder();
-            
-            this.Width = 675;            
+
+            // DataGridView 초기 설정
+            DataGridViewUtil.SetInitGridView(dgvList);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이름", "STUDENT_NAME");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "나이", "AGE", 60);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 연락처", "STUDENT_CONTACT", 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 연락처", "GUARDIAN_CONTACT", 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 관계", "GUARDIAN_RERATIONSHIP");
+
+            DataGridViewUtil.SetRowAlignment(dgvList, new int[] { 0, 2 }, DataGridViewContentAlignment.MiddleRight);
+
+            StudentService student = new StudentService();
+            dgvList.DataSource = student.GetAllStudentInfo();
+
+            // 초기 화면 크기
+            this.Width = 645;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -87,11 +98,15 @@ namespace StudentManager_Winforms
             {
                 MessageBox.Show("등록이 완료되었습니다.");
                 txtName.Text = ccTxtAge.Text = txtStudentContact.Text = txtGuardianContact.Text = 
-                    ccTxtSpecialNote.Text = txtOtherRalationship.Text = String.Empty;
+                    TxtSchool.Text = ccTxtSpecialNote.Text = txtOtherRalationship.Text = String.Empty;
 
                 ccTxtSpecialNote.SetTextBoxPlaceHolder();
 
+                dtpStartDate.Value = DateTime.Now;
+
                 rdoFather.Checked = rdoMother.Checked = rdoOther.Checked = false;
+
+                dgvList.DataSource = student.GetAllStudentInfo();
             }
             else
             {
@@ -129,12 +144,12 @@ namespace StudentManager_Winforms
             if (btnOpenInsert.Text.Equals(">>"))
             {
                 btnOpenInsert.Text = "<<";
-                this.Width = 1000;
+                this.Width = 970;
             }
             else
             {
                 btnOpenInsert.Text = ">>";
-                this.Width = 675;
+                this.Width = 645;
             }
         }
     }
