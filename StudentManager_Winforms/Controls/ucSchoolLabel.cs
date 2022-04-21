@@ -13,6 +13,7 @@ namespace StudentManager_Winforms.Controls
     public partial class ucSchoolLabel : UserControl
     {
         public event EventHandler DisplaySchool;
+        public event EventHandler SelectSchoolName;
 
         public string SchoolName 
         { 
@@ -29,6 +30,19 @@ namespace StudentManager_Winforms.Controls
             btnSchool.Visible = false;
         }
 
+
+        private void lblSchoolName_Click(object sender, EventArgs e)
+        {
+            if (DisplaySchool != null)
+                DisplaySchool(this, null);
+        }
+
+        private void btnSchool_Click(object sender, EventArgs e)
+        {
+            if (SelectSchoolName != null)
+                SelectSchoolName(this, null);
+        }
+
         public void DisplaySchoolButton()
         {
             btnSchool.Visible = true;
@@ -38,12 +52,5 @@ namespace StudentManager_Winforms.Controls
         {
             btnSchool.Visible = false;
         }
-
-        private void lblSchoolName_Click(object sender, EventArgs e)
-        {
-            if (DisplaySchool != null)
-                DisplaySchool(this, null);
-        }
-
     }
 }

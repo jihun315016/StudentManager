@@ -23,7 +23,7 @@ namespace StudentManager_Winforms
             ccTxtStudentNo.SetTextBoxHint();
             ccTxtClassNo.SetTextBoxHint();
             ccTxtSpecialNote.SetTextBoxHint();
-
+            
             //this.Width = 675;            
         }
 
@@ -62,7 +62,8 @@ namespace StudentManager_Winforms
         private void TxtSchool_MouseClick(object sender, MouseEventArgs e)
         {
             frmSearchSchool pop = new frmSearchSchool();
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+                TxtSchool.Text = pop.SchoolName;
         }
 
         private void TxtSchool_KeyPress(object sender, KeyPressEventArgs e)

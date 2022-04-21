@@ -17,6 +17,8 @@ namespace StudentManager_Winforms
 {
     public partial class frmSearchSchool : Form
     {
+        public string SchoolName { get; set; }
+
         public frmSearchSchool()
         {
             InitializeComponent();
@@ -24,31 +26,12 @@ namespace StudentManager_Winforms
 
         private void frmSearchSchool_Load(object sender, EventArgs e)
         {
-            string sql = "SELECT SCHOOL_NAME FROM TB_SCHOOL LIMIT 30";
-            string connStr = ConfigurationManager.ConnectionStrings["studentManagerDB"].ConnectionString;
-            MySqlConnection conn = new MySqlConnection(connStr);
-            DataTable dt = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
             
-            da.Fill(dt);
-            conn.Close();
-
-
-            int cnt = 0;
-            foreach (DataRow dr in dt.Rows)
-            {
-                ucSchoolLabel school = new ucSchoolLabel();
-                school.Location = new Point(0, 3 + 35 * cnt);
-                school.SchoolName = dr["SCHOOL_NAME"].ToString();
-                school.DisplaySchool += DisplaySchoolButton;
-                cnt++;
-                pnlSchool.Controls.Add(school);
-            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string temp = "가락";
+            string temp = txtSearch.Text;
             string sql = $@"SELECT SCHOOL_NAME FROM tb_school WHERE SCHOOL_NAME LIKE @SCHOOL_NAME ORDER BY SCHOOL_NAME LIMIT 30";
 
             string connStr = ConfigurationManager.ConnectionStrings["studentManagerDB"].ConnectionString;
@@ -83,7 +66,15 @@ namespace StudentManager_Winforms
 
             ucSchoolLabel selected = sender as ucSchoolLabel;
             selected.DisplaySchoolButton();
-            //MessageBox.Show(selected.SchoolName);
+        }
+
+        void SelectSchoolName(object sender, EventArgs e)
+        {
+            ucSchoolLabel selected = sender as ucSchoolLabel;
+
+            this.DialogResult = DialogResult.OK;
+            this.SchoolName = selected.SchoolName;
+            this.Close();
         }
     }
 }

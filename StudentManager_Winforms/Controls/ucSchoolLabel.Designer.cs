@@ -52,6 +52,7 @@ namespace StudentManager_Winforms.Controls
             this.btnSchool.TabIndex = 1;
             this.btnSchool.Text = "검색";
             this.btnSchool.UseVisualStyleBackColor = true;
+            this.btnSchool.Click += new System.EventHandler(this.btnSchool_Click);
             // 
             // ucSchoolLabel
             // 
