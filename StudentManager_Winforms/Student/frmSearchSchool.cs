@@ -63,6 +63,7 @@ namespace StudentManager_Winforms
             conn.Close();
 
             pnlSchool.Controls.Clear();
+
             int cnt = 0;
             foreach (DataRow dr in dt.Rows)
             {
