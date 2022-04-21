@@ -20,9 +20,12 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
-        public void AddStudent()
+        public bool InsertStudent(string[] data)
         {
-
+            StudentDAC dac = new StudentDAC();
+            bool result = dac.InsertStudent(data);
+            dac.Dispose();
+            return result;
         }
 
         public StringBuilder ValidContact(string stuContact, string guardContact)

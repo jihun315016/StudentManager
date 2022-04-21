@@ -26,7 +26,7 @@ namespace StudentManager_Winforms
             ccTxtClassNo.SetTextBoxPlaceHolder();
             ccTxtSpecialNote.SetTextBoxPlaceHolder();
             
-            //this.Width = 675;            
+            this.Width = 675;            
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -40,6 +40,7 @@ namespace StudentManager_Winforms
             }
 
 
+            // 학생 연락처 or 보호자 연락처 중 하나라도 입력했는지 확인
             StringBuilder sb = student.ValidContact(txtStudentContact.Text, txtGuardianContact.Text);
             if (sb.Length > 0)
             {
@@ -47,6 +48,7 @@ namespace StudentManager_Winforms
                 return;
             }
             
+            // 보호자 관계 확인
             string guardianRerationship = txtOtherRalationship.Text;
             if (!rdoOther.Checked)
             {
@@ -60,7 +62,7 @@ namespace StudentManager_Winforms
                 }                
             }
 
-            // 수정할 것 : 보호자 연락처 13글자 입력은 체크했으니까 관계만 체크하도록 수정할 것
+            // 보호자 정보가 입력되었다면 연락처와 관계가 모두 입력되었는지 확인
             sb = student.ValidGuardian(txtGuardianContact.Text, guardianRerationship);
             if (sb.Length > 1)
             {
@@ -68,33 +70,34 @@ namespace StudentManager_Winforms
                 return;
             }
 
+            string specialNote = string.Empty;
+            if (!ccTxtSpecialNote.Text.Equals(ccTxtSpecialNote.PlaceHolder))
+            {
+                specialNote = ccTxtSpecialNote.Text;
+            }
 
-            MessageBox.Show($"{guardianRerationship} {ccTxtSpecialNote.Text}");
+            string[] data =
+            {
+                txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
+                TxtSchool.Text, ccTxtAge.Text, dtpStartDate.Value.ToString(), specialNote
+            };
 
+            bool result = student.InsertStudent(data);
+            if (result)
+            {
+                MessageBox.Show("등록이 완료되었습니다.");
+                txtName.Text = ccTxtAge.Text = txtStudentContact.Text = txtGuardianContact.Text = 
+                    ccTxtSpecialNote.Text = txtOtherRalationship.Text = String.Empty;
 
+                ccTxtSpecialNote.SetTextBoxPlaceHolder();
 
-            /* 학생 등록 테스트 */
-            //string sql = @"INSERT INTO tb_student 
-            //                (STUDENT_NAME, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP, SCHOOL, AGE, START_DATE, SPECIAL_NOTE)
-            //                VALUES
-            //                (@STUDENT_NAME, @STUDENT_CONTACT, @GUARDIAN_CONTACT, @GUARDIAN_RERATIONSHIP, @SCHOOL, @AGE, @START_DATE, @SPECIAL_NOTE)";
-
-            //string connStr = ConfigurationManager.ConnectionStrings["studentManagerDB"].ConnectionString;
-            //MySqlConnection conn = new MySqlConnection(connStr);
-
-            //MySqlCommand cmd = new MySqlCommand(sql, conn);
-            //cmd.Parameters.AddWithValue("@STUDENT_NAME", txtName.Text);
-            //cmd.Parameters.AddWithValue("@STUDENT_CONTACT", txtStudentContact.Text);
-            //cmd.Parameters.AddWithValue("@GUARDIAN_CONTACT", txtGuardianContact.Text);
-            ////cmd.Parameters.AddWithValue("@GUARDIAN_RERATIONSHIP", guard.Text);
-            //cmd.Parameters.AddWithValue("@SCHOOL", txtName.Text);
-            //cmd.Parameters.AddWithValue("@AGE", txtName.Text);
-            //cmd.Parameters.AddWithValue("@START_DATE", txtName.Text);
-            //cmd.Parameters.AddWithValue("@SPECIAL_NOTE", txtName.Text);
-            //conn.Open();
-
-            //conn.Close();
-        }    
+                rdoFather.Checked = rdoMother.Checked = rdoOther.Checked = false;
+            }
+            else
+            {
+                MessageBox.Show("등록에 실패하였습니다.");
+            }
+        }
 
         private void rdo_CheckedChanged(object sender, EventArgs e)
         {
@@ -119,6 +122,20 @@ namespace StudentManager_Winforms
         private void TxtSchool_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void btnOpenInsert_Click(object sender, EventArgs e)
+        {
+            if (btnOpenInsert.Text.Equals(">>"))
+            {
+                btnOpenInsert.Text = "<<";
+                this.Width = 1000;
+            }
+            else
+            {
+                btnOpenInsert.Text = ">>";
+                this.Width = 675;
+            }
         }
     }
 }

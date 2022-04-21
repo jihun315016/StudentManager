@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlInsert = new System.Windows.Forms.Panel();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
             this.rdoOther = new System.Windows.Forms.RadioButton();
             this.txtOtherRalationship = new System.Windows.Forms.TextBox();
@@ -68,7 +68,7 @@
             // 
             this.pnlInsert.Controls.Add(this.ccTxtAge);
             this.pnlInsert.Controls.Add(this.ccTxtSpecialNote);
-            this.pnlInsert.Controls.Add(this.dateTimePicker3);
+            this.pnlInsert.Controls.Add(this.dtpStartDate);
             this.pnlInsert.Controls.Add(this.pnlGuardianRerationship);
             this.pnlInsert.Controls.Add(this.label10);
             this.pnlInsert.Controls.Add(this.label8);
@@ -88,13 +88,13 @@
             this.pnlInsert.Size = new System.Drawing.Size(320, 530);
             this.pnlInsert.TabIndex = 4;
             // 
-            // dateTimePicker3
+            // dtpStartDate
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(7, 313);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(132, 21);
-            this.dateTimePicker3.TabIndex = 78;
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartDate.Location = new System.Drawing.Point(7, 313);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(132, 21);
+            this.dtpStartDate.TabIndex = 9;
             // 
             // pnlGuardianRerationship
             // 
@@ -180,7 +180,7 @@
             this.txtGuardianContact.Mask = "000-9000-0000";
             this.txtGuardianContact.Name = "txtGuardianContact";
             this.txtGuardianContact.Size = new System.Drawing.Size(132, 14);
-            this.txtGuardianContact.TabIndex = 93;
+            this.txtGuardianContact.TabIndex = 8;
             // 
             // label9
             // 
@@ -201,7 +201,7 @@
             this.txtStudentContact.Mask = "000-9000-0000";
             this.txtStudentContact.Name = "txtStudentContact";
             this.txtStudentContact.Size = new System.Drawing.Size(132, 14);
-            this.txtStudentContact.TabIndex = 91;
+            this.txtStudentContact.TabIndex = 7;
             // 
             // TxtSchool
             // 
@@ -250,7 +250,7 @@
             this.txtName.Location = new System.Drawing.Point(9, 62);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(132, 21);
-            this.txtName.TabIndex = 85;
+            this.txtName.TabIndex = 5;
             // 
             // label5
             // 
@@ -302,8 +302,9 @@
             this.btnOpenInsert.Name = "btnOpenInsert";
             this.btnOpenInsert.Size = new System.Drawing.Size(45, 23);
             this.btnOpenInsert.TabIndex = 96;
-            this.btnOpenInsert.Text = "+";
+            this.btnOpenInsert.Text = ">>";
             this.btnOpenInsert.UseVisualStyleBackColor = true;
+            this.btnOpenInsert.Click += new System.EventHandler(this.btnOpenInsert_Click);
             // 
             // dataGridView1
             // 
@@ -330,7 +331,7 @@
             this.ucDateFilter1.Location = new System.Drawing.Point(314, 501);
             this.ucDateFilter1.Name = "ucDateFilter1";
             this.ucDateFilter1.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter1.StartDate = new System.DateTime(2022, 3, 21, 16, 34, 36, 193);
+            this.ucDateFilter1.StartDate = new System.DateTime(2022, 3, 21, 19, 23, 29, 419);
             this.ucDateFilter1.TabIndex = 99;
             // 
             // ccTxtClassNo
@@ -354,7 +355,7 @@
             this.ccTxtAge.Location = new System.Drawing.Point(9, 125);
             this.ccTxtAge.Name = "ccTxtAge";
             this.ccTxtAge.Size = new System.Drawing.Size(132, 21);
-            this.ccTxtAge.TabIndex = 97;
+            this.ccTxtAge.TabIndex = 6;
             // 
             // ccTxtSpecialNote
             // 
@@ -363,7 +364,7 @@
             this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
             this.ccTxtSpecialNote.PlaceHolder = "특이사항";
             this.ccTxtSpecialNote.Size = new System.Drawing.Size(306, 118);
-            this.ccTxtSpecialNote.TabIndex = 96;
+            this.ccTxtSpecialNote.TabIndex = 10;
             // 
             // frmStudent
             // 
@@ -407,7 +408,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.Label label10;
         private ccTextBoxPlaceHolder ccTxtSpecialNote;
         private System.Windows.Forms.Panel pnlSelect;

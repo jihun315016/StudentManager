@@ -75,9 +75,7 @@ C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\b
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\K4os.Compression.LZ4.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\K4os.Hash.xxHash.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\StudentManager.Service.dll.config
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\StudentManager.Data.pdb
-C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\StudentManager.Data.dll.config
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\MySql.Data.xml
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\Google.Protobuf.pdb
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\Google.Protobuf.xml
@@ -173,7 +171,6 @@ C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager
 C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.CopyComplete
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.exe.config
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ucDateFilter.resources
-C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.ccTextBoxHint.resources
 C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.ccTextBoxHint.resources
 C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ccTextBoxNumber.resources
 C:\Users\GDC9\Desktop\MyProject\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ucDateFilter.resources
@@ -237,3 +234,5 @@ C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentMa
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.exe.config
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ucSchoolLabel.resources
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.ccTextBoxPlaceHolder.resources
+C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.ccTextBoxPlaceHolder.resources
+C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ucSchoolLabel.resources
