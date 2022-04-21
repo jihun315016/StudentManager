@@ -20,6 +20,11 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
+        public void AddStudent()
+        {
+
+        }
+
         public StringBuilder ValidContact(string stuContact, string guardContact)
         {
             StringBuilder sb = new StringBuilder();
@@ -44,6 +49,26 @@ namespace StudentManager.Service.Service
 
             return sb;
         }
+        public StringBuilder ValidGuardian(string guardContact, string guardianRalationship)
+        {
+
+            StringBuilder sb = new StringBuilder();
+
+            bool allInput = guardContact.Length == 13 && !string.IsNullOrWhiteSpace(guardianRalationship);
+            bool noInput = ValidContactCnt(guardContact) == 0 && string.IsNullOrWhiteSpace(guardianRalationship);
+
+            // 보호자 연락처, 관계를 모두 입력한 것도 아니면서, 모두 비운 것도 아닌 경우
+            // -> 둘 중 하나를 어중간하게 입력한 경우
+            if (!(allInput || noInput))
+            {
+                if (guardContact.Length < 13)
+                    sb.Append("보호자 연락처를 입력해주세요.");
+                else
+                    sb.Append("보호자 관계를 입력해주세요.");
+            }
+
+            return sb;
+        }
 
         int ValidContactCnt(string text)
         {
@@ -57,5 +82,6 @@ namespace StudentManager.Service.Service
 
             return contactCnt;
         }
+
     }
 }

@@ -38,45 +38,48 @@ namespace StudentManager_Winforms
        
         private void btnStudent_Click(object sender, EventArgs e)
         {
-            frmStudent frm = new frmStudent();
-            frm.MdiParent = this;
-            frm.Show();
+            OpenCreateForm<frmStudent>();
         }
 
         private void btn_Employee_Click(object sender, EventArgs e)
         {
-            frmEmployee frm = new frmEmployee();
-            frm.MdiParent = this;
-            frm.Show();
+            OpenCreateForm<frmEmployee>();
         }
 
         private void btnAttendance_Click(object sender, EventArgs e)
         {
-            frmAttendance frm = new frmAttendance();
-            frm.MdiParent = this;
-            frm.Show();
+            OpenCreateForm<frmAttendance>();
         }
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            frmPayment frm = new frmPayment();
-            frm.MdiParent = this;
-            frm.Show();
+            OpenCreateForm<frmPayment>();
         }
 
         private void btnContest_Click(object sender, EventArgs e)
         {
-            frmContest frm = new frmContest();
-            frm.MdiParent = this;
-            frm.Show();
+            OpenCreateForm<frmContest>();
         }
 
         private void btnCourse_Click(object sender, EventArgs e)
         {
-            frmCourse frm = new frmCourse();
+            OpenCreateForm<frmCourse>();
+        }
+
+        void OpenCreateForm<T>() where T : Form, new()
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(T))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+
+            T frm = new T();
             frm.MdiParent = this;
             frm.Show();
         }
-
     }
 }
