@@ -30,7 +30,7 @@
         {
             this.pnlInsert = new System.Windows.Forms.Panel();
             this.ccTxtAge = new StudentManager_Winforms.Controls.ccTextBoxNumber();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxHint();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
             this.rdoOther = new System.Windows.Forms.RadioButton();
@@ -52,8 +52,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSelect = new System.Windows.Forms.Panel();
             this.ucDateFilter1 = new StudentManager_Winforms.Controls.ucDateFilter();
-            this.ccTxtClassNo = new StudentManager_Winforms.ccTextBoxHint();
-            this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxHint();
+            this.ccTxtClassNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
@@ -97,7 +97,7 @@
             // 
             // ccTxtSpecialNote
             // 
-            this.ccTxtSpecialNote.Hint = "특이사항";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
             this.ccTxtSpecialNote.Location = new System.Drawing.Point(7, 367);
             this.ccTxtSpecialNote.Multiline = true;
             this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
@@ -322,7 +322,7 @@
             // 
             // ccTxtClassNo
             // 
-            this.ccTxtClassNo.Hint = "수업 번호 검색";
+            this.ccTxtClassNo.PlaceHolder = "수업 번호 검색";
             this.ccTxtClassNo.Location = new System.Drawing.Point(191, 502);
             this.ccTxtClassNo.Name = "ccTxtClassNo";
             this.ccTxtClassNo.Size = new System.Drawing.Size(100, 21);
@@ -330,7 +330,7 @@
             // 
             // ccTxtStudentNo
             // 
-            this.ccTxtStudentNo.Hint = "학생 번호 검색";
+            this.ccTxtStudentNo.PlaceHolder = "학생 번호 검색";
             this.ccTxtStudentNo.Location = new System.Drawing.Point(66, 502);
             this.ccTxtStudentNo.Name = "ccTxtStudentNo";
             this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
@@ -409,10 +409,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Label label10;
-        private ccTextBoxHint ccTxtSpecialNote;
+        private ccTextBoxPlaceHolder ccTxtSpecialNote;
         private System.Windows.Forms.Panel pnlSelect;
-        private ccTextBoxHint ccTxtClassNo;
-        private ccTextBoxHint ccTxtStudentNo;
+        private ccTextBoxPlaceHolder ccTxtClassNo;
+        private ccTextBoxPlaceHolder ccTxtStudentNo;
         private System.Windows.Forms.Button btnOpenInsert;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;

@@ -1,4 +1,5 @@
 ﻿
+using StudentManager.Data.DAC;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,6 +12,14 @@ namespace StudentManager.Service.Service
 {
     public class StudentService
     {
+        public DataTable GetSchoolList(string keyword)
+        {
+            StudentDAC dac = new StudentDAC();
+            DataTable dt = dac.GetSchoolList(keyword);
+            dac.Dispose();
+            return dt;
+        }
+
         public StringBuilder ValidContact(string stuContact, string guardContact)
         {
             StringBuilder sb = new StringBuilder();

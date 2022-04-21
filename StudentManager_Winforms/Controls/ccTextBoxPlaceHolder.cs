@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace StudentManager_Winforms
 {
-    public partial class ccTextBoxHint : TextBox
+    public partial class ccTextBoxPlaceHolder : TextBox
     {
-        public string Hint { get; set; }
+        public string PlaceHolder { get; set; }
 
-        public ccTextBoxHint()
+        public ccTextBoxPlaceHolder()
         {
             InitializeComponent();
         }
@@ -24,14 +24,14 @@ namespace StudentManager_Winforms
             base.OnPaint(pe);
         }
 
-        public void SetTextBoxHint()
+        public void SetTextBoxPlaceHolder()
         {
             ccTextBoxHint_Leave(this, null);
         }
 
         private void ccTextBoxHint_Enter(object sender, EventArgs e)
         {
-            if (this.Text.Equals(this.Hint))
+            if (this.Text.Equals(this.PlaceHolder))
             {
                 this.Text = string.Empty;
                 this.ForeColor = Color.Black;
@@ -42,7 +42,7 @@ namespace StudentManager_Winforms
         {
             if (this.Text.Equals(string.Empty))
             {
-                this.Text = this.Hint;
+                this.Text = this.PlaceHolder;
                 this.ForeColor = Color.Gray;
             }            
         }

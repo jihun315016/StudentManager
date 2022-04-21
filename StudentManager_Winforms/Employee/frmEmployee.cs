@@ -17,8 +17,8 @@ namespace StudentManager_Winforms
         {
             InitializeComponent();
 
-            ccTxtEmpNo.SetTextBoxHint();
-            ccTxtSpecialNote.SetTextBoxHint();
+            ccTxtEmpNo.SetTextBoxPlaceHolder();
+            ccTxtSpecialNote.SetTextBoxPlaceHolder();
         }
         private void frmEmployee_Load(object sender, EventArgs e)
         {

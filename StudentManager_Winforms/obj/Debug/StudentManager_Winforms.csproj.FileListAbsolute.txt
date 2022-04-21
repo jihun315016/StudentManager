@@ -211,7 +211,6 @@ C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\System.Nu
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\bin\Debug\StudentManager.Data.pdb
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.AssemblyReference.cache
-C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.ccTextBoxHint.resources
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ccTextBoxNumber.resources
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ucDateFilter.resources
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ucInputEmail.resources
@@ -237,3 +236,4 @@ C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentMa
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.pdb
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.exe.config
 C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.Controls.ucSchoolLabel.resources
+C:\Users\GDC9\Desktop\studentManager\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.ccTextBoxPlaceHolder.resources

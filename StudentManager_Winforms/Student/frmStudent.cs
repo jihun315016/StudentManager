@@ -20,9 +20,9 @@ namespace StudentManager_Winforms
 
         private void frmStudent_Load(object sender, EventArgs e)
         {
-            ccTxtStudentNo.SetTextBoxHint();
-            ccTxtClassNo.SetTextBoxHint();
-            ccTxtSpecialNote.SetTextBoxHint();
+            ccTxtStudentNo.SetTextBoxPlaceHolder();
+            ccTxtClassNo.SetTextBoxPlaceHolder();
+            ccTxtSpecialNote.SetTextBoxPlaceHolder();
             
             //this.Width = 675;            
         }

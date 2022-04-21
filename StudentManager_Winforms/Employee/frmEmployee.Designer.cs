@@ -30,7 +30,7 @@
         {
             this.panel4 = new System.Windows.Forms.Panel();
             this.ucInputEmail = new StudentManager_Winforms.Controls.ucInputEmail();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxHint();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtOtherPosition = new System.Windows.Forms.TextBox();
             this.cboAuthority = new System.Windows.Forms.ComboBox();
@@ -52,7 +52,7 @@
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
-            this.ccTxtEmpNo = new StudentManager_Winforms.ccTextBoxHint();
+            this.ccTxtEmpNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,7 +93,7 @@
             // 
             // ccTxtSpecialNote
             // 
-            this.ccTxtSpecialNote.Hint = "특이사항";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
             this.ccTxtSpecialNote.Location = new System.Drawing.Point(9, 411);
             this.ccTxtSpecialNote.Multiline = true;
             this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
@@ -312,7 +312,7 @@
             // 
             // ccTxtEmpNo
             // 
-            this.ccTxtEmpNo.Hint = "직원 번호 검색";
+            this.ccTxtEmpNo.PlaceHolder = "직원 번호 검색";
             this.ccTxtEmpNo.Location = new System.Drawing.Point(160, 487);
             this.ccTxtEmpNo.Name = "ccTxtEmpNo";
             this.ccTxtEmpNo.Size = new System.Drawing.Size(95, 21);
@@ -360,8 +360,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnOpenInsert;
         private System.Windows.Forms.Panel panel2;
-        private ccTextBoxHint ccTxtEmpNo;
-        private ccTextBoxHint ccTxtSpecialNote;
+        private ccTextBoxPlaceHolder ccTxtEmpNo;
+        private ccTextBoxPlaceHolder ccTxtSpecialNote;
         private Controls.ucInputEmail ucInputEmail;
         private Controls.ucDateFilter ucDateFilter;
     }

@@ -26,29 +26,18 @@ namespace StudentManager_Winforms
 
         private void frmSearchSchool_Load(object sender, EventArgs e)
         {
-            
+            ccTxtSearch.SetTextBoxPlaceHolder();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string temp = txtSearch.Text;
-            string sql = $@"SELECT SCHOOL_NAME FROM tb_school WHERE SCHOOL_NAME LIKE @SCHOOL_NAME ORDER BY SCHOOL_NAME LIMIT 30";
-
-            string connStr = ConfigurationManager.ConnectionStrings["studentManagerDB"].ConnectionString;
-            MySqlConnection conn = new MySqlConnection(connStr);
-            DataTable dt = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-
-            // like는 sql에 ''쓰면 안되는듯
-            da.SelectCommand.Parameters.AddWithValue("@SCHOOL_NAME", $"%{temp}%");
-
-            da.Fill(dt);
-            conn.Close();
+            StudentService student = new StudentService();
+            DataTable schoolList = student.GetSchoolList(ccTxtSearch.Text);
 
             pnlSchool.Controls.Clear();
 
             int cnt = 0;
-            foreach (DataRow dr in dt.Rows)
+            foreach (DataRow dr in schoolList.Rows)
             {
                 ucSchoolLabel school = new ucSchoolLabel();
                 school.Location = new Point(0, 3 + 35 * cnt);

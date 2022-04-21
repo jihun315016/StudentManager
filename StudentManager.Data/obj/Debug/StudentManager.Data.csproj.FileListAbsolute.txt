@@ -1,4 +1,3 @@
-C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\obj\Debug\StudentManager.Data.csproj.CoreCompileInputs.cache
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\bin\Debug\StudentManager.Data.dll
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\bin\Debug\StudentManager.Data.pdb
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\bin\Debug\MySql.Data.dll
@@ -13,6 +12,7 @@ C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\bin\Debug\K4os.Compress
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\bin\Debug\K4os.Hash.xxHash.dll
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\bin\Debug\MySql.Data.xml
+C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\obj\Debug\StudentManager.Data.csproj.CoreCompileInputs.cache
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\obj\Debug\StudentManager.Data.csproj.CopyComplete
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\obj\Debug\StudentManager.Data.dll
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Data\obj\Debug\StudentManager.Data.pdb

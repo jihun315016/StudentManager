@@ -30,8 +30,8 @@
         {
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.pnlSchool = new System.Windows.Forms.Panel();
+            this.ccTxtSearch = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.SuspendLayout();
             // 
             // btnSearch
@@ -55,13 +55,6 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "학교";
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(14, 24);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(253, 21);
-            this.txtSearch.TabIndex = 8;
-            // 
             // pnlSchool
             // 
             this.pnlSchool.AutoScroll = true;
@@ -70,15 +63,23 @@
             this.pnlSchool.Size = new System.Drawing.Size(318, 216);
             this.pnlSchool.TabIndex = 11;
             // 
+            // ccTxtSearch
+            // 
+            this.ccTxtSearch.Location = new System.Drawing.Point(14, 24);
+            this.ccTxtSearch.Name = "ccTxtSearch";
+            this.ccTxtSearch.PlaceHolder = "학교는 30개까지만 표시됩니다.";
+            this.ccTxtSearch.Size = new System.Drawing.Size(253, 21);
+            this.ccTxtSearch.TabIndex = 12;
+            // 
             // frmSearchSchool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 279);
+            this.Controls.Add(this.ccTxtSearch);
             this.Controls.Add(this.pnlSchool);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -93,7 +94,7 @@
         #endregion
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel pnlSchool;
+        private ccTextBoxPlaceHolder ccTxtSearch;
     }
 }

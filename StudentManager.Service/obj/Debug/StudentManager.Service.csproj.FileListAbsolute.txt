@@ -1,5 +1,3 @@
-C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\obj\Debug\StudentManager.Service.csproj.CoreCompileInputs.cache
-C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\obj\Debug\StudentManager.Service.csproj.AssemblyReference.cache
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\bin\Debug\StudentManager.Service.dll
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\bin\Debug\StudentManager.Service.pdb
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\bin\Debug\StudentManager.Data.dll
@@ -16,6 +14,8 @@ C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\bin\Debug\K4os.Hash.
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\bin\Debug\StudentManager.Data.pdb
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\bin\Debug\MySql.Data.xml
+C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\obj\Debug\StudentManager.Service.csproj.AssemblyReference.cache
+C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\obj\Debug\StudentManager.Service.csproj.CoreCompileInputs.cache
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\obj\Debug\StudentManager.Service.csproj.CopyComplete
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\obj\Debug\StudentManager.Service.dll
 C:\Users\GDC9\Desktop\studentManager\StudentManager.Service\obj\Debug\StudentManager.Service.pdb
