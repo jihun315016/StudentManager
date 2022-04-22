@@ -28,7 +28,7 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public bool SendEmail(string name, string recipient, string newPassword)
+        public bool SendEmail(string name, string recipient, string newPassword) 
         {            
             string sender = ConfigurationManager.AppSettings["email"]; // 보내는 메일
             string password = ConfigurationManager.AppSettings["emailPw"]; // 메일 비밀번호
