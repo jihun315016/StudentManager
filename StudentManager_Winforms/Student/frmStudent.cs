@@ -58,7 +58,7 @@ namespace StudentManager_Winforms
                 MessageBox.Show(sb.ToString());
                 return;
             }
-            
+
             // 보호자 관계 확인
             string guardianRerationship = txtOtherRalationship.Text;
             if (!rdoOther.Checked)
@@ -70,7 +70,7 @@ namespace StudentManager_Winforms
                         guardianRerationship = rdo.Text;
                         break;
                     }
-                }                
+                }
             }
 
             // 보호자 정보가 입력되었다면 연락처와 관계가 모두 입력되었는지 확인
@@ -93,11 +93,16 @@ namespace StudentManager_Winforms
                 TxtSchool.Text, ccTxtAge.Text, dtpStartDate.Value.ToString(), specialNote
             };
 
-            bool result = student.InsertStudent(data);
+            bool result = student.InsertStudent
+                (
+                    txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
+                    TxtSchool.Text, int.Parse(ccTxtAge.Text), dtpStartDate.Value, specialNote
+                );
+
             if (result)
             {
                 MessageBox.Show("등록이 완료되었습니다.");
-                txtName.Text = ccTxtAge.Text = txtStudentContact.Text = txtGuardianContact.Text = 
+                txtName.Text = ccTxtAge.Text = txtStudentContact.Text = txtGuardianContact.Text =
                     TxtSchool.Text = ccTxtSpecialNote.Text = txtOtherRalationship.Text = String.Empty;
 
                 ccTxtSpecialNote.SetTextBoxPlaceHolder();
@@ -144,12 +149,27 @@ namespace StudentManager_Winforms
             if (btnOpenInsert.Text.Equals(">>"))
             {
                 btnOpenInsert.Text = "<<";
-                this.Width = 970;
+                this.Width = 945;
             }
             else
             {
                 btnOpenInsert.Text = ">>";
                 this.Width = 645;
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (!string.IsNullOrWhiteSpace(ccTxtStudentNo.Text.Trim()))
+            {
+                
+            }
+
+            if (!string.IsNullOrWhiteSpace(ccTxtClassNo.Text.Trim()))
+            {
+
             }
         }
     }

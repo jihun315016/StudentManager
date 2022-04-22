@@ -32,6 +32,7 @@ namespace StudentManager_Winforms.Controls
         private void ucDateFilter_Load(object sender, EventArgs e)
         {
             dtp1.Value = DateTime.Now.AddMonths(-1);
+            dtp2.Value = DateTime.Now;
         }
     }
 }

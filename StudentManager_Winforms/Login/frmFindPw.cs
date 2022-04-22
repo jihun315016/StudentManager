@@ -29,10 +29,10 @@ namespace StudentManager_Winforms
         {
             lblMessage.Text = string.Empty;
 
-            string[] txtArr = { txtName.Text, ccTxtEmp_no.Text, ucInputEmail.email};
-            string[] txtNameArr = { "이름", "사번", "이메일" };
+            string[] txtTexts = { txtName.Text, ccTxtEmp_no.Text, ucInputEmail.email};
+            string[] txtNames = { "이름", "사번", "이메일" };
 
-            StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtArr, txtNameArr);
+            StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtTexts, txtNames);
             if (sb.Length > 0)
             {
                 MessageBox.Show($"{sb.ToString()}를 입력해주세요.");

@@ -27,11 +27,19 @@ namespace StudentManager.Service.Service
             dac.Dispose();
             return dt;
         }
-
-        public bool InsertStudent(string[] data)
+        //txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
+        //        TxtSchool.Text, ccTxtAge.Text, dtpStartDate.Value.ToString(), specialNote
+        public bool InsertStudent
+            (
+                string name, string studentContact, string guardianContact, string guardianRerationship,
+                string school, int age, DateTime startDate, string specialNote
+            )
         {
             StudentDAC dac = new StudentDAC();
-            bool result = dac.InsertStudent(data);
+            bool result = dac.InsertStudent
+                (
+                    name, studentContact, guardianContact, guardianRerationship, school, age, startDate, specialNote
+                );
             dac.Dispose();
             return result;
         }

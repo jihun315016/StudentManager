@@ -56,7 +56,11 @@ namespace StudentManager.Data.DAC
             return dt;
         }
 
-        public bool InsertStudent(string[] data)
+        public bool InsertStudent
+            (
+                string name, string studentContact, string guardianContact, string guardianRerationship,
+                string school, int age, DateTime startDate, string specialNote
+            )
         {
             string sql = @"INSERT INTO tb_student 
                             (
@@ -69,14 +73,14 @@ namespace StudentManager.Data.DAC
                             )";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@STUDENT_NAME", data[0]);
-            cmd.Parameters.AddWithValue("@STUDENT_CONTACT", data[1]);
-            cmd.Parameters.AddWithValue("@GUARDIAN_CONTACT", data[2]);
-            cmd.Parameters.AddWithValue("@GUARDIAN_RERATIONSHIP", data[3]);
-            cmd.Parameters.AddWithValue("@SCHOOL", data[4]);
-            cmd.Parameters.AddWithValue("@AGE", data[5]);
-            cmd.Parameters.AddWithValue("@START_DATE", Convert.ToDateTime(data[6]));
-            cmd.Parameters.AddWithValue("@SPECIAL_NOTE", data[7]);
+            cmd.Parameters.AddWithValue("@STUDENT_NAME", name);
+            cmd.Parameters.AddWithValue("@STUDENT_CONTACT", studentContact);
+            cmd.Parameters.AddWithValue("@GUARDIAN_CONTACT", guardianContact);
+            cmd.Parameters.AddWithValue("@GUARDIAN_RERATIONSHIP", guardianRerationship);
+            cmd.Parameters.AddWithValue("@SCHOOL", school);
+            cmd.Parameters.AddWithValue("@AGE", age);
+            cmd.Parameters.AddWithValue("@START_DATE", startDate);
+            cmd.Parameters.AddWithValue("@SPECIAL_NOTE", specialNote);
 
             try
             {

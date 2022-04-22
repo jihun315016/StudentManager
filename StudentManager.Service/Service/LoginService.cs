@@ -28,7 +28,7 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public bool SendEmail(string name, string recipient, string newPassword) 
+        public bool SendEmail(string name, string recipient, string newPassword)
         {            
             string sender = ConfigurationManager.AppSettings["email"]; // 보내는 메일
             string password = ConfigurationManager.AppSettings["emailPw"]; // 메일 비밀번호
@@ -46,8 +46,7 @@ namespace StudentManager.Service.Service
             mail.SubjectEncoding = Encoding.UTF8;
             mail.BodyEncoding= Encoding.UTF8;
 
-            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-            SmtpServer.Port = 587;
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587);
             SmtpServer.Credentials = new NetworkCredential(sender, password);
             SmtpServer.EnableSsl = true;
 
