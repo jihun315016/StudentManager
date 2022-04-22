@@ -35,6 +35,9 @@ namespace StudentManager_Winforms
             EmployeeService employee = new EmployeeService();
 
             string position = employee.NullCheck(cboPosition.SelectedItem);
+            if (cboPosition.SelectedIndex == cboPosition.Items.Count - 1)
+                position = txtOtherPosition.Text;
+
             string authority = employee.NullCheck(cboAuthority.SelectedItem);
             byte[] imageByteArr;
 
@@ -66,33 +69,22 @@ namespace StudentManager_Winforms
             if (txtContact.Text.Length < 13)
                 MessageBox.Show("올바른 연락처를 입력해주세요.");
 
-            /* INSERT 테스트 */
-            string connStr = "Server=whyfi8888.ddns.net;Port=13307;Uid=gudi01;Pwd=gudi01$$;Database=gudi01";
-            string sql = @"INSERT INTO tb_employee
-                            (EMP_NAME, EMP_CONTACT, POSITION, AUTHORITY, START_DATE, IMAGE, EMAIL, SPECIAL_NOTE)
-                            VALUES
-                            (@EMP_NAME, @EMP_CONTACT, @POSITION, @AUTHORITY, @START_DATE, @IMAGE, @EMAIL, @SPECIAL_NOTE)";
+            bool result = employee.InsertEmployee
+                (
+                    txtName.Text, txtContact.Text, position, int.Parse(authority),
+                    dtpStartDate.Value, imageByteArr, ucEmail.email, ccTxtSpecialNote.Text
+                );
 
-            MySqlConnection conn = new MySqlConnection(connStr);
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            conn.Open();
-            cmd.Parameters.AddWithValue("@EMP_NAME", txtName.Text);
-            cmd.Parameters.AddWithValue("@EMP_CONTACT", txtContact.Text);
-            cmd.Parameters.AddWithValue("@POSITION", position);
-            cmd.Parameters.AddWithValue("@AUTHORITY", authority);
-            cmd.Parameters.AddWithValue("@START_DATE", dtpStartDate.Value);
-            cmd.Parameters.AddWithValue("@IMAGE", imageByteArr);
-            cmd.Parameters.AddWithValue("@EMAIL", ucEmail.email);
-            cmd.Parameters.AddWithValue("@SPECIAL_NOTE", ccTxtSpecialNote.Text);
-
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-            MessageBox.Show("오오옹");
-
-            /* --------------------------------------------------*/
-
+            if (result)
+                MessageBox.Show("직원이 등록되었습니다.");
+            else
+                MessageBox.Show("직원 등록이 실패했습니다.");
+            
             ptbEmployee.Tag = null;
+            txtName.Text = txtContact.Text = txtOtherPosition.Text = String.Empty;
+            cboAuthority.SelectedItem = null;
+            cboPosition.SelectedItem = null;
+            ucEmail.ClearText();
         }
 
         private void cboPosition_SelectedIndexChanged(object sender, EventArgs e)

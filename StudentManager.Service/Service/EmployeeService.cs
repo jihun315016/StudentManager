@@ -9,6 +9,19 @@ namespace StudentManager.Service.Service
 {
     public class EmployeeService
     {
+        public bool InsertEmployee
+            (
+                string name, string contact, string position, int authority,
+                DateTime startDate, byte[] image, string email, string specialNote
+            )
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            bool result = dac.InsertEmployee(name, contact, position, authority, startDate, image, email, specialNote);
+            dac.Dispose();
+
+            return result;
+        }
+
         public List<string> GetEmpInfo(int emp_no, string[] col)
         {
             EmployeeDAC dac = new EmployeeDAC();

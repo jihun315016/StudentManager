@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,26 +25,42 @@ namespace StudentManager.Data.DAC
             conn.Close();
         }
 
-        //public bool InsertEmployee()
-        //{
-        //    string sql = @"INSERT INTO tb_employee
-        //                    (EMP_NAME, EMP_CONTACT, POSITION, AUTHORITY, START_DATE, IMAGE, EMAIL, SPECIAL_NOTE)
-        //                    VALUES
-        //                    (@EMP_NAME, @EMP_CONTACT, @POSITION, @AUTHORITY, @START_DATE, @IMAGE, @EMAIL, @SPECIAL_NOTE)";
+        public bool InsertEmployee
+            (
+                string name, string contact, string position, int authority,
+                DateTime startDate, byte[] image, string email, string specialNote
+            )
+        {
+            string sql = @"INSERT INTO tb_employee
+                            (EMP_NAME, EMP_CONTACT, POSITION, AUTHORITY, START_DATE, IMAGE, EMAIL, SPECIAL_NOTE)
+                            VALUES
+                            (@EMP_NAME, @EMP_CONTACT, @POSITION, @AUTHORITY, @START_DATE, @IMAGE, @EMAIL, @SPECIAL_NOTE)";
             
-        //    MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-        //    cmd.Parameters.AddWithValue("@EMP_NAME", txtName.Text);
-        //    cmd.Parameters.AddWithValue("@EMP_CONTACT", txtContact.Text);
-        //    cmd.Parameters.AddWithValue("@POSITION", position);
-        //    cmd.Parameters.AddWithValue("@AUTHORITY", authority);
-        //    cmd.Parameters.AddWithValue("@START_DATE", dtpStartDate.Value);
-        //    cmd.Parameters.AddWithValue("@IMAGE", imageByteArr);
-        //    cmd.Parameters.AddWithValue("@EMAIL", ucEmail.email);
-        //    cmd.Parameters.AddWithValue("@SPECIAL_NOTE", ccTxtSpecialNote.Text);
+            cmd.Parameters.AddWithValue("@EMP_NAME", name);
+            cmd.Parameters.AddWithValue("@EMP_CONTACT", contact);
+            cmd.Parameters.AddWithValue("@POSITION", position);
+            cmd.Parameters.AddWithValue("@AUTHORITY", authority);
+            cmd.Parameters.AddWithValue("@START_DATE", startDate);
+            cmd.Parameters.AddWithValue("@IMAGE", image);
+            cmd.Parameters.AddWithValue("@EMAIL", email);
+            cmd.Parameters.AddWithValue("@SPECIAL_NOTE", specialNote);
 
-        //    cmd.ExecuteNonQuery();
-        //}
+            cmd.ExecuteNonQuery();
+            return true;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
 
         public List<string> GetEmpInfo(int emp_no, string[] col)
         {

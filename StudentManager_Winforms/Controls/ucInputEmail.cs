@@ -56,5 +56,12 @@ namespace StudentManager_Winforms.Controls
                 txtEmail2.Text = cboEmail.Text;
             }
         }
+
+        public void ClearText()
+        {
+            txtEmail1.Text = txtEmail2.Text = String.Empty;
+            cboEmail.Text = string.Empty;
+            cboEmail.SelectedItem = null;
+        }
     }
 }
