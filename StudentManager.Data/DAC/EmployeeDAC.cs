@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace StudentManager.Data.DAC
         public void Dispose()
         {
             conn.Close();
+        }
+
+        public DataTable GetAllEmployeeInfo()
+        {
+            string sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL FROM tb_employee";
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.Fill(dt);
+
+            return dt;
         }
 
         public bool InsertEmployee

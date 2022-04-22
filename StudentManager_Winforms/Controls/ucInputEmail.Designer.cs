@@ -41,6 +41,7 @@ namespace StudentManager_Winforms.Controls
             this.txtEmail1.Name = "txtEmail1";
             this.txtEmail1.Size = new System.Drawing.Size(70, 21);
             this.txtEmail1.TabIndex = 0;
+            this.txtEmail1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail1_KeyPress);
             // 
             // label1
             // 

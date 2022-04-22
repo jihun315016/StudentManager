@@ -1,6 +1,7 @@
 ﻿using StudentManager.Data.DAC;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,14 @@ namespace StudentManager.Service.Service
 {
     public class EmployeeService
     {
+        public DataTable GetAllEmployeeInfo()
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            DataTable dt = dac.GetAllEmployeeInfo();
+            dac.Dispose();
+            return dt;
+        }
+
         public bool InsertEmployee
             (
                 string name, string contact, string position, int authority,

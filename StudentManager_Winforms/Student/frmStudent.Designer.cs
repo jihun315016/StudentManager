@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlInsert = new System.Windows.Forms.Panel();
-            this.ccTxtAge = new StudentManager_Winforms.Controls.ccTextBoxNumber();
+            this.txtAge = new System.Windows.Forms.TextBox();
             this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
@@ -66,7 +66,7 @@
             // 
             // pnlInsert
             // 
-            this.pnlInsert.Controls.Add(this.ccTxtAge);
+            this.pnlInsert.Controls.Add(this.txtAge);
             this.pnlInsert.Controls.Add(this.ccTxtSpecialNote);
             this.pnlInsert.Controls.Add(this.dtpStartDate);
             this.pnlInsert.Controls.Add(this.pnlGuardianRerationship);
@@ -85,19 +85,20 @@
             this.pnlInsert.Controls.Add(this.label1);
             this.pnlInsert.Location = new System.Drawing.Point(630, 2);
             this.pnlInsert.Name = "pnlInsert";
-            this.pnlInsert.Size = new System.Drawing.Size(290, 464);
+            this.pnlInsert.Size = new System.Drawing.Size(290, 419);
             this.pnlInsert.TabIndex = 4;
             // 
-            // ccTxtAge
+            // txtAge
             // 
-            this.ccTxtAge.Location = new System.Drawing.Point(9, 112);
-            this.ccTxtAge.Name = "ccTxtAge";
-            this.ccTxtAge.Size = new System.Drawing.Size(103, 21);
-            this.ccTxtAge.TabIndex = 6;
+            this.txtAge.Location = new System.Drawing.Point(9, 112);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(103, 21);
+            this.txtAge.TabIndex = 6;
+            this.txtAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAge_KeyPress);
             // 
             // ccTxtSpecialNote
             // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(9, 311);
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(9, 262);
             this.ccTxtSpecialNote.Multiline = true;
             this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
             this.ccTxtSpecialNote.PlaceHolder = "특이사항";
@@ -107,7 +108,7 @@
             // dtpStartDate
             // 
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(9, 263);
+            this.dtpStartDate.Location = new System.Drawing.Point(9, 220);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(103, 21);
             this.dtpStartDate.TabIndex = 9;
@@ -118,7 +119,7 @@
             this.pnlGuardianRerationship.Controls.Add(this.txtOtherRalationship);
             this.pnlGuardianRerationship.Controls.Add(this.rdoFather);
             this.pnlGuardianRerationship.Controls.Add(this.rdoMother);
-            this.pnlGuardianRerationship.Location = new System.Drawing.Point(152, 216);
+            this.pnlGuardianRerationship.Location = new System.Drawing.Point(152, 162);
             this.pnlGuardianRerationship.Name = "pnlGuardianRerationship";
             this.pnlGuardianRerationship.Size = new System.Drawing.Size(132, 79);
             this.pnlGuardianRerationship.TabIndex = 95;
@@ -171,7 +172,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(9, 248);
+            this.label10.Location = new System.Drawing.Point(9, 205);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 12);
             this.label10.TabIndex = 77;
@@ -181,7 +182,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(150, 201);
+            this.label8.Location = new System.Drawing.Point(150, 147);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 12);
             this.label8.TabIndex = 94;
@@ -192,7 +193,7 @@
             this.txtGuardianContact.BackColor = System.Drawing.SystemColors.Control;
             this.txtGuardianContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtGuardianContact.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtGuardianContact.Location = new System.Drawing.Point(9, 216);
+            this.txtGuardianContact.Location = new System.Drawing.Point(152, 62);
             this.txtGuardianContact.Mask = "000-9000-0000";
             this.txtGuardianContact.Name = "txtGuardianContact";
             this.txtGuardianContact.Size = new System.Drawing.Size(132, 14);
@@ -202,7 +203,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(7, 201);
+            this.label9.Location = new System.Drawing.Point(150, 47);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(88, 12);
             this.label9.TabIndex = 92;
@@ -213,7 +214,7 @@
             this.txtStudentContact.BackColor = System.Drawing.SystemColors.Control;
             this.txtStudentContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStudentContact.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtStudentContact.Location = new System.Drawing.Point(152, 168);
+            this.txtStudentContact.Location = new System.Drawing.Point(152, 119);
             this.txtStudentContact.Mask = "000-9000-0000";
             this.txtStudentContact.Name = "txtStudentContact";
             this.txtStudentContact.Size = new System.Drawing.Size(132, 14);
@@ -244,7 +245,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(150, 146);
+            this.label7.Location = new System.Drawing.Point(150, 97);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 12);
             this.label7.TabIndex = 88;
@@ -281,7 +282,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAdd.Location = new System.Drawing.Point(209, 435);
+            this.btnAdd.Location = new System.Drawing.Point(209, 386);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 82;
@@ -308,21 +309,21 @@
             this.pnlSelect.Controls.Add(this.btnSearch);
             this.pnlSelect.Location = new System.Drawing.Point(2, 2);
             this.pnlSelect.Name = "pnlSelect";
-            this.pnlSelect.Size = new System.Drawing.Size(623, 464);
+            this.pnlSelect.Size = new System.Drawing.Size(623, 419);
             this.pnlSelect.TabIndex = 5;
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 22, 15, 32, 58, 201);
-            this.ucDateFilter.Location = new System.Drawing.Point(279, 436);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 22, 22, 13, 14, 491);
+            this.ucDateFilter.Location = new System.Drawing.Point(279, 387);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 22, 15, 32, 58, 201);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 22, 22, 13, 14, 491);
             this.ucDateFilter.TabIndex = 99;
             // 
             // ccTxtClassNo
             // 
-            this.ccTxtClassNo.Location = new System.Drawing.Point(142, 437);
+            this.ccTxtClassNo.Location = new System.Drawing.Point(142, 388);
             this.ccTxtClassNo.Name = "ccTxtClassNo";
             this.ccTxtClassNo.PlaceHolder = "수업 번호 검색";
             this.ccTxtClassNo.Size = new System.Drawing.Size(100, 21);
@@ -330,7 +331,7 @@
             // 
             // ccTxtStudentNo
             // 
-            this.ccTxtStudentNo.Location = new System.Drawing.Point(3, 437);
+            this.ccTxtStudentNo.Location = new System.Drawing.Point(3, 388);
             this.ccTxtStudentNo.Name = "ccTxtStudentNo";
             this.ccTxtStudentNo.PlaceHolder = "학생 번호 검색";
             this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
@@ -353,13 +354,13 @@
             this.dgvList.Location = new System.Drawing.Point(3, 36);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(612, 393);
+            this.dgvList.Size = new System.Drawing.Size(612, 344);
             this.dgvList.TabIndex = 94;
             // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearch.Location = new System.Drawing.Point(540, 435);
+            this.btnSearch.Location = new System.Drawing.Point(540, 386);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 36;
@@ -371,7 +372,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 472);
+            this.ClientSize = new System.Drawing.Size(925, 422);
             this.Controls.Add(this.pnlSelect);
             this.Controls.Add(this.pnlInsert);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -419,8 +420,8 @@
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.RadioButton rdoOther;
-        private Controls.ccTextBoxNumber ccTxtAge;
         private Controls.ucDateFilter ucDateFilter;
         private MySql.Data.MySqlClient.CustomInstaller customInstaller1;
+        private System.Windows.Forms.TextBox txtAge;
     }
 }

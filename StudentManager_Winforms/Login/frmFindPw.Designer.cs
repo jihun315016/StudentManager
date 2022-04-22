@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlFindPw = new System.Windows.Forms.Panel();
+            this.txtEmp_no = new System.Windows.Forms.TextBox();
+            this.ucInputEmail = new StudentManager_Winforms.Controls.ucInputEmail();
             this.lblMessage = new System.Windows.Forms.Label();
             this.btnEmail = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
@@ -36,15 +38,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ucInputEmail = new StudentManager_Winforms.Controls.ucInputEmail();
-            this.ccTxtEmp_no = new StudentManager_Winforms.Controls.ccTextBoxNumber();
             this.pnlFindPw.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFindPw
             // 
+            this.pnlFindPw.Controls.Add(this.txtEmp_no);
             this.pnlFindPw.Controls.Add(this.ucInputEmail);
-            this.pnlFindPw.Controls.Add(this.ccTxtEmp_no);
             this.pnlFindPw.Controls.Add(this.lblMessage);
             this.pnlFindPw.Controls.Add(this.btnEmail);
             this.pnlFindPw.Controls.Add(this.btnCheck);
@@ -56,6 +56,21 @@
             this.pnlFindPw.Name = "pnlFindPw";
             this.pnlFindPw.Size = new System.Drawing.Size(304, 308);
             this.pnlFindPw.TabIndex = 3;
+            // 
+            // txtEmp_no
+            // 
+            this.txtEmp_no.Location = new System.Drawing.Point(24, 110);
+            this.txtEmp_no.Name = "txtEmp_no";
+            this.txtEmp_no.Size = new System.Drawing.Size(253, 21);
+            this.txtEmp_no.TabIndex = 1;
+            this.txtEmp_no.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmp_no_KeyPress);
+            // 
+            // ucInputEmail
+            // 
+            this.ucInputEmail.Location = new System.Drawing.Point(23, 179);
+            this.ucInputEmail.Name = "ucInputEmail";
+            this.ucInputEmail.Size = new System.Drawing.Size(254, 22);
+            this.ucInputEmail.TabIndex = 2;
             // 
             // lblMessage
             // 
@@ -125,20 +140,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "이름";
             // 
-            // ucInputEmail
-            // 
-            this.ucInputEmail.Location = new System.Drawing.Point(23, 179);
-            this.ucInputEmail.Name = "ucInputEmail";
-            this.ucInputEmail.Size = new System.Drawing.Size(254, 22);
-            this.ucInputEmail.TabIndex = 2;
-            // 
-            // ccTxtEmp_no
-            // 
-            this.ccTxtEmp_no.Location = new System.Drawing.Point(23, 110);
-            this.ccTxtEmp_no.Name = "ccTxtEmp_no";
-            this.ccTxtEmp_no.Size = new System.Drawing.Size(254, 21);
-            this.ccTxtEmp_no.TabIndex = 1;
-            // 
             // frmFindPw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -166,7 +167,7 @@
         private System.Windows.Forms.Button btnEmail;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Label lblMessage;
-        private Controls.ccTextBoxNumber ccTxtEmp_no;
         private Controls.ucInputEmail ucInputEmail;
+        private System.Windows.Forms.TextBox txtEmp_no;
     }
 }

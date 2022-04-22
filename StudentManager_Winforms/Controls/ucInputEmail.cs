@@ -63,5 +63,15 @@ namespace StudentManager_Winforms.Controls
             cboEmail.Text = string.Empty;
             cboEmail.SelectedItem = null;
         }
+
+        private void txtEmail1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool isLower = e.KeyChar >= 'a' && e.KeyChar <= 'z';
+            bool isUpper = e.KeyChar >= 'A' && e.KeyChar <= 'Z';
+            bool isNumber = e.KeyChar >= 0 && e.KeyChar <= 9;
+
+            if (!isLower && !isUpper && isNumber)
+                e.Handled = true;
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace StudentManager_Winforms
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 연락처", "GUARDIAN_CONTACT", 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 관계", "GUARDIAN_RERATIONSHIP");
 
-            DataGridViewUtil.SetRowAlignment(dgvList, new int[] { 0, 2 }, DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetRowAlignment(dgvList, new string[] { "STUDENT_NO", "AGE" }, DataGridViewContentAlignment.MiddleRight);
 
             StudentService student = new StudentService();
             dgvList.DataSource = student.GetAllStudentInfo();
@@ -90,19 +90,19 @@ namespace StudentManager_Winforms
             string[] data =
             {
                 txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
-                TxtSchool.Text, ccTxtAge.Text, dtpStartDate.Value.ToString(), specialNote
+                TxtSchool.Text, txtAge.Text, dtpStartDate.Value.ToString(), specialNote
             };
 
             bool result = student.InsertStudent
                 (
                     txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
-                    TxtSchool.Text, int.Parse(ccTxtAge.Text), dtpStartDate.Value, specialNote
+                    TxtSchool.Text, int.Parse(txtAge.Text), dtpStartDate.Value, specialNote
                 );
 
             if (result)
             {
                 MessageBox.Show("등록이 완료되었습니다.");
-                txtName.Text = ccTxtAge.Text = txtStudentContact.Text = txtGuardianContact.Text =
+                txtName.Text = txtAge.Text = txtStudentContact.Text = txtGuardianContact.Text =
                     TxtSchool.Text = ccTxtSpecialNote.Text = txtOtherRalationship.Text = String.Empty;
 
                 ccTxtSpecialNote.SetTextBoxPlaceHolder();
@@ -171,6 +171,12 @@ namespace StudentManager_Winforms
             {
 
             }
+        }
+
+        private void txtAge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !e.KeyChar.Equals('\b'))
+                e.Handled = true;
         }
     }
 }

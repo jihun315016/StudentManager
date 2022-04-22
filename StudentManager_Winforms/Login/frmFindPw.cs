@@ -29,7 +29,7 @@ namespace StudentManager_Winforms
         {
             lblMessage.Text = string.Empty;
 
-            string[] txtTexts = { txtName.Text, ccTxtEmp_no.Text, ucInputEmail.email};
+            string[] txtTexts = { txtName.Text, txtEmp_no.Text, ucInputEmail.email};
             string[] txtNames = { "이름", "사번", "이메일" };
 
             StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtTexts, txtNames);
@@ -40,7 +40,7 @@ namespace StudentManager_Winforms
             }            
 
             string[] column = { "EMP_NAME", "EMAIL" };
-            int emp_no = Convert.ToInt32(ccTxtEmp_no.Text);
+            int emp_no = Convert.ToInt32(txtEmp_no.Text);
 
             EmployeeService user = new EmployeeService();
             List<string> list = user.GetEmpInfo(emp_no, column);            
@@ -76,7 +76,10 @@ namespace StudentManager_Winforms
         private void txtEmp_no_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !e.KeyChar.Equals('\b'))
+            {
                 e.Handled = true;
+                return;
+            }
         }
 
         private void btnCheck_Click(object sender, EventArgs e)

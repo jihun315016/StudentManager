@@ -23,7 +23,7 @@ namespace StudentManager_Winforms
                 string headerText,
                 string propertyName,
                 int colWidth = 100,
-                DataGridViewContentAlignment align = DataGridViewContentAlignment.MiddleLeft
+                DataGridViewContentAlignment align = DataGridViewContentAlignment.MiddleCenter
             )
         {
             DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
@@ -40,15 +40,12 @@ namespace StudentManager_Winforms
         public static void SetRowAlignment
             (
                 DataGridView dgv, 
-                int[] indexs, 
+                string[] cols, 
                 DataGridViewContentAlignment align
             )
         {
-            for (int i = 0; i < indexs.Length; i++)
-            {
-                int index = indexs[i];
-                dgv.Columns[index].DefaultCellStyle.Alignment = align;
-            }
+            foreach (string col in cols)
+                dgv.Columns[col].DefaultCellStyle.Alignment = align;            
         }
     }
 }

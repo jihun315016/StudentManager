@@ -95,12 +95,6 @@
     <Compile Include="Controls\ccTextBoxPlaceHolder.Designer.cs">
       <DependentUpon>ccTextBoxPlaceHolder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ccTextBoxNumber.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\ccTextBoxNumber.Designer.cs">
-      <DependentUpon>ccTextBoxNumber.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ucDateFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -211,9 +205,6 @@
     <Compile Include="Utility\Util.cs" />
     <EmbeddedResource Include="Controls\ccTextBoxPlaceHolder.resx">
       <DependentUpon>ccTextBoxPlaceHolder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ccTextBoxNumber.resx">
-      <DependentUpon>ccTextBoxNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucDateFilter.resx">
       <DependentUpon>ucDateFilter.cs</DependentUpon>

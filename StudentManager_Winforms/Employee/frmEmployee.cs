@@ -28,6 +28,18 @@ namespace StudentManager_Winforms
             cboAuthority.Items.AddRange(authoritys);
 
             ptbEmployee.Tag = null;
+
+            DataGridViewUtil.SetInitGridView(dgvList);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "직원 번호", "EMP_NO");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이름", "EMP_NAME");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "직무", "POSITION", 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "권한", "AUTHORITY", 60);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이메일", "EMAIL", 160);
+
+            EmployeeService employee = new EmployeeService();
+            dgvList.DataSource = employee.GetAllEmployeeInfo();
+
+            this.Width = 545;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -111,6 +123,20 @@ namespace StudentManager_Winforms
             {
                 ptbEmployee.Image = Image.FromFile(dlg.FileName);
                 ptbEmployee.Tag = dlg.FileName;
+            }
+        }
+
+        private void btnOpenInsert_Click(object sender, EventArgs e)
+        {
+            if (btnOpenInsert.Text.Equals(">>"))
+            {
+                btnOpenInsert.Text = "<<";
+                this.Width = 865;
+            }
+            else
+            {
+                btnOpenInsert.Text = ">>";
+                this.Width = 545;
             }
         }
     }
