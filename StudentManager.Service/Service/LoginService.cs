@@ -109,5 +109,4 @@ namespace StudentManager.Service.Service
             return sb.ToString();
         }
     }
-}
-;
+};
