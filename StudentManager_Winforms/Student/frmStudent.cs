@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using StudentManager.Service.Service;
+﻿using StudentManager.Service.Service;
 using System;
 using System.Configuration;
 using System.Data;

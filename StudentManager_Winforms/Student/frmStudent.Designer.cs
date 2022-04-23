@@ -57,7 +57,6 @@
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
             this.pnlInsert.SuspendLayout();
             this.pnlGuardianRerationship.SuspendLayout();
             this.pnlSelect.SuspendLayout();
@@ -421,7 +420,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.RadioButton rdoOther;
         private Controls.ucDateFilter ucDateFilter;
-        private MySql.Data.MySqlClient.CustomInstaller customInstaller1;
         private System.Windows.Forms.TextBox txtAge;
     }
 }

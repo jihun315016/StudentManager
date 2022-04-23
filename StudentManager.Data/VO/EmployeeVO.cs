@@ -15,7 +15,7 @@ namespace StudentManager.Data.VO
         public int Authority { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public string ImgUrl { get; set; }
+        public byte[] Image { get; set; }
         public int Salary { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
