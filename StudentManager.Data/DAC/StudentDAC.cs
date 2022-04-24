@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using StudentManager.Data.VO;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -24,6 +25,42 @@ namespace StudentManager.Data.DAC
         public void Dispose()
         {
             conn.Close();
+        }
+
+        public StudentVO GetStudentInfoByPk(int stu_no)
+        {
+            string sql = $@"SELECT 
+                                STUDENT_NAME, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP, 
+                                SCHOOL, AGE, START_DATE, END_DATE, END_REASON_NO, SPECIAL_NOTE 
+                            FROM tb_student
+                            WHERE STUDENT_NO=@STUDENT_NO;";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@STUDENT_NO", stu_no);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            StudentVO stu = new StudentVO();
+
+            if (reader.Read())
+            {
+                stu.Student_Name = reader["STUDENT_NAME"].ToString();
+                stu.Student_Contact = reader["STUDENT_CONTACT"].ToString();
+                stu.Guardian_Contact = reader["GUARDIAN_CONTACT"].ToString();
+                stu.Guardian_ralationship = reader["GUARDIAN_RERATIONSHIP"].ToString();
+                stu.School = reader["SCHOOL"].ToString();
+                stu.Age = int.Parse(reader["AGE"].ToString());
+                stu.StartDate = Convert.ToDateTime(reader["START_DATE"].ToString());
+                stu.EndDate = (reader["END_DATE"] == DBNull.Value) ? new DateTime() : Convert.ToDateTime(reader["END_DATE"].ToString());
+                stu.EndReasonNo = (reader["END_REASON_NO"] == DBNull.Value) ? -1 : int.Parse(reader["END_REASON_NO"].ToString());
+                stu.SpecialNote = reader["SPECIAL_NOTE"].ToString();
+
+                return stu;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public DataTable GetSchoolList(string keyword)

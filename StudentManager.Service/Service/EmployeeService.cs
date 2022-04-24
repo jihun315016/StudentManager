@@ -45,12 +45,12 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public EmployeeVO GetEmpInfoByPk(int emp_no)
+        public EmployeeVO GetEmpInfoByPk(int empNo)
         {
             EmployeeDAC dac = new EmployeeDAC();
-            EmployeeVO emploeyee = dac.GetEmpInfoByPk(emp_no);
+            EmployeeVO emploeyeeVO = dac.GetEmployeeInfoByPk(empNo);
             dac.Dispose();
-            return emploeyee;
+            return emploeyeeVO;
         }
 
         public List<string> GetPosition()

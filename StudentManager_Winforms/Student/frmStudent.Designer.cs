@@ -313,11 +313,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 22, 22, 13, 14, 491);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 24, 17, 20, 36, 666);
             this.ucDateFilter.Location = new System.Drawing.Point(279, 387);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 22, 22, 13, 14, 491);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 24, 17, 20, 36, 666);
             this.ucDateFilter.TabIndex = 99;
             // 
             // ccTxtClassNo
@@ -355,6 +355,7 @@
             this.dgvList.RowTemplate.Height = 23;
             this.dgvList.Size = new System.Drawing.Size(612, 344);
             this.dgvList.TabIndex = 94;
+            this.dgvList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentDoubleClick);
             // 
             // btnSearch
             // 

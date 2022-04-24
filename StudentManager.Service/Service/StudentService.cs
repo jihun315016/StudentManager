@@ -1,5 +1,6 @@
 ﻿
 using StudentManager.Data.DAC;
+using StudentManager.Data.VO;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -27,8 +28,17 @@ namespace StudentManager.Service.Service
             dac.Dispose();
             return dt;
         }
-        //txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
-        //        TxtSchool.Text, ccTxtAge.Text, dtpStartDate.Value.ToString(), specialNote
+
+        public StudentVO GetStudentInfoByPk(int stuNo)
+        {
+            StudentDAC dac = new StudentDAC();
+            StudentVO studentVO = dac.GetStudentInfoByPk(stuNo);
+            dac.Dispose();
+
+            return studentVO;
+        }
+
+
         public bool InsertStudent
             (
                 string name, string studentContact, string guardianContact, string guardianRerationship,

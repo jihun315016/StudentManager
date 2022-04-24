@@ -177,5 +177,13 @@ namespace StudentManager_Winforms
             if (!char.IsDigit(e.KeyChar) && !e.KeyChar.Equals('\b'))
                 e.Handled = true;
         }
+
+        private void dgvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int student_no = int.Parse(dgvList["STUDENT_NO", e.RowIndex].Value.ToString());
+
+            frmStudentDetail frm = new frmStudentDetail(student_no);
+            frm.ShowDialog();
+        }
     }
 }

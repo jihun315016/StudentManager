@@ -1,7 +1,6 @@
 ﻿using StudentManager.Data.VO;
 using StudentManager.Service.Service;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -43,17 +42,17 @@ namespace StudentManager_Winforms
             int emp_no = int.Parse(txtEmp_no.Text);
 
             EmployeeService employee = new EmployeeService();
-            EmployeeVO user = employee.GetEmpInfoByPk(emp_no);            
+            EmployeeVO employeeVO = employee.GetEmpInfoByPk(emp_no);            
 
-            if (user != null)
+            if (employeeVO != null)
             {
                 LoginService login = new LoginService();
                 
                 string newPassword = login.MakePassword();
 
-                if (txtName.Text == user.Emp_Name && ucInputEmail.Email == user.Email)
+                if (txtName.Text == employeeVO.Emp_Name && ucInputEmail.Email == employeeVO.Email)
                 {
-                    if (login.SendEmail(user.Emp_Name, ucInputEmail.Email, newPassword) && login.ChangePassword(emp_no, newPassword))
+                    if (login.SendEmail(employeeVO.Emp_Name, ucInputEmail.Email, newPassword) && login.ChangePassword(emp_no, newPassword))
                     {
                         lblMessage.Text = "임시 비밀번호가 발송되었습니다.";
                         lblMessage.ForeColor = Color.SeaGreen;

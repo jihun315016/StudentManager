@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlEntire = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtStudentNo = new System.Windows.Forms.TextBox();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.txtSpecialNote = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -45,22 +46,24 @@
             this.tabContest = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
+            this.txtOtherRalationship = new System.Windows.Forms.TextBox();
+            this.rdoOther = new System.Windows.Forms.RadioButton();
+            this.rdoMother = new System.Windows.Forms.RadioButton();
+            this.rdoFather = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtGuardianContact = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtStudentContact = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtSchool = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lblGuardianRerationship = new System.Windows.Forms.Label();
             this.pnlEntire.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabAttendance.SuspendLayout();
@@ -69,31 +72,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabContest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlGuardianRerationship.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox1.Location = new System.Drawing.Point(32, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
-            this.textBox1.TabIndex = 85;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(29, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 84;
-            this.label5.Text = "이름";
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(704, 484);
+            this.button3.Location = new System.Drawing.Point(691, 473);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 82;
@@ -111,34 +96,63 @@
             // 
             // pnlEntire
             // 
+            this.pnlEntire.Controls.Add(this.lblGuardianRerationship);
+            this.pnlEntire.Controls.Add(this.label9);
+            this.pnlEntire.Controls.Add(this.txtStudentNo);
+            this.pnlEntire.Controls.Add(this.dtpDate);
             this.pnlEntire.Controls.Add(this.button1);
             this.pnlEntire.Controls.Add(this.txtSpecialNote);
             this.pnlEntire.Controls.Add(this.button3);
             this.pnlEntire.Controls.Add(this.tabControl1);
-            this.pnlEntire.Controls.Add(this.textBox5);
             this.pnlEntire.Controls.Add(this.label6);
-            this.pnlEntire.Controls.Add(this.panel1);
+            this.pnlEntire.Controls.Add(this.pnlGuardianRerationship);
             this.pnlEntire.Controls.Add(this.label8);
-            this.pnlEntire.Controls.Add(this.maskedTextBox2);
+            this.pnlEntire.Controls.Add(this.txtGuardianContact);
             this.pnlEntire.Controls.Add(this.label4);
-            this.pnlEntire.Controls.Add(this.maskedTextBox1);
+            this.pnlEntire.Controls.Add(this.txtStudentContact);
             this.pnlEntire.Controls.Add(this.label7);
             this.pnlEntire.Controls.Add(this.label3);
-            this.pnlEntire.Controls.Add(this.textBox3);
+            this.pnlEntire.Controls.Add(this.txtSchool);
             this.pnlEntire.Controls.Add(this.label2);
-            this.pnlEntire.Controls.Add(this.textBox2);
+            this.pnlEntire.Controls.Add(this.txtAge);
             this.pnlEntire.Controls.Add(this.label1);
             this.pnlEntire.Controls.Add(this.label5);
-            this.pnlEntire.Controls.Add(this.textBox1);
+            this.pnlEntire.Controls.Add(this.txtName);
             this.pnlEntire.Location = new System.Drawing.Point(16, 18);
             this.pnlEntire.Name = "pnlEntire";
-            this.pnlEntire.Size = new System.Drawing.Size(800, 510);
+            this.pnlEntire.Size = new System.Drawing.Size(774, 501);
             this.pnlEntire.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Location = new System.Drawing.Point(29, 53);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.TabIndex = 104;
+            this.label9.Text = "학생 번호";
+            // 
+            // txtStudentNo
+            // 
+            this.txtStudentNo.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtStudentNo.Location = new System.Drawing.Point(32, 69);
+            this.txtStudentNo.Name = "txtStudentNo";
+            this.txtStudentNo.Size = new System.Drawing.Size(89, 22);
+            this.txtStudentNo.TabIndex = 105;
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(379, 132);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(95, 21);
+            this.dtpDate.TabIndex = 103;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(623, 484);
+            this.button1.Location = new System.Drawing.Point(610, 473);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 102;
@@ -151,7 +165,7 @@
             this.txtSpecialNote.Location = new System.Drawing.Point(549, 229);
             this.txtSpecialNote.Multiline = true;
             this.txtSpecialNote.Name = "txtSpecialNote";
-            this.txtSpecialNote.Size = new System.Drawing.Size(228, 238);
+            this.txtSpecialNote.Size = new System.Drawing.Size(217, 238);
             this.txtSpecialNote.TabIndex = 101;
             // 
             // tabControl1
@@ -257,123 +271,114 @@
             this.dataGridView3.Size = new System.Drawing.Size(491, 209);
             this.dataGridView3.TabIndex = 106;
             // 
-            // textBox5
-            // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox5.Location = new System.Drawing.Point(445, 132);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(132, 22);
-            this.textBox5.TabIndex = 99;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(442, 116);
+            this.label6.Location = new System.Drawing.Point(376, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 98;
             this.label6.Text = "등록일";
             // 
-            // panel1
+            // pnlGuardianRerationship
             // 
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.radioButton3);
-            this.panel1.Controls.Add(this.radioButton4);
-            this.panel1.Controls.Add(this.radioButton5);
-            this.panel1.Location = new System.Drawing.Point(647, 76);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(132, 79);
-            this.panel1.TabIndex = 97;
+            this.pnlGuardianRerationship.Controls.Add(this.txtOtherRalationship);
+            this.pnlGuardianRerationship.Controls.Add(this.rdoOther);
+            this.pnlGuardianRerationship.Controls.Add(this.rdoMother);
+            this.pnlGuardianRerationship.Controls.Add(this.rdoFather);
+            this.pnlGuardianRerationship.Location = new System.Drawing.Point(549, 139);
+            this.pnlGuardianRerationship.Name = "pnlGuardianRerationship";
+            this.pnlGuardianRerationship.Size = new System.Drawing.Size(132, 79);
+            this.pnlGuardianRerationship.TabIndex = 97;
             // 
-            // textBox4
+            // txtOtherRalationship
             // 
-            this.textBox4.Location = new System.Drawing.Point(56, 47);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(74, 21);
-            this.textBox4.TabIndex = 19;
+            this.txtOtherRalationship.Location = new System.Drawing.Point(56, 47);
+            this.txtOtherRalationship.Name = "txtOtherRalationship";
+            this.txtOtherRalationship.Size = new System.Drawing.Size(74, 21);
+            this.txtOtherRalationship.TabIndex = 19;
             // 
-            // radioButton3
+            // rdoOther
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(3, 48);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(47, 16);
-            this.radioButton3.TabIndex = 18;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "기타";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdoOther.AutoSize = true;
+            this.rdoOther.Location = new System.Drawing.Point(3, 48);
+            this.rdoOther.Name = "rdoOther";
+            this.rdoOther.Size = new System.Drawing.Size(47, 16);
+            this.rdoOther.TabIndex = 18;
+            this.rdoOther.TabStop = true;
+            this.rdoOther.Text = "기타";
+            this.rdoOther.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rdoMother
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(3, 26);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(35, 16);
-            this.radioButton4.TabIndex = 17;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "모";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rdoMother.AutoSize = true;
+            this.rdoMother.Location = new System.Drawing.Point(3, 26);
+            this.rdoMother.Name = "rdoMother";
+            this.rdoMother.Size = new System.Drawing.Size(35, 16);
+            this.rdoMother.TabIndex = 17;
+            this.rdoMother.TabStop = true;
+            this.rdoMother.Text = "모";
+            this.rdoMother.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rdoFather
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(3, 4);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(35, 16);
-            this.radioButton5.TabIndex = 16;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "부";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rdoFather.AutoSize = true;
+            this.rdoFather.Location = new System.Drawing.Point(3, 4);
+            this.rdoFather.Name = "rdoFather";
+            this.rdoFather.Size = new System.Drawing.Size(35, 16);
+            this.rdoFather.TabIndex = 16;
+            this.rdoFather.TabStop = true;
+            this.rdoFather.Text = "부";
+            this.rdoFather.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(644, 53);
+            this.label8.Location = new System.Drawing.Point(546, 116);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(82, 13);
             this.label8.TabIndex = 96;
             this.label8.Text = "보호자 관계";
             // 
-            // maskedTextBox2
+            // txtGuardianContact
             // 
-            this.maskedTextBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.maskedTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.maskedTextBox2.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(445, 76);
-            this.maskedTextBox2.Mask = "000-9000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(132, 15);
-            this.maskedTextBox2.TabIndex = 95;
+            this.txtGuardianContact.BackColor = System.Drawing.SystemColors.Control;
+            this.txtGuardianContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGuardianContact.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtGuardianContact.Location = new System.Drawing.Point(549, 76);
+            this.txtGuardianContact.Mask = "000-9000-0000";
+            this.txtGuardianContact.Name = "txtGuardianContact";
+            this.txtGuardianContact.Size = new System.Drawing.Size(96, 15);
+            this.txtGuardianContact.TabIndex = 95;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(442, 53);
+            this.label4.Location = new System.Drawing.Point(546, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 13);
             this.label4.TabIndex = 94;
             this.label4.Text = "보호자 연락처";
             // 
-            // maskedTextBox1
+            // txtStudentContact
             // 
-            this.maskedTextBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.maskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.maskedTextBox1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(240, 76);
-            this.maskedTextBox1.Mask = "000-9000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(132, 15);
-            this.maskedTextBox1.TabIndex = 93;
+            this.txtStudentContact.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStudentContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStudentContact.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtStudentContact.Location = new System.Drawing.Point(379, 76);
+            this.txtStudentContact.Mask = "000-9000-0000";
+            this.txtStudentContact.Name = "txtStudentContact";
+            this.txtStudentContact.Size = new System.Drawing.Size(95, 15);
+            this.txtStudentContact.TabIndex = 93;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(237, 53);
+            this.label7.Location = new System.Drawing.Point(376, 53);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 13);
             this.label7.TabIndex = 92;
@@ -383,19 +388,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(237, 116);
+            this.label3.Location = new System.Drawing.Point(185, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 88;
             this.label3.Text = "학교";
             // 
-            // textBox3
+            // txtSchool
             // 
-            this.textBox3.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox3.Location = new System.Drawing.Point(240, 132);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(132, 22);
-            this.textBox3.TabIndex = 89;
+            this.txtSchool.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtSchool.Location = new System.Drawing.Point(188, 132);
+            this.txtSchool.Name = "txtSchool";
+            this.txtSchool.Size = new System.Drawing.Size(132, 22);
+            this.txtSchool.TabIndex = 89;
             // 
             // label2
             // 
@@ -407,19 +412,47 @@
             this.label2.TabIndex = 86;
             this.label2.Text = "나이";
             // 
-            // textBox2
+            // txtAge
             // 
-            this.textBox2.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(32, 132);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 22);
-            this.textBox2.TabIndex = 87;
+            this.txtAge.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtAge.Location = new System.Drawing.Point(32, 132);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(89, 22);
+            this.txtAge.TabIndex = 87;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(185, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 84;
+            this.label5.Text = "이름";
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtName.Location = new System.Drawing.Point(188, 69);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(132, 22);
+            this.txtName.TabIndex = 85;
+            // 
+            // lblGuardianRerationship
+            // 
+            this.lblGuardianRerationship.AutoSize = true;
+            this.lblGuardianRerationship.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblGuardianRerationship.Location = new System.Drawing.Point(651, 76);
+            this.lblGuardianRerationship.Name = "lblGuardianRerationship";
+            this.lblGuardianRerationship.Size = new System.Drawing.Size(49, 13);
+            this.lblGuardianRerationship.TabIndex = 106;
+            this.lblGuardianRerationship.Text = "보호자";
             // 
             // frmStudentDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 541);
+            this.ClientSize = new System.Drawing.Size(802, 528);
             this.Controls.Add(this.pnlEntire);
             this.Name = "frmStudentDetail";
             this.Text = "frmStudentDetail";
@@ -432,34 +465,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabContest.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlGuardianRerationship.ResumeLayout(false);
+            this.pnlGuardianRerationship.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlEntire;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtSchool;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.MaskedTextBox txtGuardianContact;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txtStudentContact;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.Panel pnlGuardianRerationship;
+        private System.Windows.Forms.TextBox txtOtherRalationship;
+        private System.Windows.Forms.RadioButton rdoOther;
+        private System.Windows.Forms.RadioButton rdoMother;
+        private System.Windows.Forms.RadioButton rdoFather;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabAttendance;
@@ -473,5 +502,11 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DateTimePicker dtpDate;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtStudentNo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label lblGuardianRerationship;
     }
 }

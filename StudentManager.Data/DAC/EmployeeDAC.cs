@@ -130,7 +130,7 @@ namespace StudentManager.Data.DAC
             }
         }
 
-        public EmployeeVO GetEmpInfoByPk(int emp_no)
+        public EmployeeVO GetEmployeeInfoByPk(int emp_no)
         {
             string sql = $@"SELECT 
                             EMP_NAME, EMP_CONTACT, POSITION, AUTHORITY, START_DATE, END_DATE, 

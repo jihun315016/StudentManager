@@ -1,16 +1,10 @@
-﻿using MySql.Data.MySqlClient;
-using StudentManager.Data.VO;
+﻿using StudentManager.Data.VO;
 using StudentManager.Service.Service;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
@@ -21,16 +15,18 @@ namespace StudentManager_Winforms
         {
             InitializeComponent();            
 
-            EmployeeService empService = new EmployeeService();
+            EmployeeService empService = new EmployeeService();          
 
             // 콤보 박스 초기화
             List<string> list = empService.GetPosition();
+            cboPosition.Items.AddRange(new string[] { "원장", "강사", "행정" });
+
             foreach (string item in list)
             {
-                if (!item.Equals("기타"))
+                if (!item.Equals("기타") && !item.Equals("원장") &&!item.Equals("강사") && !item.Equals("행정"))
                     cboPosition.Items.Add(item);
             }    
-            cboPosition.Items.Add("기타");            
+            cboPosition.Items.Add("기타");
 
             string[] authoritys = { "1", "2", "3" };
             cboAuthority.Items.AddRange(authoritys);
@@ -39,36 +35,37 @@ namespace StudentManager_Winforms
             txtEmpNo.Text = emp_no.ToString();
             txtEmpNo.ReadOnly = true;
 
-            EmployeeVO employee = empService.GetEmpInfoByPk(emp_no);
+            EmployeeVO employeeVO = empService.GetEmpInfoByPk(emp_no);
 
-            txtName.Text = employee.Emp_Name;
-            txtContact.Text = employee.Emp_Contact;
-            ccTxtEmail.FrontEmail = employee.Email.Split('@')[0];
-            ccTxtEmail.RearEmail = employee.Email.Split('@')[1];
-            cboPosition.Text = employee.Position;
-            cboAuthority.Text = employee.Authority.ToString();            
-            ccTxtSpecialNote.Text = employee.SpecialNote;
+            lblEmployeeInfo.Text = $"[{employeeVO.Position}] {employeeVO.Emp_Name}";
+            txtName.Text = employeeVO.Emp_Name;
+            txtContact.Text = employeeVO.Emp_Contact;
+            ccTxtEmail.FrontEmail = employeeVO.Email.Split('@')[0];
+            ccTxtEmail.RearEmail = employeeVO.Email.Split('@')[1];
+            cboPosition.Text = employeeVO.Position;
+            cboAuthority.Text = employeeVO.Authority.ToString();            
+            ccTxtSpecialNote.Text = employeeVO.SpecialNote;
             ccTxtSpecialNote.SetTextBoxPlaceHolder();
 
             // 이미지가 있다면 불러오기
-            if(employee.Image != null)
+            if(employeeVO.Image != null)
             {
                 ptbEmployee.Tag = null;
-                MemoryStream mStream = new MemoryStream(employee.Image);
+                MemoryStream mStream = new MemoryStream(employeeVO.Image);
                 ptbEmployee.Image = Image.FromStream(mStream);
             }
 
             // 근무중인 직원과 퇴사한 직원 구분
-            if (employee.EndDate.Year > 1)
+            if (employeeVO.EndDate.Year > 1)
             {
                 lblDate.Text = "퇴사 날짜";
-                dtpDate.Value = employee.EndDate;
+                dtpDate.Value = employeeVO.EndDate;
                 btnEditInfo.Tag = false;
             }
             else
             {
                 lblDate.Text = "고용 날짜";
-                dtpDate.Value = employee.StartDate;
+                dtpDate.Value = employeeVO.StartDate;
                 btnEditInfo.Tag = true;
             }
 
