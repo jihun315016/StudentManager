@@ -15,6 +15,7 @@ namespace StudentManager_Winforms
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToDeleteRows = false;
             dgv.RowHeadersWidth = 10;
+            dgv.ReadOnly = true;
         }
 
         public static void SetDataGridViewColumn_TextBox
@@ -23,6 +24,7 @@ namespace StudentManager_Winforms
                 string headerText,
                 string propertyName,
                 int colWidth = 100,
+                bool isVisible = true,
                 DataGridViewContentAlignment align = DataGridViewContentAlignment.MiddleCenter
             )
         {
@@ -33,6 +35,7 @@ namespace StudentManager_Winforms
 
             col.Width = colWidth;
             col.HeaderCell.Style.Alignment = align;
+            col.Visible = isVisible;
 
             dgv.Columns.Add(col);
         }

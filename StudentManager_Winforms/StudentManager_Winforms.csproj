@@ -33,7 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\StudentManager.Data\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -111,10 +116,10 @@
     <Compile Include="Employee\frmEmployee.Designer.cs">
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEmployDetail.cs">
+    <Compile Include="Employee\frmEmployDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEmployDetail.Designer.cs">
+    <Compile Include="Employee\frmEmployDetail.Designer.cs">
       <DependentUpon>frmEmployDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\DataGridViewUtil.cs" />
@@ -192,7 +197,7 @@
     <EmbeddedResource Include="Employee\frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEmployDetail.resx">
+    <EmbeddedResource Include="Employee\frmEmployDetail.resx">
       <DependentUpon>frmEmployDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmFindPw.resx">
@@ -240,6 +245,10 @@
     <None Include="images\man.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\StudentManager.Data\StudentManager.Data.csproj">
+      <Project>{13F5F55F-7F91-4C65-80D7-0A19B34E54A9}</Project>
+      <Name>StudentManager.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StudentManager.Service\StudentManager.Service.csproj">
       <Project>{4e9ac26c-5e85-4811-873d-d5d154900141}</Project>
       <Name>StudentManager.Service</Name>

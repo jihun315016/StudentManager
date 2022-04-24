@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.ucEmail = new StudentManager_Winforms.Controls.ucInputEmail();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtOtherPosition = new System.Windows.Forms.TextBox();
             this.cboAuthority = new System.Windows.Forms.ComboBox();
@@ -51,8 +53,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
             this.ccTxtEmpNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
-            this.ucEmail = new StudentManager_Winforms.Controls.ucInputEmail();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
@@ -83,6 +83,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(310, 421);
             this.panel4.TabIndex = 4;
+            // 
+            // ucEmail
+            // 
+            this.ucEmail.Location = new System.Drawing.Point(15, 221);
+            this.ucEmail.Name = "ucEmail";
+            this.ucEmail.Size = new System.Drawing.Size(254, 22);
+            this.ucEmail.TabIndex = 101;
+            // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(15, 306);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 77);
+            this.ccTxtSpecialNote.TabIndex = 100;
             // 
             // btnInsert
             // 
@@ -262,6 +278,7 @@
             this.dgvList.RowTemplate.Height = 23;
             this.dgvList.Size = new System.Drawing.Size(512, 347);
             this.dgvList.TabIndex = 94;
+            this.dgvList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentDoubleClick);
             // 
             // btnOpenInsert
             // 
@@ -288,11 +305,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 22, 22, 22, 52, 252);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 24, 13, 10, 36, 458);
             this.ucDateFilter.Location = new System.Drawing.Point(118, 390);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 22, 22, 22, 52, 252);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 24, 13, 10, 36, 458);
             this.ucDateFilter.TabIndex = 100;
             // 
             // ccTxtEmpNo
@@ -302,22 +319,6 @@
             this.ccTxtEmpNo.PlaceHolder = "직원 번호 검색";
             this.ccTxtEmpNo.Size = new System.Drawing.Size(95, 21);
             this.ccTxtEmpNo.TabIndex = 99;
-            // 
-            // ucEmail
-            // 
-            this.ucEmail.Location = new System.Drawing.Point(15, 221);
-            this.ucEmail.Name = "ucEmail";
-            this.ucEmail.Size = new System.Drawing.Size(254, 22);
-            this.ucEmail.TabIndex = 101;
-            // 
-            // ccTxtSpecialNote
-            // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(15, 306);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 77);
-            this.ccTxtSpecialNote.TabIndex = 100;
             // 
             // frmEmployee
             // 

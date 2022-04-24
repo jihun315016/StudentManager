@@ -34,22 +34,23 @@ namespace StudentManager_Winforms
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "직무", "POSITION", 80);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "권한", "AUTHORITY", 60);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이메일", "EMAIL", 160);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사 날짜", "END_DATE", isVisible: false);
 
-            EmployeeService employee = new EmployeeService();
-            dgvList.DataSource = employee.GetAllEmployeeInfo();
+            EmployeeService empService = new EmployeeService();
+            dgvList.DataSource = empService.GetAllEmployeeInfo();
 
             this.Width = 545;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            EmployeeService employee = new EmployeeService();
+            EmployeeService empService = new EmployeeService();
 
-            string position = employee.NullCheck(cboPosition.SelectedItem);
+            string position = empService.NullCheck(cboPosition.SelectedItem);
             if (cboPosition.SelectedIndex == cboPosition.Items.Count - 1)
                 position = txtOtherPosition.Text;
 
-            string authority = employee.NullCheck(cboAuthority.SelectedItem);
+            string authority = empService.NullCheck(cboAuthority.SelectedItem);
             byte[] imageByteArr;
 
             // ptbEmployee.Tag는 이미지 경로가 저장되어 있을 것이고
@@ -67,10 +68,10 @@ namespace StudentManager_Winforms
                 imageByteArr = null;
             }            
 
-            string[] txtTexts = { txtName.Text, txtContact.Text, ucEmail.email, position, authority };
-            string[] txtNames = { "이름", "연락처", "이메일", "직무", "권한" };
+            string[] textBoxValue = { txtName.Text, txtContact.Text, ucEmail.Email, position, authority };
+            string[] textBoxName = { "이름", "연락처", "이메일", "직무", "권한" };
 
-            StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtTexts, txtNames);
+            StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(textBoxValue, textBoxName);
             if (sb.Length > 0)
             {
                 MessageBox.Show($"{sb.ToString()}를 입력해주세요.");
@@ -78,12 +79,15 @@ namespace StudentManager_Winforms
             }
 
             if (txtContact.Text.Length < 13)
+            {
                 MessageBox.Show("올바른 연락처를 입력해주세요.");
+                return;
+            }
 
-            bool result = employee.InsertEmployee
+            bool result = empService.InsertEmployee
                 (
                     txtName.Text, txtContact.Text, position, int.Parse(authority),
-                    dtpStartDate.Value, imageByteArr, ucEmail.email, ccTxtSpecialNote.Text
+                    dtpStartDate.Value, imageByteArr, ucEmail.Email, ccTxtSpecialNote.Text
                 );
 
             if (result)
@@ -137,6 +141,14 @@ namespace StudentManager_Winforms
                 btnOpenInsert.Text = ">>";
                 this.Width = 545;
             }
+        }
+
+        private void dgvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {           
+            int emp_no = int.Parse(dgvList["EMP_NO", e.RowIndex].Value.ToString());
+
+            frmEmployDetail frm = new frmEmployDetail(emp_no);
+            frm.ShowDialog();
         }
     }
 }

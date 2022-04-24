@@ -1,4 +1,5 @@
 ﻿using StudentManager.Data.DAC;
+using StudentManager.Data.VO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -31,11 +32,36 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public List<string> GetEmpInfo(int emp_no, string[] col)
+        public bool UpdateEmployee
+            (
+                int empNo, string name, string contact, string email, string position, int authority,
+                DateTime startDate, string specialNote, string imagePath
+            )
         {
             EmployeeDAC dac = new EmployeeDAC();
-            List<string> list = dac.GetEmpInfo(emp_no, col);
+            bool result = dac.UpdateEmployee(empNo, name, contact, email, position, authority, startDate, specialNote, imagePath);            
             dac.Dispose();
+
+            return result;
+        }
+
+        public EmployeeVO GetEmpInfoByPk(int emp_no)
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            EmployeeVO emploeyee = dac.GetEmpInfoByPk(emp_no);
+            dac.Dispose();
+            return emploeyee;
+        }
+
+        public List<string> GetPosition()
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            DataTable dt = dac.GetPosition();
+            List<string> list = new List<string>();
+
+            foreach (DataRow dr in dt.Rows)
+                list.Add(dr["POSITION"].ToString());
+
             return list;
         }
 

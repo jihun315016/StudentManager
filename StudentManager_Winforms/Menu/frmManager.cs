@@ -1,4 +1,5 @@
-﻿using StudentManager.Service.Service;
+﻿using StudentManager.Data.VO;
+using StudentManager.Service.Service;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -17,15 +18,11 @@ namespace StudentManager_Winforms
             lblUserInfo.Text = $"[직무] 디버그";
             return;
 #endif
-            string[] column = { "EMP_NAME", "POSITION" };
-            EmployeeService user = new EmployeeService();
+            EmployeeService employee = new EmployeeService();
 
-            List<string> list = user.GetEmpInfo(LoginSesstion.Emp_no, column);
+            EmployeeVO user = employee.GetEmpInfoByPk(LoginSesstion.Emp_no);
 
-            string name = list[0];
-            string position = list[1];
-
-            lblUserInfo.Text = $"[{position}] {name}";
+            lblUserInfo.Text = $"[{user.Position}] {user.Emp_Name}";
         }
        
         private void btnStudent_Click(object sender, EventArgs e)

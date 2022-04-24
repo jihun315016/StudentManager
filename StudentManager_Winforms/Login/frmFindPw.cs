@@ -1,4 +1,5 @@
-﻿using StudentManager.Service.Service;
+﻿using StudentManager.Data.VO;
+using StudentManager.Service.Service;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -29,33 +30,30 @@ namespace StudentManager_Winforms
         {
             lblMessage.Text = string.Empty;
 
-            string[] txtTexts = { txtName.Text, txtEmp_no.Text, ucInputEmail.email};
-            string[] txtNames = { "이름", "사번", "이메일" };
+            string[] textBoxValue = { txtName.Text, txtEmp_no.Text, ucInputEmail.Email};
+            string[] textBoxName = { "이름", "사번", "이메일" };
 
-            StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(txtTexts, txtNames);
+            StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(textBoxValue, textBoxName);
             if (sb.Length > 0)
             {
                 MessageBox.Show($"{sb.ToString()}를 입력해주세요.");
                 return;
             }            
 
-            string[] column = { "EMP_NAME", "EMAIL" };
-            int emp_no = Convert.ToInt32(txtEmp_no.Text);
+            int emp_no = int.Parse(txtEmp_no.Text);
 
-            EmployeeService user = new EmployeeService();
-            List<string> list = user.GetEmpInfo(emp_no, column);            
+            EmployeeService employee = new EmployeeService();
+            EmployeeVO user = employee.GetEmpInfoByPk(emp_no);            
 
-            if (list != null)
+            if (user != null)
             {
                 LoginService login = new LoginService();
-
-                string name = list[0];
-                string email = list[1];
+                
                 string newPassword = login.MakePassword();
 
-                if (txtName.Text == name && ucInputEmail.email == email)
+                if (txtName.Text == user.Emp_Name && ucInputEmail.Email == user.Email)
                 {
-                    if (login.SendEmail(name, ucInputEmail.email, newPassword) && login.ChangePassword(emp_no, newPassword))
+                    if (login.SendEmail(user.Emp_Name, ucInputEmail.Email, newPassword) && login.ChangePassword(emp_no, newPassword))
                     {
                         lblMessage.Text = "임시 비밀번호가 발송되었습니다.";
                         lblMessage.ForeColor = Color.SeaGreen;

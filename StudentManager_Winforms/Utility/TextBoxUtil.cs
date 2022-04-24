@@ -9,17 +9,17 @@ namespace StudentManager_Winforms
 {
     public class TextBoxUtil
     {
-        public static StringBuilder IsEmptyOrWhiteSpaceArr(string[] txtTexts, string[] txtNames)
+        public static StringBuilder IsEmptyOrWhiteSpaceArr(string[] textBoxValue, string[] textBoxName)
         {
             StringBuilder sb = new StringBuilder();
 
             try
             {
-                for (int i = 0; i < txtTexts.Length; i++)
+                for (int i = 0; i < textBoxValue.Length; i++)
                 {
-                    if (string.IsNullOrWhiteSpace(txtTexts[i].Trim()))
+                    if (string.IsNullOrWhiteSpace(textBoxValue[i].Trim()))
                     {
-                        sb.Append(txtNames[i]);
+                        sb.Append(textBoxName[i]);
                         break;
                     }
                 }
@@ -31,6 +31,12 @@ namespace StudentManager_Winforms
                 sb.Append(err.Message);
                 return sb;
             }
+        }
+
+        public static void SetReadOnly(TextBox[] txts, bool setting)
+        {
+            foreach (TextBox txt in txts)
+                txt.ReadOnly = setting;
         }
     }
 }
