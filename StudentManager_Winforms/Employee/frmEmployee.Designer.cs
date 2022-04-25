@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtOtherPosition = new System.Windows.Forms.TextBox();
@@ -50,14 +51,18 @@
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.chkResignation = new System.Windows.Forms.CheckBox();
+            this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmResignation = new System.Windows.Forms.ToolStripMenuItem();
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
             this.ccTxtEmpNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.ucEmail = new StudentManager_Winforms.Controls.ucInputEmail();
             this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.tsmReJoin = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.panel2.SuspendLayout();
+            this.cmsSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -264,6 +269,7 @@
             this.dgvList.Size = new System.Drawing.Size(512, 347);
             this.dgvList.TabIndex = 94;
             this.dgvList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentDoubleClick);
+            this.dgvList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseClick);
             // 
             // btnOpenInsert
             // 
@@ -300,13 +306,27 @@
             this.chkResignation.UseVisualStyleBackColor = true;
             this.chkResignation.CheckedChanged += new System.EventHandler(this.chkResignation_CheckedChanged);
             // 
+            // cmsSetting
+            // 
+            this.cmsSetting.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmResignation,
+            this.tsmReJoin});
+            this.cmsSetting.Name = "cmsSetting";
+            this.cmsSetting.Size = new System.Drawing.Size(181, 70);
+            // 
+            // tsmResignation
+            // 
+            this.tsmResignation.Name = "tsmResignation";
+            this.tsmResignation.Size = new System.Drawing.Size(180, 22);
+            this.tsmResignation.Text = "퇴사";
+            // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 25, 14, 43, 32, 661);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 25, 21, 36, 52, 19);
             this.ucDateFilter.Location = new System.Drawing.Point(118, 390);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 25, 14, 43, 32, 661);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 25, 21, 36, 52, 19);
             this.ucDateFilter.TabIndex = 100;
             // 
             // ccTxtEmpNo
@@ -335,6 +355,12 @@
             this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 77);
             this.ccTxtSpecialNote.TabIndex = 100;
             // 
+            // tsmReJoin
+            // 
+            this.tsmReJoin.Name = "tsmReJoin";
+            this.tsmReJoin.Size = new System.Drawing.Size(180, 22);
+            this.tsmReJoin.Text = "재입사";
+            // 
             // frmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -351,6 +377,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.cmsSetting.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -382,5 +409,8 @@
         private Controls.ucInputEmail ucEmail;
         private Controls.ucDateFilter ucDateFilter;
         private System.Windows.Forms.CheckBox chkResignation;
+        private System.Windows.Forms.ContextMenuStrip cmsSetting;
+        private System.Windows.Forms.ToolStripMenuItem tsmResignation;
+        private System.Windows.Forms.ToolStripMenuItem tsmReJoin;
     }
 }

@@ -136,7 +136,6 @@
     <Compile Include="Login\frmFindPw.Designer.cs">
       <DependentUpon>frmFindPw.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility\LoginSesstion.cs" />
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -70,14 +70,12 @@ C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\b
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\Ubiety.Dns.Core.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\System.Memory.dll
-C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\System.Buffers.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\K4os.Compression.LZ4.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\K4os.Hash.xxHash.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\StudentManager.Data.pdb
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\MySql.Data.xml
-C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\admin\Desktop\proj\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\StudentManager_Winforms.exe.config
 C:\Users\admin\Desktop\proj\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\StudentManager_Winforms.exe
 C:\Users\admin\Desktop\proj\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\StudentManager_Winforms.pdb
@@ -272,3 +270,5 @@ C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_W
 C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.exe
 C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.pdb
 C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmChangePassword.resources
+C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.exe.config
+C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmChangePassword.resources

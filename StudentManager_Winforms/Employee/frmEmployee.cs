@@ -1,4 +1,5 @@
-﻿using StudentManager.Service.Service;
+﻿using StudentManager.Data.VO;
+using StudentManager.Service.Service;
 using System;
 using System.Drawing;
 using System.IO;
@@ -9,16 +10,20 @@ namespace StudentManager_Winforms
 {
     public partial class frmEmployee : Form
     {
+        EmployeeVO user;
+
         public frmEmployee()
         {
             InitializeComponent();
-
+            
             ccTxtEmpNo.SetTextBoxPlaceHolder();
             ccTxtSpecialNote.SetTextBoxPlaceHolder();
         }
 
         private void frmEmployee_Load(object sender, EventArgs e)
         {
+            user = (EmployeeVO)this.Tag;
+
             txtOtherPosition.Visible = false;
             string[] positions = { "강사", "행정", "기타" };
             cboPosition.Items.AddRange(positions);
@@ -84,10 +89,17 @@ namespace StudentManager_Winforms
                 return;
             }
 
+            // 특이사항 검사
+            string specialNote = string.Empty;
+            if (!ccTxtSpecialNote.Text.Equals(ccTxtSpecialNote.PlaceHolder))
+            {
+                specialNote = ccTxtSpecialNote.Text;
+            }
+
             bool result = empService.InsertEmployee
                 (
                     txtName.Text, txtContact.Text, position, int.Parse(authority),
-                    dtpStartDate.Value, imageByteArr, ucEmail.Email, ccTxtSpecialNote.Text
+                    dtpStartDate.Value, imageByteArr, ucEmail.Email, specialNote
                 );
 
             if (result)
@@ -152,21 +164,37 @@ namespace StudentManager_Winforms
         {           
             int emp_no = int.Parse(dgvList["EMP_NO", e.RowIndex].Value.ToString());
 
-            frmEmployDetail frm = new frmEmployDetail(emp_no);
+            frmEmployDetail frm = new frmEmployDetail(user, emp_no);
             frm.ShowDialog();
         }
 
         private void chkResignation_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkResignation.Checked)
+            EmployeeService empService = new EmployeeService();
+
+            if (chkResignation.Checked)            
+                dgvList.DataSource = empService.GetAllEmployeeInfo(true);            
+            else   
+                dgvList.DataSource = empService.GetAllEmployeeInfo(false);            
+        }
+
+        private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (user.Authority == 1 && e.Button == MouseButtons.Right)
             {
-                EmployeeService empService = new EmployeeService();
-                dgvList.DataSource = empService.GetAllEmployeeInfo(true);
-            }
-            else
-            {
-                EmployeeService empService = new EmployeeService();
-                dgvList.DataSource = empService.GetAllEmployeeInfo(false);
+                dgvList.CurrentCell = dgvList[e.ColumnIndex, e.RowIndex];
+                cmsSetting.Show(Cursor.Position);
+
+                if (chkResignation.Checked)
+                {
+                    tsmReJoin.Visible = true;
+                    tsmResignation.Visible = false;
+                }
+                else
+                {
+                    tsmReJoin.Visible = false;
+                    tsmResignation.Visible = true;
+                }
             }
         }
     }

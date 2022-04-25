@@ -36,8 +36,8 @@
             this.btnCourse = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblUserInfo = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnMyPage = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -134,34 +134,34 @@
             this.lblUserInfo.Text = "[직무] 강지훈";
             this.lblUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(979, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 27);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "종료";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnExit.Location = new System.Drawing.Point(903, 12);
+            this.btnExit.Location = new System.Drawing.Point(979, 12);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(70, 27);
-            this.btnExit.TabIndex = 21;
-            this.btnExit.Text = "내 정보";
+            this.btnExit.Size = new System.Drawing.Size(65, 27);
+            this.btnExit.TabIndex = 20;
+            this.btnExit.Text = "종료";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnMyPage
+            // 
+            this.btnMyPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMyPage.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnMyPage.Location = new System.Drawing.Point(903, 12);
+            this.btnMyPage.Name = "btnMyPage";
+            this.btnMyPage.Size = new System.Drawing.Size(70, 27);
+            this.btnMyPage.TabIndex = 21;
+            this.btnMyPage.Text = "내 정보";
+            this.btnMyPage.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lblUserInfo);
-            this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.btnExit);
+            this.panel2.Controls.Add(this.btnMyPage);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
@@ -196,8 +196,8 @@
         private System.Windows.Forms.Button btnCourse;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblUserInfo;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnMyPage;
         private System.Windows.Forms.Panel panel2;
     }
 }

@@ -14,11 +14,6 @@ namespace StudentManager_Winforms
         private void frmLogin_Load(object sender, EventArgs e)
         {
             frmLogin_Resize(this, null);
-
-#if DEBUG
-            txtId.Text = "10001";
-            txtPw.Text = "1234";
-#endif
         }
 
         private void frmLogin_Resize(object sender, EventArgs e)
@@ -33,9 +28,9 @@ namespace StudentManager_Winforms
 
             if (login.LoginCheck(txtId.Text, txtPw.Text))
             {
-                LoginSesstion.Emp_no = Convert.ToInt32(txtId.Text);
+                int empNo = Convert.ToInt32(txtId.Text);
 
-                frmManager frm = new frmManager();
+                frmManager frm = new frmManager(empNo);
                 frm.ShowDialog();
                 this.Close();
             }

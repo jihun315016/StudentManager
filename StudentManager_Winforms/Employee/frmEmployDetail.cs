@@ -11,36 +11,44 @@ namespace StudentManager_Winforms
 {
     public partial class frmEmployDetail : Form
     {
-        public frmEmployDetail(int emp_no)
+        EmployeeVO user;
+
+        public frmEmployDetail(EmployeeVO user, int empNo)
         {
             InitializeComponent();            
 
+            this.user = user;
+            txtEmpNo.Text = empNo.ToString();
+        }
+        private void frmEmployDetail_Load(object sender, EventArgs e)
+        {
             EmployeeService empService = new EmployeeService();
+            int empNo = int.Parse(txtEmpNo.Text);
 
             // 지금 보는 직원이 본인이 아니라면
-            if (!emp_no.Equals(LoginSesstion.Emp_no))
+            if (!empNo.Equals(user.Emp_no))
                 btnChangePw.Visible = false;
-            
-            
+
+
             // 콤보 박스 초기화
             List<string> list = empService.GetPosition();
             cboPosition.Items.AddRange(new string[] { "원장", "강사", "행정" });
 
             foreach (string item in list)
             {
-                if (!item.Equals("기타") && !item.Equals("원장") &&!item.Equals("강사") && !item.Equals("행정"))
+                if (!item.Equals("기타") && !item.Equals("원장") && !item.Equals("강사") && !item.Equals("행정"))
                     cboPosition.Items.Add(item);
-            }    
+            }
             cboPosition.Items.Add("기타");
 
             string[] authoritys = { "1", "2", "3" };
             cboAuthority.Items.AddRange(authoritys);
 
             // 초기 데이터 설정
-            txtEmpNo.Text = emp_no.ToString();
+            txtEmpNo.Text = empNo.ToString();
             txtEmpNo.ReadOnly = true;
 
-            EmployeeVO employeeVO = empService.GetEmpInfoByPk(emp_no);
+            EmployeeVO employeeVO = empService.GetEmpInfoByPk(empNo);
 
             lblEmployeeInfo.Text = $"[{employeeVO.Position}] {employeeVO.Emp_Name}";
             txtName.Text = employeeVO.Emp_Name;
@@ -48,12 +56,12 @@ namespace StudentManager_Winforms
             ccTxtEmail.FrontEmail = employeeVO.Email.Split('@')[0];
             ccTxtEmail.RearEmail = employeeVO.Email.Split('@')[1];
             cboPosition.Text = employeeVO.Position;
-            cboAuthority.Text = employeeVO.Authority.ToString();            
+            cboAuthority.Text = employeeVO.Authority.ToString();
             ccTxtSpecialNote.Text = employeeVO.SpecialNote;
             ccTxtSpecialNote.SetTextBoxPlaceHolder();
 
             // 이미지가 있다면 불러오기
-            if(employeeVO.Image != null)
+            if (employeeVO.Image != null)
             {
                 ptbEmployee.Tag = null;
                 MemoryStream mStream = new MemoryStream(employeeVO.Image);
@@ -73,8 +81,8 @@ namespace StudentManager_Winforms
                 dtpDate.Value = employeeVO.StartDate;
                 btnEditInfo.Tag = true;
             }
-            
-            txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled = 
+
+            txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled =
                 cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = false;
             txtPosition.Visible = btnUpload.Visible = false;
         }
@@ -120,15 +128,19 @@ namespace StudentManager_Winforms
                     MessageBox.Show("직무를 입력해주세요.");
                     return;
                 }
-                
 
+                string specialNote = string.Empty;
+                if (!ccTxtSpecialNote.Text.Equals(ccTxtSpecialNote.PlaceHolder))
+                {
+                    specialNote = ccTxtSpecialNote.Text;
+                }
 
                 // 수정 정보 업데이트
                 EmployeeService empService = new EmployeeService();
                 bool result = empService.UpdateEmployeeInfo
                     (
                         int.Parse(txtEmpNo.Text), txtName.Text, txtContact.Text, ccTxtEmail.Email, position,
-                        int.Parse(cboAuthority.Text), dtpDate.Value, ccTxtSpecialNote.Text, (string)ptbEmployee.Tag
+                        int.Parse(cboAuthority.Text), dtpDate.Value, specialNote, (string)ptbEmployee.Tag
                     );
 
                 if (result)
@@ -141,15 +153,13 @@ namespace StudentManager_Winforms
                     return;
                 }
 
-                //TextBoxUtil.SetReadOnly(new TextBox[] { txtName, ccTxtSpecialNote }, true);
                 txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled = 
                     cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = false;
                 txtPosition.Visible = btnUpload.Visible = false;
                 btnEditInfo.Text = "수정";
             }
-            else
+            else // 수정 버튼 상태
             {
-                //TextBoxUtil.SetReadOnly(new TextBox[] { txtName, ccTxtSpecialNote }, false);                
                 txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled = 
                     cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = true;
                 btnUpload.Visible = true;

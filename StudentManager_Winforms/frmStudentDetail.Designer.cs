@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.btnEditInfo = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblStudentInfo = new System.Windows.Forms.Label();
             this.pnlEntire = new System.Windows.Forms.Panel();
+            this.pnlEndReason = new System.Windows.Forms.Panel();
+            this.txtEndReason = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblGuardianRerationship = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtStudentNo = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtSpecialNote = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAttendance = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
@@ -47,10 +49,11 @@
             this.tabContest = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
+            this.rdoNone = new System.Windows.Forms.RadioButton();
             this.txtOtherRalationship = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lable1 = new System.Windows.Forms.Label();
             this.rdoFather = new System.Windows.Forms.RadioButton();
             this.rdoOther = new System.Windows.Forms.RadioButton();
             this.rdoMother = new System.Windows.Forms.RadioButton();
@@ -64,7 +67,9 @@
             this.txtAge = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.pnlEntire.SuspendLayout();
+            this.pnlEndReason.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabAttendance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -86,26 +91,27 @@
             this.btnEditInfo.UseVisualStyleBackColor = true;
             this.btnEditInfo.Click += new System.EventHandler(this.btnEditInfo_Click);
             // 
-            // label1
+            // lblStudentInfo
             // 
-            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 23);
-            this.label1.TabIndex = 63;
-            this.label1.Text = "[학생] 학생명";
+            this.lblStudentInfo.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblStudentInfo.Location = new System.Drawing.Point(3, 0);
+            this.lblStudentInfo.Name = "lblStudentInfo";
+            this.lblStudentInfo.Size = new System.Drawing.Size(161, 23);
+            this.lblStudentInfo.TabIndex = 63;
+            this.lblStudentInfo.Text = "[학생] 학생명";
             // 
             // pnlEntire
             // 
+            this.pnlEntire.Controls.Add(this.pnlEndReason);
+            this.pnlEntire.Controls.Add(this.ccTxtSpecialNote);
             this.pnlEntire.Controls.Add(this.lblGuardianRerationship);
             this.pnlEntire.Controls.Add(this.label9);
             this.pnlEntire.Controls.Add(this.txtStudentNo);
             this.pnlEntire.Controls.Add(this.dtpDate);
-            this.pnlEntire.Controls.Add(this.button1);
-            this.pnlEntire.Controls.Add(this.txtSpecialNote);
+            this.pnlEntire.Controls.Add(this.btnCancel);
             this.pnlEntire.Controls.Add(this.btnEditInfo);
             this.pnlEntire.Controls.Add(this.tabControl1);
-            this.pnlEntire.Controls.Add(this.label6);
+            this.pnlEntire.Controls.Add(this.lblDate);
             this.pnlEntire.Controls.Add(this.pnlGuardianRerationship);
             this.pnlEntire.Controls.Add(this.txtGuardianContact);
             this.pnlEntire.Controls.Add(this.label4);
@@ -115,13 +121,39 @@
             this.pnlEntire.Controls.Add(this.txtSchool);
             this.pnlEntire.Controls.Add(this.label2);
             this.pnlEntire.Controls.Add(this.txtAge);
-            this.pnlEntire.Controls.Add(this.label1);
+            this.pnlEntire.Controls.Add(this.lblStudentInfo);
             this.pnlEntire.Controls.Add(this.label5);
             this.pnlEntire.Controls.Add(this.txtName);
             this.pnlEntire.Location = new System.Drawing.Point(16, 18);
             this.pnlEntire.Name = "pnlEntire";
             this.pnlEntire.Size = new System.Drawing.Size(774, 501);
             this.pnlEntire.TabIndex = 2;
+            // 
+            // pnlEndReason
+            // 
+            this.pnlEndReason.Controls.Add(this.txtEndReason);
+            this.pnlEndReason.Controls.Add(this.label1);
+            this.pnlEndReason.Location = new System.Drawing.Point(549, 116);
+            this.pnlEndReason.Name = "pnlEndReason";
+            this.pnlEndReason.Size = new System.Drawing.Size(196, 92);
+            this.pnlEndReason.TabIndex = 108;
+            // 
+            // txtEndReason
+            // 
+            this.txtEndReason.Location = new System.Drawing.Point(6, 16);
+            this.txtEndReason.Name = "txtEndReason";
+            this.txtEndReason.Size = new System.Drawing.Size(187, 21);
+            this.txtEndReason.TabIndex = 110;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.TabIndex = 109;
+            this.label1.Text = "그만둔 사유";
             // 
             // lblGuardianRerationship
             // 
@@ -159,24 +191,16 @@
             this.dtpDate.Size = new System.Drawing.Size(95, 21);
             this.dtpDate.TabIndex = 103;
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(610, 473);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 102;
-            this.button1.Text = "취소";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // txtSpecialNote
-            // 
-            this.txtSpecialNote.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtSpecialNote.Location = new System.Drawing.Point(549, 229);
-            this.txtSpecialNote.Multiline = true;
-            this.txtSpecialNote.Name = "txtSpecialNote";
-            this.txtSpecialNote.Size = new System.Drawing.Size(217, 238);
-            this.txtSpecialNote.TabIndex = 101;
+            this.btnCancel.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCancel.Location = new System.Drawing.Point(610, 473);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 102;
+            this.btnCancel.Text = "취소";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // tabControl1
             // 
@@ -281,27 +305,40 @@
             this.dataGridView3.Size = new System.Drawing.Size(491, 209);
             this.dataGridView3.TabIndex = 106;
             // 
-            // label6
+            // lblDate
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(376, 116);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 98;
-            this.label6.Text = "등록일";
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblDate.Location = new System.Drawing.Point(376, 116);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(49, 13);
+            this.lblDate.TabIndex = 98;
+            this.lblDate.Text = "등록일";
             // 
             // pnlGuardianRerationship
             // 
+            this.pnlGuardianRerationship.Controls.Add(this.rdoNone);
             this.pnlGuardianRerationship.Controls.Add(this.txtOtherRalationship);
-            this.pnlGuardianRerationship.Controls.Add(this.label8);
+            this.pnlGuardianRerationship.Controls.Add(this.lable1);
             this.pnlGuardianRerationship.Controls.Add(this.rdoFather);
             this.pnlGuardianRerationship.Controls.Add(this.rdoOther);
             this.pnlGuardianRerationship.Controls.Add(this.rdoMother);
             this.pnlGuardianRerationship.Location = new System.Drawing.Point(549, 116);
             this.pnlGuardianRerationship.Name = "pnlGuardianRerationship";
-            this.pnlGuardianRerationship.Size = new System.Drawing.Size(136, 92);
+            this.pnlGuardianRerationship.Size = new System.Drawing.Size(161, 92);
             this.pnlGuardianRerationship.TabIndex = 97;
+            // 
+            // rdoNone
+            // 
+            this.rdoNone.AutoSize = true;
+            this.rdoNone.Location = new System.Drawing.Point(6, 43);
+            this.rdoNone.Name = "rdoNone";
+            this.rdoNone.Size = new System.Drawing.Size(87, 16);
+            this.rdoNone.TabIndex = 97;
+            this.rdoNone.TabStop = true;
+            this.rdoNone.Text = "보호자 없음";
+            this.rdoNone.UseVisualStyleBackColor = true;
+            this.rdoNone.CheckedChanged += new System.EventHandler(this.rdo_CheckedChanged);
             // 
             // txtOtherRalationship
             // 
@@ -310,15 +347,15 @@
             this.txtOtherRalationship.Size = new System.Drawing.Size(74, 21);
             this.txtOtherRalationship.TabIndex = 19;
             // 
-            // label8
+            // lable1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(3, 5);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 13);
-            this.label8.TabIndex = 96;
-            this.label8.Text = "보호자 관계";
+            this.lable1.AutoSize = true;
+            this.lable1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lable1.Location = new System.Drawing.Point(3, 5);
+            this.lable1.Name = "lable1";
+            this.lable1.Size = new System.Drawing.Size(82, 13);
+            this.lable1.TabIndex = 96;
+            this.lable1.Text = "보호자 관계";
             // 
             // rdoFather
             // 
@@ -341,11 +378,12 @@
             this.rdoOther.TabStop = true;
             this.rdoOther.Text = "기타";
             this.rdoOther.UseVisualStyleBackColor = true;
+            this.rdoOther.CheckedChanged += new System.EventHandler(this.rdo_CheckedChanged);
             // 
             // rdoMother
             // 
             this.rdoMother.AutoSize = true;
-            this.rdoMother.Location = new System.Drawing.Point(6, 43);
+            this.rdoMother.Location = new System.Drawing.Point(84, 21);
             this.rdoMother.Name = "rdoMother";
             this.rdoMother.Size = new System.Drawing.Size(35, 16);
             this.rdoMother.TabIndex = 17;
@@ -410,6 +448,8 @@
             this.txtSchool.Name = "txtSchool";
             this.txtSchool.Size = new System.Drawing.Size(132, 22);
             this.txtSchool.TabIndex = 89;
+            this.txtSchool.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSchool_MouseClick);
+            this.txtSchool.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSchool_KeyPress);
             // 
             // label2
             // 
@@ -447,6 +487,15 @@
             this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 85;
             // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(549, 223);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(217, 215);
+            this.ccTxtSpecialNote.TabIndex = 107;
+            // 
             // frmStudentDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -455,8 +504,11 @@
             this.Controls.Add(this.pnlEntire);
             this.Name = "frmStudentDetail";
             this.Text = "frmStudentDetail";
+            this.Load += new System.EventHandler(this.frmStudentDetail_Load);
             this.pnlEntire.ResumeLayout(false);
             this.pnlEntire.PerformLayout();
+            this.pnlEndReason.ResumeLayout(false);
+            this.pnlEndReason.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabAttendance.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -472,7 +524,7 @@
 
         #endregion
         private System.Windows.Forms.Button btnEditInfo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStudentInfo;
         private System.Windows.Forms.Panel pnlEntire;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSchool;
@@ -487,15 +539,14 @@
         private System.Windows.Forms.RadioButton rdoOther;
         private System.Windows.Forms.RadioButton rdoMother;
         private System.Windows.Forms.RadioButton rdoFather;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lable1;
+        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabAttendance;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPayment;
         private System.Windows.Forms.TabPage tabContest;
-        private System.Windows.Forms.TextBox txtSpecialNote;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -507,5 +558,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblGuardianRerationship;
+        private ccTextBoxPlaceHolder ccTxtSpecialNote;
+        private System.Windows.Forms.RadioButton rdoNone;
+        private System.Windows.Forms.Panel pnlEndReason;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtEndReason;
     }
 }

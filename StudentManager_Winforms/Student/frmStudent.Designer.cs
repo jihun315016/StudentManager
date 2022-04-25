@@ -34,15 +34,15 @@
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
             this.rdoOther = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.rdoMother = new System.Windows.Forms.RadioButton();
             this.txtOtherRalationship = new System.Windows.Forms.TextBox();
             this.rdoFather = new System.Windows.Forms.RadioButton();
-            this.rdoMother = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtGuardianContact = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtStudentContact = new System.Windows.Forms.MaskedTextBox();
-            this.TxtSchool = new System.Windows.Forms.TextBox();
+            this.txtSchool = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,6 +51,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSelect = new System.Windows.Forms.Panel();
+            this.chkStop = new System.Windows.Forms.CheckBox();
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
             this.ccTxtClassNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
@@ -73,7 +74,7 @@
             this.pnlInsert.Controls.Add(this.txtGuardianContact);
             this.pnlInsert.Controls.Add(this.label9);
             this.pnlInsert.Controls.Add(this.txtStudentContact);
-            this.pnlInsert.Controls.Add(this.TxtSchool);
+            this.pnlInsert.Controls.Add(this.txtSchool);
             this.pnlInsert.Controls.Add(this.label6);
             this.pnlInsert.Controls.Add(this.label7);
             this.pnlInsert.Controls.Add(this.label4);
@@ -133,7 +134,28 @@
             this.rdoOther.TabStop = true;
             this.rdoOther.Text = "기타";
             this.rdoOther.UseVisualStyleBackColor = true;
-            this.rdoOther.CheckedChanged += new System.EventHandler(this.rdo_CheckedChanged);
+            this.rdoOther.CheckedChanged += new System.EventHandler(this.rdoOther_CheckedChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(-2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 12);
+            this.label8.TabIndex = 94;
+            this.label8.Text = "보호자 관계";
+            // 
+            // rdoMother
+            // 
+            this.rdoMother.AutoSize = true;
+            this.rdoMother.Location = new System.Drawing.Point(3, 19);
+            this.rdoMother.Name = "rdoMother";
+            this.rdoMother.Size = new System.Drawing.Size(35, 16);
+            this.rdoMother.TabIndex = 16;
+            this.rdoMother.TabStop = true;
+            this.rdoMother.Text = "부";
+            this.rdoMother.UseVisualStyleBackColor = true;
             // 
             // txtOtherRalationship
             // 
@@ -153,19 +175,6 @@
             this.rdoFather.TabStop = true;
             this.rdoFather.Text = "모";
             this.rdoFather.UseVisualStyleBackColor = true;
-            this.rdoFather.CheckedChanged += new System.EventHandler(this.rdo_CheckedChanged);
-            // 
-            // rdoMother
-            // 
-            this.rdoMother.AutoSize = true;
-            this.rdoMother.Location = new System.Drawing.Point(3, 19);
-            this.rdoMother.Name = "rdoMother";
-            this.rdoMother.Size = new System.Drawing.Size(35, 16);
-            this.rdoMother.TabIndex = 16;
-            this.rdoMother.TabStop = true;
-            this.rdoMother.Text = "부";
-            this.rdoMother.UseVisualStyleBackColor = true;
-            this.rdoMother.CheckedChanged += new System.EventHandler(this.rdo_CheckedChanged);
             // 
             // label10
             // 
@@ -176,16 +185,6 @@
             this.label10.Size = new System.Drawing.Size(44, 12);
             this.label10.TabIndex = 77;
             this.label10.Text = "등록일";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(-2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 12);
-            this.label8.TabIndex = 94;
-            this.label8.Text = "보호자 관계";
             // 
             // txtGuardianContact
             // 
@@ -217,16 +216,16 @@
             this.txtStudentContact.Size = new System.Drawing.Size(86, 21);
             this.txtStudentContact.TabIndex = 7;
             // 
-            // TxtSchool
+            // txtSchool
             // 
-            this.TxtSchool.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TxtSchool.Location = new System.Drawing.Point(9, 161);
-            this.TxtSchool.Name = "TxtSchool";
-            this.TxtSchool.Size = new System.Drawing.Size(103, 21);
-            this.TxtSchool.TabIndex = 90;
-            this.TxtSchool.TabStop = false;
-            this.TxtSchool.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TxtSchool_MouseClick);
-            this.TxtSchool.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSchool_KeyPress);
+            this.txtSchool.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtSchool.Location = new System.Drawing.Point(9, 161);
+            this.txtSchool.Name = "txtSchool";
+            this.txtSchool.Size = new System.Drawing.Size(103, 21);
+            this.txtSchool.TabIndex = 90;
+            this.txtSchool.TabStop = false;
+            this.txtSchool.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSchool_MouseClick);
+            this.txtSchool.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSchool_KeyPress);
             // 
             // label6
             // 
@@ -298,6 +297,7 @@
             // 
             // pnlSelect
             // 
+            this.pnlSelect.Controls.Add(this.chkStop);
             this.pnlSelect.Controls.Add(this.ucDateFilter);
             this.pnlSelect.Controls.Add(this.ccTxtClassNo);
             this.pnlSelect.Controls.Add(this.ccTxtStudentNo);
@@ -309,13 +309,24 @@
             this.pnlSelect.Size = new System.Drawing.Size(623, 419);
             this.pnlSelect.TabIndex = 5;
             // 
+            // chkStop
+            // 
+            this.chkStop.AutoSize = true;
+            this.chkStop.Location = new System.Drawing.Point(476, 11);
+            this.chkStop.Name = "chkStop";
+            this.chkStop.Size = new System.Drawing.Size(88, 16);
+            this.chkStop.TabIndex = 102;
+            this.chkStop.Text = "그만둔 학생";
+            this.chkStop.UseVisualStyleBackColor = true;
+            this.chkStop.CheckedChanged += new System.EventHandler(this.chkStop_CheckedChanged);
+            // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 25, 16, 18, 5, 424);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 25, 21, 16, 26, 844);
             this.ucDateFilter.Location = new System.Drawing.Point(279, 387);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 25, 16, 18, 5, 424);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 25, 21, 16, 26, 844);
             this.ucDateFilter.TabIndex = 99;
             // 
             // ccTxtClassNo
@@ -354,6 +365,7 @@
             this.dgvList.Size = new System.Drawing.Size(612, 344);
             this.dgvList.TabIndex = 94;
             this.dgvList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentDoubleClick);
+            this.dgvList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvList_MouseClick);
             // 
             // btnSearch
             // 
@@ -364,7 +376,6 @@
             this.btnSearch.TabIndex = 36;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmStudent
             // 
@@ -400,7 +411,7 @@
         private System.Windows.Forms.MaskedTextBox txtGuardianContact;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox txtStudentContact;
-        private System.Windows.Forms.TextBox TxtSchool;
+        private System.Windows.Forms.TextBox txtSchool;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
@@ -420,5 +431,6 @@
         private System.Windows.Forms.RadioButton rdoOther;
         private Controls.ucDateFilter ucDateFilter;
         private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.CheckBox chkStop;
     }
 }

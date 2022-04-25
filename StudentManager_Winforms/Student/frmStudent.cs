@@ -1,4 +1,5 @@
-﻿using StudentManager.Service.Service;
+﻿using StudentManager.Data.VO;
+using StudentManager.Service.Service;
 using System;
 using System.Configuration;
 using System.Data;
@@ -9,6 +10,8 @@ namespace StudentManager_Winforms
 {
     public partial class frmStudent : Form
     {
+        EmployeeVO user;
+
         public frmStudent()
         {
             InitializeComponent();
@@ -16,6 +19,8 @@ namespace StudentManager_Winforms
 
         private void frmStudent_Load(object sender, EventArgs e)
         {
+            user = (EmployeeVO)this.Tag;
+
             // TextBox PlaceHolder 설정
             ccTxtStudentNo.SetTextBoxPlaceHolder();
             ccTxtClassNo.SetTextBoxPlaceHolder();
@@ -33,7 +38,7 @@ namespace StudentManager_Winforms
             DataGridViewUtil.SetRowAlignment(dgvList, new string[] { "STUDENT_NO", "AGE" }, DataGridViewContentAlignment.MiddleRight);
 
             StudentService student = new StudentService();
-            dgvList.DataSource = student.GetAllStudentInfo();
+            dgvList.DataSource = student.GetAllStudentInfo(false);
 
             // 초기 화면 크기
             this.Width = 645;
@@ -41,20 +46,11 @@ namespace StudentManager_Winforms
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            StudentService student = new StudentService();
+            StudentService studentService = new StudentService();
 
             if (string.IsNullOrWhiteSpace(txtName.Text.Trim()))
             {
                 MessageBox.Show("학생 이름을 입력해주세요.");
-                return;
-            }
-
-
-            // 학생 연락처 or 보호자 연락처 중 하나라도 입력했는지 확인
-            StringBuilder sb = student.ValidContact(txtStudentContact.Text, txtGuardianContact.Text);
-            if (sb.Length > 0)
-            {
-                MessageBox.Show(sb.ToString());
                 return;
             }
 
@@ -72,15 +68,16 @@ namespace StudentManager_Winforms
                 }
             }
 
-            // 보호자 정보가 입력되었다면 연락처와 관계가 모두 입력되었는지 확인
-            sb = student.ValidGuardian(txtGuardianContact.Text, guardianRerationship);
-            if (sb.Length > 1)
+            // 학생 연락처, 보호자 연락처, 보호자 관계 유효성 검사
+            StringBuilder sb = studentService.ValidContactAndGuardian(txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship);
+            if (sb.Length > 0)
             {
                 MessageBox.Show(sb.ToString());
                 return;
             }
+            
 
-            string specialNote = string.Empty;
+            string specialNote;
             if (!ccTxtSpecialNote.Text.Equals(ccTxtSpecialNote.PlaceHolder))
             {
                 specialNote = ccTxtSpecialNote.Text;
@@ -89,20 +86,20 @@ namespace StudentManager_Winforms
             string[] data =
             {
                 txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
-                TxtSchool.Text, txtAge.Text, dtpStartDate.Value.ToString(), specialNote
+                txtSchool.Text, txtAge.Text, dtpStartDate.Value.ToString(), ccTxtSpecialNote.Text
             };
 
-            bool result = student.InsertStudent
+            bool result = studentService.InsertStudent
                 (
-                    txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
-                    TxtSchool.Text, int.Parse(txtAge.Text), dtpStartDate.Value, specialNote
+                       txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
+                    txtSchool.Text, int.Parse(txtAge.Text), dtpStartDate.Value, ccTxtSpecialNote.Text
                 );
 
             if (result)
             {
                 MessageBox.Show("등록이 완료되었습니다.");
                 txtName.Text = txtAge.Text = txtStudentContact.Text = txtGuardianContact.Text =
-                    TxtSchool.Text = ccTxtSpecialNote.Text = txtOtherRalationship.Text = String.Empty;
+                    txtSchool.Text = ccTxtSpecialNote.Text = txtOtherRalationship.Text = String.Empty;
 
                 ccTxtSpecialNote.SetTextBoxPlaceHolder();
 
@@ -110,37 +107,12 @@ namespace StudentManager_Winforms
 
                 rdoFather.Checked = rdoMother.Checked = rdoOther.Checked = false;
 
-                dgvList.DataSource = student.GetAllStudentInfo();
+                dgvList.DataSource = studentService.GetAllStudentInfo(false);
             }
             else
             {
                 MessageBox.Show("등록에 실패하였습니다.");
             }
-        }
-
-        private void rdo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoOther.Checked)
-            {
-                txtOtherRalationship.Visible = true;
-                txtOtherRalationship.Text = String.Empty;
-            }
-            else
-            {
-                txtOtherRalationship.Visible = false;
-            }
-        }
-
-        private void TxtSchool_MouseClick(object sender, MouseEventArgs e)
-        {
-            frmSearchSchool pop = new frmSearchSchool();
-            if (pop.ShowDialog() == DialogResult.OK)
-                TxtSchool.Text = pop.SchoolName;
-        }
-
-        private void TxtSchool_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
         }
 
         private void btnOpenInsert_Click(object sender, EventArgs e)
@@ -155,22 +127,7 @@ namespace StudentManager_Winforms
                 btnOpenInsert.Text = ">>";
                 this.Width = 645;
             }
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            if (!string.IsNullOrWhiteSpace(ccTxtStudentNo.Text.Trim()))
-            {
-                
-            }
-
-            if (!string.IsNullOrWhiteSpace(ccTxtClassNo.Text.Trim()))
-            {
-
-            }
-        }
+        }        
 
         private void txtAge_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -184,6 +141,54 @@ namespace StudentManager_Winforms
 
             frmStudentDetail frm = new frmStudentDetail(student_no);
             frm.ShowDialog();
+        }
+
+        private void rdoOther_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoOther.Checked)
+            {
+                txtOtherRalationship.Visible = true;
+                txtOtherRalationship.Text = String.Empty;
+            }
+            else
+            {
+                txtOtherRalationship.Visible = false;
+            }
+        }
+
+        private void txtSchool_MouseClick(object sender, MouseEventArgs e)
+        {
+            frmSearchSchool pop = new frmSearchSchool();
+            if (pop.ShowDialog() == DialogResult.OK)
+                txtSchool.Text = pop.SchoolName;
+        }
+
+        private void txtSchool_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void chkStop_CheckedChanged(object sender, EventArgs e)
+        {
+            StudentService studentService = new StudentService();
+
+            if (chkStop.Checked)
+                dgvList.DataSource = studentService.GetAllStudentInfo(true);
+            else
+                dgvList.DataSource = studentService.GetAllStudentInfo(false);
+
+        }
+
+        private void dgvList_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (user.Authority == 1 && e.Button == MouseButtons.Right)
+            {
+                MessageBox.Show("11");
+            }
+            else
+            {
+                MessageBox.Show("권한 ㄴㄴ");
+            }
         }
     }
 }

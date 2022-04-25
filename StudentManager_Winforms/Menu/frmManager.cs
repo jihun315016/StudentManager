@@ -8,20 +8,19 @@ namespace StudentManager_Winforms
 {
     public partial class frmManager : Form
     {
-        public frmManager()
+        public EmployeeVO user { get; set; }
+
+        public frmManager(int empNo)
         {
             InitializeComponent();
-        }        
+
+            EmployeeService employee = new EmployeeService();
+            user = employee.GetEmpInfoByPk(empNo);
+            user.Emp_no = empNo;
+        }
+
         private void frmManager_Load(object sender, EventArgs e)
         {
-#if DEBUG
-            lblUserInfo.Text = $"[직무] 디버그";
-            return;
-#endif
-            EmployeeService employee = new EmployeeService();
-
-            EmployeeVO user = employee.GetEmpInfoByPk(LoginSesstion.Emp_no);
-
             lblUserInfo.Text = $"[{user.Position}] {user.Emp_Name}";
         }
        
@@ -68,10 +67,11 @@ namespace StudentManager_Winforms
 
             T frm = new T();
             frm.MdiParent = this;
+            frm.Tag = user;
             frm.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }

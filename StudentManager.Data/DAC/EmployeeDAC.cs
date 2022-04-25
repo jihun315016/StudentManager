@@ -32,9 +32,9 @@ namespace StudentManager.Data.DAC
         {
             string sql;
             if(isResignation)
-                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, END_DATE FROM tb_employee WHERE end_date IS NOT NULL";
+                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, END_DATE FROM tb_employee WHERE END_DATE IS NOT NULL";
             else
-                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, END_DATE FROM tb_employee WHERE end_date IS NULL";
+                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, END_DATE FROM tb_employee WHERE END_DATE IS NULL";
 
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
@@ -149,7 +149,7 @@ namespace StudentManager.Data.DAC
                     BinaryReader br = new BinaryReader(fs);
                     imageByteArr = br.ReadBytes((int)fs.Length);
                 }
-            }
+            }   
             else
             {
                 sql.Append("WHERE EMP_NO=@EMP_NO");
