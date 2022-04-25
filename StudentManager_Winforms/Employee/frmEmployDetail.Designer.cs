@@ -36,6 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.pnlEntire = new System.Windows.Forms.Panel();
+            this.btnChangePw = new System.Windows.Forms.Button();
             this.ccTxtEmail = new StudentManager_Winforms.Controls.ucInputEmail();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmpNo = new System.Windows.Forms.TextBox();
@@ -70,10 +71,10 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblDate.Location = new System.Drawing.Point(395, 185);
+            this.lblDate.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblDate.Location = new System.Drawing.Point(396, 186);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(68, 13);
+            this.lblDate.Size = new System.Drawing.Size(62, 12);
             this.lblDate.TabIndex = 98;
             this.lblDate.Text = "고용 날짜";
             // 
@@ -91,29 +92,29 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(29, 116);
+            this.label7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(30, 117);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.Size = new System.Drawing.Size(44, 12);
             this.label7.TabIndex = 92;
             this.label7.Text = "연락처";
             // 
             // lblEmployeeInfo
             // 
-            this.lblEmployeeInfo.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblEmployeeInfo.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblEmployeeInfo.Location = new System.Drawing.Point(3, 0);
             this.lblEmployeeInfo.Name = "lblEmployeeInfo";
-            this.lblEmployeeInfo.Size = new System.Drawing.Size(161, 23);
+            this.lblEmployeeInfo.Size = new System.Drawing.Size(540, 23);
             this.lblEmployeeInfo.TabIndex = 63;
             this.lblEmployeeInfo.Text = "[직무] OOO";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(235, 53);
+            this.label5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(236, 54);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(31, 12);
             this.label5.TabIndex = 84;
             this.label5.Text = "이름";
             // 
@@ -127,6 +128,7 @@
             // 
             // pnlEntire
             // 
+            this.pnlEntire.Controls.Add(this.btnChangePw);
             this.pnlEntire.Controls.Add(this.ccTxtEmail);
             this.pnlEntire.Controls.Add(this.label1);
             this.pnlEntire.Controls.Add(this.txtEmpNo);
@@ -154,6 +156,17 @@
             this.pnlEntire.Size = new System.Drawing.Size(770, 477);
             this.pnlEntire.TabIndex = 3;
             // 
+            // btnChangePw
+            // 
+            this.btnChangePw.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnChangePw.Location = new System.Drawing.Point(626, 199);
+            this.btnChangePw.Name = "btnChangePw";
+            this.btnChangePw.Size = new System.Drawing.Size(121, 23);
+            this.btnChangePw.TabIndex = 124;
+            this.btnChangePw.Text = "비밀번호 변경";
+            this.btnChangePw.UseVisualStyleBackColor = true;
+            this.btnChangePw.Click += new System.EventHandler(this.btnChangePw_Click);
+            // 
             // ccTxtEmail
             // 
             this.ccTxtEmail.FrontEmail = "";
@@ -166,10 +179,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(29, 53);
+            this.label1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(30, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(62, 12);
             this.label1.TabIndex = 121;
             this.label1.Text = "직원 번호";
             // 
@@ -261,10 +274,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(395, 116);
+            this.label8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(396, 117);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(31, 12);
             this.label8.TabIndex = 110;
             this.label8.Text = "권한";
             // 
@@ -282,20 +295,20 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(395, 53);
+            this.label4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(396, 54);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(31, 12);
             this.label4.TabIndex = 108;
             this.label4.Text = "직무";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(29, 185);
+            this.label9.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Location = new System.Drawing.Point(30, 186);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.Size = new System.Drawing.Size(44, 12);
             this.label9.TabIndex = 101;
             this.label9.Text = "이메일";
             // 
@@ -339,5 +352,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtEmpNo;
         private Controls.ucInputEmail ccTxtEmail;
+        private System.Windows.Forms.Button btnChangePw;
     }
 }

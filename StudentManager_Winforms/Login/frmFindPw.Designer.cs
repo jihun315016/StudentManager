@@ -54,12 +54,12 @@
             this.pnlFindPw.Controls.Add(this.label1);
             this.pnlFindPw.Location = new System.Drawing.Point(12, 12);
             this.pnlFindPw.Name = "pnlFindPw";
-            this.pnlFindPw.Size = new System.Drawing.Size(304, 308);
+            this.pnlFindPw.Size = new System.Drawing.Size(304, 259);
             this.pnlFindPw.TabIndex = 3;
             // 
             // txtEmp_no
             // 
-            this.txtEmp_no.Location = new System.Drawing.Point(24, 110);
+            this.txtEmp_no.Location = new System.Drawing.Point(24, 95);
             this.txtEmp_no.Name = "txtEmp_no";
             this.txtEmp_no.Size = new System.Drawing.Size(253, 21);
             this.txtEmp_no.TabIndex = 1;
@@ -67,14 +67,16 @@
             // 
             // ucInputEmail
             // 
-            this.ucInputEmail.Location = new System.Drawing.Point(23, 179);
+            this.ucInputEmail.FrontEmail = "";
+            this.ucInputEmail.Location = new System.Drawing.Point(23, 154);
             this.ucInputEmail.Name = "ucInputEmail";
+            this.ucInputEmail.RearEmail = "";
             this.ucInputEmail.Size = new System.Drawing.Size(254, 22);
             this.ucInputEmail.TabIndex = 2;
             // 
             // lblMessage
             // 
-            this.lblMessage.Location = new System.Drawing.Point(22, 251);
+            this.lblMessage.Location = new System.Drawing.Point(22, 221);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(255, 23);
             this.lblMessage.TabIndex = 13;
@@ -83,7 +85,7 @@
             // btnEmail
             // 
             this.btnEmail.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnEmail.Location = new System.Drawing.Point(121, 225);
+            this.btnEmail.Location = new System.Drawing.Point(121, 195);
             this.btnEmail.Name = "btnEmail";
             this.btnEmail.Size = new System.Drawing.Size(75, 23);
             this.btnEmail.TabIndex = 5;
@@ -94,7 +96,7 @@
             // btnCheck
             // 
             this.btnCheck.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCheck.Location = new System.Drawing.Point(202, 225);
+            this.btnCheck.Location = new System.Drawing.Point(202, 195);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(75, 23);
             this.btnCheck.TabIndex = 6;
@@ -106,7 +108,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(22, 164);
+            this.label3.Location = new System.Drawing.Point(22, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 12);
             this.label3.TabIndex = 6;
@@ -116,7 +118,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(22, 95);
+            this.label2.Location = new System.Drawing.Point(22, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 12);
             this.label2.TabIndex = 4;
@@ -144,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 332);
+            this.ClientSize = new System.Drawing.Size(385, 296);
             this.Controls.Add(this.pnlFindPw);
             this.Name = "frmFindPw";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

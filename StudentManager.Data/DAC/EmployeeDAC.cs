@@ -43,6 +43,54 @@ namespace StudentManager.Data.DAC
             return dt;
         }
 
+        public EmployeeVO GetEmployeeInfoByPk(int emp_no)
+        {
+            string sql = $@"SELECT 
+                            EMP_NAME, EMP_CONTACT, POSITION, AUTHORITY, START_DATE, END_DATE, 
+                            IMAGE, SALARY, EMAIL, PASSWORD, SPECIAL_NOTE
+                            FROM tb_employee WHERE emp_no = @emp_no";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@emp_no", emp_no);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            EmployeeVO emp = new EmployeeVO();
+
+            if (reader.Read())
+            {
+                emp.Emp_Name = reader["EMP_NAME"].ToString();
+                emp.Emp_Contact = reader["EMP_CONTACT"].ToString();
+                emp.Position = reader["POSITION"].ToString();
+                emp.Authority = int.Parse(reader["AUTHORITY"].ToString());
+                emp.StartDate = Convert.ToDateTime(reader["START_DATE"].ToString());
+
+                //"System.DBNull"
+
+                emp.EndDate = (reader["END_DATE"] == DBNull.Value) ? new DateTime() : Convert.ToDateTime(reader["END_DATE"].ToString());
+                emp.Image = (reader["IMAGE"] == DBNull.Value) ? null : (byte[])reader["IMAGE"];
+                emp.Salary = (reader["SALARY"] == DBNull.Value) ? -1 : int.Parse(reader["SALARY"].ToString());
+                emp.Email = reader["EMAIL"].ToString();
+                emp.Password = reader["PASSWORD"].ToString();
+                emp.SpecialNote = reader["SPECIAL_NOTE"].ToString();
+
+                return emp;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public DataTable GetPosition()
+        {
+            string sql = "SELECT POSITION FROM tb_employee GROUP BY POSITION";
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
         public bool InsertEmployee
             (
                 string name, string contact, string position, int authority,
@@ -65,12 +113,10 @@ namespace StudentManager.Data.DAC
             cmd.Parameters.AddWithValue("@EMAIL", email);
             cmd.Parameters.AddWithValue("@SPECIAL_NOTE", specialNote);
 
-            cmd.ExecuteNonQuery();
-            return true;
             try
             {
-                cmd.ExecuteNonQuery();
-                return true;
+                int iRowAffect = cmd.ExecuteNonQuery();
+                return iRowAffect > 0;
             }
             catch (Exception err)
             {
@@ -80,7 +126,7 @@ namespace StudentManager.Data.DAC
             }
         }
 
-        public bool UpdateEmployee
+        public bool UpdateEmployeeInfo
             (
                 int empNo, string name, string contact, string email, string position, int authority,
                 DateTime startDate, string specialNote, string imagePath
@@ -124,8 +170,8 @@ namespace StudentManager.Data.DAC
 
             try
             {
-                cmd.ExecuteNonQuery();
-                return true;
+                int iRowAffect = cmd.ExecuteNonQuery();
+                return iRowAffect > 0;
             }
             catch (Exception err)
             {
@@ -135,52 +181,25 @@ namespace StudentManager.Data.DAC
             }
         }
 
-        public EmployeeVO GetEmployeeInfoByPk(int emp_no)
+        public bool UpdateEmployeePassword(int empNo, string newPassword)
         {
-            string sql = $@"SELECT 
-                            EMP_NAME, EMP_CONTACT, POSITION, AUTHORITY, START_DATE, END_DATE, 
-                            IMAGE, SALARY, EMAIL, PASSWORD, SPECIAL_NOTE
-                            FROM tb_employee WHERE emp_no = @emp_no";
-
+            string sql = @"UPDATE tb_employee SET password=@password WHERE emp_no=@emp_no";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@emp_no", emp_no);
 
-            MySqlDataReader reader = cmd.ExecuteReader();
-            
-            EmployeeVO emp = new EmployeeVO();
+            cmd.Parameters.AddWithValue("@emp_no", empNo);
+            cmd.Parameters.AddWithValue("@password", newPassword);
 
-            if (reader.Read())
+            try
             {
-                emp.Emp_Name = reader["EMP_NAME"].ToString();
-                emp.Emp_Contact = reader["EMP_CONTACT"].ToString();
-                emp.Position = reader["POSITION"].ToString();
-                emp.Authority = int.Parse(reader["AUTHORITY"].ToString());
-                emp.StartDate = Convert.ToDateTime(reader["START_DATE"].ToString());
-               
-                //"System.DBNull"
-
-                emp.EndDate = (reader["END_DATE"] == DBNull.Value) ? new DateTime() : Convert.ToDateTime(reader["END_DATE"].ToString());
-                emp.Image = (reader["IMAGE"] == DBNull.Value) ? null : (byte[])reader["IMAGE"];
-                emp.Salary = (reader["SALARY"] == DBNull.Value) ? -1 : int.Parse(reader["SALARY"].ToString());
-                emp.Email = reader["EMAIL"].ToString();
-                emp.Password = reader["PASSWORD"].ToString();
-                emp.SpecialNote = reader["SPECIAL_NOTE"].ToString();
-
-                return emp;
+                int iRowAffect = cmd.ExecuteNonQuery();
+                return iRowAffect > 0;
             }
-            else
-            {                
-                return null;
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                return false;
             }
-        }
-
-        public DataTable GetPosition()
-        {
-            string sql = "SELECT POSITION FROM tb_employee GROUP BY POSITION";
-            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);            
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
+        }        
     }
 }

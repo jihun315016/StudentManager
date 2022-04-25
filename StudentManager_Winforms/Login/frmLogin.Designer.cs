@@ -28,33 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlLogin = new System.Windows.Forms.Panel();
             this.lbl_findPw = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPw = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pnlLogin = new System.Windows.Forms.Panel();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlLogin
-            // 
-            this.pnlLogin.Controls.Add(this.lbl_findPw);
-            this.pnlLogin.Controls.Add(this.btnLogin);
-            this.pnlLogin.Controls.Add(this.txtPw);
-            this.pnlLogin.Controls.Add(this.label2);
-            this.pnlLogin.Controls.Add(this.txtId);
-            this.pnlLogin.Controls.Add(this.label1);
-            this.pnlLogin.Location = new System.Drawing.Point(12, 12);
-            this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(296, 206);
-            this.pnlLogin.TabIndex = 2;
             // 
             // lbl_findPw
             // 
             this.lbl_findPw.AutoSize = true;
-            this.lbl_findPw.Location = new System.Drawing.Point(21, 167);
+            this.lbl_findPw.Location = new System.Drawing.Point(3, 116);
             this.lbl_findPw.Name = "lbl_findPw";
             this.lbl_findPw.Size = new System.Drawing.Size(81, 12);
             this.lbl_findPw.TabIndex = 6;
@@ -65,7 +52,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnLogin.Location = new System.Drawing.Point(189, 162);
+            this.btnLogin.Location = new System.Drawing.Point(90, 111);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 5;
@@ -75,18 +62,18 @@
             // 
             // txtPw
             // 
-            this.txtPw.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtPw.Location = new System.Drawing.Point(23, 116);
+            this.txtPw.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtPw.Location = new System.Drawing.Point(5, 72);
             this.txtPw.Name = "txtPw";
             this.txtPw.PasswordChar = '*';
-            this.txtPw.Size = new System.Drawing.Size(241, 26);
+            this.txtPw.Size = new System.Drawing.Size(160, 21);
             this.txtPw.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(21, 101);
+            this.label2.Location = new System.Drawing.Point(3, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 12);
             this.label2.TabIndex = 2;
@@ -94,33 +81,46 @@
             // 
             // txtId
             // 
-            this.txtId.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtId.Location = new System.Drawing.Point(23, 36);
+            this.txtId.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtId.Location = new System.Drawing.Point(5, 15);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(241, 26);
+            this.txtId.Size = new System.Drawing.Size(160, 21);
             this.txtId.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(21, 21);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
+            // pnlLogin
+            // 
+            this.pnlLogin.Controls.Add(this.label1);
+            this.pnlLogin.Controls.Add(this.lbl_findPw);
+            this.pnlLogin.Controls.Add(this.label2);
+            this.pnlLogin.Controls.Add(this.btnLogin);
+            this.pnlLogin.Controls.Add(this.txtId);
+            this.pnlLogin.Controls.Add(this.txtPw);
+            this.pnlLogin.Location = new System.Drawing.Point(12, 12);
+            this.pnlLogin.Name = "pnlLogin";
+            this.pnlLogin.Size = new System.Drawing.Size(177, 136);
+            this.pnlLogin.TabIndex = 7;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 266);
+            this.ClientSize = new System.Drawing.Size(273, 177);
             this.Controls.Add(this.pnlLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.frmLogin_Load);
-            this.Resize += new System.EventHandler(this.frmLogin_Resize);
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.ResumeLayout(false);
@@ -128,13 +128,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtPw;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel lbl_findPw;
+        private System.Windows.Forms.Panel pnlLogin;
     }
 }

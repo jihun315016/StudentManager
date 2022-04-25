@@ -271,3 +271,4 @@ C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_W
 C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.CopyComplete
 C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.exe
 C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.pdb
+C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmChangePassword.resources

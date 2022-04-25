@@ -155,5 +155,19 @@ namespace StudentManager_Winforms
             frmEmployDetail frm = new frmEmployDetail(emp_no);
             frm.ShowDialog();
         }
+
+        private void chkResignation_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkResignation.Checked)
+            {
+                EmployeeService empService = new EmployeeService();
+                dgvList.DataSource = empService.GetAllEmployeeInfo(true);
+            }
+            else
+            {
+                EmployeeService empService = new EmployeeService();
+                dgvList.DataSource = empService.GetAllEmployeeInfo(false);
+            }
+        }
     }
 }

@@ -32,14 +32,23 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public bool UpdateEmployee
+        public bool UpdateEmployeeInfo
             (
                 int empNo, string name, string contact, string email, string position, int authority,
                 DateTime startDate, string specialNote, string imagePath
             )
         {
             EmployeeDAC dac = new EmployeeDAC();
-            bool result = dac.UpdateEmployee(empNo, name, contact, email, position, authority, startDate, specialNote, imagePath);            
+            bool result = dac.UpdateEmployeeInfo(empNo, name, contact, email, position, authority, startDate, specialNote, imagePath);            
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool UpdateEmployeePassword(int empNo, string newPassword)
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            bool result = dac.UpdateEmployeePassword(empNo, newPassword);
             dac.Dispose();
 
             return result;

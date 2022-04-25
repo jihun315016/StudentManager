@@ -15,8 +15,13 @@ namespace StudentManager_Winforms
         {
             InitializeComponent();            
 
-            EmployeeService empService = new EmployeeService();          
+            EmployeeService empService = new EmployeeService();
 
+            // 지금 보는 직원이 본인이 아니라면
+            if (!emp_no.Equals(LoginSesstion.Emp_no))
+                btnChangePw.Visible = false;
+            
+            
             // 콤보 박스 초기화
             List<string> list = empService.GetPosition();
             cboPosition.Items.AddRange(new string[] { "원장", "강사", "행정" });
@@ -122,7 +127,7 @@ namespace StudentManager_Winforms
 
                 // 수정 정보 업데이트
                 EmployeeService empService = new EmployeeService();
-                bool result = empService.UpdateEmployee
+                bool result = empService.UpdateEmployeeInfo
                     (
                         int.Parse(txtEmpNo.Text), txtName.Text, txtContact.Text, ccTxtEmail.Email, position,
                         int.Parse(cboAuthority.Text), dtpDate.Value, ccTxtSpecialNote.Text, (string)ptbEmployee.Tag
@@ -182,10 +187,16 @@ namespace StudentManager_Winforms
                 ptbEmployee.Tag = dlg.FileName;
             }
         }
+        private void btnChangePw_Click(object sender, EventArgs e)
+        {
+            frmChangePassword pop = new frmChangePassword(int.Parse(txtEmpNo.Text), txtName.Text);
+            pop.ShowDialog();
+        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

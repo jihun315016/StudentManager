@@ -28,7 +28,7 @@ namespace StudentManager.Data.DAC
 
         public int GetLoginInfo(int emp_no, string password)
         {
-            string sql = @"SELECT count(emp_no) FROM tb_employee WHERE emp_no = @emp_no AND password = @password";
+            string sql = @"SELECT count(emp_no) FROM tb_employee WHERE emp_no = @emp_no AND password = @password AND END_DATE IS NULL";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@emp_no", emp_no);

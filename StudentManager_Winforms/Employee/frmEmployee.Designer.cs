@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
-            this.ucEmail = new StudentManager_Winforms.Controls.ucInputEmail();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtOtherPosition = new System.Windows.Forms.TextBox();
             this.cboAuthority = new System.Windows.Forms.ComboBox();
@@ -51,8 +49,11 @@
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkResignation = new System.Windows.Forms.CheckBox();
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
             this.ccTxtEmpNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ucEmail = new StudentManager_Winforms.Controls.ucInputEmail();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
@@ -83,22 +84,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(310, 421);
             this.panel4.TabIndex = 4;
-            // 
-            // ucEmail
-            // 
-            this.ucEmail.Location = new System.Drawing.Point(15, 221);
-            this.ucEmail.Name = "ucEmail";
-            this.ucEmail.Size = new System.Drawing.Size(254, 22);
-            this.ucEmail.TabIndex = 101;
-            // 
-            // ccTxtSpecialNote
-            // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(15, 306);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 77);
-            this.ccTxtSpecialNote.TabIndex = 100;
             // 
             // btnInsert
             // 
@@ -293,6 +278,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.chkResignation);
             this.panel2.Controls.Add(this.ucDateFilter);
             this.panel2.Controls.Add(this.ccTxtEmpNo);
             this.panel2.Controls.Add(this.btnOpenInsert);
@@ -303,13 +289,24 @@
             this.panel2.Size = new System.Drawing.Size(522, 421);
             this.panel2.TabIndex = 5;
             // 
+            // chkResignation
+            // 
+            this.chkResignation.AutoSize = true;
+            this.chkResignation.Location = new System.Drawing.Point(416, 13);
+            this.chkResignation.Name = "chkResignation";
+            this.chkResignation.Size = new System.Drawing.Size(48, 16);
+            this.chkResignation.TabIndex = 101;
+            this.chkResignation.Text = "퇴사";
+            this.chkResignation.UseVisualStyleBackColor = true;
+            this.chkResignation.CheckedChanged += new System.EventHandler(this.chkResignation_CheckedChanged);
+            // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 24, 13, 10, 36, 458);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 25, 14, 43, 32, 661);
             this.ucDateFilter.Location = new System.Drawing.Point(118, 390);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 24, 13, 10, 36, 458);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 25, 14, 43, 32, 661);
             this.ucDateFilter.TabIndex = 100;
             // 
             // ccTxtEmpNo
@@ -319,6 +316,24 @@
             this.ccTxtEmpNo.PlaceHolder = "직원 번호 검색";
             this.ccTxtEmpNo.Size = new System.Drawing.Size(95, 21);
             this.ccTxtEmpNo.TabIndex = 99;
+            // 
+            // ucEmail
+            // 
+            this.ucEmail.FrontEmail = "";
+            this.ucEmail.Location = new System.Drawing.Point(15, 221);
+            this.ucEmail.Name = "ucEmail";
+            this.ucEmail.RearEmail = "";
+            this.ucEmail.Size = new System.Drawing.Size(254, 22);
+            this.ucEmail.TabIndex = 101;
+            // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(15, 306);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 77);
+            this.ccTxtSpecialNote.TabIndex = 100;
             // 
             // frmEmployee
             // 
@@ -366,5 +381,6 @@
         private ccTextBoxPlaceHolder ccTxtSpecialNote;
         private Controls.ucInputEmail ucEmail;
         private Controls.ucDateFilter ucDateFilter;
+        private System.Windows.Forms.CheckBox chkResignation;
     }
 }

@@ -189,13 +189,13 @@
             // 
             // txtGuardianContact
             // 
-            this.txtGuardianContact.BackColor = System.Drawing.SystemColors.Control;
+            this.txtGuardianContact.BackColor = System.Drawing.SystemColors.Window;
             this.txtGuardianContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtGuardianContact.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtGuardianContact.Location = new System.Drawing.Point(152, 62);
             this.txtGuardianContact.Mask = "000-9000-0000";
             this.txtGuardianContact.Name = "txtGuardianContact";
-            this.txtGuardianContact.Size = new System.Drawing.Size(132, 14);
+            this.txtGuardianContact.Size = new System.Drawing.Size(86, 14);
             this.txtGuardianContact.TabIndex = 8;
             // 
             // label9
@@ -210,13 +210,13 @@
             // 
             // txtStudentContact
             // 
-            this.txtStudentContact.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStudentContact.BackColor = System.Drawing.SystemColors.Window;
             this.txtStudentContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStudentContact.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtStudentContact.Location = new System.Drawing.Point(152, 119);
             this.txtStudentContact.Mask = "000-9000-0000";
             this.txtStudentContact.Name = "txtStudentContact";
-            this.txtStudentContact.Size = new System.Drawing.Size(132, 14);
+            this.txtStudentContact.Size = new System.Drawing.Size(86, 14);
             this.txtStudentContact.TabIndex = 7;
             // 
             // TxtSchool
@@ -313,11 +313,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 24, 17, 20, 36, 666);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 25, 15, 45, 2, 284);
             this.ucDateFilter.Location = new System.Drawing.Point(279, 387);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 24, 17, 20, 36, 666);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 25, 15, 45, 2, 284);
             this.ucDateFilter.TabIndex = 99;
             // 
             // ccTxtClassNo
