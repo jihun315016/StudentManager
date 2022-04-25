@@ -37,7 +37,7 @@ namespace StudentManager_Winforms
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사 날짜", "END_DATE", isVisible: false);
 
             EmployeeService empService = new EmployeeService();
-            dgvList.DataSource = empService.GetAllEmployeeInfo();
+            dgvList.DataSource = empService.GetAllEmployeeInfo(false);
 
             this.Width = 545;
         }
@@ -91,9 +91,14 @@ namespace StudentManager_Winforms
                 );
 
             if (result)
+            {
                 MessageBox.Show("직원이 등록되었습니다.");
+                dgvList.DataSource = empService.GetAllEmployeeInfo(false);
+            }
             else
+            {
                 MessageBox.Show("직원 등록이 실패했습니다.");
+            }
             
             ptbEmployee.Tag = null;
             txtName.Text = txtContact.Text = txtOtherPosition.Text = String.Empty;

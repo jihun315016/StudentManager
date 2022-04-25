@@ -11,10 +11,10 @@ namespace StudentManager.Service.Service
 {
     public class EmployeeService
     {
-        public DataTable GetAllEmployeeInfo()
+        public DataTable GetAllEmployeeInfo(bool isResignation)
         {
             EmployeeDAC dac = new EmployeeDAC();
-            DataTable dt = dac.GetAllEmployeeInfo();
+            DataTable dt = dac.GetAllEmployeeInfo(isResignation);
             dac.Dispose();
             return dt;
         }

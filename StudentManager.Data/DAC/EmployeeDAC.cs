@@ -28,9 +28,14 @@ namespace StudentManager.Data.DAC
             conn.Close();
         }
 
-        public DataTable GetAllEmployeeInfo()
+        public DataTable GetAllEmployeeInfo(bool isResignation)
         {
-            string sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, END_DATE FROM tb_employee";
+            string sql;
+            if(isResignation)
+                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, END_DATE FROM tb_employee WHERE end_date IS NOT NULL";
+            else
+                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, END_DATE FROM tb_employee WHERE end_date IS NULL";
+
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
             da.Fill(dt);
