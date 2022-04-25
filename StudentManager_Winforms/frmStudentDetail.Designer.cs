@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnEditInfo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlEntire = new System.Windows.Forms.Panel();
+            this.lblGuardianRerationship = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtStudentNo = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
@@ -49,10 +50,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
             this.txtOtherRalationship = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.rdoFather = new System.Windows.Forms.RadioButton();
             this.rdoOther = new System.Windows.Forms.RadioButton();
             this.rdoMother = new System.Windows.Forms.RadioButton();
-            this.rdoFather = new System.Windows.Forms.RadioButton();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtGuardianContact = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtStudentContact = new System.Windows.Forms.MaskedTextBox();
@@ -63,7 +64,6 @@
             this.txtAge = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.lblGuardianRerationship = new System.Windows.Forms.Label();
             this.pnlEntire.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabAttendance.SuspendLayout();
@@ -75,19 +75,20 @@
             this.pnlGuardianRerationship.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button3
+            // btnEditInfo
             // 
-            this.button3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(691, 473);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 82;
-            this.button3.Text = "확인";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEditInfo.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnEditInfo.Location = new System.Drawing.Point(691, 473);
+            this.btnEditInfo.Name = "btnEditInfo";
+            this.btnEditInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnEditInfo.TabIndex = 82;
+            this.btnEditInfo.Text = "수정";
+            this.btnEditInfo.UseVisualStyleBackColor = true;
+            this.btnEditInfo.Click += new System.EventHandler(this.btnEditInfo_Click);
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 23);
@@ -102,11 +103,10 @@
             this.pnlEntire.Controls.Add(this.dtpDate);
             this.pnlEntire.Controls.Add(this.button1);
             this.pnlEntire.Controls.Add(this.txtSpecialNote);
-            this.pnlEntire.Controls.Add(this.button3);
+            this.pnlEntire.Controls.Add(this.btnEditInfo);
             this.pnlEntire.Controls.Add(this.tabControl1);
             this.pnlEntire.Controls.Add(this.label6);
             this.pnlEntire.Controls.Add(this.pnlGuardianRerationship);
-            this.pnlEntire.Controls.Add(this.label8);
             this.pnlEntire.Controls.Add(this.txtGuardianContact);
             this.pnlEntire.Controls.Add(this.label4);
             this.pnlEntire.Controls.Add(this.txtStudentContact);
@@ -122,6 +122,16 @@
             this.pnlEntire.Name = "pnlEntire";
             this.pnlEntire.Size = new System.Drawing.Size(774, 501);
             this.pnlEntire.TabIndex = 2;
+            // 
+            // lblGuardianRerationship
+            // 
+            this.lblGuardianRerationship.AutoSize = true;
+            this.lblGuardianRerationship.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblGuardianRerationship.Location = new System.Drawing.Point(661, 72);
+            this.lblGuardianRerationship.Name = "lblGuardianRerationship";
+            this.lblGuardianRerationship.Size = new System.Drawing.Size(49, 13);
+            this.lblGuardianRerationship.TabIndex = 106;
+            this.lblGuardianRerationship.Text = "보호자";
             // 
             // label9
             // 
@@ -284,25 +294,47 @@
             // pnlGuardianRerationship
             // 
             this.pnlGuardianRerationship.Controls.Add(this.txtOtherRalationship);
+            this.pnlGuardianRerationship.Controls.Add(this.label8);
+            this.pnlGuardianRerationship.Controls.Add(this.rdoFather);
             this.pnlGuardianRerationship.Controls.Add(this.rdoOther);
             this.pnlGuardianRerationship.Controls.Add(this.rdoMother);
-            this.pnlGuardianRerationship.Controls.Add(this.rdoFather);
-            this.pnlGuardianRerationship.Location = new System.Drawing.Point(549, 139);
+            this.pnlGuardianRerationship.Location = new System.Drawing.Point(549, 116);
             this.pnlGuardianRerationship.Name = "pnlGuardianRerationship";
-            this.pnlGuardianRerationship.Size = new System.Drawing.Size(132, 79);
+            this.pnlGuardianRerationship.Size = new System.Drawing.Size(136, 92);
             this.pnlGuardianRerationship.TabIndex = 97;
             // 
             // txtOtherRalationship
             // 
-            this.txtOtherRalationship.Location = new System.Drawing.Point(56, 47);
+            this.txtOtherRalationship.Location = new System.Drawing.Point(59, 64);
             this.txtOtherRalationship.Name = "txtOtherRalationship";
             this.txtOtherRalationship.Size = new System.Drawing.Size(74, 21);
             this.txtOtherRalationship.TabIndex = 19;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(3, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(82, 13);
+            this.label8.TabIndex = 96;
+            this.label8.Text = "보호자 관계";
+            // 
+            // rdoFather
+            // 
+            this.rdoFather.AutoSize = true;
+            this.rdoFather.Location = new System.Drawing.Point(6, 21);
+            this.rdoFather.Name = "rdoFather";
+            this.rdoFather.Size = new System.Drawing.Size(35, 16);
+            this.rdoFather.TabIndex = 16;
+            this.rdoFather.TabStop = true;
+            this.rdoFather.Text = "부";
+            this.rdoFather.UseVisualStyleBackColor = true;
+            // 
             // rdoOther
             // 
             this.rdoOther.AutoSize = true;
-            this.rdoOther.Location = new System.Drawing.Point(3, 48);
+            this.rdoOther.Location = new System.Drawing.Point(6, 65);
             this.rdoOther.Name = "rdoOther";
             this.rdoOther.Size = new System.Drawing.Size(47, 16);
             this.rdoOther.TabIndex = 18;
@@ -313,7 +345,7 @@
             // rdoMother
             // 
             this.rdoMother.AutoSize = true;
-            this.rdoMother.Location = new System.Drawing.Point(3, 26);
+            this.rdoMother.Location = new System.Drawing.Point(6, 43);
             this.rdoMother.Name = "rdoMother";
             this.rdoMother.Size = new System.Drawing.Size(35, 16);
             this.rdoMother.TabIndex = 17;
@@ -321,36 +353,14 @@
             this.rdoMother.Text = "모";
             this.rdoMother.UseVisualStyleBackColor = true;
             // 
-            // rdoFather
-            // 
-            this.rdoFather.AutoSize = true;
-            this.rdoFather.Location = new System.Drawing.Point(3, 4);
-            this.rdoFather.Name = "rdoFather";
-            this.rdoFather.Size = new System.Drawing.Size(35, 16);
-            this.rdoFather.TabIndex = 16;
-            this.rdoFather.TabStop = true;
-            this.rdoFather.Text = "부";
-            this.rdoFather.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(546, 116);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 13);
-            this.label8.TabIndex = 96;
-            this.label8.Text = "보호자 관계";
-            // 
             // txtGuardianContact
             // 
-            this.txtGuardianContact.BackColor = System.Drawing.SystemColors.Control;
-            this.txtGuardianContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGuardianContact.BackColor = System.Drawing.SystemColors.Window;
             this.txtGuardianContact.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtGuardianContact.Location = new System.Drawing.Point(549, 76);
+            this.txtGuardianContact.Location = new System.Drawing.Point(549, 69);
             this.txtGuardianContact.Mask = "000-9000-0000";
             this.txtGuardianContact.Name = "txtGuardianContact";
-            this.txtGuardianContact.Size = new System.Drawing.Size(96, 15);
+            this.txtGuardianContact.Size = new System.Drawing.Size(106, 22);
             this.txtGuardianContact.TabIndex = 95;
             // 
             // label4
@@ -365,13 +375,12 @@
             // 
             // txtStudentContact
             // 
-            this.txtStudentContact.BackColor = System.Drawing.SystemColors.Control;
-            this.txtStudentContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStudentContact.BackColor = System.Drawing.SystemColors.Window;
             this.txtStudentContact.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtStudentContact.Location = new System.Drawing.Point(379, 76);
+            this.txtStudentContact.Location = new System.Drawing.Point(379, 69);
             this.txtStudentContact.Mask = "000-9000-0000";
             this.txtStudentContact.Name = "txtStudentContact";
-            this.txtStudentContact.Size = new System.Drawing.Size(95, 15);
+            this.txtStudentContact.Size = new System.Drawing.Size(105, 22);
             this.txtStudentContact.TabIndex = 93;
             // 
             // label7
@@ -438,16 +447,6 @@
             this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 85;
             // 
-            // lblGuardianRerationship
-            // 
-            this.lblGuardianRerationship.AutoSize = true;
-            this.lblGuardianRerationship.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblGuardianRerationship.Location = new System.Drawing.Point(651, 76);
-            this.lblGuardianRerationship.Name = "lblGuardianRerationship";
-            this.lblGuardianRerationship.Size = new System.Drawing.Size(49, 13);
-            this.lblGuardianRerationship.TabIndex = 106;
-            this.lblGuardianRerationship.Text = "보호자";
-            // 
             // frmStudentDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -472,7 +471,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEditInfo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlEntire;
         private System.Windows.Forms.Label label3;

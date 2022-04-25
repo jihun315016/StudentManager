@@ -14,6 +14,11 @@ namespace StudentManager_Winforms
         private void frmLogin_Load(object sender, EventArgs e)
         {
             frmLogin_Resize(this, null);
+
+#if DEBUG
+            txtId.Text = "10001";
+            txtPw.Text = "1234";
+#endif
         }
 
         private void frmLogin_Resize(object sender, EventArgs e)
@@ -21,7 +26,6 @@ namespace StudentManager_Winforms
             pnlLogin.Left = this.Width / 2 - pnlLogin.Width / 2;
             pnlLogin.Top = this.Height / 2 - pnlLogin.Height / 2 - this.Height / 20;
         }
-
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

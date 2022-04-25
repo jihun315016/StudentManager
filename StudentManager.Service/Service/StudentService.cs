@@ -83,11 +83,12 @@ namespace StudentManager.Service.Service
 
             StringBuilder sb = new StringBuilder();
 
+            // 보호자 연락처 13자리 모두 입력하면서 보호자 관계가 비어있지 않는 경우
             bool allInput = guardContact.Length == 13 && !string.IsNullOrWhiteSpace(guardianRalationship);
+
+            // 보호자 연락처와 보호자 관계가 모두 비워진 경우
             bool noInput = ValidContactCnt(guardContact) == 0 && string.IsNullOrWhiteSpace(guardianRalationship);
 
-            // 보호자 연락처, 관계를 모두 입력한 것도 아니면서, 모두 비운 것도 아닌 경우
-            // -> 둘 중 하나를 어중간하게 입력한 경우
             if (!(allInput || noInput))
             {
                 if (guardContact.Length < 13)

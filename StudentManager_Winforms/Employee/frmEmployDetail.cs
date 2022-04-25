@@ -73,11 +73,9 @@ namespace StudentManager_Winforms
                 dtpDate.Value = employeeVO.StartDate;
                 btnEditInfo.Tag = true;
             }
-
-            TextBoxUtil.SetReadOnly(new TextBox[] { txtName, ccTxtSpecialNote }, true);
-            ccTxtEmail.ReadOnly(true);
-            txtContact.ReadOnly = true;
-            dtpDate.Enabled = cboPosition.Enabled = cboAuthority.Enabled = false;
+            
+            txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled = 
+                cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = false;
             txtPosition.Visible = btnUpload.Visible = false;
         }
 
@@ -143,19 +141,17 @@ namespace StudentManager_Winforms
                     return;
                 }
 
-                TextBoxUtil.SetReadOnly(new TextBox[] { txtName, ccTxtSpecialNote }, true);
-                ccTxtEmail.ReadOnly(true);
-                txtContact.ReadOnly = true;
-                dtpDate.Enabled = cboPosition.Enabled = cboAuthority.Enabled = false;
+                //TextBoxUtil.SetReadOnly(new TextBox[] { txtName, ccTxtSpecialNote }, true);
+                txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled = 
+                    cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = false;
                 txtPosition.Visible = btnUpload.Visible = false;
                 btnEditInfo.Text = "수정";
             }
             else
             {
-                TextBoxUtil.SetReadOnly(new TextBox[] { txtName, ccTxtSpecialNote }, false);
-                ccTxtEmail.ReadOnly(false);
-                txtContact.ReadOnly = false;
-                dtpDate.Enabled = cboPosition.Enabled = cboAuthority.Enabled = true;
+                //TextBoxUtil.SetReadOnly(new TextBox[] { txtName, ccTxtSpecialNote }, false);                
+                txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled = 
+                    cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = true;
                 btnUpload.Visible = true;
                 btnEditInfo.Text = "저장";
             }

@@ -32,11 +32,5 @@ namespace StudentManager_Winforms
                 return sb;
             }
         }
-
-        public static void SetReadOnly(TextBox[] txts, bool setting)
-        {
-            foreach (TextBox txt in txts)
-                txt.ReadOnly = setting;
-        }
     }
 }
