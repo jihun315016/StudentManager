@@ -32,9 +32,9 @@ namespace StudentManager.Data.DAC
         {
             string sql;
             if(isResignation)
-                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, END_DATE FROM tb_employee WHERE END_DATE IS NOT NULL";
+                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, START_DATE, END_DATE FROM tb_employee WHERE END_DATE IS NOT NULL";
             else
-                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, END_DATE FROM tb_employee WHERE END_DATE IS NULL";
+                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, START_DATE, END_DATE FROM tb_employee WHERE END_DATE IS NULL";
 
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);

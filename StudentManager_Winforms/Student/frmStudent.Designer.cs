@@ -288,7 +288,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(-3, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 23);
@@ -322,11 +322,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 25, 21, 16, 26, 844);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 26, 13, 14, 32, 716);
             this.ucDateFilter.Location = new System.Drawing.Point(279, 387);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 25, 21, 16, 26, 844);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 26, 13, 14, 32, 716);
             this.ucDateFilter.TabIndex = 99;
             // 
             // ccTxtClassNo

@@ -73,6 +73,14 @@ namespace StudentManager.Service.Service
             return result;
         }
 
+        public bool UpdateEndDate(int empNo, DateTime newDate, bool isResignation)
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            dac.UpdateEndDate(empNo, newDate, isResignation);
+            dac.Dispose();
+            return true;
+        }
+
         // text가 null이면 ToString() 메서드를 사용할 때
         // 오류가 발생하기 때문에 메서드로 만든 것
         public string NullCheck(object text)
@@ -84,12 +92,24 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public bool UpdateEndDate(int empNo, DateTime newDate, bool isResignation)
+        public int SearchEmpInList(int empNo, DataTable dt, string sortCol)
         {
-            EmployeeDAC dac = new EmployeeDAC();
-            dac.UpdateEndDate(empNo, newDate, isResignation);
-            dac.Dispose();
-            return true;
+            DataView dv = new DataView(dt);
+
+            dv.Sort = sortCol;
+            return dv.Find(empNo);
+        }
+
+        public DataTable SearchDateInList(DateTime start, DateTime end, DataTable dt, bool isResignations)
+        {
+            DataView dv = new DataView(dt);
+
+            if (isResignations)            
+                dv.RowFilter = $"END_DATE >= #{start.ToString("yyyy/MM/dd")}# and END_DATE <= #{end.ToString("yyyy/MM/dd")}#";
+            else            
+                dv.RowFilter = $"START_DATE >= #{start.ToString("yyyy/MM/dd")}# and START_DATE <= #{end.ToString("yyyy/MM/dd")}#";
+
+            return dv.ToTable();
         }
     }
 }

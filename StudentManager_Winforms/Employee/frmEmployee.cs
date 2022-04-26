@@ -1,6 +1,7 @@
 ﻿using StudentManager.Data.VO;
 using StudentManager.Service.Service;
 using System;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Text;
@@ -34,17 +35,18 @@ namespace StudentManager_Winforms
             ptbEmployee.Tag = null;
 
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "직원 번호", "EMP_NO");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "직원 번호", "EMP_NO", alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이름", "EMP_NAME");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "직무", "POSITION", 80);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "권한", "AUTHORITY", 60);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "권한", "AUTHORITY", 40, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이메일", "EMAIL", 160);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사 날짜", "END_DATE", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입사 날짜", "START_DATE", alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사 날짜", "END_DATE", isVisible: false, alignContent: DataGridViewContentAlignment.MiddleCenter);
 
             EmployeeService empService = new EmployeeService();
             dgvList.DataSource = empService.GetAllEmployeeInfo(false);
 
-            this.Width = 545;
+            this.Width = 620;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -156,7 +158,7 @@ namespace StudentManager_Winforms
             else
             {
                 btnOpenInsert.Text = ">>";
-                this.Width = 545;
+                this.Width = 620;
             }
         }
 
@@ -165,8 +167,15 @@ namespace StudentManager_Winforms
             int emp_no = int.Parse(dgvList["EMP_NO", e.RowIndex].Value.ToString());
             if (user.Authority == 1 || user.Emp_no == emp_no)
             {
-                frmEmployDetail frm = new frmEmployDetail(user, emp_no);
-                frm.ShowDialog();
+                frmEmployDetail pop = new frmEmployDetail(user, emp_no);
+                pop.ShowDialog();
+
+                bool isResignation = chkResignation.Checked;
+                EmployeeService empService = new EmployeeService();
+
+                dgvList.Columns["START_DATE"].Visible = !isResignation;
+                dgvList.Columns["END_DATE"].Visible = isResignation;
+                dgvList.DataSource = empService.GetAllEmployeeInfo(isResignation);
             }
             else
             {
@@ -179,10 +188,18 @@ namespace StudentManager_Winforms
         {
             EmployeeService empService = new EmployeeService();
 
-            if (chkResignation.Checked)            
-                dgvList.DataSource = empService.GetAllEmployeeInfo(true);            
-            else   
-                dgvList.DataSource = empService.GetAllEmployeeInfo(false);            
+            if (chkResignation.Checked)
+            {
+                dgvList.Columns["START_DATE"].Visible = false;
+                dgvList.Columns["END_DATE"].Visible = true;
+                dgvList.DataSource = empService.GetAllEmployeeInfo(true);
+            }
+            else
+            {
+                dgvList.Columns["START_DATE"].Visible = true;
+                dgvList.Columns["END_DATE"].Visible = false;
+                dgvList.DataSource = empService.GetAllEmployeeInfo(false);
+            }
         }
 
         private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -222,6 +239,7 @@ namespace StudentManager_Winforms
                     if (result)
                     {
                         MessageBox.Show($"{ResignationName}님을 퇴사 처리하셨습니다.");
+
                         dgvList.DataSource = empService.GetAllEmployeeInfo(false);
                     }
                     else
@@ -257,6 +275,29 @@ namespace StudentManager_Winforms
                     }
                 }
             }
+        }
+
+        private void btnSearchEmp_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(ccTxtEmpNo.Text))
+            {
+                MessageBox.Show("직원 번호를 입력해주세요.");
+                return;
+            }
+
+            EmployeeService empService = new EmployeeService();
+            int index = empService.SearchEmpInList(int.Parse(ccTxtEmpNo.Text), (DataTable)dgvList.DataSource, "EMP_NO");
+            dgvList.Sort(dgvList.Columns["EMP_NO"], System.ComponentModel.ListSortDirection.Ascending);
+            if (index > 0)
+                dgvList.CurrentCell = dgvList.Rows[index].Cells[0];
+            else
+                MessageBox.Show($"{ccTxtEmpNo.Text} - 직원 번호가 없습니다.");
+        }
+
+        private void btnSearchDate_Click(object sender, EventArgs e)
+        {
+            EmployeeService empService = new EmployeeService();
+            dgvList.DataSource = empService.SearchDateInList(ucDateFilter.StartDate, ucDateFilter.EndDate, (DataTable)dgvList.DataSource, chkResignation.Checked);
         }
     }
 }

@@ -25,7 +25,9 @@ namespace StudentManager_Winforms
                 string propertyName,
                 int colWidth = 100,
                 bool isVisible = true,
-                DataGridViewContentAlignment align = DataGridViewContentAlignment.MiddleCenter
+                DataGridViewContentAlignment alignHeader = DataGridViewContentAlignment.MiddleCenter,
+                DataGridViewContentAlignment alignContent = DataGridViewContentAlignment.MiddleLeft
+
             )
         {
             DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
@@ -34,7 +36,9 @@ namespace StudentManager_Winforms
             col.Name = propertyName;
 
             col.Width = colWidth;
-            col.HeaderCell.Style.Alignment = align;
+            col.HeaderCell.Style.Alignment = alignHeader;
+            col.DefaultCellStyle.Alignment = alignContent;
+            
             col.Visible = isVisible;
 
             dgv.Columns.Add(col);
