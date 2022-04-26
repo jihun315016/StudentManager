@@ -18,6 +18,25 @@ namespace StudentManager.Service.Service
             dac.Dispose();
             return dt;
         }
+        public EmployeeVO GetEmpInfoByPk(int empNo)
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            EmployeeVO emploeyeeVO = dac.GetEmployeeInfoByPk(empNo);
+            dac.Dispose();
+            return emploeyeeVO;
+        }
+
+        public List<string> GetPosition()
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            DataTable dt = dac.GetPosition();
+            List<string> list = new List<string>();
+
+            foreach (DataRow dr in dt.Rows)
+                list.Add(dr["POSITION"].ToString());
+
+            return list;
+        }
 
         public bool InsertEmployee
             (
@@ -54,26 +73,6 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public EmployeeVO GetEmpInfoByPk(int empNo)
-        {
-            EmployeeDAC dac = new EmployeeDAC();
-            EmployeeVO emploeyeeVO = dac.GetEmployeeInfoByPk(empNo);
-            dac.Dispose();
-            return emploeyeeVO;
-        }
-
-        public List<string> GetPosition()
-        {
-            EmployeeDAC dac = new EmployeeDAC();
-            DataTable dt = dac.GetPosition();
-            List<string> list = new List<string>();
-
-            foreach (DataRow dr in dt.Rows)
-                list.Add(dr["POSITION"].ToString());
-
-            return list;
-        }
-
         // text가 null이면 ToString() 메서드를 사용할 때
         // 오류가 발생하기 때문에 메서드로 만든 것
         public string NullCheck(object text)
@@ -83,6 +82,14 @@ namespace StudentManager.Service.Service
                 result = text.ToString();
 
             return result;
+        }
+
+        public bool UpdateEndDate(int empNo, DateTime newDate, bool isResignation)
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            dac.UpdateEndDate(empNo, newDate, isResignation);
+            dac.Dispose();
+            return true;
         }
     }
 }

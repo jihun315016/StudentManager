@@ -204,5 +204,59 @@ namespace StudentManager_Winforms
                 }
             }
         }
+
+        private void tsmResignation_Click(object sender, EventArgs e)
+        {
+            int ResignationNo = int.Parse(dgvList.CurrentRow.Cells["EMP_NO"].Value.ToString());
+            string ResignationName = dgvList.CurrentRow.Cells["EMP_NAME"].Value.ToString();
+            DialogResult msgBox = MessageBox.Show($"{ResignationName}님을 퇴사 처리하시겠습니까?", "퇴사 확인", MessageBoxButtons.YesNo);
+            if (msgBox == DialogResult.Yes)
+            {
+                frmSetDate pop = new frmSetDate("퇴사 날짜");
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+
+                    EmployeeService empService = new EmployeeService();
+                    bool result = empService.UpdateEndDate(ResignationNo , pop.CommitDate, true);
+
+                    if (result)
+                    {
+                        MessageBox.Show($"{ResignationName}님을 퇴사 처리하셨습니다.");
+                        dgvList.DataSource = empService.GetAllEmployeeInfo(false);
+                    }
+                    else
+                    {
+                        MessageBox.Show("퇴사에 실패했습니다.");
+                    }
+                }
+            }
+        }
+
+        private void tsmReJoin_Click(object sender, EventArgs e)
+        {
+            int RejoinNo = int.Parse(dgvList.CurrentRow.Cells["EMP_NO"].Value.ToString());
+            string RejoinName = dgvList.CurrentRow.Cells["EMP_NAME"].Value.ToString();
+            DialogResult msgBox = MessageBox.Show($"{RejoinName}님을 다시 입사 처리하시겠습니까?", "재입사 확인", MessageBoxButtons.YesNo);
+            if (msgBox == DialogResult.Yes)
+            {
+                frmSetDate pop = new frmSetDate("입사 날짜");
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+
+                    EmployeeService empService = new EmployeeService();
+                    bool result = empService.UpdateEndDate(RejoinNo, pop.CommitDate, false);
+
+                    if (result)
+                    {
+                        MessageBox.Show($"{RejoinName}님이 다시 입사하셨습니다.");
+                        dgvList.DataSource = empService.GetAllEmployeeInfo(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("재입사 실패했습니다.");                    
+                    }
+                }
+            }
+        }
     }
 }

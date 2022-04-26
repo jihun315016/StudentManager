@@ -200,6 +200,32 @@ namespace StudentManager.Data.DAC
                 Debug.WriteLine(err.Message);
                 return false;
             }
-        }        
+        }
+
+        public bool UpdateEndDate(int empNo, DateTime newDate, bool isResignation)
+        {
+            string sql;
+            if (isResignation) // 퇴사
+                sql = @"UPDATE tb_employee SET END_DATE=@NEW_DATE WHERE EMP_NO=@EMP_NO";
+            else // 재입사
+                sql = @"UPDATE tb_employee SET START_DATE=@NEW_DATE, END_DATE=NULL WHERE EMP_NO=@EMP_NO";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@EMP_NO", empNo);
+            cmd.Parameters.AddWithValue("@NEW_DATE", newDate);
+            
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
     }
 }

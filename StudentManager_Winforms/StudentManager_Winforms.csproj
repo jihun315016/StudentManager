@@ -110,6 +110,12 @@
     <Compile Include="frmCourseDetail.Designer.cs">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSetDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetDate.Designer.cs">
+      <DependentUpon>frmSetDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student\frmSearchSchool.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCourseDetail.resx">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetDate.resx">
+      <DependentUpon>frmSetDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\frmSearchSchool.resx">
       <DependentUpon>frmSearchSchool.cs</DependentUpon>

@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.ucEmail = new StudentManager_Winforms.Controls.ucInputEmail();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtOtherPosition = new System.Windows.Forms.TextBox();
             this.cboAuthority = new System.Windows.Forms.ComboBox();
@@ -51,12 +53,10 @@
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.chkResignation = new System.Windows.Forms.CheckBox();
-            this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmResignation = new System.Windows.Forms.ToolStripMenuItem();
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
             this.ccTxtEmpNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
-            this.ucEmail = new StudentManager_Winforms.Controls.ucInputEmail();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmResignation = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReJoin = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).BeginInit();
@@ -89,6 +89,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(310, 421);
             this.panel4.TabIndex = 4;
+            // 
+            // ucEmail
+            // 
+            this.ucEmail.FrontEmail = "";
+            this.ucEmail.Location = new System.Drawing.Point(15, 221);
+            this.ucEmail.Name = "ucEmail";
+            this.ucEmail.RearEmail = "";
+            this.ucEmail.Size = new System.Drawing.Size(254, 22);
+            this.ucEmail.TabIndex = 101;
+            // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(15, 306);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 77);
+            this.ccTxtSpecialNote.TabIndex = 100;
             // 
             // btnInsert
             // 
@@ -306,6 +324,23 @@
             this.chkResignation.UseVisualStyleBackColor = true;
             this.chkResignation.CheckedChanged += new System.EventHandler(this.chkResignation_CheckedChanged);
             // 
+            // ucDateFilter
+            // 
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 26, 10, 49, 18, 695);
+            this.ucDateFilter.Location = new System.Drawing.Point(118, 390);
+            this.ucDateFilter.Name = "ucDateFilter";
+            this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 26, 10, 49, 18, 695);
+            this.ucDateFilter.TabIndex = 100;
+            // 
+            // ccTxtEmpNo
+            // 
+            this.ccTxtEmpNo.Location = new System.Drawing.Point(3, 391);
+            this.ccTxtEmpNo.Name = "ccTxtEmpNo";
+            this.ccTxtEmpNo.PlaceHolder = "직원 번호 검색";
+            this.ccTxtEmpNo.Size = new System.Drawing.Size(95, 21);
+            this.ccTxtEmpNo.TabIndex = 99;
+            // 
             // cmsSetting
             // 
             this.cmsSetting.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -319,47 +354,14 @@
             this.tsmResignation.Name = "tsmResignation";
             this.tsmResignation.Size = new System.Drawing.Size(180, 22);
             this.tsmResignation.Text = "퇴사";
-            // 
-            // ucDateFilter
-            // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 25, 21, 36, 52, 19);
-            this.ucDateFilter.Location = new System.Drawing.Point(118, 390);
-            this.ucDateFilter.Name = "ucDateFilter";
-            this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 25, 21, 36, 52, 19);
-            this.ucDateFilter.TabIndex = 100;
-            // 
-            // ccTxtEmpNo
-            // 
-            this.ccTxtEmpNo.Location = new System.Drawing.Point(3, 391);
-            this.ccTxtEmpNo.Name = "ccTxtEmpNo";
-            this.ccTxtEmpNo.PlaceHolder = "직원 번호 검색";
-            this.ccTxtEmpNo.Size = new System.Drawing.Size(95, 21);
-            this.ccTxtEmpNo.TabIndex = 99;
-            // 
-            // ucEmail
-            // 
-            this.ucEmail.FrontEmail = "";
-            this.ucEmail.Location = new System.Drawing.Point(15, 221);
-            this.ucEmail.Name = "ucEmail";
-            this.ucEmail.RearEmail = "";
-            this.ucEmail.Size = new System.Drawing.Size(254, 22);
-            this.ucEmail.TabIndex = 101;
-            // 
-            // ccTxtSpecialNote
-            // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(15, 306);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 77);
-            this.ccTxtSpecialNote.TabIndex = 100;
+            this.tsmResignation.Click += new System.EventHandler(this.tsmResignation_Click);
             // 
             // tsmReJoin
             // 
             this.tsmReJoin.Name = "tsmReJoin";
             this.tsmReJoin.Size = new System.Drawing.Size(180, 22);
             this.tsmReJoin.Text = "재입사";
+            this.tsmReJoin.Click += new System.EventHandler(this.tsmReJoin_Click);
             // 
             // frmEmployee
             // 
