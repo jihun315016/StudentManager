@@ -87,11 +87,11 @@ namespace StudentManager.Data.DAC
         {           
             string sql;
             if (stop)
-                sql = @"SELECT STUDENT_NO, STUDENT_NAME, AGE, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP 
+                sql = @"SELECT STUDENT_NO, STUDENT_NAME, AGE, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP, START_DATE, END_DATE 
                         FROM tb_student 
                         WHERE END_DATE IS NOT NULL";
             else
-                sql = @"SELECT STUDENT_NO, STUDENT_NAME, AGE, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP 
+                sql = @"SELECT STUDENT_NO, STUDENT_NAME, AGE, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP, START_DATE, END_DATE
                         FROM tb_student 
                         WHERE END_DATE IS NULL";
 

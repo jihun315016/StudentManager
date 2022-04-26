@@ -148,5 +148,24 @@ namespace StudentManager.Service.Service
             return contactCnt;
         }
 
+        public int SearchStuInList(int stuNo, DataTable dt, string sortCol)
+        {
+            DataView dv = new DataView(dt);
+
+            dv.Sort = sortCol;
+            return dv.Find(stuNo);
+        }
+
+        public DataTable SearchDateInList(DateTime start, DateTime end, DataTable dt, bool isStop)
+        {
+            DataView dv = new DataView(dt);
+
+            if (isStop)            
+                dv.RowFilter = $"END_DATE >= #{start.ToString("yyyy/MM/dd")}# and END_DATE <= #{end.ToString("yyyy/MM/dd")}#";
+            else            
+                dv.RowFilter = $"START_DATE >= #{start.ToString("yyyy/MM/dd")}# and START_DATE <= #{end.ToString("yyyy/MM/dd")}#";
+
+            return dv.ToTable();
+        }
     }
 }

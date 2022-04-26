@@ -170,12 +170,11 @@ namespace StudentManager_Winforms
                 frmEmployDetail pop = new frmEmployDetail(user, emp_no);
                 pop.ShowDialog();
 
-                bool isResignation = chkResignation.Checked;
                 EmployeeService empService = new EmployeeService();
 
-                dgvList.Columns["START_DATE"].Visible = !isResignation;
-                dgvList.Columns["END_DATE"].Visible = isResignation;
-                dgvList.DataSource = empService.GetAllEmployeeInfo(isResignation);
+                dgvList.Columns["START_DATE"].Visible = !chkResignation.Checked;
+                dgvList.Columns["END_DATE"].Visible = chkResignation.Checked;
+                dgvList.DataSource = empService.GetAllEmployeeInfo(chkResignation.Checked);
             }
             else
             {
@@ -287,11 +286,15 @@ namespace StudentManager_Winforms
 
             EmployeeService empService = new EmployeeService();
             int index = empService.SearchEmpInList(int.Parse(ccTxtEmpNo.Text), (DataTable)dgvList.DataSource, "EMP_NO");
-            dgvList.Sort(dgvList.Columns["EMP_NO"], System.ComponentModel.ListSortDirection.Ascending);
-            if (index > 0)
-                dgvList.CurrentCell = dgvList.Rows[index].Cells[0];
+            if (index > -1)
+            {
+                dgvList.Sort(dgvList.Columns["EMP_NO"], System.ComponentModel.ListSortDirection.Ascending);
+                dgvList.CurrentCell = dgvList.Rows[index].Cells["EMP_NO"];
+            }
             else
+            {
                 MessageBox.Show($"{ccTxtEmpNo.Text} - 직원 번호가 없습니다.");
+            }
         }
 
         private void btnSearchDate_Click(object sender, EventArgs e)

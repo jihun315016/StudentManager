@@ -1,6 +1,7 @@
 ﻿using StudentManager.Data.VO;
 using StudentManager.Service.Service;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Text;
@@ -23,25 +24,24 @@ namespace StudentManager_Winforms
 
             // TextBox PlaceHolder 설정
             ccTxtStudentNo.SetTextBoxPlaceHolder();
-            ccTxtClassNo.SetTextBoxPlaceHolder();
             ccTxtSpecialNote.SetTextBoxPlaceHolder();
 
             // DataGridView 초기 설정
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO", alignContent:DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이름", "STUDENT_NAME");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "나이", "AGE", 60);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "나이", "AGE", 60, alignContent:DataGridViewContentAlignment.MiddleRight);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 연락처", "STUDENT_CONTACT", 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 연락처", "GUARDIAN_CONTACT", 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 관계", "GUARDIAN_RERATIONSHIP");
-
-            DataGridViewUtil.SetRowAlignment(dgvList, new string[] { "STUDENT_NO", "AGE" }, DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 날짜", "START_DATE", alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴원 날짜", "END_DATE", isVisible: false, alignContent: DataGridViewContentAlignment.MiddleCenter);
 
             StudentService student = new StudentService();
             dgvList.DataSource = student.GetAllStudentInfo(false);
 
             // 초기 화면 크기
-            this.Width = 645;
+            this.Width = 745;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -120,12 +120,12 @@ namespace StudentManager_Winforms
             if (btnOpenInsert.Text.Equals(">>"))
             {
                 btnOpenInsert.Text = "<<";
-                this.Width = 945;
+                this.Width = 1030;
             }
             else
             {
                 btnOpenInsert.Text = ">>";
-                this.Width = 645;
+                this.Width = 745;
             }
         }        
 
@@ -139,8 +139,13 @@ namespace StudentManager_Winforms
         {
             int student_no = int.Parse(dgvList["STUDENT_NO", e.RowIndex].Value.ToString());
 
-            frmStudentDetail frm = new frmStudentDetail(user, student_no);
-            frm.ShowDialog();
+            frmStudentDetail pop = new frmStudentDetail(user, student_no);
+            pop.ShowDialog();
+
+            StudentService stuService = new StudentService();
+            dgvList.Columns["START_DATE"].Visible = !chkStop.Checked;
+            dgvList.Columns["END_DATE"].Visible = chkStop.Checked;
+            dgvList.DataSource = stuService.GetAllStudentInfo(chkStop.Checked);
         }
 
         private void rdoOther_CheckedChanged(object sender, EventArgs e)
@@ -173,9 +178,17 @@ namespace StudentManager_Winforms
             StudentService studentService = new StudentService();
 
             if (chkStop.Checked)
+            {
+                dgvList.Columns["START_DATE"].Visible = false;
+                dgvList.Columns["END_DATE"].Visible = true;
                 dgvList.DataSource = studentService.GetAllStudentInfo(true);
+            }
             else
+            {
+                dgvList.Columns["START_DATE"].Visible = true;
+                dgvList.Columns["END_DATE"].Visible = false;
                 dgvList.DataSource = studentService.GetAllStudentInfo(false);
+            }
 
         }
 
@@ -252,6 +265,34 @@ namespace StudentManager_Winforms
                     }
                 }
             }
+        }
+
+        private void btnSearchStu_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(ccTxtStudentNo.Text))
+            {
+                MessageBox.Show("학생 번호를 입력해주세요.");
+                return;
+            }
+
+            StudentService stuService = new StudentService();
+            int index = stuService.SearchStuInList(int.Parse(ccTxtStudentNo.Text), (DataTable)dgvList.DataSource, "STUDENT_NO");
+
+            if (index > -1)
+            {                                
+                dgvList.Sort(dgvList.Columns["STUDENT_NO"], System.ComponentModel.ListSortDirection.Ascending);
+                dgvList.CurrentCell = dgvList.Rows[index].Cells["STUDENT_NO"];
+            }
+            else
+            {
+                MessageBox.Show($"{ccTxtStudentNo.Text} - 학생 번호가 없습니다.");
+            }
+        }
+
+        private void btnSearchDate_Click(object sender, EventArgs e)
+        {
+            StudentService stuService = new StudentService();
+            dgvList.DataSource = stuService.SearchDateInList(ucDateFilter.StartDate, ucDateFilter.EndDate, (DataTable)dgvList.DataSource, chkStop.Checked);
         }
     }
 }

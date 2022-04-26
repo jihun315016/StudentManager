@@ -106,13 +106,13 @@
             this.ccTxtSpecialNote.Multiline = true;
             this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
             this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 77);
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 67);
             this.ccTxtSpecialNote.TabIndex = 100;
             // 
             // btnInsert
             // 
             this.btnInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnInsert.Location = new System.Drawing.Point(220, 375);
+            this.btnInsert.Location = new System.Drawing.Point(220, 365);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
             this.btnInsert.TabIndex = 82;
@@ -272,7 +272,7 @@
             // btnSearchDate
             // 
             this.btnSearchDate.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearchDate.Location = new System.Drawing.Point(515, 375);
+            this.btnSearchDate.Location = new System.Drawing.Point(515, 365);
             this.btnSearchDate.Name = "btnSearchDate";
             this.btnSearchDate.Size = new System.Drawing.Size(80, 23);
             this.btnSearchDate.TabIndex = 36;
@@ -286,7 +286,7 @@
             this.dgvList.Location = new System.Drawing.Point(3, 36);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(592, 333);
+            this.dgvList.Size = new System.Drawing.Size(592, 323);
             this.dgvList.TabIndex = 94;
             this.dgvList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentDoubleClick);
             this.dgvList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseClick);
@@ -319,7 +319,7 @@
             // btnSearchEmp
             // 
             this.btnSearchEmp.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearchEmp.Location = new System.Drawing.Point(104, 375);
+            this.btnSearchEmp.Location = new System.Drawing.Point(104, 365);
             this.btnSearchEmp.Name = "btnSearchEmp";
             this.btnSearchEmp.Size = new System.Drawing.Size(80, 23);
             this.btnSearchEmp.TabIndex = 102;
@@ -340,16 +340,16 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 26, 14, 59, 52, 559);
-            this.ucDateFilter.Location = new System.Drawing.Point(271, 376);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 26, 16, 8, 5, 250);
+            this.ucDateFilter.Location = new System.Drawing.Point(271, 366);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 26, 14, 59, 52, 559);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 26, 16, 8, 5, 250);
             this.ucDateFilter.TabIndex = 100;
             // 
             // ccTxtEmpNo
             // 
-            this.ccTxtEmpNo.Location = new System.Drawing.Point(3, 377);
+            this.ccTxtEmpNo.Location = new System.Drawing.Point(3, 367);
             this.ccTxtEmpNo.Name = "ccTxtEmpNo";
             this.ccTxtEmpNo.PlaceHolder = "직원 번호 검색";
             this.ccTxtEmpNo.Size = new System.Drawing.Size(95, 21);
