@@ -365,7 +365,6 @@
             this.dgvList.Size = new System.Drawing.Size(612, 344);
             this.dgvList.TabIndex = 94;
             this.dgvList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentDoubleClick);
-            this.dgvList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvList_MouseClick);
             // 
             // btnSearch
             // 

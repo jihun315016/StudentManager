@@ -139,7 +139,7 @@ namespace StudentManager_Winforms
         {
             int student_no = int.Parse(dgvList["STUDENT_NO", e.RowIndex].Value.ToString());
 
-            frmStudentDetail frm = new frmStudentDetail(student_no);
+            frmStudentDetail frm = new frmStudentDetail(user, student_no);
             frm.ShowDialog();
         }
 
@@ -177,18 +177,6 @@ namespace StudentManager_Winforms
             else
                 dgvList.DataSource = studentService.GetAllStudentInfo(false);
 
-        }
-
-        private void dgvList_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (user.Authority == 1 && e.Button == MouseButtons.Right)
-            {
-                MessageBox.Show("11");
-            }
-            else
-            {
-                MessageBox.Show("권한 ㄴㄴ");
-            }
-        }
+        }    
     }
 }

@@ -8,12 +8,17 @@ namespace StudentManager_Winforms
 {
     public partial class frmStudentDetail : Form
     {
-        public frmStudentDetail(int studentNo)
+        EmployeeVO user;
+
+        public frmStudentDetail(EmployeeVO user, int studentNo)
         {
             InitializeComponent();
 
+            this.user = user;
+
             txtStudentNo.Text = studentNo.ToString();
         }
+
         private void frmStudentDetail_Load(object sender, EventArgs e)
         {
             int studentNo = int.Parse(txtStudentNo.Text);
@@ -120,6 +125,12 @@ namespace StudentManager_Winforms
             }
             else // 수정 버튼 상태
             {
+                if (user.Authority == 3)
+                {
+                    MessageBox.Show("권한이 없습니다.");
+                    return;
+                }
+
                 if (!string.IsNullOrWhiteSpace(lblGuardianRerationship.Text))
                 {
                     rdoOther.Checked = true;
@@ -177,6 +188,5 @@ namespace StudentManager_Winforms
         {
             this.Close();
         }
-
     }
 }

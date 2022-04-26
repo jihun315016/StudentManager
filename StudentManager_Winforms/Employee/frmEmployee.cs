@@ -161,11 +161,18 @@ namespace StudentManager_Winforms
         }
 
         private void dgvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {           
+        {
             int emp_no = int.Parse(dgvList["EMP_NO", e.RowIndex].Value.ToString());
+            if (user.Authority == 1 || user.Emp_no == emp_no)
+            {
+                frmEmployDetail frm = new frmEmployDetail(user, emp_no);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("권한이 없습니다.");
+            }
 
-            frmEmployDetail frm = new frmEmployDetail(user, emp_no);
-            frm.ShowDialog();
         }
 
         private void chkResignation_CheckedChanged(object sender, EventArgs e)

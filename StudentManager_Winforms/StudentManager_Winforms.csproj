@@ -160,10 +160,10 @@
     <Compile Include="Student\frmStudent.Designer.cs">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStudentDetail.cs">
+    <Compile Include="Student\frmStudentDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStudentDetail.Designer.cs">
+    <Compile Include="Student\frmStudentDetail.Designer.cs">
       <DependentUpon>frmStudentDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -223,7 +223,7 @@
     <EmbeddedResource Include="Student\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStudentDetail.resx">
+    <EmbeddedResource Include="Student\frmStudentDetail.resx">
       <DependentUpon>frmStudentDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

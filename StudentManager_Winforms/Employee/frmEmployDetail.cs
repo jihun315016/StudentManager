@@ -160,9 +160,13 @@ namespace StudentManager_Winforms
             }
             else // 수정 버튼 상태
             {
-                txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled = 
-                    cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = true;
-                btnUpload.Visible = true;
+                if (user.Authority == 1)
+                {
+                    txtName.Enabled = dtpDate.Enabled = 
+                        cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = true;
+                    btnUpload.Visible = true;
+                }
+
                 btnEditInfo.Text = "저장";
             }
         }
