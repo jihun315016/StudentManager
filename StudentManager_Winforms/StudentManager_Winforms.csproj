@@ -80,10 +80,10 @@
     <Compile Include="frmAttendance.Designer.cs">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee\frmChangePassword.cs">
+    <Compile Include="Popup\frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\frmChangePassword.Designer.cs">
+    <Compile Include="Popup\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="frmContest.cs">
@@ -110,16 +110,16 @@
     <Compile Include="frmCourseDetail.Designer.cs">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSetDate.cs">
+    <Compile Include="Popup\frmSetDate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSetDate.Designer.cs">
+    <Compile Include="Popup\frmSetDate.Designer.cs">
       <DependentUpon>frmSetDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student\frmSearchSchool.cs">
+    <Compile Include="Popup\frmSearchSchool.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student\frmSearchSchool.Designer.cs">
+    <Compile Include="Popup\frmSearchSchool.Designer.cs">
       <DependentUpon>frmSearchSchool.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee\frmEmployee.cs">
@@ -190,7 +190,7 @@
     <EmbeddedResource Include="frmAttendance.resx">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee\frmChangePassword.resx">
+    <EmbeddedResource Include="Popup\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmContest.resx">
@@ -205,10 +205,10 @@
     <EmbeddedResource Include="frmCourseDetail.resx">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSetDate.resx">
+    <EmbeddedResource Include="Popup\frmSetDate.resx">
       <DependentUpon>frmSetDate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student\frmSearchSchool.resx">
+    <EmbeddedResource Include="Popup\frmSearchSchool.resx">
       <DependentUpon>frmSearchSchool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee\frmEmployee.resx">

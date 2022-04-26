@@ -16,7 +16,7 @@ namespace StudentManager_Winforms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmManager());
+            //Application.Run(new frmSetDate("퇴원 날짜", true));
             Application.Run(new frmLogin());
         }
     }

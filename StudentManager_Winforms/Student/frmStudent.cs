@@ -177,6 +177,81 @@ namespace StudentManager_Winforms
             else
                 dgvList.DataSource = studentService.GetAllStudentInfo(false);
 
-        }    
+        }
+
+        private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (user.Authority == 1 && e.Button == MouseButtons.Right)
+            {
+                dgvList.CurrentCell = dgvList[e.ColumnIndex, e.RowIndex];
+                cmsSetting.Show(Cursor.Position);
+
+                if (chkStop.Checked)
+                {
+                    tsmReJoin.Visible = true;
+                    tsmStop.Visible = false;
+                }
+                else
+                {
+                    tsmReJoin.Visible = false;
+                    tsmStop.Visible = true;
+                }
+            }
+        }
+
+        private void tsmStop_Click(object sender, EventArgs e)
+        {
+            int stuNo = int.Parse(dgvList.CurrentRow.Cells["STUDENT_NO"].Value.ToString());
+            string stuName = dgvList.CurrentRow.Cells["STUDENT_NAME"].Value.ToString();
+            DialogResult msgBox = MessageBox.Show($"{stuName} 학생을 퇴원 처리하시겠습니까?", "퇴원 확인", MessageBoxButtons.YesNo);
+            if (msgBox == DialogResult.Yes)
+            {
+                frmSetDate pop = new frmSetDate("퇴원 날짜", true);
+
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+
+                    StudentService stuService = new StudentService();
+                    bool result = stuService.UpdateEndDate(stuNo, pop.CommitDate, pop.EndReasonNo, true);
+
+                    if (result)
+                    {
+                        MessageBox.Show($"{stuName}님을 퇴원 처리하셨습니다.");
+                        dgvList.DataSource = stuService.GetAllStudentInfo(false);
+                    }
+                    else
+                    {
+                        MessageBox.Show("퇴원에 실패했습니다.");
+                    }
+                }
+            }
+        }
+
+        private void tsmReJoin_Click(object sender, EventArgs e)
+        {
+            int stuNo = int.Parse(dgvList.CurrentRow.Cells["STUDENT_NO"].Value.ToString());
+            string stuName = dgvList.CurrentRow.Cells["STUDENT_NAME"].Value.ToString();
+            DialogResult msgBox = MessageBox.Show($"{stuName}님을 재등록 처리하시겠습니까?", "재등록 확인", MessageBoxButtons.YesNo);
+            if (msgBox == DialogResult.Yes)
+            {
+                frmSetDate pop = new frmSetDate("등록 날짜");
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+
+                    StudentService stuService = new StudentService();
+                    bool result = stuService.UpdateEndDate(stuNo, pop.CommitDate, pop.EndReasonNo ,false);
+
+                    if (result)
+                    {
+                        MessageBox.Show($"{stuName}님을 재등록 하셨습니다.");
+                        dgvList.DataSource = stuService.GetAllStudentInfo(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("재등록에 실패했습니다.");
+                    }
+                }
+            }
+        }
     }
 }

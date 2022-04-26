@@ -76,9 +76,9 @@ namespace StudentManager.Service.Service
         public bool UpdateEndDate(int empNo, DateTime newDate, bool isResignation)
         {
             EmployeeDAC dac = new EmployeeDAC();
-            dac.UpdateEndDate(empNo, newDate, isResignation);
+            bool result = dac.UpdateEndDate(empNo, newDate, isResignation);
             dac.Dispose();
-            return true;
+            return result;
         }
 
         // text가 null이면 ToString() 메서드를 사용할 때

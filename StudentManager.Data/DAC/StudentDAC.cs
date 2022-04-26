@@ -110,6 +110,16 @@ namespace StudentManager.Data.DAC
             return cmd.ExecuteScalar().ToString();
         }
 
+        public DataTable GetAllEndReason()
+        {
+            string sql = @"SELECT END_CONTENT FROM tb_end_reason";
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+
         public bool InsertStudent
             (
                 string name, string studentContact, string guardianContact, string guardianRerationship,
@@ -182,6 +192,33 @@ namespace StudentManager.Data.DAC
             {
                 int iRowAffect = cmd.ExecuteNonQuery();
                 return iRowAffect > 0;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
+
+        public bool UpdateEndDate(int stuNo, DateTime newDate, int endReasonNo, bool isStop)
+        {
+            string sql;
+            if (isStop) // 퇴원
+                sql = @"UPDATE tb_student SET END_DATE=@NEW_DATE, END_REASON_NO=@END_REASON_NO WHERE STUDENT_NO=@STUDENT_NO";
+            else // 재등록
+                sql = @"UPDATE tb_student SET START_DATE=@NEW_DATE, END_DATE=NULL, END_REASON_NO=NULL WHERE STUDENT_NO=@STUDENT_NO";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@STUDENT_NO", stuNo);
+            cmd.Parameters.AddWithValue("@NEW_DATE", newDate);
+            cmd.Parameters.AddWithValue("@END_REASON_NO", endReasonNo);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
             }
             catch (Exception err)
             {

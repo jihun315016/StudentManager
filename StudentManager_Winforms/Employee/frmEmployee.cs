@@ -224,7 +224,7 @@ namespace StudentManager_Winforms
 
         private void tsmResignation_Click(object sender, EventArgs e)
         {
-            int ResignationNo = int.Parse(dgvList.CurrentRow.Cells["EMP_NO"].Value.ToString());
+            int empNo = int.Parse(dgvList.CurrentRow.Cells["EMP_NO"].Value.ToString());
             string ResignationName = dgvList.CurrentRow.Cells["EMP_NAME"].Value.ToString();
             DialogResult msgBox = MessageBox.Show($"{ResignationName}님을 퇴사 처리하시겠습니까?", "퇴사 확인", MessageBoxButtons.YesNo);
             if (msgBox == DialogResult.Yes)
@@ -234,7 +234,7 @@ namespace StudentManager_Winforms
                 {
 
                     EmployeeService empService = new EmployeeService();
-                    bool result = empService.UpdateEndDate(ResignationNo , pop.CommitDate, true);
+                    bool result = empService.UpdateEndDate(empNo , pop.CommitDate, true);
 
                     if (result)
                     {
@@ -271,7 +271,7 @@ namespace StudentManager_Winforms
                     }
                     else
                     {
-                        MessageBox.Show("재입사 실패했습니다.");                    
+                        MessageBox.Show("재입사를 실패했습니다.");                    
                     }
                 }
             }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlInsert = new System.Windows.Forms.Panel();
             this.txtAge = new System.Windows.Forms.TextBox();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
             this.rdoOther = new System.Windows.Forms.RadioButton();
@@ -52,16 +52,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSelect = new System.Windows.Forms.Panel();
             this.chkStop = new System.Windows.Forms.CheckBox();
-            this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
-            this.ccTxtClassNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
-            this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmStop = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmReJoin = new System.Windows.Forms.ToolStripMenuItem();
+            this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
+            this.ccTxtClassNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.pnlInsert.SuspendLayout();
             this.pnlGuardianRerationship.SuspendLayout();
             this.pnlSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
+            this.cmsSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlInsert
@@ -94,15 +99,6 @@
             this.txtAge.Size = new System.Drawing.Size(103, 21);
             this.txtAge.TabIndex = 6;
             this.txtAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAge_KeyPress);
-            // 
-            // ccTxtSpecialNote
-            // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(9, 262);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(275, 118);
-            this.ccTxtSpecialNote.TabIndex = 10;
             // 
             // dtpStartDate
             // 
@@ -320,31 +316,6 @@
             this.chkStop.UseVisualStyleBackColor = true;
             this.chkStop.CheckedChanged += new System.EventHandler(this.chkStop_CheckedChanged);
             // 
-            // ucDateFilter
-            // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 26, 13, 14, 32, 716);
-            this.ucDateFilter.Location = new System.Drawing.Point(279, 387);
-            this.ucDateFilter.Name = "ucDateFilter";
-            this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 26, 13, 14, 32, 716);
-            this.ucDateFilter.TabIndex = 99;
-            // 
-            // ccTxtClassNo
-            // 
-            this.ccTxtClassNo.Location = new System.Drawing.Point(142, 388);
-            this.ccTxtClassNo.Name = "ccTxtClassNo";
-            this.ccTxtClassNo.PlaceHolder = "수업 번호 검색";
-            this.ccTxtClassNo.Size = new System.Drawing.Size(100, 21);
-            this.ccTxtClassNo.TabIndex = 98;
-            // 
-            // ccTxtStudentNo
-            // 
-            this.ccTxtStudentNo.Location = new System.Drawing.Point(3, 388);
-            this.ccTxtStudentNo.Name = "ccTxtStudentNo";
-            this.ccTxtStudentNo.PlaceHolder = "학생 번호 검색";
-            this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
-            this.ccTxtStudentNo.TabIndex = 97;
-            // 
             // btnOpenInsert
             // 
             this.btnOpenInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -365,6 +336,7 @@
             this.dgvList.Size = new System.Drawing.Size(612, 344);
             this.dgvList.TabIndex = 94;
             this.dgvList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentDoubleClick);
+            this.dgvList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseClick);
             // 
             // btnSearch
             // 
@@ -375,6 +347,62 @@
             this.btnSearch.TabIndex = 36;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // cmsSetting
+            // 
+            this.cmsSetting.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmStop,
+            this.tsmReJoin});
+            this.cmsSetting.Name = "contextMenuStrip1";
+            this.cmsSetting.Size = new System.Drawing.Size(181, 70);
+            // 
+            // tsmStop
+            // 
+            this.tsmStop.Name = "tsmStop";
+            this.tsmStop.Size = new System.Drawing.Size(180, 22);
+            this.tsmStop.Text = "퇴원";
+            this.tsmStop.Click += new System.EventHandler(this.tsmStop_Click);
+            // 
+            // tsmReJoin
+            // 
+            this.tsmReJoin.Name = "tsmReJoin";
+            this.tsmReJoin.Size = new System.Drawing.Size(180, 22);
+            this.tsmReJoin.Text = "재등록";
+            this.tsmReJoin.Click += new System.EventHandler(this.tsmReJoin_Click);
+            // 
+            // ucDateFilter
+            // 
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 26, 15, 5, 26, 415);
+            this.ucDateFilter.Location = new System.Drawing.Point(279, 387);
+            this.ucDateFilter.Name = "ucDateFilter";
+            this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 26, 15, 5, 26, 415);
+            this.ucDateFilter.TabIndex = 99;
+            // 
+            // ccTxtClassNo
+            // 
+            this.ccTxtClassNo.Location = new System.Drawing.Point(142, 388);
+            this.ccTxtClassNo.Name = "ccTxtClassNo";
+            this.ccTxtClassNo.PlaceHolder = "수업 번호 검색";
+            this.ccTxtClassNo.Size = new System.Drawing.Size(100, 21);
+            this.ccTxtClassNo.TabIndex = 98;
+            // 
+            // ccTxtStudentNo
+            // 
+            this.ccTxtStudentNo.Location = new System.Drawing.Point(3, 388);
+            this.ccTxtStudentNo.Name = "ccTxtStudentNo";
+            this.ccTxtStudentNo.PlaceHolder = "학생 번호 검색";
+            this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
+            this.ccTxtStudentNo.TabIndex = 97;
+            // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(9, 262);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(275, 118);
+            this.ccTxtSpecialNote.TabIndex = 10;
             // 
             // frmStudent
             // 
@@ -396,6 +424,7 @@
             this.pnlSelect.ResumeLayout(false);
             this.pnlSelect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
+            this.cmsSetting.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -431,5 +460,8 @@
         private Controls.ucDateFilter ucDateFilter;
         private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.CheckBox chkStop;
+        private System.Windows.Forms.ContextMenuStrip cmsSetting;
+        private System.Windows.Forms.ToolStripMenuItem tsmStop;
+        private System.Windows.Forms.ToolStripMenuItem tsmReJoin;
     }
 }

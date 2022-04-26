@@ -47,6 +47,19 @@ namespace StudentManager.Service.Service
             return result;
         }
 
+        public List<string> GetAllEndReason()
+        {
+            StudentDAC dac = new StudentDAC();
+            DataTable dt = dac.GetAllEndReason();
+            dac.Dispose();
+
+            List<string> list = new List<string>();
+            foreach (DataRow dr in dt.Rows)
+                list.Add(dr["END_CONTENT"].ToString());
+
+            return list;
+        }
+
         public bool InsertStudent
             (
                 string name, string studentContact, string guardianContact, string guardianRerationship,
@@ -71,6 +84,14 @@ namespace StudentManager.Service.Service
         {
             StudentDAC dac = new StudentDAC();
             bool result = dac.UpdateStudentInfo(studentNo, name, stuContact, guardContact, gaurdRelationship, school, age, startDate, specialNote);
+            dac.Dispose();
+            return result;
+        }
+
+        public bool UpdateEndDate(int stuNo, DateTime newDate, int endReasonNo, bool isStop)
+        {
+            StudentDAC dac = new StudentDAC();
+            bool result = dac.UpdateEndDate(stuNo, newDate, endReasonNo, isStop);
             dac.Dispose();
             return result;
         }
