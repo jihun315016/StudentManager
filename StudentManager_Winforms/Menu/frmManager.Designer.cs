@@ -45,10 +45,10 @@
             // 
             // btnStudent
             // 
-            this.btnStudent.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnStudent.Location = new System.Drawing.Point(0, 0);
+            this.btnStudent.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnStudent.Location = new System.Drawing.Point(0, 50);
             this.btnStudent.Name = "btnStudent";
-            this.btnStudent.Size = new System.Drawing.Size(200, 80);
+            this.btnStudent.Size = new System.Drawing.Size(170, 60);
             this.btnStudent.TabIndex = 7;
             this.btnStudent.Text = "학생";
             this.btnStudent.UseVisualStyleBackColor = true;
@@ -56,10 +56,10 @@
             // 
             // btn_Employee
             // 
-            this.btn_Employee.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn_Employee.Location = new System.Drawing.Point(0, 80);
+            this.btn_Employee.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_Employee.Location = new System.Drawing.Point(0, 110);
             this.btn_Employee.Name = "btn_Employee";
-            this.btn_Employee.Size = new System.Drawing.Size(200, 80);
+            this.btn_Employee.Size = new System.Drawing.Size(170, 60);
             this.btn_Employee.TabIndex = 9;
             this.btn_Employee.Text = "직원";
             this.btn_Employee.UseVisualStyleBackColor = true;
@@ -67,10 +67,10 @@
             // 
             // btnAttendance
             // 
-            this.btnAttendance.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAttendance.Location = new System.Drawing.Point(0, 160);
+            this.btnAttendance.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnAttendance.Location = new System.Drawing.Point(0, 170);
             this.btnAttendance.Name = "btnAttendance";
-            this.btnAttendance.Size = new System.Drawing.Size(200, 80);
+            this.btnAttendance.Size = new System.Drawing.Size(170, 60);
             this.btnAttendance.TabIndex = 10;
             this.btnAttendance.Text = "출석";
             this.btnAttendance.UseVisualStyleBackColor = true;
@@ -78,10 +78,10 @@
             // 
             // btnPayment
             // 
-            this.btnPayment.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnPayment.Location = new System.Drawing.Point(0, 240);
+            this.btnPayment.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnPayment.Location = new System.Drawing.Point(0, 230);
             this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(200, 80);
+            this.btnPayment.Size = new System.Drawing.Size(170, 60);
             this.btnPayment.TabIndex = 12;
             this.btnPayment.Text = "결제";
             this.btnPayment.UseVisualStyleBackColor = true;
@@ -89,10 +89,10 @@
             // 
             // btnContest
             // 
-            this.btnContest.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnContest.Location = new System.Drawing.Point(0, 320);
+            this.btnContest.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnContest.Location = new System.Drawing.Point(0, 290);
             this.btnContest.Name = "btnContest";
-            this.btnContest.Size = new System.Drawing.Size(200, 80);
+            this.btnContest.Size = new System.Drawing.Size(170, 60);
             this.btnContest.TabIndex = 13;
             this.btnContest.Text = "수상";
             this.btnContest.UseVisualStyleBackColor = true;
@@ -100,10 +100,10 @@
             // 
             // btnCourse
             // 
-            this.btnCourse.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCourse.Location = new System.Drawing.Point(0, 400);
+            this.btnCourse.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCourse.Location = new System.Drawing.Point(0, 350);
             this.btnCourse.Name = "btnCourse";
-            this.btnCourse.Size = new System.Drawing.Size(200, 80);
+            this.btnCourse.Size = new System.Drawing.Size(170, 60);
             this.btnCourse.TabIndex = 15;
             this.btnCourse.Text = "수업";
             this.btnCourse.UseVisualStyleBackColor = true;
@@ -120,14 +120,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 703);
+            this.panel1.Size = new System.Drawing.Size(170, 703);
             this.panel1.TabIndex = 17;
             // 
             // lblUserInfo
             // 
             this.lblUserInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUserInfo.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblUserInfo.Location = new System.Drawing.Point(674, 5);
+            this.lblUserInfo.Location = new System.Drawing.Point(704, 5);
             this.lblUserInfo.Name = "lblUserInfo";
             this.lblUserInfo.Size = new System.Drawing.Size(200, 40);
             this.lblUserInfo.TabIndex = 18;
@@ -137,8 +137,8 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnExit.Location = new System.Drawing.Point(979, 12);
+            this.btnExit.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnExit.Location = new System.Drawing.Point(1009, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(65, 27);
             this.btnExit.TabIndex = 20;
@@ -149,8 +149,8 @@
             // btnMyPage
             // 
             this.btnMyPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMyPage.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnMyPage.Location = new System.Drawing.Point(903, 12);
+            this.btnMyPage.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnMyPage.Location = new System.Drawing.Point(933, 12);
             this.btnMyPage.Name = "btnMyPage";
             this.btnMyPage.Size = new System.Drawing.Size(70, 27);
             this.btnMyPage.TabIndex = 21;
@@ -163,9 +163,9 @@
             this.panel2.Controls.Add(this.btnExit);
             this.panel2.Controls.Add(this.btnMyPage);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(200, 0);
+            this.panel2.Location = new System.Drawing.Point(170, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1056, 50);
+            this.panel2.Size = new System.Drawing.Size(1086, 50);
             this.panel2.TabIndex = 22;
             // 
             // frmManager

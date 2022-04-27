@@ -27,27 +27,27 @@ namespace StudentManager_Winforms
 
         private void frmContest_Resize(object sender, EventArgs e)
         {
-            Utility.Util.PanelLocateCenter(this, pnlEntire);
+            //Utility.Util.PanelLocateCenter(this, pnlEntire);
         }
 
         private void txtStudentNo_Enter(object sender, EventArgs e)
         {
-            Utility.Util.TextBoxInput(txtStudentNo);
+            //Utility.Util.TextBoxInput(txtStudentNo);
         }
 
         private void txtContestName_Enter(object sender, EventArgs e)
         {
-            Utility.Util.TextBoxInput(txtContestName);
+            //Utility.Util.TextBoxInput(txtContestName);
         }
 
         private void txtStudentNo_Leave(object sender, EventArgs e)
         {
-            Utility.Util.TextBoxHint(txtStudentNo, "학생 번호 검색");
+            //Utility.Util.TextBoxHint(txtStudentNo, "학생 번호 검색");
         }
 
         private void txtContestName_Leave(object sender, EventArgs e)
         {
-            Utility.Util.TextBoxHint(txtContestName, "대회명 검색");
+            //Utility.Util.TextBoxHint(txtContestName, "대회명 검색");
         }
     }
 }

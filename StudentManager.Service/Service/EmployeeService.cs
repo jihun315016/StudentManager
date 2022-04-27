@@ -111,5 +111,19 @@ namespace StudentManager.Service.Service
 
             return dv.ToTable();
         }
+
+        public string CheckDirectorOrTeacherByEmpNo(int empNo)
+        {
+            EmployeeVO empVO = GetEmpInfoByPk(empNo);
+
+            if (empVO == null)
+                return "존재하지 않는 직원 번호입니다.";
+
+            else if (!empVO.Position.Equals("강사") && !empVO.Position.Equals("원장"))
+                return "원장 또는 강사만 수업을 등록할 수 있습니다.";
+
+            else
+                return empVO.Emp_Name;
+        }
     }
 }

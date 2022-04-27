@@ -12,24 +12,24 @@ namespace StudentManager_Winforms
 {
     public partial class frmCourse : Form
     {
+        public event EventHandler CreateCoursePopup;
+
         public frmCourse()
         {
             InitializeComponent();
         }
+
         private void frmCourse_Load(object sender, EventArgs e)
         {
-            txtEmployeeNo_Leave(this, null);
+            ccTxtBoxPlaceHolder.SetTextBoxPlaceHolder();
         }
 
-        private void txtEmployeeNo_Enter(object sender, EventArgs e)
+        private void btnInsert_Click(object sender, EventArgs e)
         {
-            Utility.Util.TextBoxInput(txtEmployeeNo);
+            frmCourseInsert frm = new frmCourseInsert();
+            frm.MdiParent = this.MdiParent;
+            frm.Tag = this;            
+            frm.Show();
         }
-
-        private void txtEmployeeNo_Leave(object sender, EventArgs e)
-        {
-            Utility.Util.TextBoxHint(txtEmployeeNo, "사번 검색");
-        }
-
     }
 }

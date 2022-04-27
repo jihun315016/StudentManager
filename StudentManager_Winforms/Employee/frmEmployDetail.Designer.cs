@@ -245,7 +245,7 @@
             // ptbEmployee
             // 
             this.ptbEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbEmployee.Image = global::StudentManager_Winforms.Properties.Resources.man;
+            this.ptbEmployee.Image = global::StudentManager_Winforms.Properties.Resources.image;
             this.ptbEmployee.Location = new System.Drawing.Point(597, 4);
             this.ptbEmployee.Name = "ptbEmployee";
             this.ptbEmployee.Size = new System.Drawing.Size(150, 150);

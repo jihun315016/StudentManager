@@ -118,6 +118,7 @@ namespace StudentManager_Winforms
             txtName.Text = txtContact.Text = txtOtherPosition.Text = String.Empty;
             cboAuthority.SelectedItem = null;
             cboPosition.SelectedItem = null;
+            ptbEmployee.Image = Properties.Resources.image;
             ucEmail.ClearText();
         }
 
@@ -153,7 +154,7 @@ namespace StudentManager_Winforms
             if (btnOpenInsert.Text.Equals(">>"))
             {
                 btnOpenInsert.Text = "<<";
-                this.Width = 865;
+                this.Width = 935;
             }
             else
             {
@@ -301,6 +302,12 @@ namespace StudentManager_Winforms
         {
             EmployeeService empService = new EmployeeService();
             dgvList.DataSource = empService.SearchDateInList(ucDateFilter.StartDate, ucDateFilter.EndDate, (DataTable)dgvList.DataSource, chkResignation.Checked);
+        }
+
+        private void ccTxtEmpNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

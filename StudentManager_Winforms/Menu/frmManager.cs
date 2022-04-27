@@ -54,6 +54,11 @@ namespace StudentManager_Winforms
             OpenCreateForm<frmCourse>();
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         void OpenCreateForm<T>() where T : Form, new()
         {
             foreach (Form form in Application.OpenForms)
@@ -69,11 +74,6 @@ namespace StudentManager_Winforms
             frm.MdiParent = this;
             frm.Tag = user;
             frm.Show();
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

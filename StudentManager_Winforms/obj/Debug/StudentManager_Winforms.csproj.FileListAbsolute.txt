@@ -273,3 +273,4 @@ C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_W
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.exe.config
 C:\Users\admin\Desktop\project\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmChangePassword.resources
 C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmSetDate.resources
+C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmCourseInsert.resources

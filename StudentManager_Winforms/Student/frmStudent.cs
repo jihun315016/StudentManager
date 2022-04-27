@@ -28,11 +28,11 @@ namespace StudentManager_Winforms
 
             // DataGridView 초기 설정
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO", alignContent:DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO", 80, alignContent:DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이름", "STUDENT_NAME");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "나이", "AGE", 60, alignContent:DataGridViewContentAlignment.MiddleRight);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 연락처", "STUDENT_CONTACT", 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 연락처", "GUARDIAN_CONTACT", 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 연락처", "STUDENT_CONTACT", 130);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 연락처", "GUARDIAN_CONTACT", 130);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 관계", "GUARDIAN_RERATIONSHIP");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 날짜", "START_DATE", alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴원 날짜", "END_DATE", isVisible: false, alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -77,7 +77,7 @@ namespace StudentManager_Winforms
             }
             
 
-            string specialNote;
+            string specialNote = null;
             if (!ccTxtSpecialNote.Text.Equals(ccTxtSpecialNote.PlaceHolder))
             {
                 specialNote = ccTxtSpecialNote.Text;
@@ -92,7 +92,7 @@ namespace StudentManager_Winforms
             bool result = studentService.InsertStudent
                 (
                        txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
-                    txtSchool.Text, int.Parse(txtAge.Text), dtpStartDate.Value, ccTxtSpecialNote.Text
+                    txtSchool.Text, int.Parse(txtAge.Text), dtpStartDate.Value, specialNote
                 );
 
             if (result)
@@ -293,6 +293,12 @@ namespace StudentManager_Winforms
         {
             StudentService stuService = new StudentService();
             dgvList.DataSource = stuService.SearchDateInList(ucDateFilter.StartDate, ucDateFilter.EndDate, (DataTable)dgvList.DataSource, chkStop.Checked);
+        }
+
+        private void ccTxtStudentNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))            
+                e.Handled = true;            
         }
     }
 }

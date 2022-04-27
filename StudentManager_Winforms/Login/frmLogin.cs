@@ -31,6 +31,7 @@ namespace StudentManager_Winforms
                 int empNo = Convert.ToInt32(txtId.Text);
 
                 frmManager frm = new frmManager(empNo);
+                this.Visible = false;
                 frm.ShowDialog();
                 this.Close();
             }

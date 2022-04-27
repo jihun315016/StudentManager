@@ -90,8 +90,8 @@ namespace StudentManager_Winforms.Controls
             bool isNumber = e.KeyChar >= 0 && e.KeyChar <= 9;
             bool isSpecial = e.KeyChar == '\b';
 
-            if (!isLower && !isUpper && !isNumber && !isSpecial)
-                e.Handled = true;
+            if (!isLower && !isUpper && !isNumber && !isSpecial)                            
+                e.Handled = true;            
         }
     }
 }

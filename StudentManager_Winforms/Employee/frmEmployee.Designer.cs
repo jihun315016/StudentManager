@@ -85,7 +85,6 @@
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.txtName);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.label1);
             this.panel4.Location = new System.Drawing.Point(608, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(310, 398);
@@ -203,7 +202,7 @@
             // ptbEmployee
             // 
             this.ptbEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbEmployee.Image = global::StudentManager_Winforms.Properties.Resources.man;
+            this.ptbEmployee.Image = global::StudentManager_Winforms.Properties.Resources.image;
             this.ptbEmployee.Location = new System.Drawing.Point(11, 36);
             this.ptbEmployee.Name = "ptbEmployee";
             this.ptbEmployee.Size = new System.Drawing.Size(128, 128);
@@ -263,7 +262,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(-1, 9);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 23);
             this.label1.TabIndex = 63;
@@ -311,6 +310,7 @@
             this.panel2.Controls.Add(this.btnOpenInsert);
             this.panel2.Controls.Add(this.dgvList);
             this.panel2.Controls.Add(this.btnSearchDate);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(2, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(600, 398);
@@ -340,11 +340,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 27, 9, 58, 10, 677);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 27, 16, 5, 4, 15);
             this.ucDateFilter.Location = new System.Drawing.Point(271, 366);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 27, 9, 58, 10, 677);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 27, 16, 5, 4, 15);
             this.ucDateFilter.TabIndex = 100;
             // 
             // ccTxtEmpNo
@@ -354,6 +354,7 @@
             this.ccTxtEmpNo.PlaceHolder = "직원 번호 검색";
             this.ccTxtEmpNo.Size = new System.Drawing.Size(95, 21);
             this.ccTxtEmpNo.TabIndex = 99;
+            this.ccTxtEmpNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ccTxtEmpNo_KeyPress);
             // 
             // cmsSetting
             // 
