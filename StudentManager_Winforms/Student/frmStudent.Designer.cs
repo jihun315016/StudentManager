@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.pnlInsert = new System.Windows.Forms.Panel();
             this.txtAge = new System.Windows.Forms.TextBox();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
             this.rdoOther = new System.Windows.Forms.RadioButton();
@@ -51,17 +52,16 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSelect = new System.Windows.Forms.Panel();
+            this.btnSearchDate = new System.Windows.Forms.Button();
+            this.btnSearchStu = new System.Windows.Forms.Button();
             this.chkStop = new System.Windows.Forms.CheckBox();
+            this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
+            this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmStop = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReJoin = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSearchStu = new System.Windows.Forms.Button();
-            this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
-            this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
-            this.btnSearchDate = new System.Windows.Forms.Button();
             this.pnlInsert.SuspendLayout();
             this.pnlGuardianRerationship.SuspendLayout();
             this.pnlSelect.SuspendLayout();
@@ -100,6 +100,15 @@
             this.txtAge.TabIndex = 6;
             this.txtAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAge_KeyPress);
             // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(9, 262);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(263, 84);
+            this.ccTxtSpecialNote.TabIndex = 10;
+            // 
             // dtpStartDate
             // 
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -135,10 +144,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label8.Location = new System.Drawing.Point(-2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 12);
+            this.label8.Size = new System.Drawing.Size(69, 12);
             this.label8.TabIndex = 94;
             this.label8.Text = "보호자 관계";
             // 
@@ -175,10 +184,10 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label10.Location = new System.Drawing.Point(9, 205);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 12);
+            this.label10.Size = new System.Drawing.Size(41, 12);
             this.label10.TabIndex = 77;
             this.label10.Text = "등록일";
             // 
@@ -195,10 +204,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label9.Location = new System.Drawing.Point(150, 97);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 12);
+            this.label9.Size = new System.Drawing.Size(81, 12);
             this.label9.TabIndex = 92;
             this.label9.Text = "보호자 연락처";
             // 
@@ -226,30 +235,30 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.Location = new System.Drawing.Point(7, 147);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 12);
+            this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 89;
             this.label6.Text = "학교";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.Location = new System.Drawing.Point(150, 47);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 12);
+            this.label7.Size = new System.Drawing.Size(69, 12);
             this.label7.TabIndex = 88;
             this.label7.Text = "학생 연락처";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(7, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 12);
+            this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 86;
             this.label4.Text = "나이";
             // 
@@ -264,16 +273,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.Location = new System.Drawing.Point(7, 47);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 12);
+            this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 84;
             this.label5.Text = "이름";
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnAdd.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnAdd.Location = new System.Drawing.Point(197, 357);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
@@ -305,6 +314,28 @@
             this.pnlSelect.Size = new System.Drawing.Size(723, 391);
             this.pnlSelect.TabIndex = 5;
             // 
+            // btnSearchDate
+            // 
+            this.btnSearchDate.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSearchDate.Location = new System.Drawing.Point(552, 357);
+            this.btnSearchDate.Name = "btnSearchDate";
+            this.btnSearchDate.Size = new System.Drawing.Size(80, 23);
+            this.btnSearchDate.TabIndex = 104;
+            this.btnSearchDate.Text = "날짜 검색";
+            this.btnSearchDate.UseVisualStyleBackColor = true;
+            this.btnSearchDate.Click += new System.EventHandler(this.btnSearchDate_Click);
+            // 
+            // btnSearchStu
+            // 
+            this.btnSearchStu.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSearchStu.Location = new System.Drawing.Point(109, 357);
+            this.btnSearchStu.Name = "btnSearchStu";
+            this.btnSearchStu.Size = new System.Drawing.Size(80, 23);
+            this.btnSearchStu.TabIndex = 103;
+            this.btnSearchStu.Text = "학생 검색";
+            this.btnSearchStu.UseVisualStyleBackColor = true;
+            this.btnSearchStu.Click += new System.EventHandler(this.btnSearchStu_Click);
+            // 
             // chkStop
             // 
             this.chkStop.AutoSize = true;
@@ -316,9 +347,26 @@
             this.chkStop.UseVisualStyleBackColor = true;
             this.chkStop.CheckedChanged += new System.EventHandler(this.chkStop_CheckedChanged);
             // 
+            // ucDateFilter
+            // 
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 27, 9, 58, 13, 148);
+            this.ucDateFilter.Location = new System.Drawing.Point(296, 358);
+            this.ucDateFilter.Name = "ucDateFilter";
+            this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 27, 9, 58, 13, 148);
+            this.ucDateFilter.TabIndex = 99;
+            // 
+            // ccTxtStudentNo
+            // 
+            this.ccTxtStudentNo.Location = new System.Drawing.Point(3, 359);
+            this.ccTxtStudentNo.Name = "ccTxtStudentNo";
+            this.ccTxtStudentNo.PlaceHolder = "학생 번호 검색";
+            this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
+            this.ccTxtStudentNo.TabIndex = 97;
+            // 
             // btnOpenInsert
             // 
-            this.btnOpenInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnOpenInsert.Font = new System.Drawing.Font("굴림", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnOpenInsert.Location = new System.Drawing.Point(570, 7);
             this.btnOpenInsert.Name = "btnOpenInsert";
             this.btnOpenInsert.Size = new System.Drawing.Size(45, 23);
@@ -359,54 +407,6 @@
             this.tsmReJoin.Size = new System.Drawing.Size(110, 22);
             this.tsmReJoin.Text = "재등록";
             this.tsmReJoin.Click += new System.EventHandler(this.tsmReJoin_Click);
-            // 
-            // btnSearchStu
-            // 
-            this.btnSearchStu.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearchStu.Location = new System.Drawing.Point(109, 357);
-            this.btnSearchStu.Name = "btnSearchStu";
-            this.btnSearchStu.Size = new System.Drawing.Size(80, 23);
-            this.btnSearchStu.TabIndex = 103;
-            this.btnSearchStu.Text = "학생 검색";
-            this.btnSearchStu.UseVisualStyleBackColor = true;
-            this.btnSearchStu.Click += new System.EventHandler(this.btnSearchStu_Click);
-            // 
-            // ucDateFilter
-            // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 26, 16, 12, 29, 941);
-            this.ucDateFilter.Location = new System.Drawing.Point(296, 358);
-            this.ucDateFilter.Name = "ucDateFilter";
-            this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 26, 16, 12, 29, 941);
-            this.ucDateFilter.TabIndex = 99;
-            // 
-            // ccTxtStudentNo
-            // 
-            this.ccTxtStudentNo.Location = new System.Drawing.Point(3, 359);
-            this.ccTxtStudentNo.Name = "ccTxtStudentNo";
-            this.ccTxtStudentNo.PlaceHolder = "학생 번호 검색";
-            this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
-            this.ccTxtStudentNo.TabIndex = 97;
-            // 
-            // ccTxtSpecialNote
-            // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(9, 262);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(263, 84);
-            this.ccTxtSpecialNote.TabIndex = 10;
-            // 
-            // btnSearchDate
-            // 
-            this.btnSearchDate.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearchDate.Location = new System.Drawing.Point(552, 357);
-            this.btnSearchDate.Name = "btnSearchDate";
-            this.btnSearchDate.Size = new System.Drawing.Size(80, 23);
-            this.btnSearchDate.TabIndex = 104;
-            this.btnSearchDate.Text = "날짜 검색";
-            this.btnSearchDate.UseVisualStyleBackColor = true;
-            this.btnSearchDate.Click += new System.EventHandler(this.btnSearchDate_Click);
             // 
             // frmStudent
             // 
