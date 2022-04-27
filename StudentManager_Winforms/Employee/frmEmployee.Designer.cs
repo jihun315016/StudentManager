@@ -340,11 +340,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 27, 16, 5, 4, 15);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 27, 20, 20, 43, 632);
             this.ucDateFilter.Location = new System.Drawing.Point(271, 366);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 27, 16, 5, 4, 15);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 27, 20, 20, 43, 632);
             this.ucDateFilter.TabIndex = 100;
             // 
             // ccTxtEmpNo
@@ -385,6 +385,9 @@
             this.ClientSize = new System.Drawing.Size(919, 401);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEmployee";
             this.Text = "frmEmployee";
             this.Load += new System.EventHandler(this.frmEmployee_Load);

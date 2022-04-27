@@ -21,10 +21,7 @@ namespace StudentManager_Winforms
 
         private void frmCourseInsert_Load(object sender, EventArgs e)
         {
-            int x = ((frmCourse)this.Tag).Left + ((frmCourse)this.Tag).Width;
-            int y = ((frmCourse)this.Tag).Top;
-
-            this.Location = new Point(x, y);
+            lblEmpName.Visible = false;
         }
 
         private void btnCommit_Click(object sender, EventArgs e)
@@ -40,24 +37,46 @@ namespace StudentManager_Winforms
 
             EmployeeService dac = new EmployeeService();
             EmployeeVO empVO = dac.GetEmpInfoByPk(int.Parse(txtEmpNo.Text));
+
+            // 직원 번호 유효성 검사            
+            if (txtEmpNo.Tag is bool isValidEmpNo && isValidEmpNo)
+            {
+                // 회비도 어짜피 숫자만 입력 가능
+                CourseService courseService = new CourseService();               
+                bool result = courseService.InsertCourse(int.Parse(txtEmpNo.Text), txtCourse.Text, int.Parse(txtPayment.Text), dtpStart.Value, dtpEnd.Value);
+                if (result)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    MessageBox.Show("수업이 등록되었습니다.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("등록에 실패하였습니다.");
+                }
+            }
+            else
+            {
+                lblEmpName.Visible = true;
+            }
+            
         }
 
-        private void txtEmpNo_KeyPress(object sender, KeyPressEventArgs e)
+        private void txt_onlyNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
                 e.Handled = true;
-        }
+        }        
 
         private void txtEmpNo_Leave(object sender, EventArgs e)
         {
-            EmployeeService dac = new EmployeeService();
+            lblEmpName.Visible = true;
+            CourseService dac = new CourseService();
+            bool result;
 
-            int empNo;
-
-            if (!int.TryParse(txtEmpNo.Text, out empNo))
-                lblEmpName.Text = "잘못된 사원번호 입니다.";
-            else
-                lblEmpName.Text = dac.CheckDirectorOrTeacherByEmpNo(empNo);
+            // 어짜피 txtEmpNo는 숫자만 입력 가능
+            lblEmpName.Text = dac.CheckDirectorOrTeacherByEmpNo(int.Parse(txtEmpNo.Text), out result);
+            txtEmpNo.Tag = result;
         }
 
     }

@@ -279,7 +279,7 @@ namespace StudentManager_Winforms
 
         private void btnSearchEmp_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(ccTxtEmpNo.Text))
+            if (string.IsNullOrWhiteSpace(ccTxtEmpNo.Text) || ccTxtEmpNo.Text == ccTxtEmpNo.PlaceHolder)
             {
                 MessageBox.Show("직원 번호를 입력해주세요.");
                 return;

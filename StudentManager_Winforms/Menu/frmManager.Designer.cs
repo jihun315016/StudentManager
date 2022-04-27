@@ -68,7 +68,7 @@
             // btnAttendance
             // 
             this.btnAttendance.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAttendance.Location = new System.Drawing.Point(0, 170);
+            this.btnAttendance.Location = new System.Drawing.Point(0, 230);
             this.btnAttendance.Name = "btnAttendance";
             this.btnAttendance.Size = new System.Drawing.Size(170, 60);
             this.btnAttendance.TabIndex = 10;
@@ -79,7 +79,7 @@
             // btnPayment
             // 
             this.btnPayment.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnPayment.Location = new System.Drawing.Point(0, 230);
+            this.btnPayment.Location = new System.Drawing.Point(0, 350);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(170, 60);
             this.btnPayment.TabIndex = 12;
@@ -101,7 +101,7 @@
             // btnCourse
             // 
             this.btnCourse.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCourse.Location = new System.Drawing.Point(0, 350);
+            this.btnCourse.Location = new System.Drawing.Point(0, 170);
             this.btnCourse.Name = "btnCourse";
             this.btnCourse.Size = new System.Drawing.Size(170, 60);
             this.btnCourse.TabIndex = 15;

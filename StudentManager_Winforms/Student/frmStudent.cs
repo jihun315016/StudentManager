@@ -269,7 +269,7 @@ namespace StudentManager_Winforms
 
         private void btnSearchStu_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(ccTxtStudentNo.Text))
+            if (string.IsNullOrWhiteSpace(ccTxtStudentNo.Text) || ccTxtStudentNo.Text == ccTxtStudentNo.PlaceHolder)
             {
                 MessageBox.Show("학생 번호를 입력해주세요.");
                 return;

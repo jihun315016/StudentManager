@@ -80,10 +80,10 @@
     <Compile Include="frmAttendance.Designer.cs">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCourseInsert.cs">
+    <Compile Include="Popup\frmCourseInsert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCourseInsert.Designer.cs">
+    <Compile Include="Popup\frmCourseInsert.Designer.cs">
       <DependentUpon>frmCourseInsert.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\frmChangePassword.cs">
@@ -104,10 +104,10 @@
     <Compile Include="frmContestDetail.Designer.cs">
       <DependentUpon>frmContestDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCourse.cs">
+    <Compile Include="Course\frmCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCourse.Designer.cs">
+    <Compile Include="Course\frmCourse.Designer.cs">
       <DependentUpon>frmCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCourseDetail.cs">
@@ -195,7 +195,7 @@
     <EmbeddedResource Include="frmAttendance.resx">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCourseInsert.resx">
+    <EmbeddedResource Include="Popup\frmCourseInsert.resx">
       <DependentUpon>frmCourseInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\frmChangePassword.resx">
@@ -207,7 +207,7 @@
     <EmbeddedResource Include="frmContestDetail.resx">
       <DependentUpon>frmContestDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCourse.resx">
+    <EmbeddedResource Include="Course\frmCourse.resx">
       <DependentUpon>frmCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCourseDetail.resx">

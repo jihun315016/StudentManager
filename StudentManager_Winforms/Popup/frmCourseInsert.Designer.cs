@@ -49,7 +49,8 @@ namespace StudentManager_Winforms
             this.txtPayment.Location = new System.Drawing.Point(205, 25);
             this.txtPayment.Name = "txtPayment";
             this.txtPayment.Size = new System.Drawing.Size(82, 21);
-            this.txtPayment.TabIndex = 127;
+            this.txtPayment.TabIndex = 2;
+            this.txtPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumber_KeyPress);
             // 
             // label6
             // 
@@ -67,7 +68,7 @@ namespace StudentManager_Winforms
             this.dtpEnd.Location = new System.Drawing.Point(166, 92);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(121, 21);
-            this.dtpEnd.TabIndex = 125;
+            this.dtpEnd.TabIndex = 4;
             // 
             // label3
             // 
@@ -85,7 +86,7 @@ namespace StudentManager_Winforms
             this.dtpStart.Location = new System.Drawing.Point(6, 92);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(121, 21);
-            this.dtpStart.TabIndex = 123;
+            this.dtpStart.TabIndex = 3;
             // 
             // label9
             // 
@@ -103,9 +104,9 @@ namespace StudentManager_Winforms
             this.lblEmpName.Font = new System.Drawing.Font("굴림", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblEmpName.Location = new System.Drawing.Point(3, 49);
             this.lblEmpName.Name = "lblEmpName";
-            this.lblEmpName.Size = new System.Drawing.Size(38, 11);
+            this.lblEmpName.Size = new System.Drawing.Size(137, 11);
             this.lblEmpName.TabIndex = 121;
-            this.lblEmpName.Text = "강지훈";
+            this.lblEmpName.Text = "직원 번호를 입력해주세요.";
             // 
             // txtCourse
             // 
@@ -113,7 +114,7 @@ namespace StudentManager_Winforms
             this.txtCourse.Location = new System.Drawing.Point(106, 25);
             this.txtCourse.Name = "txtCourse";
             this.txtCourse.Size = new System.Drawing.Size(82, 21);
-            this.txtCourse.TabIndex = 120;
+            this.txtCourse.TabIndex = 1;
             // 
             // label4
             // 
@@ -131,8 +132,8 @@ namespace StudentManager_Winforms
             this.txtEmpNo.Location = new System.Drawing.Point(6, 25);
             this.txtEmpNo.Name = "txtEmpNo";
             this.txtEmpNo.Size = new System.Drawing.Size(82, 21);
-            this.txtEmpNo.TabIndex = 118;
-            this.txtEmpNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmpNo_KeyPress);
+            this.txtEmpNo.TabIndex = 0;
+            this.txtEmpNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumber_KeyPress);
             this.txtEmpNo.Leave += new System.EventHandler(this.txtEmpNo_Leave);
             // 
             // label5
@@ -150,7 +151,7 @@ namespace StudentManager_Winforms
             this.btnCommit.Location = new System.Drawing.Point(228, 123);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(59, 23);
-            this.btnCommit.TabIndex = 128;
+            this.btnCommit.TabIndex = 5;
             this.btnCommit.Text = "확인";
             this.btnCommit.UseVisualStyleBackColor = true;
             this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
@@ -176,6 +177,7 @@ namespace StudentManager_Winforms
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCourseInsert";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCourseInsert";
             this.Load += new System.EventHandler(this.frmCourseInsert_Load);
             this.ResumeLayout(false);
