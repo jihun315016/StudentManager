@@ -26,7 +26,7 @@ namespace StudentManager_Winforms
             int empNo = int.Parse(txtEmpNo.Text);
 
             // 지금 보는 직원이 본인이 아니라면
-            if (!empNo.Equals(user.Emp_no))
+            if (!empNo.Equals(user.EmpNo))
                 btnChangePw.Visible = false;
 
 
@@ -50,9 +50,9 @@ namespace StudentManager_Winforms
 
             EmployeeVO employeeVO = empService.GetEmpInfoByPk(empNo);
 
-            lblEmployeeInfo.Text = $"[{employeeVO.Position}] {employeeVO.Emp_Name}";
-            txtName.Text = employeeVO.Emp_Name;
-            txtContact.Text = employeeVO.Emp_Contact;
+            lblEmployeeInfo.Text = $"[{employeeVO.Position}] {employeeVO.EmpName}";
+            txtName.Text = employeeVO.EmpName;
+            txtContact.Text = employeeVO.EmpContact;
             ccTxtEmail.FrontEmail = employeeVO.Email.Split('@')[0];
             ccTxtEmail.RearEmail = employeeVO.Email.Split('@')[1];
             cboPosition.Text = employeeVO.Position;

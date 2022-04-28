@@ -50,9 +50,9 @@ namespace StudentManager_Winforms
                 
                 string newPassword = login.MakePassword();
 
-                if (txtName.Text == employeeVO.Emp_Name && ucInputEmail.Email == employeeVO.Email)
+                if (txtName.Text == employeeVO.EmpName && ucInputEmail.Email == employeeVO.Email)
                 {
-                    if (login.SendEmail(employeeVO.Emp_Name, ucInputEmail.Email, newPassword) && login.ChangePassword(emp_no, newPassword))
+                    if (login.SendEmail(employeeVO.EmpName, ucInputEmail.Email, newPassword) && login.ChangePassword(emp_no, newPassword))
                     {
                         lblMessage.Text = "임시 비밀번호가 발송되었습니다.";
                         lblMessage.ForeColor = Color.SeaGreen;

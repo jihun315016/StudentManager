@@ -166,7 +166,7 @@ namespace StudentManager_Winforms
         private void dgvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int emp_no = int.Parse(dgvList["EMP_NO", e.RowIndex].Value.ToString());
-            if (user.Authority == 1 || user.Emp_no == emp_no)
+            if (user.Authority == 1 || user.EmpNo == emp_no)
             {
                 frmEmployDetail pop = new frmEmployDetail(user, emp_no);
                 pop.ShowDialog();

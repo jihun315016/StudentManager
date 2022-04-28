@@ -49,6 +49,7 @@
     <Compile Include="DAC\StudentDAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VO\CourseVO.cs" />
+    <Compile Include="VO\EmployeeCourseVO.cs" />
     <Compile Include="VO\EmployeeVO.cs" />
     <Compile Include="VO\StudentVO.cs" />
   </ItemGroup>

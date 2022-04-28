@@ -44,11 +44,11 @@ namespace StudentManager.Data.DAC
 
             if (reader.Read())
             {
-                stu.Student_no = int.Parse(reader["STUDENT_NO"].ToString());
-                stu.Student_Name = reader["STUDENT_NAME"].ToString();
-                stu.Student_Contact = reader["STUDENT_CONTACT"].ToString();
-                stu.Guardian_Contact = reader["GUARDIAN_CONTACT"].ToString();
-                stu.Guardian_ralationship = reader["GUARDIAN_RERATIONSHIP"].ToString();
+                stu.StudentNo = int.Parse(reader["STUDENT_NO"].ToString());
+                stu.StudentName = reader["STUDENT_NAME"].ToString();
+                stu.StudentContact = reader["STUDENT_CONTACT"].ToString();
+                stu.GuardianContact = reader["GUARDIAN_CONTACT"].ToString();
+                stu.GuardianRalationship = reader["GUARDIAN_RERATIONSHIP"].ToString();
                 stu.School = reader["SCHOOL"].ToString();
                 stu.Age = int.Parse(reader["AGE"].ToString());
                 stu.StartDate = Convert.ToDateTime(reader["START_DATE"].ToString());

@@ -75,7 +75,7 @@ namespace StudentManager_Winforms
             bool result;
 
             // 어짜피 txtEmpNo는 숫자만 입력 가능
-            lblEmpName.Text = dac.CheckDirectorOrTeacherByEmpNo(int.Parse(txtEmpNo.Text), out result);
+            lblEmpName.Text = dac.CheckDirectorOrTeacherByEmpNo(txtEmpNo.Text, out result);
             txtEmpNo.Tag = result;
         }
 

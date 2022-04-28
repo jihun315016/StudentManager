@@ -59,8 +59,8 @@ namespace StudentManager.Data.DAC
 
             if (reader.Read())
             {
-                emp.Emp_Name = reader["EMP_NAME"].ToString();
-                emp.Emp_Contact = reader["EMP_CONTACT"].ToString();
+                emp.EmpName = reader["EMP_NAME"].ToString();
+                emp.EmpContact = reader["EMP_CONTACT"].ToString();
                 emp.Position = reader["POSITION"].ToString();
                 emp.Authority = int.Parse(reader["AUTHORITY"].ToString());
                 emp.StartDate = Convert.ToDateTime(reader["START_DATE"].ToString());

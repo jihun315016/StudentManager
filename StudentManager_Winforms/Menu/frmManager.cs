@@ -16,12 +16,12 @@ namespace StudentManager_Winforms
 
             EmployeeService employee = new EmployeeService();
             user = employee.GetEmpInfoByPk(empNo);
-            user.Emp_no = empNo;
+            user.EmpNo = empNo;
         }
 
         private void frmManager_Load(object sender, EventArgs e)
         {
-            lblUserInfo.Text = $"[{user.Position}] {user.Emp_Name}";
+            lblUserInfo.Text = $"[{user.Position}] {user.EmpName}";
         }
        
         private void btnStudent_Click(object sender, EventArgs e)

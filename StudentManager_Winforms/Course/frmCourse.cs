@@ -4,17 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
 {
     public partial class frmCourse : Form
     {
-        public event EventHandler CreateCoursePopup;
+        EmployeeVO user;
 
         public frmCourse()
         {
@@ -23,12 +19,12 @@ namespace StudentManager_Winforms
 
         private void frmCourse_Load(object sender, EventArgs e)
         {
+            user = this.Tag as EmployeeVO;
             ccTxtCourseNo.SetTextBoxPlaceHolder();
-
 
             CourseService courseService = new CourseService();
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수업 번호", "COURSE_NO", 80, alignContent:DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수업 번호", "COURSE_NO", 80, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "직원 번호", "EMP_NO", 80, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수업", "COURSE_NAME");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "개강 날짜", "START_DATE");
@@ -39,13 +35,19 @@ namespace StudentManager_Winforms
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
+            if (user.Authority > 1)
+            {
+                MessageBox.Show("권한이 없습니다.");
+                return;
+            }
+
             frmCourseInsert pop = new frmCourseInsert();
             if (pop.ShowDialog() == DialogResult.OK)
             {
                 CourseService courseService = new CourseService();
                 chkFinalCourse.Checked = false;
                 dgvList.DataSource = courseService.GetAllCourseInfo(false);
-            }            
+            }
         }
 
         private void chkFinalCourse_CheckedChanged(object sender, EventArgs e)
@@ -89,9 +91,17 @@ namespace StudentManager_Winforms
         {
             int courseNo = int.Parse(dgvList["COURSE_NO", e.RowIndex].Value.ToString());
 
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmCourseDetail))
+                {
+                    form.Close();
+                    break;
+                }
+            }
+
             frmCourseDetail frm = new frmCourseDetail(courseNo);
             frm.MdiParent = this.MdiParent;
-            frm.Tag = this;            
             frm.Show();
         }
     }

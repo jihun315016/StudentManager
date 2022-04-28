@@ -11,12 +11,12 @@ namespace StudentManager.Service.Service
 {
     public class CourseService
     {
-        public CourseVO GetCourseInfoByPk(int courseNo)
+        public EmployeeCourseVO GetCourseInfoByPk(int courseNo)
         {
             CourseDAC dac = new CourseDAC();
-            CourseVO courseVO = dac.GetCourseInfoByPk(courseNo);
+            EmployeeCourseVO courseEmpVO = dac.GetCourseInfoByPk(courseNo);
             dac.Dispose();
-            return courseVO;
+            return courseEmpVO;
         }
 
         public DataTable GetAllCourseInfo(bool isFinal)
@@ -26,6 +26,31 @@ namespace StudentManager.Service.Service
             dac.Dispose();
             return dt;
         }
+        public DataTable GetStudentListByCourse(int courseNo)
+        {
+            CourseDAC dac = new CourseDAC();
+            DataTable dt = dac.GetStudentListByCourse(courseNo);
+            dac.Dispose();
+            return dt;
+        }
+
+        public bool DistinctCheckStudentList(int studentNo, int courseNo)
+        {
+            CourseDAC dac = new CourseDAC();
+            bool result = dac.DistinctCheckStudentList(studentNo, courseNo) == 0;
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool InsertStudentInCourse(int studentNo, int courseNo)
+        {
+            CourseDAC dac = new CourseDAC();
+            bool result = dac.InsertStudentInCourse(studentNo, courseNo);
+            dac.Dispose();
+            return result;
+        }
+
 
         public bool InsertCourse(int empNo, string courseName, int payment, DateTime startDate, DateTime endDate)
         {
@@ -36,11 +61,23 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public string CheckDirectorOrTeacherByEmpNo(int empNo, out bool result)
+        public string CheckDirectorOrTeacherByEmpNo(string strEmpNo, out bool result)
         {
-            EmployeeDAC dac = new EmployeeDAC();
-            EmployeeVO empVO = dac.GetEmployeeInfoByPk(empNo);
+            EmployeeDAC dac;
+            EmployeeVO empVO;
+            int empNo;
 
+            if (int.TryParse(strEmpNo, out empNo))
+            {
+                dac = new EmployeeDAC();
+                empVO = dac.GetEmployeeInfoByPk(empNo);
+            }
+            else
+            {
+                result = false;
+                return "직원 번호를 입력해주세요.";
+            }
+            
             if (empVO == null)
             {
                 result = false;
@@ -54,7 +91,7 @@ namespace StudentManager.Service.Service
             else
             {
                 result = true;
-                return empVO.Emp_Name;
+                return empVO.EmpName;
             }
         }
 
@@ -65,5 +102,6 @@ namespace StudentManager.Service.Service
             dv.Sort = sortCol;
             return dv.Find(courseNo);
         }
+
     }
 }

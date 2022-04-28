@@ -26,12 +26,12 @@ namespace StudentManager_Winforms
             StudentVO studentVO = stuService.GetStudentInfoByPk(studentNo);
 
             // 초기 데이터 입력
-            lblStudentInfo.Text = $"[{studentVO.Student_no}] {studentVO.Student_Name}";
-            txtStudentNo.Text = studentVO.Student_no.ToString();
-            txtName.Text = studentVO.Student_Name.ToString();
-            txtStudentContact.Text = studentVO.Student_Contact.ToString();
-            txtGuardianContact.Text = studentVO.Guardian_Contact.ToString();
-            lblGuardianRerationship.Text = studentVO.Guardian_ralationship.ToString();
+            lblStudentInfo.Text = $"[{studentVO.StudentNo}] {studentVO.StudentName}";
+            txtStudentNo.Text = studentVO.StudentNo.ToString();
+            txtName.Text = studentVO.StudentName.ToString();
+            txtStudentContact.Text = studentVO.StudentContact.ToString();
+            txtGuardianContact.Text = studentVO.GuardianContact.ToString();
+            lblGuardianRerationship.Text = studentVO.GuardianRalationship.ToString();
             txtAge.Text = studentVO.Age.ToString();
             txtSchool.Text = studentVO.School.ToString();
             dtpDate.Value = studentVO.StartDate;

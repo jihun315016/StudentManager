@@ -27,7 +27,7 @@ namespace StudentManager.Data.DAC
             conn.Close();
         }
 
-        public CourseVO GetCourseInfoByPk(int courseNo)
+        public EmployeeCourseVO GetCourseInfoByPk(int courseNo)
         {
             string sql = $@"SELECT COURSE_NO, c.EMP_NO, EMP_NAME, COURSE_NAME, PAYMENT, c.START_DATE, c.END_DATE 
                             FROM tb_course c
@@ -40,17 +40,19 @@ namespace StudentManager.Data.DAC
 
             MySqlDataReader reader = cmd.ExecuteReader();
 
-            CourseVO course = new CourseVO();
+            EmployeeCourseVO courseEmp = new EmployeeCourseVO();
 
             if (reader.Read())
             {
-                course.EmpNo = int.Parse(reader["EMP_NO"].ToString());   
-                course.Payment = int.Parse(reader["PAYMENT"].ToString());
-                course.CourseName= reader["COURSE_NAME"].ToString();
-                course.StartDate = Convert.ToDateTime(reader["START_DATE"].ToString());
-                course.EndDate = Convert.ToDateTime(reader["END_DATE"].ToString());
+                courseEmp.CourseNo = int.Parse(reader["COURSE_NO"].ToString());
+                courseEmp.EmpNo = int.Parse(reader["EMP_NO"].ToString());
+                courseEmp.EmpName = reader["EMP_NAME"].ToString();
+                courseEmp.Payment = int.Parse(reader["PAYMENT"].ToString());
+                courseEmp.CourseName = reader["COURSE_NAME"].ToString();
+                courseEmp.CourseStartDate = Convert.ToDateTime(reader["START_DATE"].ToString());
+                courseEmp.CourseEndDate = Convert.ToDateTime(reader["END_DATE"].ToString());
 
-                return course;
+                return courseEmp;
             }
             else
             {
@@ -77,6 +79,28 @@ namespace StudentManager.Data.DAC
             return dt;
         }
 
+        public DataTable GetStudentListByCourse(int courseNo)
+        {
+            string sql = @"SELECT STUDENT_NO, COURSE_NO FROM tb_course_student WHERE COURSE_NO=@COURSE_NO";
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.SelectCommand.Parameters.AddWithValue("@COURSE_NO", courseNo);
+            da.Fill(dt);
+
+            return dt;
+        }
+
+        public int DistinctCheckStudentList(int studentNo, int courseNo)
+        {
+            string sql = @"SELECT count(STUDENT_NO) FROM tb_course_student WHERE STUDENT_NO=@STUDENT_NO and COURSE_NO=@COURSE_NO";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@STUDENT_NO", studentNo);
+            cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
+
+            return Convert.ToInt32(cmd.ExecuteScalar());
+        }
+
         public bool InsertCourse(int empNo, string courseName, int payment, DateTime startDate, DateTime endDate)
         {
             string sql = @"INSERT INTO tb_course
@@ -91,6 +115,30 @@ namespace StudentManager.Data.DAC
             cmd.Parameters.AddWithValue("@PAYMENT", payment);
             cmd.Parameters.AddWithValue("@START_DATE", startDate);
             cmd.Parameters.AddWithValue("@END_DATE", endDate);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
+
+        public bool InsertStudentInCourse(int studentNo, int courseNo)
+        {
+            string sql = @"INSERT INTO tb_course_student 
+                            (STUDENT_NO, COURSE_NO) 
+                            VALUES (@STUDENT_NO, @COURSE_NO)";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@STUDENT_NO", studentNo);
+            cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
 
             try
             {

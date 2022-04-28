@@ -8,11 +8,11 @@ namespace StudentManager.Data.VO
 {
     public class StudentVO
     {
-        public int Student_no { get; set; }
-        public string Student_Name { get; set; }
-        public string Student_Contact { get; set; }
-        public string Guardian_Contact { get; set; }
-        public string Guardian_ralationship { get; set; }
+        public int StudentNo { get; set; }
+        public string StudentName { get; set; }
+        public string StudentContact { get; set; }
+        public string GuardianContact { get; set; }
+        public string GuardianRalationship { get; set; }
         public string School { get; set; }
         public int Age { get; set; }
         public DateTime StartDate { get; set; }
