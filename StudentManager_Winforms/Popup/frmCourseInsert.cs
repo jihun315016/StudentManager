@@ -14,6 +14,8 @@ namespace StudentManager_Winforms
 {
     public partial class frmCourseInsert : Form
     {
+        bool isValidTeacher;
+
         public frmCourseInsert()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace StudentManager_Winforms
         private void frmCourseInsert_Load(object sender, EventArgs e)
         {
             lblEmpName.Visible = false;
+            isValidTeacher = false;
         }
 
         private void btnCommit_Click(object sender, EventArgs e)
@@ -39,7 +42,7 @@ namespace StudentManager_Winforms
             EmployeeVO empVO = dac.GetEmpInfoByPk(int.Parse(txtEmpNo.Text));
 
             // 직원 번호 유효성 검사            
-            if (txtEmpNo.Tag is bool isValidEmpNo && isValidEmpNo)
+            if (isValidTeacher)
             {
                 // 회비도 어짜피 숫자만 입력 가능
                 CourseService courseService = new CourseService();               
@@ -71,12 +74,15 @@ namespace StudentManager_Winforms
         private void txtEmpNo_Leave(object sender, EventArgs e)
         {
             lblEmpName.Visible = true;
-            CourseService dac = new CourseService();
-            bool result;
+            CourseService courseService = new CourseService();
 
             // 어짜피 txtEmpNo는 숫자만 입력 가능
-            lblEmpName.Text = dac.CheckDirectorOrTeacherByEmpNo(txtEmpNo.Text, out result);
-            txtEmpNo.Tag = result;
+            lblEmpName.Text = courseService.CheckDirectorOrTeacherByEmpNo(txtEmpNo.Text, out isValidTeacher);
+
+            if (isValidTeacher)
+                lblEmpName.ForeColor = Color.Green;
+            else
+                lblEmpName.ForeColor = Color.Red;
         }
 
     }

@@ -26,6 +26,7 @@ namespace StudentManager.Service.Service
             dac.Dispose();
             return dt;
         }
+
         public DataTable GetStudentListByCourse(int courseNo)
         {
             CourseDAC dac = new CourseDAC();
@@ -34,10 +35,10 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
-        public bool DistinctCheckStudentList(int studentNo, int courseNo)
+        public int DetCountStudentInCourse(int studentNo, int courseNo)
         {
             CourseDAC dac = new CourseDAC();
-            bool result = dac.DistinctCheckStudentList(studentNo, courseNo) == 0;
+            int result = dac.DetCountStudentInCourse(studentNo, courseNo);
             dac.Dispose();
 
             return result;
@@ -61,12 +62,32 @@ namespace StudentManager.Service.Service
             return result;
         }
 
+        public bool InsertPayment(int studentNo, int courseNo, DateTime date)
+        {
+            CourseDAC dac = new CourseDAC();
+            bool result = dac.InsertPayment(studentNo, courseNo, date);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool DeleteCourse(int courseNo)
+        {
+
+            CourseDAC dac = new CourseDAC();
+            bool result = dac.DeleteCourse(courseNo);
+            dac.Dispose();
+
+            return result;
+        }
+
         public string CheckDirectorOrTeacherByEmpNo(string strEmpNo, out bool result)
         {
             EmployeeDAC dac;
             EmployeeVO empVO;
             int empNo;
 
+            // strEmpNo가 빈 문자열인 경우
             if (int.TryParse(strEmpNo, out empNo))
             {
                 dac = new EmployeeDAC();

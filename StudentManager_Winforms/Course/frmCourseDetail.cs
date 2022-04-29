@@ -28,6 +28,12 @@ namespace StudentManager_Winforms
                 }
             }
 
+            DataGridViewUtil.SetInitGridView(dgvList);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO", 90, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이름", "STUDENT_NAME", 60);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "나이", "AGE", 40, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학교", "SCHOOL", 110);
+
             lblCourseInfo.Text = $"[{courseEmpVO.EmpName}] {courseEmpVO.CourseName}";
             lblCourseNo.Text = courseEmpVO.CourseNo.ToString();
             lblPayment.Text = courseEmpVO.Payment.ToString("###,#");
@@ -64,7 +70,7 @@ namespace StudentManager_Winforms
                 if (stuVO == null)
                 {
                     lblStudentName.Text = "잘못된 학생 번호입니다.";
-                    lblStudentName.ForeColor = System.Drawing.Color.Red;
+                    lblStudentName.ForeColor = Color.Red;
                     return;
                 }
 
@@ -72,8 +78,8 @@ namespace StudentManager_Winforms
                 if (msgResult == DialogResult.Yes)
                 {
                     CourseService courseService = new CourseService();
-                    bool distinctCheck = courseService.DistinctCheckStudentList(studentNo, courseNo);
-                    if (!distinctCheck)
+                    int distinctCheck = courseService.DetCountStudentInCourse(studentNo, courseNo);
+                    if (distinctCheck > 0)
                     {
                         MessageBox.Show("이미 등록된 학생입니다.");
                         return;
@@ -88,8 +94,6 @@ namespace StudentManager_Winforms
                     txtStudentNo.Text = String.Empty;
                     dgvList.DataSource = courseService.GetStudentListByCourse(courseNo);
                 }
-
-
             }
         }
     }

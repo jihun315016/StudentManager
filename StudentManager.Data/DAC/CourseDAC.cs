@@ -81,7 +81,11 @@ namespace StudentManager.Data.DAC
 
         public DataTable GetStudentListByCourse(int courseNo)
         {
-            string sql = @"SELECT STUDENT_NO, COURSE_NO FROM tb_course_student WHERE COURSE_NO=@COURSE_NO";
+            string sql = @"SELECT s.STUDENT_NO, STUDENT_NAME, SCHOOL, AGE
+                            FROM tb_student s
+                            JOIN tb_course_student c
+                            ON s.student_no = c.student_no
+                            WHERE c.COURSE_NO=@COURSE_NO;";
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
             da.SelectCommand.Parameters.AddWithValue("@COURSE_NO", courseNo);
@@ -90,7 +94,7 @@ namespace StudentManager.Data.DAC
             return dt;
         }
 
-        public int DistinctCheckStudentList(int studentNo, int courseNo)
+        public int DetCountStudentInCourse(int studentNo, int courseNo)
         {
             string sql = @"SELECT count(STUDENT_NO) FROM tb_course_student WHERE STUDENT_NO=@STUDENT_NO and COURSE_NO=@COURSE_NO";
 
@@ -99,7 +103,7 @@ namespace StudentManager.Data.DAC
             cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
 
             return Convert.ToInt32(cmd.ExecuteScalar());
-        }
+        }        
 
         public bool InsertCourse(int empNo, string courseName, int payment, DateTime startDate, DateTime endDate)
         {
@@ -138,6 +142,52 @@ namespace StudentManager.Data.DAC
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@STUDENT_NO", studentNo);
+            cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
+
+        public bool InsertPayment(int studentNo, int courseNo, DateTime date)
+        {
+            string sql = @"INSERT INTO tb_payment 
+                            (COURSE_NO, STUDENT_NO, PAYMENT_DATE) 
+                            VALUES (@COURSE_NO, @STUDENT_NO, @PAYMENT_DATE)";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
+            cmd.Parameters.AddWithValue("@STUDENT_NO", studentNo);
+            cmd.Parameters.AddWithValue("@PAYMENT_DATE", date);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
+
+        public bool DeleteCourse(int courseNo)
+        {
+            string sql = "DELETE FROM tb_course WHERE COURSE_NO=@COURSE_NO";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
             cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
 
             try

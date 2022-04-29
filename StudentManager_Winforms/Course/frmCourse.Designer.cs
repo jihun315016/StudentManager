@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.chkFinalCourse = new System.Windows.Forms.CheckBox();
+            this.chkNotCouse = new System.Windows.Forms.CheckBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
+            this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.ccTxtCourseNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
+            this.cmsSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.chkFinalCourse);
+            this.panel2.Controls.Add(this.chkNotCouse);
             this.panel2.Controls.Add(this.ccTxtCourseNo);
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.dgvList);
@@ -49,19 +53,19 @@
             this.panel2.Controls.Add(this.btnInsert);
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(479, 333);
+            this.panel2.Size = new System.Drawing.Size(480, 333);
             this.panel2.TabIndex = 5;
             // 
-            // chkFinalCourse
+            // chkNotCouse
             // 
-            this.chkFinalCourse.AutoSize = true;
-            this.chkFinalCourse.Location = new System.Drawing.Point(344, 11);
-            this.chkFinalCourse.Name = "chkFinalCourse";
-            this.chkFinalCourse.Size = new System.Drawing.Size(48, 16);
-            this.chkFinalCourse.TabIndex = 96;
-            this.chkFinalCourse.Text = "종강";
-            this.chkFinalCourse.UseVisualStyleBackColor = true;
-            this.chkFinalCourse.CheckedChanged += new System.EventHandler(this.chkFinalCourse_CheckedChanged);
+            this.chkNotCouse.AutoSize = true;
+            this.chkNotCouse.Location = new System.Drawing.Point(306, 11);
+            this.chkNotCouse.Name = "chkNotCouse";
+            this.chkNotCouse.Size = new System.Drawing.Size(86, 16);
+            this.chkNotCouse.TabIndex = 96;
+            this.chkNotCouse.Text = "종강 / 예정";
+            this.chkNotCouse.UseVisualStyleBackColor = true;
+            this.chkNotCouse.CheckedChanged += new System.EventHandler(this.chkFinalCourse_CheckedChanged);
             // 
             // btnSearch
             // 
@@ -80,9 +84,10 @@
             this.dgvList.Location = new System.Drawing.Point(3, 36);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(470, 265);
+            this.dgvList.Size = new System.Drawing.Size(472, 265);
             this.dgvList.TabIndex = 94;
             this.dgvList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentDoubleClick);
+            this.dgvList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseClick);
             // 
             // label1
             // 
@@ -104,6 +109,20 @@
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
+            // cmsSetting
+            // 
+            this.cmsSetting.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmDelete});
+            this.cmsSetting.Name = "cmsSetting";
+            this.cmsSetting.Size = new System.Drawing.Size(99, 26);
+            // 
+            // tsmDelete
+            // 
+            this.tsmDelete.Name = "tsmDelete";
+            this.tsmDelete.Size = new System.Drawing.Size(98, 22);
+            this.tsmDelete.Text = "삭제";
+            this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
+            // 
             // ccTxtCourseNo
             // 
             this.ccTxtCourseNo.Location = new System.Drawing.Point(0, 309);
@@ -117,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 351);
+            this.ClientSize = new System.Drawing.Size(494, 351);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -128,6 +147,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
+            this.cmsSetting.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -139,6 +159,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearch;
         private ccTextBoxPlaceHolder ccTxtCourseNo;
-        private System.Windows.Forms.CheckBox chkFinalCourse;
+        private System.Windows.Forms.CheckBox chkNotCouse;
+        private System.Windows.Forms.ContextMenuStrip cmsSetting;
+        private System.Windows.Forms.ToolStripMenuItem tsmDelete;
     }
 }

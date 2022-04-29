@@ -26,9 +26,9 @@ namespace StudentManager_Winforms
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수업 번호", "COURSE_NO", 80, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "직원 번호", "EMP_NO", 80, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수업", "COURSE_NAME");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "개강 날짜", "START_DATE");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "종갈 날짜", "END_DATE");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수업", "COURSE_NAME", 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "개강 날짜", "START_DATE", 90);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "종갈 날짜", "END_DATE", 90);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "회비", "PAYMENT", isVisible: false);
             dgvList.DataSource = courseService.GetAllCourseInfo(false);
         }
@@ -45,7 +45,7 @@ namespace StudentManager_Winforms
             if (pop.ShowDialog() == DialogResult.OK)
             {
                 CourseService courseService = new CourseService();
-                chkFinalCourse.Checked = false;
+                chkNotCouse.Checked = false;
                 dgvList.DataSource = courseService.GetAllCourseInfo(false);
             }
         }
@@ -53,7 +53,7 @@ namespace StudentManager_Winforms
         private void chkFinalCourse_CheckedChanged(object sender, EventArgs e)
         {
             CourseService courseService = new CourseService();
-            if (chkFinalCourse.Checked)
+            if (chkNotCouse.Checked)
                 dgvList.DataSource = courseService.GetAllCourseInfo(true);
             else
                 dgvList.DataSource = courseService.GetAllCourseInfo(false);
@@ -104,5 +104,38 @@ namespace StudentManager_Winforms
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
+
+        private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (user.Authority == 1 && e.Button == MouseButtons.Right && !chkNotCouse.Checked)
+            {
+                dgvList.CurrentCell = dgvList[e.ColumnIndex, e.RowIndex];
+                cmsSetting.Show(Cursor.Position);
+
+                tsmDelete.Visible = true;                
+            }
+        }
+        
+        private void tsmDelete_Click(object sender, EventArgs e)
+        {
+            int courseNo = int.Parse(dgvList.CurrentRow.Cells["COURSE_NO"].Value.ToString());
+
+            DialogResult deleteChk = MessageBox.Show("삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo);
+            if (deleteChk == DialogResult.Yes)
+            {
+                CourseService courseService = new CourseService();
+                bool deleteResult = courseService.DeleteCourse(courseNo);
+                if (deleteResult)
+                {
+                    MessageBox.Show("수업이 삭제되었습니다.");
+                    dgvList.DataSource = courseService.GetAllCourseInfo(false);
+                }
+                else
+                {
+                    MessageBox.Show("삭제에 실패했습니다.");
+                }
+            }
+        }
+
     }
 }

@@ -50,5 +50,11 @@ namespace StudentManager_Winforms
             //Utility.Util.TextBoxHint(txtClassNo, "수업 번호 검색");
 
         }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            frmPaymentInsert pop = new frmPaymentInsert();
+            pop.ShowDialog();
+        }
     }
 }
