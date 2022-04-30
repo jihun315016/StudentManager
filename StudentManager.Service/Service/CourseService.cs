@@ -35,10 +35,10 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
-        public int DetCountStudentInCourse(int studentNo, int courseNo)
+        public int GetCountStudentInCourse(int studentNo, int courseNo)
         {
             CourseDAC dac = new CourseDAC();
-            int result = dac.DetCountStudentInCourse(studentNo, courseNo);
+            int result = dac.GetCountStudentInCourse(studentNo, courseNo);
             dac.Dispose();
 
             return result;
@@ -60,16 +60,7 @@ namespace StudentManager.Service.Service
             dac.Dispose();
 
             return result;
-        }
-
-        public bool InsertPayment(int studentNo, int courseNo, DateTime date)
-        {
-            CourseDAC dac = new CourseDAC();
-            bool result = dac.InsertPayment(studentNo, courseNo, date);
-            dac.Dispose();
-
-            return result;
-        }
+        } 
 
         public bool DeleteCourse(int courseNo)
         {

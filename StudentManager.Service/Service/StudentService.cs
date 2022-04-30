@@ -148,7 +148,7 @@ namespace StudentManager.Service.Service
             return contactCnt;
         }
 
-        public int SearchStuInList(int stuNo, DataTable dt, string sortCol)
+        public int SearchStudentInList(int stuNo, DataTable dt, string sortCol)
         {
             DataView dv = new DataView(dt);
 

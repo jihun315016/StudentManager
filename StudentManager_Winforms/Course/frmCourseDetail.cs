@@ -78,7 +78,7 @@ namespace StudentManager_Winforms
                 if (msgResult == DialogResult.Yes)
                 {
                     CourseService courseService = new CourseService();
-                    int distinctCheck = courseService.DetCountStudentInCourse(studentNo, courseNo);
+                    int distinctCheck = courseService.GetCountStudentInCourse(studentNo, courseNo);
                     if (distinctCheck > 0)
                     {
                         MessageBox.Show("이미 등록된 학생입니다.");

@@ -43,16 +43,5 @@ namespace StudentManager_Winforms
 
             dgv.Columns.Add(col);
         }
-
-        public static void SetRowAlignment
-            (
-                DataGridView dgv, 
-                string[] cols, 
-                DataGridViewContentAlignment align
-            )
-        {
-            foreach (string col in cols)
-                dgv.Columns[col].DefaultCellStyle.Alignment = align;            
-        }
     }
 }

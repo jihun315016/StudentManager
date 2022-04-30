@@ -276,7 +276,7 @@ namespace StudentManager_Winforms
             }
 
             StudentService stuService = new StudentService();
-            int index = stuService.SearchStuInList(int.Parse(ccTxtStudentNo.Text), (DataTable)dgvList.DataSource, "STUDENT_NO");
+            int index = stuService.SearchStudentInList(int.Parse(ccTxtStudentNo.Text), (DataTable)dgvList.DataSource, "STUDENT_NO");
 
             if (index > -1)
             {                                

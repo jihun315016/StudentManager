@@ -39,7 +39,6 @@ namespace StudentManager.Data.DAC
             cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
 
             MySqlDataReader reader = cmd.ExecuteReader();
-
             EmployeeCourseVO courseEmp = new EmployeeCourseVO();
 
             if (reader.Read())
@@ -86,15 +85,16 @@ namespace StudentManager.Data.DAC
                             JOIN tb_course_student c
                             ON s.student_no = c.student_no
                             WHERE c.COURSE_NO=@COURSE_NO;";
+
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
             da.SelectCommand.Parameters.AddWithValue("@COURSE_NO", courseNo);
             da.Fill(dt);
 
             return dt;
-        }
+        }        
 
-        public int DetCountStudentInCourse(int studentNo, int courseNo)
+        public int GetCountStudentInCourse(int studentNo, int courseNo)
         {
             string sql = @"SELECT count(STUDENT_NO) FROM tb_course_student WHERE STUDENT_NO=@STUDENT_NO and COURSE_NO=@COURSE_NO";
 
@@ -155,32 +155,7 @@ namespace StudentManager.Data.DAC
                 Debug.WriteLine(err.Message);
                 return false;
             }
-        }
-
-        public bool InsertPayment(int studentNo, int courseNo, DateTime date)
-        {
-            string sql = @"INSERT INTO tb_payment 
-                            (COURSE_NO, STUDENT_NO, PAYMENT_DATE) 
-                            VALUES (@COURSE_NO, @STUDENT_NO, @PAYMENT_DATE)";
-
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-            cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
-            cmd.Parameters.AddWithValue("@STUDENT_NO", studentNo);
-            cmd.Parameters.AddWithValue("@PAYMENT_DATE", date);
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception err)
-            {
-                Debug.WriteLine(err.StackTrace);
-                Debug.WriteLine(err.Message);
-                return false;
-            }
-        }
+        }        
 
         public bool DeleteCourse(int courseNo)
         {

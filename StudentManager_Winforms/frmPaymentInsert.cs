@@ -14,12 +14,16 @@ namespace StudentManager_Winforms
 {
     public partial class frmPaymentInsert : Form
     {
+        EmployeeVO user;
+
         public frmPaymentInsert()
         {
             InitializeComponent();
         }
         private void frmPaymentInsert_Load(object sender, EventArgs e)
         {
+            this.user = (EmployeeVO)this.Tag;
+
             lblStudentName.Visible = false;
             lblEmpName.Visible = false;
             lblCourseName.Visible = false;
@@ -98,14 +102,18 @@ namespace StudentManager_Winforms
             {
                 int stuNo = int.Parse(txtStudentNo.Text);
                 int courseNo = int.Parse(txtCourseNo.Text);
+                int money = int.Parse(txtMoney.Text);
+                int empNo = user.EmpNo;
                 DateTime date = dtpDate.Value;
 
                 CourseService courseService = new CourseService();
-                int stuCnt = courseService.DetCountStudentInCourse(stuNo, courseNo);
+                PaymentService payService = new PaymentService();
+                int stuCnt = courseService.GetCountStudentInCourse(stuNo, courseNo);
 
-                if (stuCnt == 0 || !courseService.InsertPayment(stuNo, courseNo, date))
+                // 해당 수업과 학생이 일치하지 않거나 결제에 실패할 결우
+                if (stuCnt == 0 || !payService.InsertPayment(stuNo, courseNo, date, money, empNo))
                 {                    
-                    MessageBox.Show("결제 등록에 실패했습니다.");
+                    MessageBox.Show("잘못된 입력입니다.");
                 }
                 else
                 {
