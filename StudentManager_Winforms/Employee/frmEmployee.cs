@@ -46,7 +46,7 @@ namespace StudentManager_Winforms
             EmployeeService empService = new EmployeeService();
             dgvList.DataSource = empService.GetAllEmployeeInfo(false);
 
-            this.Width = 620;
+            this.Width = 635;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -159,7 +159,7 @@ namespace StudentManager_Winforms
             else
             {
                 btnOpenInsert.Text = ">>";
-                this.Width = 620;
+                this.Width = 635;
             }
         }
 

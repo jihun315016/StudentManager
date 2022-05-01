@@ -20,7 +20,7 @@ namespace StudentManager_Winforms
         private void frmCourse_Load(object sender, EventArgs e)
         {
             user = this.Tag as EmployeeVO;
-            ccTxtCourseNo.SetTextBoxPlaceHolder();
+            ccTxtCourseNo.SetTextBoxPlaceHolder();            
 
             CourseService courseService = new CourseService();
             DataGridViewUtil.SetInitGridView(dgvList);
@@ -137,5 +137,38 @@ namespace StudentManager_Winforms
             }
         }
 
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmAttendance))
+                {
+                    form.Close();
+                    break;
+                }
+            }
+
+            frmAttendance frm = new frmAttendance();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void btnAttInsert_Click(object sender, EventArgs e)
+        {
+            if (user.Authority > 2)
+            {
+                MessageBox.Show("권한이 없습니다.");
+                return;
+            }
+
+            int courseNo = int.Parse(dgvList.CurrentRow.Cells["COURSE_NO"].Value.ToString());
+
+            frmAttInsert pop = new frmAttInsert(user, courseNo);
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                // frmAttendance 폼이 떠있는지 확인하고
+                // 만약 떠있다면 그리드뷰 리로드
+            }
+        }
     }
 }

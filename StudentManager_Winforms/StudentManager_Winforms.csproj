@@ -33,10 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\StudentManager.Data\bin\Debug\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -80,10 +76,16 @@
     <Compile Include="frmAttendance.Designer.cs">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPaymentInsert.cs">
+    <Compile Include="frmAttInsert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPaymentInsert.Designer.cs">
+    <Compile Include="frmAttInsert.Designer.cs">
+      <DependentUpon>frmAttInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\frmPaymentInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\frmPaymentInsert.Designer.cs">
       <DependentUpon>frmPaymentInsert.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\frmCourseInsert.cs">
@@ -166,10 +168,10 @@
     <Compile Include="Menu\frmManager.Designer.cs">
       <DependentUpon>frmManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPayment.cs">
+    <Compile Include="Payment\frmPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPayment.Designer.cs">
+    <Compile Include="Payment\frmPayment.Designer.cs">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Student\frmStudent.cs">
@@ -201,7 +203,10 @@
     <EmbeddedResource Include="frmAttendance.resx">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPaymentInsert.resx">
+    <EmbeddedResource Include="frmAttInsert.resx">
+      <DependentUpon>frmAttInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\frmPaymentInsert.resx">
       <DependentUpon>frmPaymentInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\frmCourseInsert.resx">
@@ -243,7 +248,7 @@
     <EmbeddedResource Include="Menu\frmManager.resx">
       <DependentUpon>frmManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPayment.resx">
+    <EmbeddedResource Include="Payment\frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\frmStudent.resx">

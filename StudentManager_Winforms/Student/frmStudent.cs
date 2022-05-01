@@ -41,7 +41,7 @@ namespace StudentManager_Winforms
             dgvList.DataSource = student.GetAllStudentInfo(false);
 
             // 초기 화면 크기
-            this.Width = 745;
+            this.Width = 755;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -120,12 +120,12 @@ namespace StudentManager_Winforms
             if (btnOpenInsert.Text.Equals(">>"))
             {
                 btnOpenInsert.Text = "<<";
-                this.Width = 1030;
+                this.Width = 1035;
             }
             else
             {
                 btnOpenInsert.Text = ">>";
-                this.Width = 745;
+                this.Width = 755;
             }
         }        
 

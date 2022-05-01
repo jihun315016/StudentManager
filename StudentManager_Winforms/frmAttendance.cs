@@ -19,35 +19,14 @@ namespace StudentManager_Winforms
 
         private void frmAttendance_Load(object sender, EventArgs e)
         {
-            //frmAttendance_Resize(this, null);
-
-            //txtStudentNo_Leave(this, null);
-            //txtClassNo_Leave(this, null);
-        }
-
-        private void frmAttendance_Resize(object sender, EventArgs e)
-        {
-            //Utility.Util.PanelLocateCenter(this, pnlEntire);
-        }
-
-        private void txtStudentNo_Enter(object sender, EventArgs e)
-        {
-            //Utility.Util.TextBoxInput(txtStudentNo);
-        }
-
-        private void txtClassNo_Enter(object sender, EventArgs e)
-        {
-            //Utility.Util.TextBoxInput(txtClassNo);
-        }
-
-        private void txtStudentNo_Leave(object sender, EventArgs e)
-        {
-            //Utility.Util.TextBoxHint(txtStudentNo, "학생 번호 검색");
-        }
-
-        private void txtClassNo_Leave(object sender, EventArgs e)
-        {
-            //Utility.Util.TextBoxHint(txtClassNo, "수업 번호 검색");
-        }
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmCourse))
+                {
+                    this.Location = new Point(form.Location.X, form.Location.Y + form.Height);
+                    break;
+                }
+            }
+        }        
     }
 }

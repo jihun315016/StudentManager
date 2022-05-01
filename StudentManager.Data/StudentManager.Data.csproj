@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAC\AttendanceDAC.cs" />
     <Compile Include="DAC\CourseDAC.cs" />
     <Compile Include="DAC\EmployeeDAC.cs" />
     <Compile Include="DAC\LoginDAC.cs" />

@@ -27,6 +27,15 @@ namespace StudentManager.Service.Service
             return result;
         }
 
+        public bool DeletePayment(int paymentNo)
+        {
+            PaymentDAC dac = new PaymentDAC();
+            bool result = dac.DeletePayment(paymentNo);
+            dac.Dispose();
+
+            return result;
+        }
+
         public DataTable SearchPaymentInList(DataTable dt, DateTime start, DateTime end, string stuNo, string courseNo)
         {
             DataView dv = new DataView(dt);

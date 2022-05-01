@@ -28,7 +28,7 @@ namespace StudentManager.Data.DAC
         }
         public DataTable GetAllPaymentList()
         {
-            string sql = @"SELECT p.STUDENT_NO, STUDENT_NAME, p.COURSE_NO, COURSE_NAME, MONEY, P.EMP_NO, e.EMP_NAME, PAYMENT_DATE
+            string sql = @"SELECT PAYMENT_NO, p.STUDENT_NO, STUDENT_NAME, p.COURSE_NO, COURSE_NAME, MONEY, P.EMP_NO, e.EMP_NAME, PAYMENT_DATE
                             FROM tb_payment p
                             JOIN tb_course c ON p.COURSE_NO = c.COURSE_NO
                             JOIN tb_student s ON p.STUDENT_NO = s.STUDENT_NO
@@ -55,6 +55,27 @@ namespace StudentManager.Data.DAC
             cmd.Parameters.AddWithValue("@PAYMENT_DATE", date);
             cmd.Parameters.AddWithValue("@MONEY", money);
             cmd.Parameters.AddWithValue("@EMP_NO", empNo);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
+
+        public bool DeletePayment(int paymentNo)
+        {
+            string sql = @"DELETE FROM tb_payment WHERE PAYMENT_NO = @PAYMENT_NO";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@PAYMENT_NO", paymentNo);
 
             try
             {

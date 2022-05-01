@@ -326,3 +326,4 @@ C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Win
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\bin\Debug\MySql.Data.xml
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.CopyComplete
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmPaymentInsert.resources
+C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmAttInsert.resources
