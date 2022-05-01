@@ -2,12 +2,6 @@
 using StudentManager.Service.Service;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
@@ -16,6 +10,9 @@ namespace StudentManager_Winforms
     {
         EmployeeVO user;
         int courseNo;
+
+        // 그리드뷰에 조회된 항목이 처음 처리되는 출석인지, 이미 한 번 처리된 출석인지
+        bool isExistDgvList;
 
         public frmAttInsert(EmployeeVO user, int courseNo)
         {
@@ -37,17 +34,9 @@ namespace StudentManager_Winforms
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학교", "SCHOOL", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "출석 날짜", "ATTENDANCE_DATE", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "출석 유무", "IS_ATTENDANCE", isVisible: false);            
-            DataGridViewUtil.SetDataGridViewColumn_CheckBox(dgvList, "ATTENDANCE" , 40, isReadOnly: false);            
-
-            AttendanceService attService = new AttendanceService();
-            dgvList.DataSource = attService.GetNotAttendanceList(courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")));
-            foreach (DataGridViewRow dr in dgvList.Rows)
-            {
-                if (Convert.ToInt32(dr.Cells["IS_ATTENDANCE"].Value) == 1)
-                    dr.Cells["ATTENDANCE"].Value = true;
-                else
-                    dr.Cells["ATTENDANCE"].Value = false;
-            }
+            DataGridViewUtil.SetDataGridViewColumn_CheckBox(dgvList, "ATTENDANCE" , 40, isReadOnly: false);
+   
+            LoadStudentList();
         }
         
         void headerCheckBox_Click(object sender, EventArgs a)
@@ -77,7 +66,15 @@ namespace StudentManager_Winforms
                 }
 
                 AttendanceService attService = new AttendanceService();
-                bool result = attService.InsertAttendance(stuNoList, courseNo, dtpDate.Value, user.EmpNo, isAttList);
+                bool result;
+
+                if (isExistDgvList)
+                {
+                    result = attService.UpdateAttendance(stuNoList, courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")), user.EmpNo, isAttList);
+                }
+                else                
+                    result = attService.InsertAttendance(stuNoList, courseNo, dtpDate.Value, user.EmpNo, isAttList);
+                
                 if (result)
                 {
                     MessageBox.Show("등록이 완료되었습니다.");
@@ -89,20 +86,26 @@ namespace StudentManager_Winforms
                     dgvList.ClearSelection();
                 }
             }
+        }  
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadStudentList();
         }
 
-        private void dtpDate_ValueChanged(object sender, EventArgs e)
+        void LoadStudentList()
         {
+            CourseService courseService = new CourseService();
             AttendanceService attService = new AttendanceService();
-            dgvList.DataSource = attService.GetNotAttendanceList(courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")));
+            dgvList.DataSource = courseService.GetStudentListByCourse(courseNo);
 
+            List<int> stuNoList = new List<int>();
             foreach (DataGridViewRow dr in dgvList.Rows)
-            {
-                if (Convert.ToInt32(dr.Cells["IS_ATTENDANCE"].Value) == 1)
-                    dr.Cells["ATTENDANCE"].Value = true;
-                else
-                    dr.Cells["ATTENDANCE"].Value = false;
-            }
-        }    
+                stuNoList.Add(int.Parse(dr.Cells["STUDENT_NO"].Value.ToString()));
+
+            List<bool> isAttList = attService.IsAttendanceCheck(stuNoList, courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")), out isExistDgvList);
+            for (int i = 0; i < dgvList.Rows.Count; i++)
+                dgvList.Rows[i].Cells["ATTENDANCE"].Value = isAttList[i];
+        }
     }
 }

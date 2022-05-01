@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentManager.Service.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,19 @@ namespace StudentManager_Winforms
                     break;
                 }
             }
-        }        
+
+            AttendanceService attService = new AttendanceService();
+            DateTime start = Convert.ToDateTime(ucDateFilter.StartDate.ToString("yyyy-MM-dd"));
+            DateTime end = Convert.ToDateTime(ucDateFilter.EndDate.ToString("yyyy-MM-dd"));
+            dgvList.DataSource = attService.GetAllAttendanceList(start, end);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            AttendanceService attService = new AttendanceService();
+            DateTime start = Convert.ToDateTime(ucDateFilter.StartDate.ToString("yyyy-MM-dd"));
+            DateTime end = Convert.ToDateTime(ucDateFilter.EndDate.ToString("yyyy-MM-dd"));
+            dgvList.DataSource = attService.GetAllAttendanceList(start, end);
+        }
     }
 }

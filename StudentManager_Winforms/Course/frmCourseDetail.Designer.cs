@@ -49,7 +49,7 @@ namespace StudentManager_Winforms
             // dgvList
             // 
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvList.Location = new System.Drawing.Point(152, 53);
+            this.dgvList.Location = new System.Drawing.Point(137, 53);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
             this.dgvList.Size = new System.Drawing.Size(330, 170);
@@ -58,7 +58,7 @@ namespace StudentManager_Winforms
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(407, 229);
+            this.button3.Location = new System.Drawing.Point(392, 229);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 82;
@@ -70,7 +70,7 @@ namespace StudentManager_Winforms
             this.txtStudentNo.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtStudentNo.Location = new System.Drawing.Point(14, 201);
             this.txtStudentNo.Name = "txtStudentNo";
-            this.txtStudentNo.Size = new System.Drawing.Size(109, 22);
+            this.txtStudentNo.Size = new System.Drawing.Size(102, 22);
             this.txtStudentNo.TabIndex = 99;
             this.txtStudentNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentNo_KeyPress);
             // 
@@ -99,7 +99,7 @@ namespace StudentManager_Winforms
             this.pnlEntire.Controls.Add(this.lblCourseInfo);
             this.pnlEntire.Location = new System.Drawing.Point(12, 12);
             this.pnlEntire.Name = "pnlEntire";
-            this.pnlEntire.Size = new System.Drawing.Size(487, 257);
+            this.pnlEntire.Size = new System.Drawing.Size(479, 257);
             this.pnlEntire.TabIndex = 4;
             // 
             // lblStudentName
@@ -154,7 +154,7 @@ namespace StudentManager_Winforms
             // btnApplyCourse
             // 
             this.btnApplyCourse.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnApplyCourse.Location = new System.Drawing.Point(48, 229);
+            this.btnApplyCourse.Location = new System.Drawing.Point(41, 229);
             this.btnApplyCourse.Name = "btnApplyCourse";
             this.btnApplyCourse.Size = new System.Drawing.Size(75, 23);
             this.btnApplyCourse.TabIndex = 126;
@@ -166,7 +166,7 @@ namespace StudentManager_Winforms
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblDate.Location = new System.Drawing.Point(150, 38);
+            this.lblDate.Location = new System.Drawing.Point(135, 38);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(126, 12);
             this.lblDate.TabIndex = 123;
@@ -186,7 +186,7 @@ namespace StudentManager_Winforms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 273);
+            this.ClientSize = new System.Drawing.Size(494, 273);
             this.Controls.Add(this.pnlEntire);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

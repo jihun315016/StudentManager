@@ -10,29 +10,49 @@ namespace StudentManager.Service.Service
 {
     public class AttendanceService
     {
-        public DataTable GetNotAttendanceList(int courseNo, DateTime attDate)
-        {            
+        public DataTable GetAllAttendanceList(DateTime start, DateTime end)
+        {
             AttendanceDAC dac = new AttendanceDAC();
-            DataTable dt = dac.GetNotAttendanceList(courseNo, attDate);
-
-            // attDate에 출석 등록을 안 했다면 출석 테이블에 데이터 자체가 없다.
-            // -> attDate에 출석 관리를 한 적이 없다.
-            // 특정 수업에 대한 모든 학생을 불러온다.
-            if (dt.Rows.Count < 1)
-            {
-                dt = dac.GetAllStudentListInCourse(courseNo);
-                foreach (DataRow dr in dt.Rows)
-                    dr["IS_ATTENDANCE"] = 0;
-            }
-
+            DataTable dt = dac.GetAllAttendanceList(start, end);
             dac.Dispose();
             return dt;
+        }
+
+        public List<bool> IsAttendanceCheck(List<int> stuNoList, int courseNo, DateTime attDate, out bool isExist)
+        {
+            AttendanceDAC dac = new AttendanceDAC();
+            List<bool> list = new List<bool>();
+            int isExistNum = 0;
+
+            foreach (int stuNo in stuNoList)
+            {
+                int attResult = dac.IsAttendanceCheck(stuNo, courseNo, attDate);
+                isExistNum += attResult;
+                bool isAtt = attResult == 1 ? true : false;
+                list.Add(isAtt);
+            }
+
+            if (isExistNum > 0)
+                isExist = true;
+            else
+                isExist = false;
+
+            return list;
         }
 
         public bool InsertAttendance(List<int> stuNoList, int courseNo, DateTime date, int empNo, List<int> isAttList)
         {
             AttendanceDAC dac = new AttendanceDAC();
             bool result = dac.InsertAttendance(stuNoList, courseNo, date, empNo, isAttList);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool UpdateAttendance(List<int> stuNoList, int courseNo, DateTime date, int empNo, List<int> isAttList)
+        {
+            AttendanceDAC dac = new AttendanceDAC();
+            bool result = dac.UpdateAttendance(stuNoList, courseNo, date, empNo, isAttList);
             dac.Dispose();
 
             return result;
