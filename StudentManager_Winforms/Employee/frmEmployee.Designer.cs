@@ -135,11 +135,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 2, 16, 6, 2, 39);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 2, 16, 54, 59, 178);
             this.ucDateFilter.Location = new System.Drawing.Point(283, 365);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 2, 16, 6, 2, 38);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 2, 16, 54, 59, 178);
             this.ucDateFilter.TabIndex = 100;
             // 
             // chkResignation
@@ -287,9 +287,9 @@
             // btnInsert
             // 
             this.btnInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnInsert.Location = new System.Drawing.Point(833, 364);
+            this.btnInsert.Location = new System.Drawing.Point(853, 364);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnInsert.Size = new System.Drawing.Size(55, 23);
             this.btnInsert.TabIndex = 82;
             this.btnInsert.Text = "등록";
             this.btnInsert.UseVisualStyleBackColor = true;

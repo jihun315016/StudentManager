@@ -25,7 +25,7 @@ namespace StudentManager.Data.DAC
         public void Dispose()
         {
             conn.Close();
-        }
+        }      
 
         public StudentVO GetStudentInfoByPk(int stu_no)
         {
@@ -62,6 +62,20 @@ namespace StudentManager.Data.DAC
             {
                 return null;
             }
+        }
+
+        public DataTable GetAttendanceBook()
+        {
+            string sql = @"SELECT 
+                            STUDENT_NO, STUDENT_NAME, AGE, SCHOOL, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP
+                            FROM tb_student
+                            WHERE END_DATE IS NULL";
+
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+
+            da.Fill(dt);
+            return dt;
         }
 
         public DataTable GetSchoolList(string keyword)

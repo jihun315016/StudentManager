@@ -256,9 +256,9 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAdd.Location = new System.Drawing.Point(932, 348);
+            this.btnAdd.Location = new System.Drawing.Point(952, 354);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(55, 23);
             this.btnAdd.TabIndex = 82;
             this.btnAdd.Text = "등록";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -308,11 +308,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 30, 16, 54, 11, 258);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 2, 16, 54, 43, 151);
             this.ucDateFilter.Location = new System.Drawing.Point(403, 355);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 30, 16, 54, 11, 258);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 2, 16, 54, 43, 151);
             this.ucDateFilter.TabIndex = 99;
             // 
             // ccTxtStudentNo

@@ -38,6 +38,15 @@ namespace StudentManager.Service.Service
             return studentVO;
         }
 
+        public DataTable GetAttendanceBook()
+        {
+            StudentDAC dac = new StudentDAC();
+            DataTable dt = dac.GetAttendanceBook();
+            dac.Dispose();
+
+            return dt;
+        }
+
         public string GetEndReason(int endNo)
         {
             StudentDAC dac = new StudentDAC();
