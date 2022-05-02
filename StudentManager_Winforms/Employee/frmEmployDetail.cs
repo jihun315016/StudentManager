@@ -41,7 +41,7 @@ namespace StudentManager_Winforms
             }
             cboPosition.Items.Add("기타");
 
-            string[] authoritys = { "1", "2", "3" };
+            string[] authoritys = { "1", "2" };
             cboAuthority.Items.AddRange(authoritys);
 
             // 초기 데이터 설정

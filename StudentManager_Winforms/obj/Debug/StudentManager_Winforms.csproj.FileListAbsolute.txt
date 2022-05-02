@@ -327,3 +327,5 @@ C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Win
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.CopyComplete
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmPaymentInsert.resources
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmAttInsert.resources
+C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmAttInsert.resources
+C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmPaymentInsert.resources

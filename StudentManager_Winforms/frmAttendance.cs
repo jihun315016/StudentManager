@@ -29,6 +29,8 @@ namespace StudentManager_Winforms
                 }
             }
 
+
+            
             AttendanceService attService = new AttendanceService();
             DateTime start = Convert.ToDateTime(ucDateFilter.StartDate.ToString("yyyy-MM-dd"));
             DateTime end = Convert.ToDateTime(ucDateFilter.EndDate.ToString("yyyy-MM-dd"));

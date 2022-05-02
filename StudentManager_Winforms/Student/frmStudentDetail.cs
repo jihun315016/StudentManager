@@ -125,12 +125,6 @@ namespace StudentManager_Winforms
             }
             else // 수정 버튼 상태
             {
-                if (user.Authority == 3)
-                {
-                    MessageBox.Show("권한이 없습니다.");
-                    return;
-                }
-
                 if (!string.IsNullOrWhiteSpace(lblGuardianRerationship.Text))
                 {
                     rdoOther.Checked = true;

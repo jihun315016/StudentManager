@@ -25,7 +25,7 @@ namespace StudentManager.Data.DAC
 
         public DataTable GetAllAttendanceList(DateTime start, DateTime end)
         {
-            string sql = @"SELECT a.STUDENT_NO, STUDENT_NAME, EMP_NAME, COURSE_NAME, ATTENDANCE_DATE, a.EMP_NO, IS_ATTENDANCE 
+            string sql = @"SELECT a.STUDENT_NO, STUDENT_NAME, EMP_NAME, COURSE_NAME, ATTENDANCE_DATE, IS_ATTENDANCE 
                             FROM tb_attendance a
                             JOIN tb_student s ON a.STUDENT_NO=s.STUDENT_NO
                             JOIN tb_course c ON a.COURSE_NO=c.COURSE_NO
