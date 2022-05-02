@@ -51,8 +51,6 @@
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.cboPosition = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboAuthority = new System.Windows.Forms.ComboBox();
             this.txtOtherPosition = new System.Windows.Forms.TextBox();
             this.btnInsert = new System.Windows.Forms.Button();
             this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
@@ -137,11 +135,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 30, 16, 51, 22, 924);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 2, 16, 6, 2, 39);
             this.ucDateFilter.Location = new System.Drawing.Point(283, 365);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 30, 16, 51, 22, 924);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 2, 16, 6, 2, 38);
             this.ucDateFilter.TabIndex = 100;
             // 
             // chkResignation
@@ -277,26 +275,6 @@
             this.cboPosition.TabIndex = 78;
             this.cboPosition.SelectedIndexChanged += new System.EventHandler(this.cboPosition_SelectedIndexChanged);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(821, 247);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 12);
-            this.label8.TabIndex = 79;
-            this.label8.Text = "권한";
-            // 
-            // cboAuthority
-            // 
-            this.cboAuthority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAuthority.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cboAuthority.FormattingEnabled = true;
-            this.cboAuthority.Location = new System.Drawing.Point(821, 263);
-            this.cboAuthority.Name = "cboAuthority";
-            this.cboAuthority.Size = new System.Drawing.Size(87, 20);
-            this.cboAuthority.TabIndex = 80;
-            // 
             // txtOtherPosition
             // 
             this.txtOtherPosition.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -353,9 +331,7 @@
             this.Controls.Add(this.txtOtherPosition);
             this.Controls.Add(this.ptbEmployee);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cboAuthority);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.cboPosition);
             this.Controls.Add(this.label5);
@@ -402,8 +378,6 @@
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cboPosition;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cboAuthority;
         private System.Windows.Forms.TextBox txtOtherPosition;
         private System.Windows.Forms.Button btnInsert;
         private ccTextBoxPlaceHolder ccTxtSpecialNote;

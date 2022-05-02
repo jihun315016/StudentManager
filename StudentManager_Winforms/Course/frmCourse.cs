@@ -35,7 +35,7 @@ namespace StudentManager_Winforms
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (user.Authority > 1)
+            if (!user.Position.Equals("원장"))
             {
                 MessageBox.Show("권한이 없습니다.");
                 return;
@@ -107,7 +107,7 @@ namespace StudentManager_Winforms
 
         private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (user.Authority == 1 && e.Button == MouseButtons.Right && !chkNotCouse.Checked)
+            if (user.Position.Equals("원장") && e.Button == MouseButtons.Right && !chkNotCouse.Checked)
             {
                 dgvList.CurrentCell = dgvList[e.ColumnIndex, e.RowIndex];
                 cmsSetting.Show(Cursor.Position);
@@ -155,20 +155,29 @@ namespace StudentManager_Winforms
 
         private void btnAttInsert_Click(object sender, EventArgs e)
         {
-            if (user.Authority > 2)
+            if (user.Position.Equals("원장") || user.EmpNo == int.Parse(dgvList.CurrentRow.Cells["EMP_NO"].Value.ToString())) 
+            {
+                int courseNo = int.Parse(dgvList.CurrentRow.Cells["COURSE_NO"].Value.ToString());
+
+                frmAttInsert pop = new frmAttInsert(user, courseNo);
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    foreach (Form form in Application.OpenForms)
+                    {
+                        if (form.GetType() == typeof(frmAttendance))
+                        {
+                            ((frmAttendance)form).LoadDgvList();
+                            break;
+                        }
+                    }
+                }                
+            }
+            else
             {
                 MessageBox.Show("권한이 없습니다.");
                 return;
             }
 
-            int courseNo = int.Parse(dgvList.CurrentRow.Cells["COURSE_NO"].Value.ToString());
-
-            frmAttInsert pop = new frmAttInsert(user, courseNo);
-            if (pop.ShowDialog() == DialogResult.OK)
-            {
-                // frmAttendance 폼이 떠있는지 확인하고
-                // 만약 떠있다면 그리드뷰 리로드
-            }
         }
     }
 }

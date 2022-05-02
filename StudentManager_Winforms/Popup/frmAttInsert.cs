@@ -73,7 +73,7 @@ namespace StudentManager_Winforms
                     result = attService.UpdateAttendance(stuNoList, courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")), user.EmpNo, isAttList);
                 }
                 else                
-                    result = attService.InsertAttendance(stuNoList, courseNo, dtpDate.Value, user.EmpNo, isAttList);
+                    result = attService.InsertAttendance(stuNoList, courseNo, dtpDate.Value, isAttList);
                 
                 if (result)
                 {

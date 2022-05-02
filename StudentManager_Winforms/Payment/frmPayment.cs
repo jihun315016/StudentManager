@@ -47,10 +47,6 @@ namespace StudentManager_Winforms
         private void btnSearch_Click(object sender, EventArgs e)
         {
             PaymentService payService = new PaymentService();
-
-            int stuNo; // = int.Parse(ccTxtStudentNo.Text);
-            int courseNo; // = int.Parse(ccTxtCourseNo.Text);
-            
             dgvList.DataSource = payService.SearchPaymentInList
                 (
                     (DataTable)bdsPaymentSoarse.DataSource, ucDateFilter.StartDate, ucDateFilter.EndDate, ccTxtStudentNo.Text, ccTxtCourseNo.Text
@@ -60,7 +56,7 @@ namespace StudentManager_Winforms
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (user.Authority > 2)
+            if (!user.Position.Equals("원장"))
             {
                 MessageBox.Show("권한이 없습니다.");
                 return;
@@ -84,7 +80,7 @@ namespace StudentManager_Winforms
 
         private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (user.Authority == 1 && e.Button == MouseButtons.Right)
+            if (user.Position.Equals("원장") && e.Button == MouseButtons.Right)
             {
                 dgvList.CurrentCell = dgvList[e.ColumnIndex, e.RowIndex];
                 cmsSetting.Show(Cursor.Position);

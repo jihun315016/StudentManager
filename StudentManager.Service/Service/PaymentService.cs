@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentManager.Service.Service
 {
@@ -44,15 +41,13 @@ namespace StudentManager.Service.Service
             list.Add($"PAYMENT_DATE >=#{start.ToString("yyyy/MM/dd")}#");
             list.Add($"PAYMENT_DATE <=#{end.ToString("yyyy/MM/dd")}#");
             
-            // 아무것도 입력 안 하면 텍스트박스의 PalceHolder 값(문자열)이 된다.
+            // 아무것도 입력하지 않으면 텍스트박스의 PalceHolder 값(문자열)이 된다.
             // 따라서 int 형 변환이 가능한지 체크가 필요함
             if (int.TryParse(stuNo, out int temp1))
                 list.Add($"STUDENT_NO = {stuNo}");
 
             if (int.TryParse(courseNo, out int temp2))
                 list.Add($"COURSE_NO = {courseNo}");
-
-            string a = String.Join(" and ", list);
 
             dv.RowFilter = String.Join(" and ", list);
 

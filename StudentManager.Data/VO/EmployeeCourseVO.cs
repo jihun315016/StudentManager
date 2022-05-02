@@ -9,7 +9,6 @@ namespace StudentManager.Data.VO
         public string EmpName { get; set; }
         public string EmpContact { get; set; }
         public string Position { get; set; }
-        public int Authority { get; set; }
         public DateTime EmpStartDate { get; set; }
         public DateTime EmpEndDate { get; set; }
         public byte[] Image { get; set; }

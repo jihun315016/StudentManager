@@ -32,9 +32,9 @@ namespace StudentManager.Data.DAC
         {
             string sql;
             if(isResignation)
-                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, START_DATE, END_DATE FROM tb_employee WHERE END_DATE IS NOT NULL";
+                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, EMAIL, START_DATE, END_DATE FROM tb_employee WHERE END_DATE IS NOT NULL";
             else
-                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, AUTHORITY, EMAIL, START_DATE, END_DATE FROM tb_employee WHERE END_DATE IS NULL";
+                sql = @"SELECT EMP_NO, EMP_NAME, POSITION, EMAIL, START_DATE, END_DATE FROM tb_employee WHERE END_DATE IS NULL";
 
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
@@ -46,8 +46,8 @@ namespace StudentManager.Data.DAC
         public EmployeeVO GetEmployeeInfoByPk(int emp_no)
         {
             string sql = $@"SELECT 
-                            EMP_NAME, EMP_CONTACT, POSITION, AUTHORITY, START_DATE, END_DATE, 
-                            IMAGE, SALARY, EMAIL, PASSWORD, SPECIAL_NOTE
+                            EMP_NAME, EMP_CONTACT, POSITION, START_DATE, END_DATE, 
+                            IMAGE, EMAIL, PASSWORD, SPECIAL_NOTE
                             FROM tb_employee WHERE emp_no = @emp_no";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -62,14 +62,12 @@ namespace StudentManager.Data.DAC
                 emp.EmpName = reader["EMP_NAME"].ToString();
                 emp.EmpContact = reader["EMP_CONTACT"].ToString();
                 emp.Position = reader["POSITION"].ToString();
-                emp.Authority = int.Parse(reader["AUTHORITY"].ToString());
                 emp.StartDate = Convert.ToDateTime(reader["START_DATE"].ToString());
 
                 //"System.DBNull"
 
                 emp.EndDate = (reader["END_DATE"] == DBNull.Value) ? new DateTime() : Convert.ToDateTime(reader["END_DATE"].ToString());
                 emp.Image = (reader["IMAGE"] == DBNull.Value) ? null : (byte[])reader["IMAGE"];
-                emp.Salary = (reader["SALARY"] == DBNull.Value) ? -1 : int.Parse(reader["SALARY"].ToString());
                 emp.Email = reader["EMAIL"].ToString();
                 emp.Password = reader["PASSWORD"].ToString();
                 emp.SpecialNote = reader["SPECIAL_NOTE"].ToString();
@@ -93,21 +91,20 @@ namespace StudentManager.Data.DAC
 
         public bool InsertEmployee
             (
-                string name, string contact, string position, int authority,
+                string name, string contact, string position,
                 DateTime startDate, byte[] image, string email, string specialNote
             )
         {
             string sql = @"INSERT INTO tb_employee
-                            (EMP_NAME, EMP_CONTACT, POSITION, AUTHORITY, START_DATE, IMAGE, EMAIL, SPECIAL_NOTE)
+                            (EMP_NAME, EMP_CONTACT, POSITION, START_DATE, IMAGE, EMAIL, SPECIAL_NOTE)
                             VALUES
-                            (@EMP_NAME, @EMP_CONTACT, @POSITION, @AUTHORITY, @START_DATE, @IMAGE, @EMAIL, @SPECIAL_NOTE)";
+                            (@EMP_NAME, @EMP_CONTACT, @POSITION, @START_DATE, @IMAGE, @EMAIL, @SPECIAL_NOTE)";
             
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@EMP_NAME", name);
             cmd.Parameters.AddWithValue("@EMP_CONTACT", contact);
             cmd.Parameters.AddWithValue("@POSITION", position);
-            cmd.Parameters.AddWithValue("@AUTHORITY", authority);
             cmd.Parameters.AddWithValue("@START_DATE", startDate);
             cmd.Parameters.AddWithValue("@IMAGE", image);
             cmd.Parameters.AddWithValue("@EMAIL", email);
@@ -128,14 +125,14 @@ namespace StudentManager.Data.DAC
 
         public bool UpdateEmployeeInfo
             (
-                int empNo, string name, string contact, string email, string position, int authority,
+                int empNo, string name, string contact, string email, string position,
                 DateTime startDate, string specialNote, string imagePath
             )
         {
             StringBuilder sql = new StringBuilder();
             sql.Append(@"UPDATE tb_employee 
                         SET 
-	                        EMP_NAME=@EMP_NAME, EMP_CONTACT=@EMP_CONTACT, EMAIL=@EMAIL, POSITION=@POSITION, AUTHORITY=@AUTHORITY, 
+	                        EMP_NAME=@EMP_NAME, EMP_CONTACT=@EMP_CONTACT, EMAIL=@EMAIL, POSITION=@POSITION, 
                             START_DATE=@START_DATE, SPECIAL_NOTE=@SPECIAL_NOTE ");            
 
 
@@ -163,7 +160,6 @@ namespace StudentManager.Data.DAC
             cmd.Parameters.AddWithValue("@EMP_CONTACT", contact);
             cmd.Parameters.AddWithValue("@EMAIL", email);
             cmd.Parameters.AddWithValue("@POSITION", position);
-            cmd.Parameters.AddWithValue("@AUTHORITY", authority);
             cmd.Parameters.AddWithValue("@START_DATE", startDate);
             cmd.Parameters.AddWithValue("@SPECIAL_NOTE", specialNote);
             cmd.Parameters.AddWithValue("@IMAGE", imageByteArr);

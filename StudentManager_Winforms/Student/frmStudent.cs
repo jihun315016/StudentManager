@@ -131,7 +131,7 @@ namespace StudentManager_Winforms
 
         private void txtAge_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !e.KeyChar.Equals('\b'))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
                 e.Handled = true;
         }
 
@@ -194,7 +194,7 @@ namespace StudentManager_Winforms
 
         private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (user.Authority == 1 && e.Button == MouseButtons.Right)
+            if (user.Position.Equals("원장") && e.Button == MouseButtons.Right)
             {
                 dgvList.CurrentCell = dgvList[e.ColumnIndex, e.RowIndex];
                 cmsSetting.Show(Cursor.Position);
@@ -297,8 +297,8 @@ namespace StudentManager_Winforms
 
         private void ccTxtStudentNo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))            
-                e.Handled = true;            
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+                e.Handled = true;
         }
     }
 }

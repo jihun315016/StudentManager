@@ -41,8 +41,6 @@ namespace StudentManager_Winforms
             }
             cboPosition.Items.Add("기타");
 
-            string[] authoritys = { "1", "2" };
-            cboAuthority.Items.AddRange(authoritys);
 
             // 초기 데이터 설정
             txtEmpNo.Text = empNo.ToString();
@@ -56,7 +54,6 @@ namespace StudentManager_Winforms
             ccTxtEmail.FrontEmail = employeeVO.Email.Split('@')[0];
             ccTxtEmail.RearEmail = employeeVO.Email.Split('@')[1];
             cboPosition.Text = employeeVO.Position;
-            cboAuthority.Text = employeeVO.Authority.ToString();
             ccTxtSpecialNote.Text = employeeVO.SpecialNote;
             ccTxtSpecialNote.SetTextBoxPlaceHolder();
 
@@ -83,7 +80,7 @@ namespace StudentManager_Winforms
             }
 
             txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled =
-                cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = false;
+                cboPosition.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = false;
             txtPosition.Visible = btnUpload.Visible = false;
         }
 
@@ -97,8 +94,8 @@ namespace StudentManager_Winforms
 
             if(btnEditInfo.Text == "저장")
             {
-                string[] textBoxValue = { txtName.Text, txtContact.Text, ccTxtEmail.Email, cboAuthority.Text};
-                string[] textBoxName = { "이름", "연락처", "이메일", "권한"};
+                string[] textBoxValue = { txtName.Text, txtContact.Text, ccTxtEmail.Email};
+                string[] textBoxName = { "이름", "연락처", "이메일"};
                 
                 StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(textBoxValue, textBoxName);
                 if (sb.Length > 0)
@@ -140,7 +137,7 @@ namespace StudentManager_Winforms
                 bool result = empService.UpdateEmployeeInfo
                     (
                         int.Parse(txtEmpNo.Text), txtName.Text, txtContact.Text, ccTxtEmail.Email, position,
-                        int.Parse(cboAuthority.Text), dtpDate.Value, specialNote, (string)ptbEmployee.Tag
+                        dtpDate.Value, specialNote, (string)ptbEmployee.Tag
                     );
 
                 if (result)
@@ -154,16 +151,16 @@ namespace StudentManager_Winforms
                 }
 
                 txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled = 
-                    cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = false;
+                    cboPosition.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = false;
                 txtPosition.Visible = btnUpload.Visible = false;
                 btnEditInfo.Text = "수정";
             }
             else // 수정 버튼 상태
             {
-                if (user.Authority == 1)
+                if (user.Position.Equals("원장"))
                 {
                     txtName.Enabled = dtpDate.Enabled = 
-                        cboPosition.Enabled = cboAuthority.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = true;
+                        cboPosition.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = true;
                     btnUpload.Visible = true;
                 }
 

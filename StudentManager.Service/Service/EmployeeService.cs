@@ -40,12 +40,12 @@ namespace StudentManager.Service.Service
 
         public bool InsertEmployee
             (
-                string name, string contact, string position, int authority,
+                string name, string contact, string position,
                 DateTime startDate, byte[] image, string email, string specialNote
             )
         {
             EmployeeDAC dac = new EmployeeDAC();
-            bool result = dac.InsertEmployee(name, contact, position, authority, startDate, image, email, specialNote);
+            bool result = dac.InsertEmployee(name, contact, position, startDate, image, email, specialNote);
             dac.Dispose();
 
             return result;
@@ -53,12 +53,12 @@ namespace StudentManager.Service.Service
 
         public bool UpdateEmployeeInfo
             (
-                int empNo, string name, string contact, string email, string position, int authority,
+                int empNo, string name, string contact, string email, string position,
                 DateTime startDate, string specialNote, string imagePath
             )
         {
             EmployeeDAC dac = new EmployeeDAC();
-            bool result = dac.UpdateEmployeeInfo(empNo, name, contact, email, position, authority, startDate, specialNote, imagePath);            
+            bool result = dac.UpdateEmployeeInfo(empNo, name, contact, email, position, startDate, specialNote, imagePath);            
             dac.Dispose();
 
             return result;

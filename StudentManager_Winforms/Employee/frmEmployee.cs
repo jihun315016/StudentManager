@@ -29,9 +29,6 @@ namespace StudentManager_Winforms
             string[] positions = { "강사", "행정", "기타" };
             cboPosition.Items.AddRange(positions);
 
-            string[] authoritys = { "1", "2", "3" };
-            cboAuthority.Items.AddRange(authoritys);
-
             ptbEmployee.Tag = null;
 
             DataGridViewUtil.SetInitGridView(dgvList);
@@ -57,7 +54,6 @@ namespace StudentManager_Winforms
             if (cboPosition.SelectedIndex == cboPosition.Items.Count - 1)
                 position = txtOtherPosition.Text;
 
-            string authority = empService.NullCheck(cboAuthority.SelectedItem);
             byte[] imageByteArr;
 
             // ptbEmployee.Tag는 이미지 경로가 저장되어 있을 것이고
@@ -75,7 +71,7 @@ namespace StudentManager_Winforms
                 imageByteArr = null;
             }            
 
-            string[] textBoxValue = { txtName.Text, txtContact.Text, ucEmail.Email, position, authority };
+            string[] textBoxValue = { txtName.Text, txtContact.Text, ucEmail.Email, position };
             string[] textBoxName = { "이름", "연락처", "이메일", "직무", "권한" };
 
             StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(textBoxValue, textBoxName);
@@ -100,7 +96,7 @@ namespace StudentManager_Winforms
 
             bool result = empService.InsertEmployee
                 (
-                    txtName.Text, txtContact.Text, position, int.Parse(authority),
+                    txtName.Text, txtContact.Text, position,
                     dtpStartDate.Value, imageByteArr, ucEmail.Email, specialNote
                 );
 
@@ -116,7 +112,6 @@ namespace StudentManager_Winforms
             
             ptbEmployee.Tag = null;
             txtName.Text = txtContact.Text = txtOtherPosition.Text = String.Empty;
-            cboAuthority.SelectedItem = null;
             cboPosition.SelectedItem = null;
             ptbEmployee.Image = Properties.Resources.image;
             ucEmail.ClearText();
@@ -166,7 +161,7 @@ namespace StudentManager_Winforms
         private void dgvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int emp_no = int.Parse(dgvList["EMP_NO", e.RowIndex].Value.ToString());
-            if (user.Authority == 1 || user.EmpNo == emp_no)
+            if (user.Position.Equals("원장") || user.EmpNo == emp_no)
             {
                 frmEmployDetail pop = new frmEmployDetail(user, emp_no);
                 pop.ShowDialog();
@@ -204,7 +199,7 @@ namespace StudentManager_Winforms
 
         private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (user.Authority == 1 && e.Button == MouseButtons.Right)
+            if (user.Position.Equals("원장") && e.Button == MouseButtons.Right)
             {
                 dgvList.CurrentCell = dgvList[e.ColumnIndex, e.RowIndex];
                 cmsSetting.Show(Cursor.Position);
@@ -306,7 +301,7 @@ namespace StudentManager_Winforms
 
         private void ccTxtEmpNo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
                 e.Handled = true;
         }
     }

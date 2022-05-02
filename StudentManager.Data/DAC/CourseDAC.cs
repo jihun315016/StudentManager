@@ -84,7 +84,7 @@ namespace StudentManager.Data.DAC
                             FROM tb_student s
                             JOIN tb_course_student c
                             ON s.student_no = c.student_no
-                            WHERE c.COURSE_NO=@COURSE_NO;";
+                            WHERE c.COURSE_NO=@COURSE_NO and s.END_DATE IS NULL";
 
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);

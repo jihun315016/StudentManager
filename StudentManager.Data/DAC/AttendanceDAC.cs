@@ -25,7 +25,7 @@ namespace StudentManager.Data.DAC
 
         public DataTable GetAllAttendanceList(DateTime start, DateTime end)
         {
-            string sql = @"SELECT a.STUDENT_NO, STUDENT_NAME, EMP_NAME, COURSE_NAME, ATTENDANCE_DATE, IS_ATTENDANCE 
+            string sql = @"SELECT a.STUDENT_NO, STUDENT_NAME, EMP_NAME, COURSE_NAME, ATTENDANCE_DATE, IS_ATTENDANCE, a.COURSE_NO
                             FROM tb_attendance a
                             JOIN tb_student s ON a.STUDENT_NO=s.STUDENT_NO
                             JOIN tb_course c ON a.COURSE_NO=c.COURSE_NO
@@ -94,7 +94,7 @@ namespace StudentManager.Data.DAC
             return int.Parse(cmd.ExecuteScalar().ToString());
         }
 
-        public bool InsertAttendance(List<int> stuNoList, int courseNo, DateTime date, int empNo, List<int> isAttList)
+        public bool InsertAttendance(List<int> stuNoList, int courseNo, DateTime date, List<int> isAttList)
         {
             
 
@@ -102,8 +102,8 @@ namespace StudentManager.Data.DAC
 
             for (int i = 0; i < stuNoList.Count; i++)
             {                
-                string sql = @"INSERT INTO tb_attendance (STUDENT_NO, COURSE_NO, ATTENDANCE_DATE, EMP_NO, IS_ATTENDANCE) 
-                                VALUES (@STUDENT_NO, @COURSE_NO, @ATTENDANCE_DATE, @EMP_NO, @IS_ATTENDANCE);";
+                string sql = @"INSERT INTO tb_attendance (STUDENT_NO, COURSE_NO, ATTENDANCE_DATE, IS_ATTENDANCE) 
+                                VALUES (@STUDENT_NO, @COURSE_NO, @ATTENDANCE_DATE, @IS_ATTENDANCE);";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Transaction = trans;
@@ -111,8 +111,7 @@ namespace StudentManager.Data.DAC
                 cmd.Parameters.AddWithValue("@STUDENT_NO", stuNoList[i]);
                 cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
                 cmd.Parameters.AddWithValue("@ATTENDANCE_DATE", date);
-                cmd.Parameters.AddWithValue("@EMP_NO", empNo);
-                cmd.Parameters.AddWithValue("@IS_ATTENDANCE", isAttList[i]);
+                cmd.Parameters.AddWithValue("@IS_ATTENDANCE", isAttList[i]);               
 
                 try
                 {

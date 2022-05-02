@@ -47,8 +47,6 @@
             this.btnUpload = new System.Windows.Forms.Button();
             this.ptbEmployee = new System.Windows.Forms.PictureBox();
             this.txtPosition = new System.Windows.Forms.TextBox();
-            this.cboAuthority = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.cboPosition = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -139,8 +137,6 @@
             this.pnlEntire.Controls.Add(this.btnUpload);
             this.pnlEntire.Controls.Add(this.ptbEmployee);
             this.pnlEntire.Controls.Add(this.txtPosition);
-            this.pnlEntire.Controls.Add(this.cboAuthority);
-            this.pnlEntire.Controls.Add(this.label8);
             this.pnlEntire.Controls.Add(this.cboPosition);
             this.pnlEntire.Controls.Add(this.label4);
             this.pnlEntire.Controls.Add(this.label9);
@@ -261,26 +257,6 @@
             this.txtPosition.Size = new System.Drawing.Size(77, 22);
             this.txtPosition.TabIndex = 112;
             // 
-            // cboAuthority
-            // 
-            this.cboAuthority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAuthority.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cboAuthority.FormattingEnabled = true;
-            this.cboAuthority.Location = new System.Drawing.Point(398, 132);
-            this.cboAuthority.Name = "cboAuthority";
-            this.cboAuthority.Size = new System.Drawing.Size(99, 21);
-            this.cboAuthority.TabIndex = 111;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(396, 117);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 12);
-            this.label8.TabIndex = 110;
-            this.label8.Text = "권한";
-            // 
             // cboPosition
             // 
             this.cboPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -340,8 +316,6 @@
         private System.Windows.Forms.Panel pnlEntire;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPosition;
-        private System.Windows.Forms.ComboBox cboAuthority;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cboPosition;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCancel;

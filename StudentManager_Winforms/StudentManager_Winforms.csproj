@@ -70,16 +70,22 @@
     <Compile Include="Controls\ucSchoolLabel.Designer.cs">
       <DependentUpon>ucSchoolLabel.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAttendance.cs">
+    <Compile Include="Course\frmAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAttendance.Designer.cs">
+    <Compile Include="Course\frmAttendance.Designer.cs">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAttInsert.cs">
+    <Compile Include="frmAttendanceBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAttInsert.Designer.cs">
+    <Compile Include="frmAttendanceBook.Designer.cs">
+      <DependentUpon>frmAttendanceBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\frmAttInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\frmAttInsert.Designer.cs">
       <DependentUpon>frmAttInsert.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\frmPaymentInsert.cs">
@@ -200,10 +206,10 @@
     <EmbeddedResource Include="Controls\ucSchoolLabel.resx">
       <DependentUpon>ucSchoolLabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAttendance.resx">
+    <EmbeddedResource Include="Course\frmAttendance.resx">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAttInsert.resx">
+    <EmbeddedResource Include="Popup\frmAttInsert.resx">
       <DependentUpon>frmAttInsert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\frmPaymentInsert.resx">
