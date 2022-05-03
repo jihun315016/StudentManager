@@ -20,6 +20,15 @@ namespace StudentManager_Winforms
             this.user = user;
             txtEmpNo.Text = empNo.ToString();
         }
+
+        public frmEmployDetail(EmployeeVO user)
+        {
+            InitializeComponent();
+
+            this.user = user;
+            txtEmpNo.Text = user.EmpNo.ToString();
+        }
+
         private void frmEmployDetail_Load(object sender, EventArgs e)
         {
             EmployeeService empService = new EmployeeService();

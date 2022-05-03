@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -23,7 +24,7 @@ namespace StudentManager_Winforms
             user = (EmployeeVO)this.Tag;
 
             // TextBox PlaceHolder 설정
-            ccTxtStudentNo.SetTextBoxPlaceHolder();
+            ccTxtStudentName.SetTextBoxPlaceHolder();
             ccTxtSpecialNote.SetTextBoxPlaceHolder();
 
             // DataGridView 초기 설정
@@ -190,6 +191,8 @@ namespace StudentManager_Winforms
                 dgvList.DataSource = studentService.GetAllStudentInfo(false);
             }
 
+            ccTxtStudentName.Text = ccTxtStudentName.PlaceHolder;
+            ccTxtStudentName.ForeColor = Color.Gray;
         }
 
         private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -269,36 +272,15 @@ namespace StudentManager_Winforms
 
         private void btnSearchStu_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(ccTxtStudentNo.Text) || ccTxtStudentNo.Text == ccTxtStudentNo.PlaceHolder)
-            {
-                MessageBox.Show("학생 번호를 입력해주세요.");
-                return;
-            }
-
             StudentService stuService = new StudentService();
-            int index = stuService.SearchStudentInList(int.Parse(ccTxtStudentNo.Text), (DataTable)dgvList.DataSource, "STUDENT_NO");
 
-            if (index > -1)
-            {                                
-                dgvList.Sort(dgvList.Columns["STUDENT_NO"], System.ComponentModel.ListSortDirection.Ascending);
-                dgvList.CurrentCell = dgvList.Rows[index].Cells["STUDENT_NO"];
-            }
+            if (!ccTxtStudentName.Text.Trim().Equals(ccTxtStudentName.PlaceHolder) & !ccTxtStudentName.Text.Trim().Equals(string.Empty))            
+                dgvList.DataSource = stuService.SearchByStudentName((DataTable)dgvList.DataSource, ccTxtStudentName.Text.Trim());
             else
-            {
-                MessageBox.Show($"{ccTxtStudentNo.Text} - 학생 번호가 없습니다.");
-            }
-        }
+                dgvList.DataSource = stuService.GetAllStudentInfo(chkStop.Checked);
 
-        private void btnSearchDate_Click(object sender, EventArgs e)
-        {
-            StudentService stuService = new StudentService();
-            dgvList.DataSource = stuService.SearchDateInList(ucDateFilter.StartDate, ucDateFilter.EndDate, (DataTable)dgvList.DataSource, chkStop.Checked);
-        }
 
-        private void ccTxtStudentNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-                e.Handled = true;
+            dgvList.DataSource = stuService.SearchByDate(ucDateFilter.StartDate, ucDateFilter.EndDate, (DataTable)dgvList.DataSource, chkStop.Checked);
         }
     }
 }

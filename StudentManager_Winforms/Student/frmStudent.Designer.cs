@@ -50,11 +50,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSearchDate = new System.Windows.Forms.Button();
-            this.btnSearchStu = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.chkStop = new System.Windows.Forms.CheckBox();
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
-            this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ccTxtStudentName = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -273,27 +272,16 @@
             this.label1.TabIndex = 63;
             this.label1.Text = "학생";
             // 
-            // btnSearchDate
+            // btnSearch
             // 
-            this.btnSearchDate.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearchDate.Location = new System.Drawing.Point(647, 354);
-            this.btnSearchDate.Name = "btnSearchDate";
-            this.btnSearchDate.Size = new System.Drawing.Size(80, 23);
-            this.btnSearchDate.TabIndex = 104;
-            this.btnSearchDate.Text = "날짜 검색";
-            this.btnSearchDate.UseVisualStyleBackColor = true;
-            this.btnSearchDate.Click += new System.EventHandler(this.btnSearchDate_Click);
-            // 
-            // btnSearchStu
-            // 
-            this.btnSearchStu.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearchStu.Location = new System.Drawing.Point(121, 354);
-            this.btnSearchStu.Name = "btnSearchStu";
-            this.btnSearchStu.Size = new System.Drawing.Size(80, 23);
-            this.btnSearchStu.TabIndex = 103;
-            this.btnSearchStu.Text = "학생 검색";
-            this.btnSearchStu.UseVisualStyleBackColor = true;
-            this.btnSearchStu.Click += new System.EventHandler(this.btnSearchStu_Click);
+            this.btnSearch.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSearch.Location = new System.Drawing.Point(667, 356);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(60, 23);
+            this.btnSearch.TabIndex = 103;
+            this.btnSearch.Text = "검색";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearchStu_Click);
             // 
             // chkStop
             // 
@@ -308,21 +296,20 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 2, 16, 54, 43, 151);
-            this.ucDateFilter.Location = new System.Drawing.Point(403, 355);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 3, 16, 53, 9, 551);
+            this.ucDateFilter.Location = new System.Drawing.Point(121, 356);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 2, 16, 54, 43, 151);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 3, 16, 53, 9, 551);
             this.ucDateFilter.TabIndex = 99;
             // 
-            // ccTxtStudentNo
+            // ccTxtStudentName
             // 
-            this.ccTxtStudentNo.Location = new System.Drawing.Point(15, 356);
-            this.ccTxtStudentNo.Name = "ccTxtStudentNo";
-            this.ccTxtStudentNo.PlaceHolder = "학생 번호 검색";
-            this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
-            this.ccTxtStudentNo.TabIndex = 97;
-            this.ccTxtStudentNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ccTxtStudentNo_KeyPress);
+            this.ccTxtStudentName.Location = new System.Drawing.Point(15, 356);
+            this.ccTxtStudentName.Name = "ccTxtStudentName";
+            this.ccTxtStudentName.PlaceHolder = "학생 검색";
+            this.ccTxtStudentName.Size = new System.Drawing.Size(100, 21);
+            this.ccTxtStudentName.TabIndex = 97;
             // 
             // btnOpenInsert
             // 
@@ -374,13 +361,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1015, 382);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSearchDate);
             this.Controls.Add(this.txtAge);
-            this.Controls.Add(this.btnSearchStu);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.ccTxtSpecialNote);
             this.Controls.Add(this.ucDateFilter);
             this.Controls.Add(this.chkStop);
-            this.Controls.Add(this.ccTxtStudentNo);
+            this.Controls.Add(this.ccTxtStudentName);
             this.Controls.Add(this.dgvList);
             this.Controls.Add(this.btnOpenInsert);
             this.Controls.Add(this.dtpStartDate);
@@ -431,7 +417,7 @@
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.Label label10;
         private ccTextBoxPlaceHolder ccTxtSpecialNote;
-        private ccTextBoxPlaceHolder ccTxtStudentNo;
+        private ccTextBoxPlaceHolder ccTxtStudentName;
         private System.Windows.Forms.Button btnOpenInsert;
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.RadioButton rdoOther;
@@ -441,7 +427,6 @@
         private System.Windows.Forms.ContextMenuStrip cmsSetting;
         private System.Windows.Forms.ToolStripMenuItem tsmStop;
         private System.Windows.Forms.ToolStripMenuItem tsmReJoin;
-        private System.Windows.Forms.Button btnSearchStu;
-        private System.Windows.Forms.Button btnSearchDate;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

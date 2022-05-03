@@ -30,16 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cboEmpName = new System.Windows.Forms.ComboBox();
+            this.btnAttInsert = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
             this.chkNotCouse = new System.Windows.Forms.CheckBox();
-            this.ccTxtCourseNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ccTxtCourseName = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCourseInsert = new System.Windows.Forms.Button();
             this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAttInsert = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.cmsSetting.SuspendLayout();
@@ -47,10 +48,11 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cboEmpName);
             this.panel2.Controls.Add(this.btnAttInsert);
             this.panel2.Controls.Add(this.btnAttendance);
             this.panel2.Controls.Add(this.chkNotCouse);
-            this.panel2.Controls.Add(this.ccTxtCourseNo);
+            this.panel2.Controls.Add(this.ccTxtCourseName);
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.dgvList);
             this.panel2.Controls.Add(this.label1);
@@ -59,6 +61,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(480, 333);
             this.panel2.TabIndex = 5;
+            // 
+            // cboEmpName
+            // 
+            this.cboEmpName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEmpName.FormattingEnabled = true;
+            this.cboEmpName.Location = new System.Drawing.Point(3, 310);
+            this.cboEmpName.Name = "cboEmpName";
+            this.cboEmpName.Size = new System.Drawing.Size(112, 20);
+            this.cboEmpName.TabIndex = 99;
+            // 
+            // btnAttInsert
+            // 
+            this.btnAttInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnAttInsert.Location = new System.Drawing.Point(317, 7);
+            this.btnAttInsert.Name = "btnAttInsert";
+            this.btnAttInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnAttInsert.TabIndex = 98;
+            this.btnAttInsert.Text = "출석 등록";
+            this.btnAttInsert.UseVisualStyleBackColor = true;
+            this.btnAttInsert.Click += new System.EventHandler(this.btnAttInsert_Click);
             // 
             // btnAttendance
             // 
@@ -82,19 +104,18 @@
             this.chkNotCouse.UseVisualStyleBackColor = true;
             this.chkNotCouse.CheckedChanged += new System.EventHandler(this.chkFinalCourse_CheckedChanged);
             // 
-            // ccTxtCourseNo
+            // ccTxtCourseName
             // 
-            this.ccTxtCourseNo.Location = new System.Drawing.Point(0, 309);
-            this.ccTxtCourseNo.Name = "ccTxtCourseNo";
-            this.ccTxtCourseNo.PlaceHolder = "수업 번호 검색";
-            this.ccTxtCourseNo.Size = new System.Drawing.Size(100, 21);
-            this.ccTxtCourseNo.TabIndex = 95;
-            this.ccTxtCourseNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ccTxtBoxPlaceHolder_KeyPress);
+            this.ccTxtCourseName.Location = new System.Drawing.Point(292, 306);
+            this.ccTxtCourseName.Name = "ccTxtCourseName";
+            this.ccTxtCourseName.PlaceHolder = "수업 검색";
+            this.ccTxtCourseName.Size = new System.Drawing.Size(100, 21);
+            this.ccTxtCourseName.TabIndex = 95;
             // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearch.Location = new System.Drawing.Point(398, 307);
+            this.btnSearch.Location = new System.Drawing.Point(398, 306);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 44;
@@ -147,17 +168,6 @@
             this.tsmDelete.Text = "삭제";
             this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
             // 
-            // btnAttInsert
-            // 
-            this.btnAttInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAttInsert.Location = new System.Drawing.Point(317, 7);
-            this.btnAttInsert.Name = "btnAttInsert";
-            this.btnAttInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnAttInsert.TabIndex = 98;
-            this.btnAttInsert.Text = "출석 등록";
-            this.btnAttInsert.UseVisualStyleBackColor = true;
-            this.btnAttInsert.Click += new System.EventHandler(this.btnAttInsert_Click);
-            // 
             // frmCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -184,11 +194,12 @@
         private System.Windows.Forms.Button btnCourseInsert;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearch;
-        private ccTextBoxPlaceHolder ccTxtCourseNo;
+        private ccTextBoxPlaceHolder ccTxtCourseName;
         private System.Windows.Forms.CheckBox chkNotCouse;
         private System.Windows.Forms.ContextMenuStrip cmsSetting;
         private System.Windows.Forms.ToolStripMenuItem tsmDelete;
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnAttInsert;
+        private System.Windows.Forms.ComboBox cboEmpName;
     }
 }

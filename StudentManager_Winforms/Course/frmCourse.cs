@@ -20,7 +20,12 @@ namespace StudentManager_Winforms
         private void frmCourse_Load(object sender, EventArgs e)
         {
             user = this.Tag as EmployeeVO;
-            ccTxtCourseNo.SetTextBoxPlaceHolder();            
+            ccTxtCourseName.SetTextBoxPlaceHolder();
+
+            EmployeeService empService = new EmployeeService();
+            cboEmpName.DataSource = empService.GetAllEmpNoName(true);
+            cboEmpName.DisplayMember = "EMP_INFO";
+            cboEmpName.ValueMember = "EMP_NO";
 
             CourseService courseService = new CourseService();
             DataGridViewUtil.SetInitGridView(dgvList);
@@ -58,32 +63,33 @@ namespace StudentManager_Winforms
             else
                 dgvList.DataSource = courseService.GetAllCourseInfo(false);
 
-        }
-
-        private void ccTxtBoxPlaceHolder_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-                e.Handled = true;
+            cboEmpName.SelectedIndex = 0;
+            ccTxtCourseName.Text = ccTxtCourseName.PlaceHolder;
+            ccTxtCourseName.ForeColor = System.Drawing.Color.Gray;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(ccTxtCourseNo.Text) || ccTxtCourseNo.Text == ccTxtCourseNo.PlaceHolder)
+            bool selectedEmpInfo = false;
+            bool selectedCourseName = false;
+
+            if (!cboEmpName.Text.Equals("선택"))
             {
-                MessageBox.Show("수업 번호를 입력해주세요.");
-                return;
+                CourseService courseService = new CourseService();
+                dgvList.DataSource = courseService.SearchByEmpInfo((DataTable)dgvList.DataSource, int.Parse(cboEmpName.SelectedValue.ToString()));
+                selectedEmpInfo = true;
             }
 
-            CourseService courseService = new CourseService();
-            int index = courseService.SearchCourseInList(int.Parse(ccTxtCourseNo.Text), (DataTable)dgvList.DataSource, "COURSE_NO");
-            if (index > -1)
+            if (!ccTxtCourseName.Text.Trim().Equals(ccTxtCourseName.PlaceHolder) && !ccTxtCourseName.Text.Trim().Equals(string.Empty))
             {
-                dgvList.Sort(dgvList.Columns["COURSE_NO"], ListSortDirection.Ascending);
-                dgvList.CurrentCell = dgvList.Rows[index].Cells["COURSE_NO"];
+                CourseService courseService = new CourseService();
+                dgvList.DataSource = courseService.SearchByCourseName((DataTable)dgvList.DataSource, ccTxtCourseName.Text.Trim());
+                selectedCourseName = true;
             }
-            else
+
+            if (!selectedEmpInfo && !selectedCourseName)
             {
-                MessageBox.Show($"{ccTxtCourseNo.Text} - 수업 번호가 없습니다.");
+                MessageBox.Show("선생님 정보 또는 수업을 입력해주세요.");
             }
         }
 

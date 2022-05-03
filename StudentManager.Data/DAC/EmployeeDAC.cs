@@ -42,6 +42,19 @@ namespace StudentManager.Data.DAC
 
             return dt;
         }
+        public DataTable GetAllEmpNoName(bool isOnlyTeacher = false)
+        {
+            string sql;
+            if (isOnlyTeacher == true)
+                sql = @"SELECT EMP_NO, EMP_NAME, concat(EMP_NO, '-' ,EMP_NAME) EMP_INFO FROM tb_employee WHERE POSITION in ('원장', '강사')";
+            else
+                sql = @"SELECT EMP_NO, EMP_NAME, concat(EMP_NO, '-' ,EMP_NAME) EMP_INFO FROM tb_employee";
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
         public EmployeeVO GetEmployeeInfoByPk(int emp_no)
         {

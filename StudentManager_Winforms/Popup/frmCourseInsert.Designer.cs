@@ -46,7 +46,7 @@ namespace StudentManager_Winforms
             // txtPayment
             // 
             this.txtPayment.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtPayment.Location = new System.Drawing.Point(205, 25);
+            this.txtPayment.Location = new System.Drawing.Point(226, 35);
             this.txtPayment.Name = "txtPayment";
             this.txtPayment.Size = new System.Drawing.Size(82, 21);
             this.txtPayment.TabIndex = 2;
@@ -56,7 +56,7 @@ namespace StudentManager_Winforms
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(202, 9);
+            this.label6.Location = new System.Drawing.Point(223, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 126;
@@ -65,7 +65,7 @@ namespace StudentManager_Winforms
             // dtpEnd
             // 
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnd.Location = new System.Drawing.Point(166, 92);
+            this.dtpEnd.Location = new System.Drawing.Point(187, 102);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(121, 21);
             this.dtpEnd.TabIndex = 4;
@@ -74,7 +74,7 @@ namespace StudentManager_Winforms
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(163, 76);
+            this.label3.Location = new System.Drawing.Point(184, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 124;
@@ -83,7 +83,7 @@ namespace StudentManager_Winforms
             // dtpStart
             // 
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStart.Location = new System.Drawing.Point(6, 92);
+            this.dtpStart.Location = new System.Drawing.Point(27, 102);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(121, 21);
             this.dtpStart.TabIndex = 3;
@@ -92,7 +92,7 @@ namespace StudentManager_Winforms
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(3, 76);
+            this.label9.Location = new System.Drawing.Point(24, 86);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 122;
@@ -102,7 +102,7 @@ namespace StudentManager_Winforms
             // 
             this.lblEmpName.AutoSize = true;
             this.lblEmpName.Font = new System.Drawing.Font("굴림", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblEmpName.Location = new System.Drawing.Point(3, 49);
+            this.lblEmpName.Location = new System.Drawing.Point(24, 59);
             this.lblEmpName.Name = "lblEmpName";
             this.lblEmpName.Size = new System.Drawing.Size(137, 11);
             this.lblEmpName.TabIndex = 121;
@@ -111,7 +111,7 @@ namespace StudentManager_Winforms
             // txtCourse
             // 
             this.txtCourse.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtCourse.Location = new System.Drawing.Point(106, 25);
+            this.txtCourse.Location = new System.Drawing.Point(127, 35);
             this.txtCourse.Name = "txtCourse";
             this.txtCourse.Size = new System.Drawing.Size(82, 21);
             this.txtCourse.TabIndex = 1;
@@ -120,7 +120,7 @@ namespace StudentManager_Winforms
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(103, 9);
+            this.label4.Location = new System.Drawing.Point(124, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 119;
@@ -129,7 +129,7 @@ namespace StudentManager_Winforms
             // txtEmpNo
             // 
             this.txtEmpNo.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtEmpNo.Location = new System.Drawing.Point(6, 25);
+            this.txtEmpNo.Location = new System.Drawing.Point(27, 35);
             this.txtEmpNo.Name = "txtEmpNo";
             this.txtEmpNo.Size = new System.Drawing.Size(82, 21);
             this.txtEmpNo.TabIndex = 0;
@@ -140,7 +140,7 @@ namespace StudentManager_Winforms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(3, 9);
+            this.label5.Location = new System.Drawing.Point(24, 19);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 117;
@@ -148,7 +148,7 @@ namespace StudentManager_Winforms
             // 
             // btnCommit
             // 
-            this.btnCommit.Location = new System.Drawing.Point(228, 123);
+            this.btnCommit.Location = new System.Drawing.Point(249, 133);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(59, 23);
             this.btnCommit.TabIndex = 5;
@@ -160,7 +160,7 @@ namespace StudentManager_Winforms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 151);
+            this.ClientSize = new System.Drawing.Size(335, 174);
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.txtPayment);
             this.Controls.Add(this.label6);

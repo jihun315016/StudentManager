@@ -107,13 +107,18 @@ namespace StudentManager.Service.Service
             }
         }
 
-        public int SearchCourseInList(int courseNo, DataTable dt, string sortCol)
+        public DataTable SearchByEmpInfo(DataTable dt, int empNo)
         {
             DataView dv = new DataView(dt);
-
-            dv.Sort = sortCol;
-            return dv.Find(courseNo);
+            dv.RowFilter = $"EMP_NO={empNo}";
+            return dv.ToTable();
         }
 
+        public DataTable SearchByCourseName(DataTable dt, string courseName)
+        {
+            DataView dv = new DataView(dt);
+            dv.RowFilter = $"COURSE_NAME LIKE '%{courseName}%'";
+            return dv.ToTable();
+        }
     }
 }

@@ -47,9 +47,15 @@ namespace StudentManager_Winforms
                 chk.Tag = col.Name;
                 chk.Checked = true;
                 chk.Location = new Point(20, 20 + cnt * 30);
+                chk.CheckedChanged += Chk_CheckedChanged;
                 pnlChk.Controls.Add(chk);
                 cnt++;
             }
+        }
+
+        private void Chk_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox chk = (CheckBox)sender;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

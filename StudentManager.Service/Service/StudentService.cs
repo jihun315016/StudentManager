@@ -157,15 +157,14 @@ namespace StudentManager.Service.Service
             return contactCnt;
         }
 
-        public int SearchStudentInList(int stuNo, DataTable dt, string sortCol)
+        public DataTable SearchByStudentName(DataTable dt, string stuName)
         {
             DataView dv = new DataView(dt);
-
-            dv.Sort = sortCol;
-            return dv.Find(stuNo);
+            dv.RowFilter = $"STUDENT_NAME LIKE '%{stuName}%'";
+            return dv.ToTable();
         }
 
-        public DataTable SearchDateInList(DateTime start, DateTime end, DataTable dt, bool isStop)
+        public DataTable SearchByDate(DateTime start, DateTime end, DataTable dt, bool isStop)
         {
             DataView dv = new DataView(dt);
 

@@ -17,13 +17,13 @@ namespace StudentManager_Winforms
         {
             InitializeComponent();
             
-            ccTxtEmpNo.SetTextBoxPlaceHolder();
+            ccTxtEmpName.SetTextBoxPlaceHolder();
             ccTxtSpecialNote.SetTextBoxPlaceHolder();
         }
 
         private void frmEmployee_Load(object sender, EventArgs e)
         {
-            user = (EmployeeVO)this.Tag;
+            user = (EmployeeVO)this.Tag;            
 
             txtOtherPosition.Visible = false;
             string[] positions = { "강사", "행정", "기타" };
@@ -195,6 +195,9 @@ namespace StudentManager_Winforms
                 dgvList.Columns["END_DATE"].Visible = false;
                 dgvList.DataSource = empService.GetAllEmployeeInfo(false);
             }
+
+            ccTxtEmpName.Text = ccTxtEmpName.PlaceHolder;
+            ccTxtEmpName.ForeColor = Color.Gray;
         }
 
         private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -274,35 +277,15 @@ namespace StudentManager_Winforms
 
         private void btnSearchEmp_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(ccTxtEmpNo.Text) || ccTxtEmpNo.Text == ccTxtEmpNo.PlaceHolder)
-            {
-                MessageBox.Show("직원 번호를 입력해주세요.");
-                return;
-            }
-
             EmployeeService empService = new EmployeeService();
-            int index = empService.SearchEmpInList(int.Parse(ccTxtEmpNo.Text), (DataTable)dgvList.DataSource, "EMP_NO");
-            if (index > -1)
-            {
-                dgvList.Sort(dgvList.Columns["EMP_NO"], System.ComponentModel.ListSortDirection.Ascending);
-                dgvList.CurrentCell = dgvList.Rows[index].Cells["EMP_NO"];
-            }
+
+            if (!ccTxtEmpName.Text.Trim().Equals(ccTxtEmpName.PlaceHolder) && !ccTxtEmpName.Text.Trim().Equals(string.Empty))            
+                dgvList.DataSource = empService.SearchByEmpName((DataTable)dgvList.DataSource, ccTxtEmpName.Text.Trim());
             else
-            {
-                MessageBox.Show($"{ccTxtEmpNo.Text} - 직원 번호가 없습니다.");
-            }
-        }
+                dgvList.DataSource = empService.GetAllEmployeeInfo(chkResignation.Checked);
 
-        private void btnSearchDate_Click(object sender, EventArgs e)
-        {
-            EmployeeService empService = new EmployeeService();
+
             dgvList.DataSource = empService.SearchDateInList(ucDateFilter.StartDate, ucDateFilter.EndDate, (DataTable)dgvList.DataSource, chkResignation.Checked);
-        }
-
-        private void ccTxtEmpNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-                e.Handled = true;
-        }
+        }     
     }
 }

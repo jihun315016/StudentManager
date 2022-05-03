@@ -156,6 +156,7 @@
             this.btnMyPage.TabIndex = 21;
             this.btnMyPage.Text = "내 정보";
             this.btnMyPage.UseVisualStyleBackColor = true;
+            this.btnMyPage.Click += new System.EventHandler(this.btnMyPage_Click);
             // 
             // panel2
             // 

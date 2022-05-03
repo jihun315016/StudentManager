@@ -27,7 +27,7 @@ namespace StudentManager_Winforms
 
             headerCheckBox.CheckedChanged += headerCheckBox_Click;
 
-            DataGridViewUtil.SetDataGridViewColumn_HeaderCheckBox(dgvList, headerCheckBox, 223, -3);
+            DataGridViewUtil.SetDataGridViewColumn_HeaderCheckBox(dgvList, headerCheckBox, 210, -28);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO", 90, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이름", "STUDENT_NAME", 80);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "나이", "AGE", 40, alignContent: DataGridViewContentAlignment.MiddleRight);
@@ -106,6 +106,11 @@ namespace StudentManager_Winforms
             List<bool> isAttList = attService.IsAttendanceCheck(stuNoList, courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")), out isExistDgvList);
             for (int i = 0; i < dgvList.Rows.Count; i++)
                 dgvList.Rows[i].Cells["ATTENDANCE"].Value = isAttList[i];
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

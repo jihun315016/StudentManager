@@ -18,6 +18,23 @@ namespace StudentManager.Service.Service
             dac.Dispose();
             return dt;
         }
+
+        public DataTable GetAllEmpNoName(bool isOnlyTeacher = false)
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            DataTable dt = dac.GetAllEmpNoName(isOnlyTeacher);
+
+            DataRow dr = dt.NewRow();
+            dr["EMP_NO"] = -1;
+            dr["EMP_NAME"] = string.Empty;
+            dr["EMP_INFO"] = "선택";
+
+            dt.Rows.InsertAt(dr, 0);
+            
+            dac.Dispose();
+            return dt;
+        }
+
         public EmployeeVO GetEmpInfoByPk(int empNo)
         {
             EmployeeDAC dac = new EmployeeDAC();
@@ -92,12 +109,11 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public int SearchEmpInList(int empNo, DataTable dt, string sortCol)
+        public DataTable SearchByEmpName(DataTable dt, string empName)
         {
             DataView dv = new DataView(dt);
-
-            dv.Sort = sortCol;
-            return dv.Find(empNo);
+            dv.RowFilter = $"EMP_NAME LIKE '%{empName}%'";
+            return dv.ToTable();
         }
 
         public DataTable SearchDateInList(DateTime start, DateTime end, DataTable dt, bool isResignations)

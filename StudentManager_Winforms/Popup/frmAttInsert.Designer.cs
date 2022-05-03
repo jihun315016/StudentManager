@@ -39,19 +39,21 @@
             // 
             // dgvList
             // 
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvList.Location = new System.Drawing.Point(12, 12);
+            this.dgvList.Location = new System.Drawing.Point(24, 39);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(279, 150);
+            this.dgvList.Size = new System.Drawing.Size(279, 236);
             this.dgvList.TabIndex = 0;
             // 
             // btnInsert
             // 
             this.btnInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnInsert.Location = new System.Drawing.Point(236, 168);
+            this.btnInsert.Location = new System.Drawing.Point(238, 281);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(55, 23);
+            this.btnInsert.Size = new System.Drawing.Size(65, 23);
             this.btnInsert.TabIndex = 45;
             this.btnInsert.Text = "등록";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -60,17 +62,18 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCancel.Location = new System.Drawing.Point(175, 168);
+            this.btnCancel.Location = new System.Drawing.Point(167, 281);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(55, 23);
+            this.btnCancel.Size = new System.Drawing.Size(65, 23);
             this.btnCancel.TabIndex = 46;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // headerCheckBox
             // 
             this.headerCheckBox.AutoSize = true;
-            this.headerCheckBox.Location = new System.Drawing.Point(264, 21);
+            this.headerCheckBox.Location = new System.Drawing.Point(276, 48);
             this.headerCheckBox.Name = "headerCheckBox";
             this.headerCheckBox.Size = new System.Drawing.Size(15, 14);
             this.headerCheckBox.TabIndex = 47;
@@ -79,17 +82,17 @@
             // dtpDate
             // 
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(12, 170);
+            this.dtpDate.Location = new System.Drawing.Point(24, 12);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(96, 21);
             this.dtpDate.TabIndex = 48;
-            this.dtpDate.Value = new System.DateTime(2022, 5, 1, 0, 0, 0, 0);
+            this.dtpDate.Value = new System.DateTime(2022, 5, 3, 0, 0, 0, 0);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(114, 168);
+            this.btnSearch.Location = new System.Drawing.Point(126, 10);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(55, 23);
+            this.btnSearch.Size = new System.Drawing.Size(65, 23);
             this.btnSearch.TabIndex = 49;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -99,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 196);
+            this.ClientSize = new System.Drawing.Size(327, 316);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.headerCheckBox);

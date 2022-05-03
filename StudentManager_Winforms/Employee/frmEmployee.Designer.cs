@@ -33,13 +33,10 @@
             this.tsmResignation = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReJoin = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSearchDate = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.btnOpenInsert = new System.Windows.Forms.Button();
-            this.ccTxtEmpNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
-            this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
             this.chkResignation = new System.Windows.Forms.CheckBox();
-            this.btnSearchEmp = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,8 +50,10 @@
             this.cboPosition = new System.Windows.Forms.ComboBox();
             this.txtOtherPosition = new System.Windows.Forms.TextBox();
             this.btnInsert = new System.Windows.Forms.Button();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.ucEmail = new StudentManager_Winforms.Controls.ucInputEmail();
+            this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
+            this.ccTxtEmpName = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.cmsSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).BeginInit();
@@ -91,17 +90,6 @@
             this.label1.TabIndex = 63;
             this.label1.Text = "직원";
             // 
-            // btnSearchDate
-            // 
-            this.btnSearchDate.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearchDate.Location = new System.Drawing.Point(527, 364);
-            this.btnSearchDate.Name = "btnSearchDate";
-            this.btnSearchDate.Size = new System.Drawing.Size(80, 23);
-            this.btnSearchDate.TabIndex = 36;
-            this.btnSearchDate.Text = "날짜 검색";
-            this.btnSearchDate.UseVisualStyleBackColor = true;
-            this.btnSearchDate.Click += new System.EventHandler(this.btnSearchDate_Click);
-            // 
             // dgvList
             // 
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -124,24 +112,6 @@
             this.btnOpenInsert.UseVisualStyleBackColor = true;
             this.btnOpenInsert.Click += new System.EventHandler(this.btnOpenInsert_Click);
             // 
-            // ccTxtEmpNo
-            // 
-            this.ccTxtEmpNo.Location = new System.Drawing.Point(15, 366);
-            this.ccTxtEmpNo.Name = "ccTxtEmpNo";
-            this.ccTxtEmpNo.PlaceHolder = "직원 번호 검색";
-            this.ccTxtEmpNo.Size = new System.Drawing.Size(95, 21);
-            this.ccTxtEmpNo.TabIndex = 99;
-            this.ccTxtEmpNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ccTxtEmpNo_KeyPress);
-            // 
-            // ucDateFilter
-            // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 2, 16, 54, 59, 178);
-            this.ucDateFilter.Location = new System.Drawing.Point(283, 365);
-            this.ucDateFilter.Name = "ucDateFilter";
-            this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 2, 16, 54, 59, 178);
-            this.ucDateFilter.TabIndex = 100;
-            // 
             // chkResignation
             // 
             this.chkResignation.AutoSize = true;
@@ -153,16 +123,16 @@
             this.chkResignation.UseVisualStyleBackColor = true;
             this.chkResignation.CheckedChanged += new System.EventHandler(this.chkResignation_CheckedChanged);
             // 
-            // btnSearchEmp
+            // btnSearch
             // 
-            this.btnSearchEmp.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearchEmp.Location = new System.Drawing.Point(116, 364);
-            this.btnSearchEmp.Name = "btnSearchEmp";
-            this.btnSearchEmp.Size = new System.Drawing.Size(80, 23);
-            this.btnSearchEmp.TabIndex = 102;
-            this.btnSearchEmp.Text = "직원 검색";
-            this.btnSearchEmp.UseVisualStyleBackColor = true;
-            this.btnSearchEmp.Click += new System.EventHandler(this.btnSearchEmp_Click);
+            this.btnSearch.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSearch.Location = new System.Drawing.Point(547, 364);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(60, 23);
+            this.btnSearch.TabIndex = 102;
+            this.btnSearch.Text = "검색";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearchEmp_Click);
             // 
             // label7
             // 
@@ -295,15 +265,6 @@
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // ccTxtSpecialNote
-            // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(628, 291);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 67);
-            this.ccTxtSpecialNote.TabIndex = 100;
-            // 
             // ucEmail
             // 
             this.ucEmail.FrontEmail = "";
@@ -313,17 +274,42 @@
             this.ucEmail.Size = new System.Drawing.Size(254, 22);
             this.ucEmail.TabIndex = 101;
             // 
+            // ucDateFilter
+            // 
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 3, 16, 52, 11, 871);
+            this.ucDateFilter.Location = new System.Drawing.Point(116, 364);
+            this.ucDateFilter.Name = "ucDateFilter";
+            this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 3, 16, 52, 11, 871);
+            this.ucDateFilter.TabIndex = 100;
+            // 
+            // ccTxtEmpName
+            // 
+            this.ccTxtEmpName.Location = new System.Drawing.Point(15, 364);
+            this.ccTxtEmpName.Name = "ccTxtEmpName";
+            this.ccTxtEmpName.PlaceHolder = "직원 번호 검색";
+            this.ccTxtEmpName.Size = new System.Drawing.Size(95, 21);
+            this.ccTxtEmpName.TabIndex = 99;
+            // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(628, 291);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(280, 67);
+            this.ccTxtSpecialNote.TabIndex = 100;
+            // 
             // frmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 401);
-            this.Controls.Add(this.btnSearchEmp);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.ucEmail);
             this.Controls.Add(this.ucDateFilter);
             this.Controls.Add(this.chkResignation);
-            this.Controls.Add(this.ccTxtEmpNo);
-            this.Controls.Add(this.btnSearchDate);
+            this.Controls.Add(this.ccTxtEmpName);
             this.Controls.Add(this.ccTxtSpecialNote);
             this.Controls.Add(this.dgvList);
             this.Controls.Add(this.btnOpenInsert);
@@ -360,13 +346,12 @@
         private System.Windows.Forms.ToolStripMenuItem tsmResignation;
         private System.Windows.Forms.ToolStripMenuItem tsmReJoin;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSearchDate;
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button btnOpenInsert;
-        private ccTextBoxPlaceHolder ccTxtEmpNo;
+        private ccTextBoxPlaceHolder ccTxtEmpName;
         private Controls.ucDateFilter ucDateFilter;
         private System.Windows.Forms.CheckBox chkResignation;
-        private System.Windows.Forms.Button btnSearchEmp;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label5;
