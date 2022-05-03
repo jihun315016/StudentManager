@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -94,17 +95,44 @@ namespace StudentManager.Service.Service
             return dv.ToTable();
         }
 
-        public bool ExportAttendanceBook(DataTable dt, string file)
+        public bool ExportAttendanceBook(DataTable dt, string file, DateTime date)
         {
             Excel.Application xlApp = new Excel.Application();
             Excel.Workbook xlWorkBook = xlApp.Workbooks.Add();
             Excel.Worksheet xlWorkSheet = xlWorkBook.Worksheets.get_Item(1);
+            Excel.Range rg;
+            Dictionary<string, int> columnWidths = new Dictionary<string, int>();
+            columnWidths.Add("STUDENT_NO", 10);
+            columnWidths.Add("STUDENT_NAME", 8);
+            columnWidths.Add("AGE", 8);
+            columnWidths.Add("SCHOOL", 14);
+            columnWidths.Add("STUDENT_CONTACT", 14);
+            columnWidths.Add("GUARDIAN_CONTACT", 14);
+            columnWidths.Add("GUARDIAN_RERATIONSHIP", 8);
 
             // 여기부터
             for (int c = 0; c < dt.Columns.Count; c++)
             {
                 xlWorkSheet.Cells[1, c + 1] = dt.Columns[c].Caption;
+                rg = xlWorkSheet.Range[xlWorkSheet.Cells[1, c + 1], xlWorkSheet.Cells[1, c + 1]];
+                rg.ColumnWidth = columnWidths[dt.Columns[c].ColumnName];
             }
+
+            for (int i = dt.Columns.Count; i < dt.Columns.Count + 31; i++)
+            {
+                xlWorkSheet.Cells[1, i + 1] = date.Day.ToString();
+
+                rg = xlWorkSheet.Range[xlWorkSheet.Cells[1, i + 1], xlWorkSheet.Cells[1, i + 1]];                
+                if (date.ToString("ddd") == "토")                
+                    rg.Font.Color = Color.FromArgb(0, 0, 255);                
+                else if (date.ToString("ddd") == "일")
+                    rg.Font.Color = Color.FromArgb(255, 0, 0);
+                date = date.AddDays(1);
+            }
+
+            rg = xlWorkSheet.Range[xlWorkSheet.Cells[1, 1], xlWorkSheet.Cells[1, dt.Columns.Count + 31]];
+            rg.Font.Bold = true;
+            rg.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
 
             for (int r = 0; r < dt.Rows.Count; r++)
             {

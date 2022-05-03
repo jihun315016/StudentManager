@@ -34,6 +34,7 @@ namespace StudentManager_Winforms
             this.btnExport = new System.Windows.Forms.Button();
             this.chkNoneCourse = new System.Windows.Forms.CheckBox();
             this.cboCourse = new System.Windows.Forms.ComboBox();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,9 +50,9 @@ namespace StudentManager_Winforms
             // 
             // pnlChk
             // 
-            this.pnlChk.Location = new System.Drawing.Point(657, 60);
+            this.pnlChk.Location = new System.Drawing.Point(657, 87);
             this.pnlChk.Name = "pnlChk";
-            this.pnlChk.Size = new System.Drawing.Size(133, 269);
+            this.pnlChk.Size = new System.Drawing.Size(133, 242);
             this.pnlChk.TabIndex = 1;
             // 
             // btnExport
@@ -85,11 +86,21 @@ namespace StudentManager_Winforms
             this.cboCourse.TabIndex = 86;
             this.cboCourse.SelectionChangeCommitted += new System.EventHandler(this.cboCourse_SelectionChangeCommitted);
             // 
+            // dtpDate
+            // 
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(657, 60);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(135, 21);
+            this.dtpDate.TabIndex = 87;
+            this.dtpDate.Value = new System.DateTime(2022, 5, 3, 22, 28, 28, 0);
+            // 
             // frmAttendanceBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 382);
+            this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.cboCourse);
             this.Controls.Add(this.chkNoneCourse);
             this.Controls.Add(this.btnExport);
@@ -114,5 +125,6 @@ namespace StudentManager_Winforms
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.CheckBox chkNoneCourse;
         private System.Windows.Forms.ComboBox cboCourse;
+        private System.Windows.Forms.DateTimePicker dtpDate;
     }
 }

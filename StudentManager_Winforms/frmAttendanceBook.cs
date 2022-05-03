@@ -90,7 +90,7 @@ namespace StudentManager_Winforms
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 AttendanceService attService = new AttendanceService();
-                bool exportResult = attService.ExportAttendanceBook(dt, dlg.FileName);
+                bool exportResult = attService.ExportAttendanceBook(dt, dlg.FileName, dtpDate.Value);
 
                 if (exportResult)
                     MessageBox.Show("파일이 저장되었습니다.");
