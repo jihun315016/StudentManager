@@ -34,13 +34,25 @@ namespace StudentManager.Service.Service
             dac.Dispose();
             return dt;
         }
+        public DataTable GetCourseName(string defaultMsg, bool isStop)
+        {
+            CourseDAC dac = new CourseDAC();
+            DataTable dt = dac.GetCourseName(isStop);
+            dac.Dispose();
+
+            DataRow dr = dt.NewRow();
+            dr["COURSE_NO"] = -1;
+            dr["COURSE_INFO"] = defaultMsg;
+            dt.Rows.InsertAt(dr, 0);
+
+            return dt;
+        }
 
         public int GetCountStudentInCourse(int studentNo, int courseNo)
         {
             CourseDAC dac = new CourseDAC();
             int result = dac.GetCountStudentInCourse(studentNo, courseNo);
             dac.Dispose();
-
             return result;
         }
 

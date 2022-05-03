@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Excel = Microsoft.Office.Interop.Excel;
+
 namespace StudentManager.Service.Service
 {
     public class AttendanceService
@@ -90,6 +92,57 @@ namespace StudentManager.Service.Service
             dv.RowFilter = String.Join(" and ", list);
 
             return dv.ToTable();
+        }
+
+        public bool ExportAttendanceBook(DataTable dt, string file)
+        {
+            Excel.Application xlApp = new Excel.Application();
+            Excel.Workbook xlWorkBook = xlApp.Workbooks.Add();
+            Excel.Worksheet xlWorkSheet = xlWorkBook.Worksheets.get_Item(1);
+
+            // 여기부터
+            for (int c = 0; c < dt.Columns.Count; c++)
+            {
+                xlWorkSheet.Cells[1, c + 1] = dt.Columns[c].Caption;
+            }
+
+            for (int r = 0; r < dt.Rows.Count; r++)
+            {
+                for (int c = 0; c < dt.Columns.Count; c++)
+                {
+                    xlWorkSheet.Cells[r + 2, c + 1] = dt.Rows[r][c].ToString();
+                }
+            }
+
+            xlWorkBook.SaveAs(file, Excel.XlFileFormat.xlWorkbookNormal);
+            xlWorkBook.Close();
+            xlApp.Quit();
+
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
+                xlApp = null;
+
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkBook);
+                xlWorkBook = null;
+
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkSheet);
+                xlWorkSheet = null;
+
+                return true;
+            }
+            catch
+            {
+                xlApp = null;
+                xlWorkBook = null;
+                xlWorkSheet = null;
+
+                return false;
+            }
+            finally
+            {
+                GC.Collect();
+            }
         }
     }
 }

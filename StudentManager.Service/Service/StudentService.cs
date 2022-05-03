@@ -38,10 +38,10 @@ namespace StudentManager.Service.Service
             return studentVO;
         }
 
-        public DataTable GetAttendanceBook()
+        public DataTable GetAttendanceBook(int couseNo = -1)
         {
             StudentDAC dac = new StudentDAC();
-            DataTable dt = dac.GetAttendanceBook();
+            DataTable dt = dac.GetAttendanceBook(couseNo);
             dac.Dispose();
 
             return dt;

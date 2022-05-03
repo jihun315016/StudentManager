@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtAge = new System.Windows.Forms.TextBox();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.pnlGuardianRerationship = new System.Windows.Forms.Panel();
             this.rdoOther = new System.Windows.Forms.RadioButton();
@@ -52,13 +51,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.chkStop = new System.Windows.Forms.CheckBox();
-            this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
-            this.ccTxtStudentName = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnOpenInsert = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmStop = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReJoin = new System.Windows.Forms.ToolStripMenuItem();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
+            this.ccTxtStudentName = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.pnlGuardianRerationship.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.cmsSetting.SuspendLayout();
@@ -71,15 +71,6 @@
             this.txtAge.Size = new System.Drawing.Size(103, 21);
             this.txtAge.TabIndex = 6;
             this.txtAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAge_KeyPress);
-            // 
-            // ccTxtSpecialNote
-            // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(744, 253);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(263, 84);
-            this.ccTxtSpecialNote.TabIndex = 10;
             // 
             // dtpStartDate
             // 
@@ -294,23 +285,6 @@
             this.chkStop.UseVisualStyleBackColor = true;
             this.chkStop.CheckedChanged += new System.EventHandler(this.chkStop_CheckedChanged);
             // 
-            // ucDateFilter
-            // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 3, 16, 53, 9, 551);
-            this.ucDateFilter.Location = new System.Drawing.Point(121, 356);
-            this.ucDateFilter.Name = "ucDateFilter";
-            this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 3, 16, 53, 9, 551);
-            this.ucDateFilter.TabIndex = 99;
-            // 
-            // ccTxtStudentName
-            // 
-            this.ccTxtStudentName.Location = new System.Drawing.Point(15, 356);
-            this.ccTxtStudentName.Name = "ccTxtStudentName";
-            this.ccTxtStudentName.PlaceHolder = "학생 검색";
-            this.ccTxtStudentName.Size = new System.Drawing.Size(100, 21);
-            this.ccTxtStudentName.TabIndex = 97;
-            // 
             // btnOpenInsert
             // 
             this.btnOpenInsert.Font = new System.Drawing.Font("굴림", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -324,13 +298,14 @@
             // 
             // dgvList
             // 
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(15, 38);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(712, 310);
+            this.dgvList.Size = new System.Drawing.Size(710, 310);
             this.dgvList.TabIndex = 94;
-            this.dgvList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentDoubleClick);
+            this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
             this.dgvList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseClick);
             // 
             // cmsSetting
@@ -354,6 +329,32 @@
             this.tsmReJoin.Size = new System.Drawing.Size(110, 22);
             this.tsmReJoin.Text = "재등록";
             this.tsmReJoin.Click += new System.EventHandler(this.tsmReJoin_Click);
+            // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(744, 253);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(263, 84);
+            this.ccTxtSpecialNote.TabIndex = 10;
+            // 
+            // ucDateFilter
+            // 
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 3, 21, 16, 0, 777);
+            this.ucDateFilter.Location = new System.Drawing.Point(121, 356);
+            this.ucDateFilter.Name = "ucDateFilter";
+            this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 3, 21, 16, 0, 777);
+            this.ucDateFilter.TabIndex = 99;
+            // 
+            // ccTxtStudentName
+            // 
+            this.ccTxtStudentName.Location = new System.Drawing.Point(15, 356);
+            this.ccTxtStudentName.Name = "ccTxtStudentName";
+            this.ccTxtStudentName.PlaceHolder = "학생 검색";
+            this.ccTxtStudentName.Size = new System.Drawing.Size(100, 21);
+            this.ccTxtStudentName.TabIndex = 97;
             // 
             // frmStudent
             // 

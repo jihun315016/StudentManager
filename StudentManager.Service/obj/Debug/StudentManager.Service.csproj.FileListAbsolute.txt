@@ -82,3 +82,4 @@ C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager.Ser
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager.Service\bin\Debug\StudentManager.Data.pdb
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager.Service\bin\Debug\MySql.Data.xml
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager.Service\obj\Debug\StudentManager.Service.csproj.CopyComplete
+C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager.Service\obj\Debug\StudentManager.Service.csproj.ResolveComReference.cache

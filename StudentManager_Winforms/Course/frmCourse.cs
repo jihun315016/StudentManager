@@ -23,7 +23,7 @@ namespace StudentManager_Winforms
             ccTxtCourseName.SetTextBoxPlaceHolder();
 
             EmployeeService empService = new EmployeeService();
-            cboEmpName.DataSource = empService.GetAllEmpNoName(true);
+            cboEmpName.DataSource = empService.GetAllEmpNoName("선택", true);
             cboEmpName.DisplayMember = "EMP_INFO";
             cboEmpName.ValueMember = "EMP_NO";
 
@@ -91,24 +91,6 @@ namespace StudentManager_Winforms
             {
                 MessageBox.Show("선생님 정보 또는 수업을 입력해주세요.");
             }
-        }
-
-        private void dgvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int courseNo = int.Parse(dgvList["COURSE_NO", e.RowIndex].Value.ToString());
-
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.GetType() == typeof(frmCourseDetail))
-                {
-                    form.Close();
-                    break;
-                }
-            }
-
-            frmCourseDetail frm = new frmCourseDetail(courseNo);
-            frm.MdiParent = this.MdiParent;
-            frm.Show();
         }
 
         private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -184,6 +166,27 @@ namespace StudentManager_Winforms
                 return;
             }
 
+        }
+
+        private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            int courseNo = int.Parse(dgvList["COURSE_NO", e.RowIndex].Value.ToString());
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmCourseDetail))
+                {
+                    form.Close();
+                    break;
+                }
+            }
+
+            frmCourseDetail frm = new frmCourseDetail(courseNo);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
         }
     }
 }

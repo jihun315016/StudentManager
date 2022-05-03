@@ -331,3 +331,5 @@ C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_W
 C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmPaymentInsert.resources
 C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmAttendanceBook.resources
 C:\Users\GDC9\Desktop\project\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.ResolveComReference.cache
+C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.csproj.ResolveComReference.cache
+C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmAttendanceBook.resources

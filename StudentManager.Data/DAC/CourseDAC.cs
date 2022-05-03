@@ -103,7 +103,32 @@ namespace StudentManager.Data.DAC
             cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
 
             return Convert.ToInt32(cmd.ExecuteScalar());
-        }        
+        }
+
+        public DataTable GetCourseName(bool isStop)
+        {
+            string sql;
+
+            if (isStop) // 종강 or 개강 예정인 수업인 경우
+            {
+                sql = @"SELECT COURSE_NO, concat('(', EMP_NAME, ')', ' ', COURSE_NAME) COURSE_INFO
+                        FROM tb_course c
+                        JOIN tb_employee e ON c.EMP_NO = e.EMP_NO
+                        WHERE c.START_DATE > '2022-03-10' or c.END_DATE < '2022-03-10'";
+            }
+            else
+            {
+                sql = @"SELECT COURSE_NO, concat('(', EMP_NAME, ')', ' ', COURSE_NAME) COURSE_INFO
+                        FROM tb_course c
+                        JOIN tb_employee e ON c.EMP_NO = e.EMP_NO
+                        WHERE c.END_DATE >= '2022-03-10' and c.START_DATE <= '2022-03-10'";
+            }
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
         public bool InsertCourse(int empNo, string courseName, int payment, DateTime startDate, DateTime endDate)
         {

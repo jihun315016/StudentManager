@@ -158,27 +158,6 @@ namespace StudentManager_Winforms
             }
         }
 
-        private void dgvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int emp_no = int.Parse(dgvList["EMP_NO", e.RowIndex].Value.ToString());
-            if (user.Position.Equals("원장") || user.EmpNo == emp_no)
-            {
-                frmEmployDetail pop = new frmEmployDetail(user, emp_no);
-                pop.ShowDialog();
-
-                EmployeeService empService = new EmployeeService();
-
-                dgvList.Columns["START_DATE"].Visible = !chkResignation.Checked;
-                dgvList.Columns["END_DATE"].Visible = chkResignation.Checked;
-                dgvList.DataSource = empService.GetAllEmployeeInfo(chkResignation.Checked);
-            }
-            else
-            {
-                MessageBox.Show("권한이 없습니다.");
-            }
-
-        }
-
         private void chkResignation_CheckedChanged(object sender, EventArgs e)
         {
             EmployeeService empService = new EmployeeService();
@@ -286,6 +265,29 @@ namespace StudentManager_Winforms
 
 
             dgvList.DataSource = empService.SearchDateInList(ucDateFilter.StartDate, ucDateFilter.EndDate, (DataTable)dgvList.DataSource, chkResignation.Checked);
-        }     
+        }
+
+        private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            int emp_no = int.Parse(dgvList["EMP_NO", e.RowIndex].Value.ToString());
+            if (user.Position.Equals("원장") || user.EmpNo == emp_no)
+            {
+                frmEmployDetail pop = new frmEmployDetail(user, emp_no);
+                pop.ShowDialog();
+
+                EmployeeService empService = new EmployeeService();
+
+                dgvList.Columns["START_DATE"].Visible = !chkResignation.Checked;
+                dgvList.Columns["END_DATE"].Visible = chkResignation.Checked;
+                dgvList.DataSource = empService.GetAllEmployeeInfo(chkResignation.Checked);
+            }
+            else
+            {
+                MessageBox.Show("권한이 없습니다.");
+            }
+        }
     }
 }

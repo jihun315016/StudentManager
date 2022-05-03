@@ -19,19 +19,18 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
-        public DataTable GetAllEmpNoName(bool isOnlyTeacher = false)
+        public DataTable GetAllEmpNoName(string defaultMsg, bool isOnlyTeacher = false)
         {
             EmployeeDAC dac = new EmployeeDAC();
             DataTable dt = dac.GetAllEmpNoName(isOnlyTeacher);
+            dac.Dispose();
 
             DataRow dr = dt.NewRow();
             dr["EMP_NO"] = -1;
             dr["EMP_NAME"] = string.Empty;
-            dr["EMP_INFO"] = "선택";
-
+            dr["EMP_INFO"] = defaultMsg;
             dt.Rows.InsertAt(dr, 0);
             
-            dac.Dispose();
             return dt;
         }
 

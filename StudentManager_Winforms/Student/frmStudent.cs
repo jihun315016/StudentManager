@@ -32,8 +32,8 @@ namespace StudentManager_Winforms
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO", 80, alignContent:DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이름", "STUDENT_NAME");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "나이", "AGE", 60, alignContent:DataGridViewContentAlignment.MiddleRight);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 연락처", "STUDENT_CONTACT", 130);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 연락처", "GUARDIAN_CONTACT", 130);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 연락처", "STUDENT_CONTACT", 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 연락처", "GUARDIAN_CONTACT", 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "보호자 관계", "GUARDIAN_RERATIONSHIP");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "등록 날짜", "START_DATE", alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴원 날짜", "END_DATE", isVisible: false, alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -134,20 +134,7 @@ namespace StudentManager_Winforms
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
                 e.Handled = true;
-        }
-
-        private void dgvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int student_no = int.Parse(dgvList["STUDENT_NO", e.RowIndex].Value.ToString());
-
-            frmStudentDetail pop = new frmStudentDetail(user, student_no);
-            pop.ShowDialog();
-
-            StudentService stuService = new StudentService();
-            dgvList.Columns["START_DATE"].Visible = !chkStop.Checked;
-            dgvList.Columns["END_DATE"].Visible = chkStop.Checked;
-            dgvList.DataSource = stuService.GetAllStudentInfo(chkStop.Checked);
-        }
+        }  
 
         private void rdoOther_CheckedChanged(object sender, EventArgs e)
         {
@@ -281,6 +268,22 @@ namespace StudentManager_Winforms
 
 
             dgvList.DataSource = stuService.SearchByDate(ucDateFilter.StartDate, ucDateFilter.EndDate, (DataTable)dgvList.DataSource, chkStop.Checked);
+        }
+
+        private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            int student_no = int.Parse(dgvList["STUDENT_NO", e.RowIndex].Value.ToString());
+
+            frmStudentDetail pop = new frmStudentDetail(user, student_no);
+            pop.ShowDialog();
+
+            StudentService stuService = new StudentService();
+            dgvList.Columns["START_DATE"].Visible = !chkStop.Checked;
+            dgvList.Columns["END_DATE"].Visible = chkStop.Checked;
+            dgvList.DataSource = stuService.GetAllStudentInfo(chkStop.Checked);
         }
     }
 }

@@ -64,16 +64,29 @@ namespace StudentManager.Data.DAC
             }
         }
 
-        public DataTable GetAttendanceBook()
+        public DataTable GetAttendanceBook(int couseNo = -1)
         {
-            string sql = @"SELECT 
-                            STUDENT_NO, STUDENT_NAME, AGE, SCHOOL, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP
-                            FROM tb_student
-                            WHERE END_DATE IS NULL";
+            string sql;
+
+            if (couseNo > 0)
+            {
+                sql = @"SELECT 
+                        s.STUDENT_NO, STUDENT_NAME, AGE, SCHOOL, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP
+                        FROM tb_student s
+                        JOIN tb_course_student cs ON s.STUDENT_NO=cs.STUDENT_NO
+                        WHERE COURSE_NO=@COURSE_NO";
+            }
+            else
+            {
+                sql = @"SELECT 
+                        STUDENT_NO, STUDENT_NAME, AGE, SCHOOL, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP
+                        FROM tb_student
+                        WHERE END_DATE IS NULL";
+            }
 
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-
+            da.SelectCommand.Parameters.AddWithValue("@COURSE_NO", couseNo);
             da.Fill(dt);
             return dt;
         }

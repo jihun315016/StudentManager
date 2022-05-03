@@ -9,8 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Excel = Microsoft.Office.Interop.Excel;
-
 namespace StudentManager_Winforms
 {
     public partial class frmAttendanceBook : Form
@@ -51,26 +49,17 @@ namespace StudentManager_Winforms
                 pnlChk.Controls.Add(chk);
                 cnt++;
             }
+
+            CourseService courseService = new CourseService();
+            cboCourse.DataSource = courseService.GetCourseName("모든 학생 조회", false);
+            cboCourse.DisplayMember = "COURSE_INFO";
+            cboCourse.ValueMember = "COURSE_NO";
         }
 
         private void Chk_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox chk = (CheckBox)sender;
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            foreach (Control con in pnlChk.Controls)
-            {
-                if (con is CheckBox chk)
-                {
-                    if (chk.Checked)                    
-                        dgvList.Columns[chk.Tag.ToString()].Visible = true;
-                    
-                    else                    
-                        dgvList.Columns[chk.Tag.ToString()].Visible = false;                    
-                }
-            }
+            dgvList.Columns[chk.Tag.ToString()].Visible = chk.Checked;            
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -95,59 +84,33 @@ namespace StudentManager_Winforms
                 }
             }            
 
-            dataGridView1.DataSource = dt;
-
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.Filter = "xls|*.xls|xlsx|*xlsx";
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                Excel.Application xlApp = new Excel.Application();
-                Excel.Workbook xlWorkBook = xlApp.Workbooks.Add();
-                Excel.Worksheet xlWorkSheet = xlWorkBook.Worksheets.get_Item(1);
+                AttendanceService attService = new AttendanceService();
+                bool exportResult = attService.ExportAttendanceBook(dt, dlg.FileName);
 
-                // 여기부터
-                for (int c = 0; c < dt.Columns.Count; c++)
-                {
-                    xlWorkSheet.Cells[1, c + 1] = dt.Columns[c].Caption;
-                }
-
-                for (int r = 0; r < dt.Rows.Count; r++)
-                {
-                    for (int c = 0; c < dt.Columns.Count; c++)
-                    {
-                        xlWorkSheet.Cells[r + 2, c + 1] = dt.Rows[r][c].ToString();
-                    }
-                }
-
-                xlWorkBook.SaveAs(dlg.FileName, Excel.XlFileFormat.xlWorkbookNormal);
-                xlWorkBook.Close();
-                xlApp.Quit();
-                // 여기까지 try catch해서 return true or false
-
-                try
-                {
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
-                    xlApp = null;
-
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkBook);
-                    xlWorkBook = null;
-
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkSheet);
-                    xlWorkSheet = null;
-                }
-                catch
-                {
-                    xlApp = null;
-                    xlWorkBook = null;
-                    xlWorkSheet = null;
-                }
-                finally
-                {
-                    GC.Collect();
-                }
-
+                if (exportResult)
+                    MessageBox.Show("파일이 저장되었습니다.");
+                else
+                    MessageBox.Show("파일 저장에 실패했습니다.");
             }
+        }
+
+        private void chkNoneCourse_CheckedChanged(object sender, EventArgs e)
+        {
+            CourseService courseService = new CourseService();
+            cboCourse.DataSource = courseService.GetCourseName("모든 학생 조회", chkNoneCourse.Checked);
+            cboCourse.DisplayMember = "COURSE_INFO";
+            cboCourse.ValueMember = "COURSE_NO";
+        }     
+
+        private void cboCourse_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            StudentService stuService = new StudentService();
+            dgvList.DataSource = stuService.GetAttendanceBook(int.Parse(cboCourse.SelectedValue.ToString()));
         }
     }
 }
