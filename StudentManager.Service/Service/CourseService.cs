@@ -65,10 +65,10 @@ namespace StudentManager.Service.Service
         }
 
 
-        public bool InsertCourse(int empNo, string courseName, int payment, DateTime startDate, DateTime endDate)
+        public bool InsertCourse(CourseVO courseVO)
         {
             CourseDAC dac = new CourseDAC();
-            bool result = dac.InsertCourse(empNo, courseName, payment, startDate, endDate);
+            bool result = dac.InsertCourse(courseVO);
             dac.Dispose();
 
             return result;

@@ -45,8 +45,18 @@ namespace StudentManager_Winforms
             if (isValidTeacher)
             {
                 // 회비도 어짜피 숫자만 입력 가능
-                CourseService courseService = new CourseService();               
-                bool result = courseService.InsertCourse(int.Parse(txtEmpNo.Text), txtCourse.Text, int.Parse(txtPayment.Text), dtpStart.Value, dtpEnd.Value);
+                CourseService courseService = new CourseService();
+                CourseVO courseVO = new CourseVO()
+                {
+                    EmpNo = int.Parse(txtEmpNo.Text),
+                    CourseName = txtCourse.Text,
+                    Payment = int.Parse(txtPayment.Text),
+                    StartDate = dtpStart.Value,
+                    EndDate = dtpEnd.Value
+                };
+
+                bool result = courseService.InsertCourse(courseVO);
+
                 if (result)
                 {
                     this.DialogResult = DialogResult.OK;

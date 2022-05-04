@@ -69,30 +69,18 @@ namespace StudentManager.Service.Service
             return list;
         }
 
-        public bool InsertStudent
-            (
-                string name, string studentContact, string guardianContact, string guardianRerationship,
-                string school, int age, DateTime startDate, string specialNote
-            )
+        public bool InsertStudent(StudentVO stuVO)            
         {
             StudentDAC dac = new StudentDAC();
-            bool result = dac.InsertStudent
-                (
-                    name, studentContact, guardianContact, guardianRerationship, school, age, startDate, specialNote
-                );
+            bool result = dac.InsertStudent(stuVO);
             dac.Dispose();
             return result;
         }
 
-        public bool UpdateStudentInfo
-            (
-                int studentNo, string name, string stuContact,
-                string guardContact, string gaurdRelationship,
-                string school, int age, DateTime startDate, string specialNote
-            )
+        public bool UpdateStudentInfo(StudentVO stuVO)            
         {
             StudentDAC dac = new StudentDAC();
-            bool result = dac.UpdateStudentInfo(studentNo, name, stuContact, guardContact, gaurdRelationship, school, age, startDate, specialNote);
+            bool result = dac.UpdateStudentInfo(stuVO);
             dac.Dispose();
             return result;
         }

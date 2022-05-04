@@ -90,11 +90,19 @@ namespace StudentManager_Winforms
                 txtSchool.Text, txtAge.Text, dtpStartDate.Value.ToString(), ccTxtSpecialNote.Text
             };
 
-            bool result = studentService.InsertStudent
-                (
-                       txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
-                    txtSchool.Text, int.Parse(txtAge.Text), dtpStartDate.Value, specialNote
-                );
+            StudentVO stuVO = new StudentVO()
+            {
+                StudentName = txtName.Text,
+                StudentContact = txtStudentContact.Text,
+                GuardianContact = txtGuardianContact.Text,
+                GuardianRalationship = guardianRerationship,
+                School = txtSchool.Text,
+                Age = int.Parse(txtAge.Text),
+                StartDate = dtpStartDate.Value,
+                SpecialNote = specialNote
+            };
+
+            bool result = studentService.InsertStudent(stuVO);
 
             if (result)
             {

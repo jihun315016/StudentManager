@@ -95,16 +95,24 @@ namespace StudentManager_Winforms
 
                 // 특이사항 처리
                 string specialNote = string.Empty;
-                if (!ccTxtSpecialNote.Text.Equals(ccTxtSpecialNote.PlaceHolder))
-                {
+                if (!ccTxtSpecialNote.Text.Equals(ccTxtSpecialNote.PlaceHolder))                
                     specialNote = ccTxtSpecialNote.Text;
-                }
 
-                bool result = studentService.UpdateStudentInfo
-                    (
-                        int.Parse(txtStudentNo.Text), txtName.Text, txtStudentContact.Text, txtGuardianContact.Text, guardianRerationship,
-                        txtSchool.Text, int.Parse(txtAge.Text), Convert.ToDateTime(dtpDate.Value), ccTxtSpecialNote.Text
-                    );
+
+                StudentVO stuVO = new StudentVO()
+                {
+                    StudentNo = int.Parse(txtStudentNo.Text),
+                    StudentName = txtName.Text,
+                    StudentContact = txtStudentContact.Text,
+                    GuardianContact = txtGuardianContact.Text,
+                    GuardianRalationship = guardianRerationship,
+                    School = txtSchool.Text,
+                    Age = int.Parse(txtAge.Text),
+                    StartDate = dtpDate.Value,
+                    SpecialNote = ccTxtSpecialNote.Text
+                };
+
+                bool result = studentService.UpdateStudentInfo(stuVO);                    
 
                 if (result)
                 {

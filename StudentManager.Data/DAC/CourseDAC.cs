@@ -130,7 +130,7 @@ namespace StudentManager.Data.DAC
             return dt;
         }
 
-        public bool InsertCourse(int empNo, string courseName, int payment, DateTime startDate, DateTime endDate)
+        public bool InsertCourse(CourseVO courseVO)
         {
             string sql = @"INSERT INTO tb_course
                             (EMP_NO, COURSE_NAME, PAYMENT, START_DATE, END_DATE)
@@ -139,11 +139,11 @@ namespace StudentManager.Data.DAC
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-            cmd.Parameters.AddWithValue("@EMP_NO", empNo);
-            cmd.Parameters.AddWithValue("@COURSE_NAME", courseName);
-            cmd.Parameters.AddWithValue("@PAYMENT", payment);
-            cmd.Parameters.AddWithValue("@START_DATE", startDate);
-            cmd.Parameters.AddWithValue("@END_DATE", endDate);
+            cmd.Parameters.AddWithValue("@EMP_NO", courseVO.EmpNo);
+            cmd.Parameters.AddWithValue("@COURSE_NAME", courseVO.CourseName);
+            cmd.Parameters.AddWithValue("@PAYMENT", courseVO.Payment);
+            cmd.Parameters.AddWithValue("@START_DATE", courseVO.StartDate);
+            cmd.Parameters.AddWithValue("@END_DATE", courseVO.EndDate);
 
             try
             {
