@@ -41,6 +41,7 @@
             this.btnCourseInsert = new System.Windows.Forms.Button();
             this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAttendanceNote = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.cmsSetting.SuspendLayout();
@@ -48,6 +49,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnAttendanceNote);
             this.panel2.Controls.Add(this.cboEmpName);
             this.panel2.Controls.Add(this.btnAttInsert);
             this.panel2.Controls.Add(this.btnAttendance);
@@ -74,7 +76,7 @@
             // btnAttInsert
             // 
             this.btnAttInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAttInsert.Location = new System.Drawing.Point(317, 7);
+            this.btnAttInsert.Location = new System.Drawing.Point(319, 29);
             this.btnAttInsert.Name = "btnAttInsert";
             this.btnAttInsert.Size = new System.Drawing.Size(75, 23);
             this.btnAttInsert.TabIndex = 98;
@@ -85,7 +87,7 @@
             // btnAttendance
             // 
             this.btnAttendance.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAttendance.Location = new System.Drawing.Point(236, 7);
+            this.btnAttendance.Location = new System.Drawing.Point(238, 29);
             this.btnAttendance.Name = "btnAttendance";
             this.btnAttendance.Size = new System.Drawing.Size(75, 23);
             this.btnAttendance.TabIndex = 97;
@@ -96,7 +98,7 @@
             // chkNotCouse
             // 
             this.chkNotCouse.AutoSize = true;
-            this.chkNotCouse.Location = new System.Drawing.Point(144, 11);
+            this.chkNotCouse.Location = new System.Drawing.Point(387, 7);
             this.chkNotCouse.Name = "chkNotCouse";
             this.chkNotCouse.Size = new System.Drawing.Size(86, 16);
             this.chkNotCouse.TabIndex = 96;
@@ -126,10 +128,10 @@
             // dgvList
             // 
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvList.Location = new System.Drawing.Point(3, 36);
+            this.dgvList.Location = new System.Drawing.Point(3, 58);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(472, 265);
+            this.dgvList.Size = new System.Drawing.Size(472, 243);
             this.dgvList.TabIndex = 94;
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
             this.dgvList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseClick);
@@ -146,7 +148,7 @@
             // btnCourseInsert
             // 
             this.btnCourseInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCourseInsert.Location = new System.Drawing.Point(398, 7);
+            this.btnCourseInsert.Location = new System.Drawing.Point(400, 29);
             this.btnCourseInsert.Name = "btnCourseInsert";
             this.btnCourseInsert.Size = new System.Drawing.Size(75, 23);
             this.btnCourseInsert.TabIndex = 82;
@@ -167,6 +169,17 @@
             this.tsmDelete.Size = new System.Drawing.Size(98, 22);
             this.tsmDelete.Text = "삭제";
             this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
+            // 
+            // btnAttendanceNote
+            // 
+            this.btnAttendanceNote.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnAttendanceNote.Location = new System.Drawing.Point(157, 29);
+            this.btnAttendanceNote.Name = "btnAttendanceNote";
+            this.btnAttendanceNote.Size = new System.Drawing.Size(75, 23);
+            this.btnAttendanceNote.TabIndex = 100;
+            this.btnAttendanceNote.Text = "출석부";
+            this.btnAttendanceNote.UseVisualStyleBackColor = true;
+            this.btnAttendanceNote.Click += new System.EventHandler(this.btnAttendanceNote_Click);
             // 
             // frmCourse
             // 
@@ -201,5 +214,6 @@
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnAttInsert;
         private System.Windows.Forms.ComboBox cboEmpName;
+        private System.Windows.Forms.Button btnAttendanceNote;
     }
 }

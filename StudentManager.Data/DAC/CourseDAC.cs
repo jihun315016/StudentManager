@@ -82,7 +82,7 @@ namespace StudentManager.Data.DAC
         {
             string sql = @"SELECT s.STUDENT_NO, STUDENT_NAME, SCHOOL, AGE
                             FROM tb_student s
-                            JOIN tb_course_student c
+                            JOIN tb_course_detail c
                             ON s.student_no = c.student_no
                             WHERE c.COURSE_NO=@COURSE_NO and s.END_DATE IS NULL";
 
@@ -96,7 +96,7 @@ namespace StudentManager.Data.DAC
 
         public int GetCountStudentInCourse(int studentNo, int courseNo)
         {
-            string sql = @"SELECT count(STUDENT_NO) FROM tb_course_student WHERE STUDENT_NO=@STUDENT_NO and COURSE_NO=@COURSE_NO";
+            string sql = @"SELECT count(STUDENT_NO) FROM tb_course_detail WHERE STUDENT_NO=@STUDENT_NO and COURSE_NO=@COURSE_NO";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@STUDENT_NO", studentNo);
@@ -160,7 +160,7 @@ namespace StudentManager.Data.DAC
 
         public bool InsertStudentInCourse(int studentNo, int courseNo)
         {
-            string sql = @"INSERT INTO tb_course_student 
+            string sql = @"INSERT INTO tb_course_detail 
                             (STUDENT_NO, COURSE_NO) 
                             VALUES (@STUDENT_NO, @COURSE_NO)";
 

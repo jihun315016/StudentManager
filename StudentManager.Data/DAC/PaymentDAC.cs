@@ -38,7 +38,21 @@ namespace StudentManager.Data.DAC
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
             da.Fill(dt);
+            return dt;
+        }
 
+        public DataTable GetPaymentListByStuNo(int stuNo)
+        {
+            string sql = @"SELECT p.COURSE_NO, COURSE_NAME, MONEY, PAYMENT_DATE
+                            FROM tb_payment p
+                            JOIN tb_course c ON p.COURSE_NO = c.COURSE_NO
+                            WHERE STUDENT_NO = @STUDENT_NO
+                            LIMIT 30";
+
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.SelectCommand.Parameters.AddWithValue("@STUDENT_NO", stuNo);
+            da.Fill(dt);
             return dt;
         }
 

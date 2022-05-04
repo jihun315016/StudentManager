@@ -38,6 +38,14 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
+        public DataTable GetAttendanceListByStuNo(int stuNo)
+        {
+            AttendanceDAC dac = new AttendanceDAC();
+            DataTable dt = dac.GetAttendanceListByStuNo(stuNo);
+            dac.Dispose();
+            return dt;
+        }
+
         public List<bool> IsAttendanceCheck(List<int> stuNoList, int courseNo, DateTime attDate, out bool isExist)
         {
             AttendanceDAC dac = new AttendanceDAC();

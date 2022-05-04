@@ -73,7 +73,7 @@ namespace StudentManager.Data.DAC
                 sql = @"SELECT 
                         s.STUDENT_NO, STUDENT_NAME, AGE, SCHOOL, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP
                         FROM tb_student s
-                        JOIN tb_course_student cs ON s.STUDENT_NO=cs.STUDENT_NO
+                        JOIN tb_course_detail cs ON s.STUDENT_NO=cs.STUDENT_NO
                         WHERE COURSE_NO=@COURSE_NO";
             }
             else

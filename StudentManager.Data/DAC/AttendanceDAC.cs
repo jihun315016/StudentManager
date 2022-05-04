@@ -78,6 +78,22 @@ namespace StudentManager.Data.DAC
             return dt;
         }
 
+        public DataTable GetAttendanceListByStuNo(int stuNo)
+        {
+            string sql = @"SELECT c.COURSE_NO, COURSE_NAME, EMP_NAME, ATTENDANCE_DATE
+                            FROM tb_course c
+                            JOIN tb_attendance a ON c.COURSE_NO = a.COURSE_NO
+                            JOIN tb_employee e ON c.EMP_NO = e.EMP_NO
+                            WHERE STUDENT_NO = @STUDENT_NO
+                            LIMIT 50";
+
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.SelectCommand.Parameters.AddWithValue("@STUDENT_NO", stuNo);
+            da.Fill(dt);
+            return dt;
+        }
+
         public int IsAttendanceCheck(int stuNo, int courseNo, DateTime attDate)
         {
             string sql = @"SELECT count(STUDENT_NO) FROM tb_attendance
@@ -100,18 +116,20 @@ namespace StudentManager.Data.DAC
 
             MySqlTransaction trans = conn.BeginTransaction();
 
+            string sql = @"INSERT INTO tb_attendance (STUDENT_NO, COURSE_NO, ATTENDANCE_DATE, IS_ATTENDANCE) 
+                            VALUES (@STUDENT_NO, @COURSE_NO, @ATTENDANCE_DATE, @IS_ATTENDANCE);";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.Add("@STUDENT_NO", MySqlDbType.Int32);
+            cmd.Parameters.Add("@IS_ATTENDANCE", MySqlDbType.Int32);
+            cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
+            cmd.Parameters.AddWithValue("@ATTENDANCE_DATE", date);
+
             for (int i = 0; i < stuNoList.Count; i++)
             {                
-                string sql = @"INSERT INTO tb_attendance (STUDENT_NO, COURSE_NO, ATTENDANCE_DATE, IS_ATTENDANCE) 
-                                VALUES (@STUDENT_NO, @COURSE_NO, @ATTENDANCE_DATE, @IS_ATTENDANCE);";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Transaction = trans;
-
-                cmd.Parameters.AddWithValue("@STUDENT_NO", stuNoList[i]);
-                cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
-                cmd.Parameters.AddWithValue("@ATTENDANCE_DATE", date);
-                cmd.Parameters.AddWithValue("@IS_ATTENDANCE", isAttList[i]);               
+                cmd.Parameters["@STUDENT_NO"].Value = stuNoList[i];
+                cmd.Parameters["@IS_ATTENDANCE"].Value = isAttList[i];
 
                 try
                 {
@@ -119,7 +137,6 @@ namespace StudentManager.Data.DAC
                 }
                 catch (Exception err)
                 {
-                    Debug.WriteLine($"[{sql}]");
                     Debug.WriteLine(err.StackTrace);
                     Debug.WriteLine(err.Message);
                     trans.Rollback();
@@ -157,7 +174,6 @@ namespace StudentManager.Data.DAC
                 }
                 catch (Exception err)
                 {
-                    Debug.WriteLine($"[{sql}]");
                     Debug.WriteLine(err.StackTrace);
                     Debug.WriteLine(err.Message);
                     trans.Rollback();

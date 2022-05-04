@@ -15,6 +15,14 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
+        public DataTable GetPaymentListByStuNo(int stuNo)
+        {
+            PaymentDAC dac = new PaymentDAC();
+            DataTable dt = dac.GetPaymentListByStuNo(stuNo);
+            dac.Dispose();
+            return dt;
+        }
+
         public bool InsertPayment(int studentNo, int courseNo, DateTime date, int money, int empNo)
         {
             PaymentDAC dac = new PaymentDAC();

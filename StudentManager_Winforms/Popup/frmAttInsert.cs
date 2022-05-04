@@ -49,6 +49,7 @@ namespace StudentManager_Winforms
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
+            //LoadStudentList();
             DialogResult msgResult = MessageBox.Show("선택된 학생을 등록하시겠습니까?", "출석 등록", MessageBoxButtons.YesNo);
             if (msgResult == DialogResult.Yes)
             {

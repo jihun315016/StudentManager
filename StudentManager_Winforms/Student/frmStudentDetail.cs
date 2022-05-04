@@ -57,9 +57,29 @@ namespace StudentManager_Winforms
                 dtpDate.Value = studentVO.StartDate;
                 btnEditInfo.Tag = true;
             }
+
+            // 학생 출석 조회
+            DataGridViewUtil.SetInitGridView(dgvListAtt);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListAtt, "수업 번호", "COURSE_NO", alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListAtt, "수업", "COURSE_NAME", 140);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListAtt, "강사", "EMP_NAME", 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListAtt, "날짜", "ATTENDANCE_DATE", alignContent:DataGridViewContentAlignment.MiddleCenter);
+
+            AttendanceService attService = new AttendanceService();
+            dgvListAtt.DataSource = attService.GetAttendanceListByStuNo(studentNo);
+
+            // 학생 결제 조회
+            DataGridViewUtil.SetInitGridView(dgvListPayment);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListPayment, "수업 번호", "COURSE_NO", alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListPayment, "수업", "COURSE_NAME", 140);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListPayment, "결제 금액", "MONEY", 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListPayment, "날짜", "PAYMENT_DATE", alignContent: DataGridViewContentAlignment.MiddleCenter);
+
+            PaymentService payService = new PaymentService();
+            dgvListPayment.DataSource = payService.GetPaymentListByStuNo(studentNo);
         }
 
-        private void btnEditInfo_Click(object sender, System.EventArgs e)
+        private void btnEditInfo_Click(object sender, EventArgs e)
         {
             if (!(bool)btnEditInfo.Tag)
             {

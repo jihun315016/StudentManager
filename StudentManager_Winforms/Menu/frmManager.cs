@@ -1,7 +1,6 @@
 ﻿using StudentManager.Data.VO;
 using StudentManager.Service.Service;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
@@ -34,19 +33,9 @@ namespace StudentManager_Winforms
             OpenCreateForm<frmEmployee>();
         }
 
-        private void btnAttendance_Click(object sender, EventArgs e)
-        {
-            OpenCreateForm<frmAttendance>();
-        }
-
         private void btnPayment_Click(object sender, EventArgs e)
         {
             OpenCreateForm<frmPayment>();
-        }
-
-        private void btnContest_Click(object sender, EventArgs e)
-        {
-            OpenCreateForm<frmContest>();
         }
 
         private void btnCourse_Click(object sender, EventArgs e)

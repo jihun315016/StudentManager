@@ -188,5 +188,20 @@ namespace StudentManager_Winforms
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
+
+        private void btnAttendanceNote_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmAttendanceBook))
+                {
+                    form.Close();
+                    break;
+                }
+            }
+
+            frmAttendanceBook pop = new frmAttendanceBook();
+            pop.ShowDialog();
+        }
     }
 }
