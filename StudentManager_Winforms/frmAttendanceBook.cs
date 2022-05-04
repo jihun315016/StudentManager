@@ -13,15 +13,13 @@ namespace StudentManager_Winforms
 {
     public partial class frmAttendanceBook : Form
     {
-        List<CheckBox> checkBoxList;
-
         public frmAttendanceBook()
         {
             InitializeComponent();
         }
 
         private void frmAttendanceBook_Load(object sender, EventArgs e)
-        {
+        {            
             DataGridViewUtil.SetInitGridView(dgvList);
 
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO", alignContent: DataGridViewContentAlignment.MiddleCenter);
@@ -35,7 +33,9 @@ namespace StudentManager_Winforms
             StudentService stuService = new StudentService();
             dgvList.DataSource = stuService.GetAttendanceBook();
 
-            checkBoxList = new List<CheckBox>();
+            dtpDate.Value = DateTime.Now;
+
+            List<CheckBox>  checkBoxList = new List<CheckBox>();
 
             int cnt = 0;
             foreach (DataGridViewColumn col in dgvList.Columns)
@@ -44,16 +44,16 @@ namespace StudentManager_Winforms
                 chk.Text = col.HeaderText;
                 chk.Tag = col.Name;
                 chk.Checked = true;
-                chk.Location = new Point(20, 20 + cnt * 30);
+                chk.Location = new Point(20, 20 + cnt * 27);
                 chk.CheckedChanged += Chk_CheckedChanged;
                 pnlChk.Controls.Add(chk);
                 cnt++;
             }
 
             CourseService courseService = new CourseService();
-            cboCourse.DataSource = courseService.GetCourseName("모든 학생 조회", false);
+            cboCourse.DataSource = courseService.GetCourseName("전체 출석부", false);
             cboCourse.DisplayMember = "COURSE_INFO";
-            cboCourse.ValueMember = "COURSE_NO";
+            cboCourse.ValueMember = "COURSE_NO";            
         }
 
         private void Chk_CheckedChanged(object sender, EventArgs e)
@@ -75,6 +75,12 @@ namespace StudentManager_Winforms
             dt.Columns["GUARDIAN_CONTACT"].Caption = "보호자 연락처";
             dt.Columns["GUARDIAN_RERATIONSHIP"].Caption = "보호자";
 
+            if (string.IsNullOrWhiteSpace(txtPeriod.Text.Trim()))
+            {
+                MessageBox.Show("출석 기간을 입력하세요.");
+                return;
+            }
+
 
             foreach (Control con in pnlChk.Controls)
             {
@@ -90,7 +96,10 @@ namespace StudentManager_Winforms
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 AttendanceService attService = new AttendanceService();
-                bool exportResult = attService.ExportAttendanceBook(dt, dlg.FileName, dtpDate.Value);
+                bool exportResult = attService.ExportAttendanceBook
+                    (
+                        dt, dlg.FileName, dtpDate.Value, int.Parse(txtPeriod.Text), int.Parse(cboCourse.SelectedValue.ToString())
+                    );
 
                 if (exportResult)
                     MessageBox.Show("파일이 저장되었습니다.");
@@ -111,6 +120,12 @@ namespace StudentManager_Winforms
         {
             StudentService stuService = new StudentService();
             dgvList.DataSource = stuService.GetAttendanceBook(int.Parse(cboCourse.SelectedValue.ToString()));
+        }
+
+        private void txtPeriod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !e.KeyChar.Equals('\b'))
+                e.Handled = true;
         }
     }
 }

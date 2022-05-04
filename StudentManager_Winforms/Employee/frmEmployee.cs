@@ -94,11 +94,18 @@ namespace StudentManager_Winforms
                 specialNote = ccTxtSpecialNote.Text;
             }
 
-            bool result = empService.InsertEmployee
-                (
-                    txtName.Text, txtContact.Text, position,
-                    dtpStartDate.Value, imageByteArr, ucEmail.Email, specialNote
-                );
+            EmployeeVO empVO = new EmployeeVO()
+            {
+                EmpName = txtName.Text,
+                EmpContact = txtContact.Text,
+                Position = position,
+                StartDate = dtpStartDate.Value,
+                Image = imageByteArr,
+                Email = ucEmail.Email,
+                SpecialNote = specialNote
+            };
+
+            bool result = empService.InsertEmployee(empVO);                
 
             if (result)
             {

@@ -102,11 +102,7 @@ namespace StudentManager.Data.DAC
             return dt;
         }
 
-        public bool InsertEmployee
-            (
-                string name, string contact, string position,
-                DateTime startDate, byte[] image, string email, string specialNote
-            )
+        public bool InsertEmployee(EmployeeVO empVO)            
         {
             string sql = @"INSERT INTO tb_employee
                             (EMP_NAME, EMP_CONTACT, POSITION, START_DATE, IMAGE, EMAIL, SPECIAL_NOTE)
@@ -115,13 +111,13 @@ namespace StudentManager.Data.DAC
             
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-            cmd.Parameters.AddWithValue("@EMP_NAME", name);
-            cmd.Parameters.AddWithValue("@EMP_CONTACT", contact);
-            cmd.Parameters.AddWithValue("@POSITION", position);
-            cmd.Parameters.AddWithValue("@START_DATE", startDate);
-            cmd.Parameters.AddWithValue("@IMAGE", image);
-            cmd.Parameters.AddWithValue("@EMAIL", email);
-            cmd.Parameters.AddWithValue("@SPECIAL_NOTE", specialNote);
+            cmd.Parameters.AddWithValue("@EMP_NAME", empVO.EmpName);
+            cmd.Parameters.AddWithValue("@EMP_CONTACT", empVO.EmpContact);
+            cmd.Parameters.AddWithValue("@POSITION", empVO.Position);
+            cmd.Parameters.AddWithValue("@START_DATE", empVO.StartDate);
+            cmd.Parameters.AddWithValue("@IMAGE", empVO.Image);
+            cmd.Parameters.AddWithValue("@EMAIL", empVO.Email);
+            cmd.Parameters.AddWithValue("@SPECIAL_NOTE", empVO.SpecialNote);
 
             try
             {
@@ -136,11 +132,7 @@ namespace StudentManager.Data.DAC
             }
         }
 
-        public bool UpdateEmployeeInfo
-            (
-                int empNo, string name, string contact, string email, string position,
-                DateTime startDate, string specialNote, string imagePath
-            )
+        public bool UpdateEmployeeInfo(EmployeeVO empVO, string imagePath)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append(@"UPDATE tb_employee 
@@ -168,13 +160,13 @@ namespace StudentManager.Data.DAC
 
             MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
 
-            cmd.Parameters.AddWithValue("@EMP_NO", empNo);
-            cmd.Parameters.AddWithValue("@EMP_NAME", name);
-            cmd.Parameters.AddWithValue("@EMP_CONTACT", contact);
-            cmd.Parameters.AddWithValue("@EMAIL", email);
-            cmd.Parameters.AddWithValue("@POSITION", position);
-            cmd.Parameters.AddWithValue("@START_DATE", startDate);
-            cmd.Parameters.AddWithValue("@SPECIAL_NOTE", specialNote);
+            cmd.Parameters.AddWithValue("@EMP_NO", empVO.EmpNo);
+            cmd.Parameters.AddWithValue("@EMP_NAME", empVO.EmpName);
+            cmd.Parameters.AddWithValue("@EMP_CONTACT", empVO.EmpContact);
+            cmd.Parameters.AddWithValue("@EMAIL", empVO.Email);
+            cmd.Parameters.AddWithValue("@POSITION", empVO.Position);
+            cmd.Parameters.AddWithValue("@START_DATE", empVO.StartDate);
+            cmd.Parameters.AddWithValue("@SPECIAL_NOTE", empVO.SpecialNote);
             cmd.Parameters.AddWithValue("@IMAGE", imageByteArr);
 
             try

@@ -1,4 +1,5 @@
 ﻿using StudentManager.Data.DAC;
+using StudentManager.Data.VO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -95,7 +96,7 @@ namespace StudentManager.Service.Service
             return dv.ToTable();
         }
 
-        public bool ExportAttendanceBook(DataTable dt, string file, DateTime date)
+        public bool ExportAttendanceBook(DataTable dt, string file, DateTime date, int period, int courseNo)
         {
             Excel.Application xlApp = new Excel.Application();
             Excel.Workbook xlWorkBook = xlApp.Workbooks.Add();
@@ -110,19 +111,36 @@ namespace StudentManager.Service.Service
             columnWidths.Add("GUARDIAN_CONTACT", 14);
             columnWidths.Add("GUARDIAN_RERATIONSHIP", 8);
 
+            string courseName = "전체 출석부";
+            string teacher = string.Empty;
+            if (courseNo > 0)
+            {
+                CourseDAC dac = new CourseDAC();
+                EmployeeCourseVO courseInfo = dac.GetCourseInfoByPk(courseNo);
+                courseName = courseInfo.CourseName;
+            }
+
+            rg = xlWorkSheet.Range[xlWorkSheet.Cells[1, 1], xlWorkSheet.Cells[1, 1]];
+            rg.Font.Bold = true;
+            rg.Font.Size = 12;
+            xlWorkSheet.Cells[1, 1] = $"{courseName} {teacher}";
+            xlWorkSheet.Cells[3, 1] = $"{DateTime.Now.ToString("yyyy-MM-dd")} ~ {DateTime.Now.AddDays(period).ToString("yyyy-MM-dd")}";
+
+            int startRow = 4;
+
             // 여기부터
             for (int c = 0; c < dt.Columns.Count; c++)
             {
-                xlWorkSheet.Cells[1, c + 1] = dt.Columns[c].Caption;
-                rg = xlWorkSheet.Range[xlWorkSheet.Cells[1, c + 1], xlWorkSheet.Cells[1, c + 1]];
+                xlWorkSheet.Cells[startRow, c + 1] = dt.Columns[c].Caption;
+                rg = xlWorkSheet.Range[xlWorkSheet.Cells[startRow, c + 1], xlWorkSheet.Cells[startRow, c + 1]];
                 rg.ColumnWidth = columnWidths[dt.Columns[c].ColumnName];
             }
 
-            for (int i = dt.Columns.Count; i < dt.Columns.Count + 31; i++)
+            for (int i = dt.Columns.Count; i < dt.Columns.Count + period; i++)
             {
-                xlWorkSheet.Cells[1, i + 1] = date.Day.ToString();
+                xlWorkSheet.Cells[startRow, i + 1] = date.Day.ToString();
 
-                rg = xlWorkSheet.Range[xlWorkSheet.Cells[1, i + 1], xlWorkSheet.Cells[1, i + 1]];                
+                rg = xlWorkSheet.Range[xlWorkSheet.Cells[startRow, i + 1], xlWorkSheet.Cells[startRow, i + 1]];                
                 if (date.ToString("ddd") == "토")                
                     rg.Font.Color = Color.FromArgb(0, 0, 255);                
                 else if (date.ToString("ddd") == "일")
@@ -130,15 +148,21 @@ namespace StudentManager.Service.Service
                 date = date.AddDays(1);
             }
 
-            rg = xlWorkSheet.Range[xlWorkSheet.Cells[1, 1], xlWorkSheet.Cells[1, dt.Columns.Count + 31]];
+            // 칼럼 배경색, 가운데 정렬, 굵게 설정
+            rg = xlWorkSheet.Range[xlWorkSheet.Cells[startRow, 1], xlWorkSheet.Cells[startRow, dt.Columns.Count + period]];
             rg.Font.Bold = true;
+            rg.Interior.Color = Color.FromArgb(255, 228, 196);
             rg.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
 
-            for (int r = 0; r < dt.Rows.Count; r++)
+            // 출석부 테두리
+            rg = xlWorkSheet.Range[xlWorkSheet.Cells[startRow, 1], xlWorkSheet.Cells[dt.Rows.Count, dt.Columns.Count + period]];
+            rg.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+            for (int r = startRow; r < dt.Rows.Count; r++)
             {
                 for (int c = 0; c < dt.Columns.Count; c++)
                 {
-                    xlWorkSheet.Cells[r + 2, c + 1] = dt.Rows[r][c].ToString();
+                    xlWorkSheet.Cells[r + 1, c + 1] = dt.Rows[r][c].ToString();
                 }
             }
 

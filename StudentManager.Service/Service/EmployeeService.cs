@@ -54,27 +54,19 @@ namespace StudentManager.Service.Service
             return list;
         }
 
-        public bool InsertEmployee
-            (
-                string name, string contact, string position,
-                DateTime startDate, byte[] image, string email, string specialNote
-            )
+        public bool InsertEmployee(EmployeeVO empVO)            
         {
             EmployeeDAC dac = new EmployeeDAC();
-            bool result = dac.InsertEmployee(name, contact, position, startDate, image, email, specialNote);
+            bool result = dac.InsertEmployee(empVO);
             dac.Dispose();
 
             return result;
         }
 
-        public bool UpdateEmployeeInfo
-            (
-                int empNo, string name, string contact, string email, string position,
-                DateTime startDate, string specialNote, string imagePath
-            )
+        public bool UpdateEmployeeInfo(EmployeeVO empVO, string imagePath)
         {
             EmployeeDAC dac = new EmployeeDAC();
-            bool result = dac.UpdateEmployeeInfo(empNo, name, contact, email, position, startDate, specialNote, imagePath);            
+            bool result = dac.UpdateEmployeeInfo(empVO, imagePath);            
             dac.Dispose();
 
             return result;

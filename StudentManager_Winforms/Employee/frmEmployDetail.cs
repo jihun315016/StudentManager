@@ -143,11 +143,18 @@ namespace StudentManager_Winforms
 
                 // 수정 정보 업데이트
                 EmployeeService empService = new EmployeeService();
-                bool result = empService.UpdateEmployeeInfo
-                    (
-                        int.Parse(txtEmpNo.Text), txtName.Text, txtContact.Text, ccTxtEmail.Email, position,
-                        dtpDate.Value, specialNote, (string)ptbEmployee.Tag
-                    );
+                EmployeeVO empVO = new EmployeeVO()
+                {
+                    EmpNo = int.Parse(txtEmpNo.Text),
+                    EmpName = txtName.Text,
+                    EmpContact = txtContact.Text,
+                    Email = ccTxtEmail.Email,
+                    Position = position,
+                    StartDate = dtpDate.Value,
+                    SpecialNote = specialNote
+
+                };
+                bool result = empService.UpdateEmployeeInfo(empVO, (string)ptbEmployee.Tag);
 
                 if (result)
                 {

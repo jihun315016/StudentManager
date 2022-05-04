@@ -277,18 +277,18 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 3, 21, 17, 52, 739);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 4, 18, 41, 8, 429);
             this.ucDateFilter.Location = new System.Drawing.Point(116, 364);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 3, 21, 17, 52, 739);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 4, 18, 41, 8, 429);
             this.ucDateFilter.TabIndex = 100;
             // 
             // ccTxtEmpName
             // 
             this.ccTxtEmpName.Location = new System.Drawing.Point(15, 364);
             this.ccTxtEmpName.Name = "ccTxtEmpName";
-            this.ccTxtEmpName.PlaceHolder = "직원 번호 검색";
+            this.ccTxtEmpName.PlaceHolder = "직원 검색";
             this.ccTxtEmpName.Size = new System.Drawing.Size(95, 21);
             this.ccTxtEmpName.TabIndex = 99;
             // 
