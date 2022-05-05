@@ -46,7 +46,7 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
-        public List<bool> IsAttendanceCheck(List<int> stuNoList, int courseNo, DateTime attDate, out bool isExist)
+        public List<bool> GetIsAttendance(List<int> stuNoList, int courseNo, DateTime attDate)
         {
             AttendanceDAC dac = new AttendanceDAC();
             List<bool> list = new List<bool>();
@@ -60,12 +60,17 @@ namespace StudentManager.Service.Service
                 list.Add(isAtt);
             }
 
-            if (isExistNum > 0)
-                isExist = true;
-            else
-                isExist = false;
-
             return list;
+        }
+
+        // 출석 정보를 INSERT 할지 UPDATE 할지 확인
+        public bool isAttendance(int courseNo, DateTime attDate)
+        {
+            AttendanceDAC dac = new AttendanceDAC();
+            if (dac.isAttendance(courseNo, attDate) > 0)
+                return true;
+            else
+                return false;
         }
 
         public bool InsertAttendance(List<int> stuNoList, int courseNo, DateTime date, List<int> isAttList)
@@ -77,10 +82,10 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public bool UpdateAttendance(List<int> stuNoList, int courseNo, DateTime date, int empNo, List<int> isAttList)
+        public bool UpdateAttendance(List<int> stuNoList, int courseNo, DateTime date, List<int> isAttList)
         {
             AttendanceDAC dac = new AttendanceDAC();
-            bool result = dac.UpdateAttendance(stuNoList, courseNo, date, empNo, isAttList);
+            bool result = dac.UpdateAttendance(stuNoList, courseNo, date, isAttList);
             dac.Dispose();
 
             return result;

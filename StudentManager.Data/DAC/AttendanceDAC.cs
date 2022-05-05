@@ -110,6 +110,17 @@ namespace StudentManager.Data.DAC
             return int.Parse(cmd.ExecuteScalar().ToString());
         }
 
+        public int isAttendance(int courseNo, DateTime attDate)
+        {
+            string sql = @"SELECT count(ATTENDANCE_NO) FROM tb_attendance
+                            WHERE COURSE_NO=@COURSE_NO and ATTENDANCE_DATE=@ATTENDANCE_DATE";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
+            cmd.Parameters.AddWithValue("@ATTENDANCE_DATE", attDate);
+            return int.Parse(cmd.ExecuteScalar().ToString());
+        }
+
         public bool InsertAttendance(List<int> stuNoList, int courseNo, DateTime date, List<int> isAttList)
         {
             
@@ -120,65 +131,66 @@ namespace StudentManager.Data.DAC
                             VALUES (@STUDENT_NO, @COURSE_NO, @ATTENDANCE_DATE, @IS_ATTENDANCE);";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Transaction = trans;
             cmd.Parameters.Add("@STUDENT_NO", MySqlDbType.Int32);
             cmd.Parameters.Add("@IS_ATTENDANCE", MySqlDbType.Int32);
             cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
             cmd.Parameters.AddWithValue("@ATTENDANCE_DATE", date);
 
-            for (int i = 0; i < stuNoList.Count; i++)
-            {                
-                cmd.Transaction = trans;
-                cmd.Parameters["@STUDENT_NO"].Value = stuNoList[i];
-                cmd.Parameters["@IS_ATTENDANCE"].Value = isAttList[i];
+            try
+            {
+                for (int i = 0; i < stuNoList.Count; i++)
+                {
+                    cmd.Parameters["@STUDENT_NO"].Value = stuNoList[i];
+                    cmd.Parameters["@IS_ATTENDANCE"].Value = isAttList[i];
+                    cmd.ExecuteNonQuery();                    
+                }
 
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception err)
-                {
-                    Debug.WriteLine(err.StackTrace);
-                    Debug.WriteLine(err.Message);
-                    trans.Rollback();
-                    return false;
-                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                trans.Rollback();
+                return false;
             }
 
             trans.Commit();
             return true;
         }
 
-        public bool UpdateAttendance(List<int> stuNoList, int courseNo, DateTime date, int empNo, List<int> isAttList)
+        public bool UpdateAttendance(List<int> stuNoList, int courseNo, DateTime date, List<int> isAttList)
         {
 
 
             MySqlTransaction trans = conn.BeginTransaction();
 
-            for (int i = 0; i < stuNoList.Count; i++)
+            string sql = @"UPDATE tb_attendance SET IS_ATTENDANCE=@IS_ATTENDANCE 
+                            WHERE STUDENT_NO=@STUDENT_NO and COURSE_NO=@COURSE_NO and ATTENDANCE_DATE=@ATTENDANCE_DATE;";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Transaction = trans;
+            cmd.Parameters.Add("@STUDENT_NO", MySqlDbType.Int32);
+            cmd.Parameters.Add("@IS_ATTENDANCE", MySqlDbType.Int32);
+            cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
+            cmd.Parameters.AddWithValue("@ATTENDANCE_DATE", date);
+
+            try
             {
-                string sql = @"UPDATE tb_attendance SET EMP_NO=@EMP_NO, IS_ATTENDANCE=@IS_ATTENDANCE 
-                                WHERE STUDENT_NO=@STUDENT_NO and COURSE_NO=@COURSE_NO and ATTENDANCE_DATE=@ATTENDANCE_DATE;";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Transaction = trans;
-
-                cmd.Parameters.AddWithValue("@STUDENT_NO", stuNoList[i]);
-                cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
-                cmd.Parameters.AddWithValue("@ATTENDANCE_DATE", date);
-                cmd.Parameters.AddWithValue("@EMP_NO", empNo);
-                cmd.Parameters.AddWithValue("@IS_ATTENDANCE", isAttList[i]);
-
-                try
+                for (int i = 0; i < stuNoList.Count; i++)
                 {
+                    cmd.Parameters["@STUDENT_NO"].Value = stuNoList[i];
+                    cmd.Parameters["@IS_ATTENDANCE"].Value = isAttList[i];
                     cmd.ExecuteNonQuery();
+
                 }
-                catch (Exception err)
-                {
-                    Debug.WriteLine(err.StackTrace);
-                    Debug.WriteLine(err.Message);
-                    trans.Rollback();
-                    return false;
-                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                trans.Rollback();
+                return false;
             }
 
             trans.Commit();

@@ -11,9 +11,6 @@ namespace StudentManager_Winforms
         EmployeeVO user;
         int courseNo;
 
-        // 그리드뷰에 조회된 항목이 처음 처리되는 출석인지, 이미 한 번 처리된 출석인지
-        bool isExistDgvList;
-
         public frmAttInsert(EmployeeVO user, int courseNo)
         {
             InitializeComponent();
@@ -23,6 +20,8 @@ namespace StudentManager_Winforms
 
         private void frmAttInsert_Load(object sender, EventArgs e)
         {
+            dtpDate.Value = DateTime.Now;
+
             DataGridViewUtil.SetInitGridView(dgvList);
 
             headerCheckBox.CheckedChanged += headerCheckBox_Click;
@@ -68,13 +67,15 @@ namespace StudentManager_Winforms
 
                 AttendanceService attService = new AttendanceService();
                 bool result;
-
-                if (isExistDgvList)
+                bool isInsertOrUpdate = attService.isAttendance(courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")));
+                if (isInsertOrUpdate)
                 {
-                    result = attService.UpdateAttendance(stuNoList, courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")), user.EmpNo, isAttList);
+                    result = attService.UpdateAttendance(stuNoList, courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")), isAttList);
                 }
-                else                
+                else
+                {
                     result = attService.InsertAttendance(stuNoList, courseNo, dtpDate.Value, isAttList);
+                }
                 
                 if (result)
                 {
@@ -104,7 +105,7 @@ namespace StudentManager_Winforms
             foreach (DataGridViewRow dr in dgvList.Rows)
                 stuNoList.Add(int.Parse(dr.Cells["STUDENT_NO"].Value.ToString()));
 
-            List<bool> isAttList = attService.IsAttendanceCheck(stuNoList, courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")), out isExistDgvList);
+            List<bool> isAttList = attService.GetIsAttendance(stuNoList, courseNo, Convert.ToDateTime(dtpDate.Value.ToString("yyyy-MM-dd")));
             for (int i = 0; i < dgvList.Rows.Count; i++)
                 dgvList.Rows[i].Cells["ATTENDANCE"].Value = isAttList[i];
         }
@@ -112,6 +113,11 @@ namespace StudentManager_Winforms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dtpDate_Leave(object sender, EventArgs e)
+        {
+            LoadStudentList();
         }
     }
 }

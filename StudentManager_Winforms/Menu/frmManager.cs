@@ -1,6 +1,7 @@
 ﻿using StudentManager.Data.VO;
 using StudentManager.Service.Service;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
@@ -26,6 +27,17 @@ namespace StudentManager_Winforms
         private void btnStudent_Click(object sender, EventArgs e)
         {
             OpenCreateForm<frmStudent>();
+
+            //if (isExist)
+            //{
+            //    btnStudent.ForeColor = Color.White;
+            //    btnStudent.BackColor = Color.Blue;
+            //}
+            //else
+            //{
+            //    btnStudent.ForeColor = Color.Black;
+            //    this.btnStudent.BackColor = SystemColors.Control;
+            //}
         }
 
         private void btn_Employee_Click(object sender, EventArgs e)

@@ -45,13 +45,13 @@
             this.dgvList.Location = new System.Drawing.Point(24, 39);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(279, 236);
+            this.dgvList.Size = new System.Drawing.Size(279, 223);
             this.dgvList.TabIndex = 0;
             // 
             // btnInsert
             // 
             this.btnInsert.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnInsert.Location = new System.Drawing.Point(238, 281);
+            this.btnInsert.Location = new System.Drawing.Point(238, 268);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(65, 23);
             this.btnInsert.TabIndex = 45;
@@ -62,7 +62,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCancel.Location = new System.Drawing.Point(167, 281);
+            this.btnCancel.Location = new System.Drawing.Point(167, 268);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(65, 23);
             this.btnCancel.TabIndex = 46;
@@ -87,6 +87,7 @@
             this.dtpDate.Size = new System.Drawing.Size(96, 21);
             this.dtpDate.TabIndex = 48;
             this.dtpDate.Value = new System.DateTime(2022, 5, 3, 0, 0, 0, 0);
+            this.dtpDate.Leave += new System.EventHandler(this.dtpDate_Leave);
             // 
             // btnSearch
             // 
@@ -102,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 316);
+            this.ClientSize = new System.Drawing.Size(327, 300);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.headerCheckBox);
