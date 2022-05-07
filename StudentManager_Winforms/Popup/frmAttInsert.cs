@@ -97,9 +97,9 @@ namespace StudentManager_Winforms
 
         void LoadStudentList()
         {
-            CourseService courseService = new CourseService();
+            StudentService stuService = new StudentService();
             AttendanceService attService = new AttendanceService();
-            dgvList.DataSource = courseService.GetStudentListByCourse(courseNo);
+            dgvList.DataSource = stuService.GetStudentListByCourse(courseNo);
 
             List<int> stuNoList = new List<int>();
             foreach (DataGridViewRow dr in dgvList.Rows)

@@ -76,10 +76,10 @@
     <Compile Include="Course\frmAttendance.Designer.cs">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAttendanceBook.cs">
+    <Compile Include="Course\frmAttendanceBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAttendanceBook.Designer.cs">
+    <Compile Include="Course\frmAttendanceBook.Designer.cs">
       <DependentUpon>frmAttendanceBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\frmAttInsert.cs">
@@ -105,18 +105,6 @@
     </Compile>
     <Compile Include="Popup\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmContest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmContest.Designer.cs">
-      <DependentUpon>frmContest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmContestDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmContestDetail.Designer.cs">
-      <DependentUpon>frmContestDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Course\frmCourse.cs">
       <SubType>Form</SubType>
@@ -209,7 +197,7 @@
     <EmbeddedResource Include="Course\frmAttendance.resx">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAttendanceBook.resx">
+    <EmbeddedResource Include="Course\frmAttendanceBook.resx">
       <DependentUpon>frmAttendanceBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\frmAttInsert.resx">
@@ -223,12 +211,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmContest.resx">
-      <DependentUpon>frmContest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmContestDetail.resx">
-      <DependentUpon>frmContestDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Course\frmCourse.resx">
       <DependentUpon>frmCourse.cs</DependentUpon>

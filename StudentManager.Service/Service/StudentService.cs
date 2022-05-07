@@ -56,6 +56,22 @@ namespace StudentManager.Service.Service
             return result;
         }
 
+        public DataTable GetStudentListByCourse(int courseNo)
+        {
+            StudentDAC dac = new StudentDAC();
+            DataTable dt = dac.GetStudentListByCourse(courseNo);
+            dac.Dispose();
+            return dt;
+        }
+
+        public DataTable GetStudentListByEmp(int empNo)
+        {
+            StudentDAC dac = new StudentDAC();
+            DataTable dt = dac.GetStudentListByEmp(empNo);
+            dac.Dispose();
+            return dt;
+        }
+
         public List<string> GetAllEndReason()
         {
             StudentDAC dac = new StudentDAC();

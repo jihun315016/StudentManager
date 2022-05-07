@@ -64,6 +64,38 @@ namespace StudentManager.Data.DAC
             }
         }
 
+        public DataTable GetStudentListByCourse(int courseNo)
+        {
+            string sql = @"SELECT s.STUDENT_NO, STUDENT_NAME, SCHOOL, AGE
+                            FROM tb_student s
+                            JOIN tb_course_detail c
+                            ON s.student_no = c.student_no
+                            WHERE c.COURSE_NO=@COURSE_NO and s.END_DATE IS NULL";
+
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.SelectCommand.Parameters.AddWithValue("@COURSE_NO", courseNo);
+            da.Fill(dt);
+
+            return dt;
+        }
+
+        public DataTable GetStudentListByEmp(int empNo)
+        {
+            string sql = @"SELECT s.STUDENT_NO, STUDENT_NAME, AGE, c.COURSE_NAME
+                            FROM tb_student s
+                            JOIN tb_course_detail cd ON s.student_no = cd.student_no
+                            JOIN tb_course c ON cd.COURSE_NO = c.COURSE_NO
+                            WHERE EMP_NO=@EMP_NO and s.END_DATE IS NULL;";
+
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.SelectCommand.Parameters.AddWithValue("@EMP_NO", empNo);
+            da.Fill(dt);
+
+            return dt;
+        }
+
         public DataTable GetAttendanceBook(int couseNo = -1)
         {
             string sql;

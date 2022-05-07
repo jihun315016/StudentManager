@@ -68,6 +68,7 @@
             this.txtPw.PasswordChar = '*';
             this.txtPw.Size = new System.Drawing.Size(160, 21);
             this.txtPw.TabIndex = 3;
+            this.txtPw.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPw_KeyPress);
             // 
             // label2
             // 

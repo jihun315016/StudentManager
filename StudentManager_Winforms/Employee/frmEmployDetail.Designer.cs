@@ -37,21 +37,21 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.pnlEntire = new System.Windows.Forms.Panel();
             this.btnChangePw = new System.Windows.Forms.Button();
-            this.ccTxtEmail = new StudentManager_Winforms.Controls.ucInputEmail();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmpNo = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvList = new System.Windows.Forms.DataGridView();
             this.btnUpload = new System.Windows.Forms.Button();
             this.ptbEmployee = new System.Windows.Forms.PictureBox();
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.cboPosition = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.ccTxtEmail = new StudentManager_Winforms.Controls.ucInputEmail();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.pnlEntire.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +70,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblDate.Location = new System.Drawing.Point(396, 186);
+            this.lblDate.Location = new System.Drawing.Point(377, 186);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(62, 12);
             this.lblDate.TabIndex = 98;
@@ -133,7 +133,7 @@
             this.pnlEntire.Controls.Add(this.dtpDate);
             this.pnlEntire.Controls.Add(this.ccTxtSpecialNote);
             this.pnlEntire.Controls.Add(this.btnCancel);
-            this.pnlEntire.Controls.Add(this.dataGridView1);
+            this.pnlEntire.Controls.Add(this.dgvList);
             this.pnlEntire.Controls.Add(this.btnUpload);
             this.pnlEntire.Controls.Add(this.ptbEmployee);
             this.pnlEntire.Controls.Add(this.txtPosition);
@@ -151,6 +151,7 @@
             this.pnlEntire.Name = "pnlEntire";
             this.pnlEntire.Size = new System.Drawing.Size(770, 477);
             this.pnlEntire.TabIndex = 3;
+            this.pnlEntire.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlEntire_Paint);
             // 
             // btnChangePw
             // 
@@ -162,15 +163,6 @@
             this.btnChangePw.Text = "비밀번호 변경";
             this.btnChangePw.UseVisualStyleBackColor = true;
             this.btnChangePw.Click += new System.EventHandler(this.btnChangePw_Click);
-            // 
-            // ccTxtEmail
-            // 
-            this.ccTxtEmail.FrontEmail = "";
-            this.ccTxtEmail.Location = new System.Drawing.Point(32, 201);
-            this.ccTxtEmail.Name = "ccTxtEmail";
-            this.ccTxtEmail.RearEmail = "";
-            this.ccTxtEmail.Size = new System.Drawing.Size(254, 22);
-            this.ccTxtEmail.TabIndex = 123;
             // 
             // label1
             // 
@@ -193,19 +185,10 @@
             // dtpDate
             // 
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(398, 201);
+            this.dtpDate.Location = new System.Drawing.Point(377, 201);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(169, 21);
             this.dtpDate.TabIndex = 120;
-            // 
-            // ccTxtSpecialNote
-            // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(32, 252);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(316, 190);
-            this.ccTxtSpecialNote.TabIndex = 119;
             // 
             // btnCancel
             // 
@@ -218,14 +201,16 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // dataGridView1
+            // dgvList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(398, 252);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(349, 190);
-            this.dataGridView1.TabIndex = 116;
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvList.Location = new System.Drawing.Point(377, 252);
+            this.dgvList.Name = "dgvList";
+            this.dgvList.RowTemplate.Height = 23;
+            this.dgvList.Size = new System.Drawing.Size(370, 190);
+            this.dgvList.TabIndex = 116;
             // 
             // btnUpload
             // 
@@ -288,6 +273,24 @@
             this.label9.TabIndex = 101;
             this.label9.Text = "이메일";
             // 
+            // ccTxtEmail
+            // 
+            this.ccTxtEmail.FrontEmail = "";
+            this.ccTxtEmail.Location = new System.Drawing.Point(32, 201);
+            this.ccTxtEmail.Name = "ccTxtEmail";
+            this.ccTxtEmail.RearEmail = "";
+            this.ccTxtEmail.Size = new System.Drawing.Size(254, 22);
+            this.ccTxtEmail.TabIndex = 123;
+            // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(32, 252);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(316, 190);
+            this.ccTxtSpecialNote.TabIndex = 119;
+            // 
             // frmEmployDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -299,7 +302,7 @@
             this.Load += new System.EventHandler(this.frmEmployDetail_Load);
             this.pnlEntire.ResumeLayout(false);
             this.pnlEntire.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).EndInit();
             this.ResumeLayout(false);
 
@@ -319,7 +322,7 @@
         private System.Windows.Forms.ComboBox cboPosition;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.PictureBox ptbEmployee;
         private ccTextBoxPlaceHolder ccTxtSpecialNote;

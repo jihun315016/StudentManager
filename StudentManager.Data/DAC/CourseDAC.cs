@@ -78,21 +78,7 @@ namespace StudentManager.Data.DAC
             return dt;
         }
 
-        public DataTable GetStudentListByCourse(int courseNo)
-        {
-            string sql = @"SELECT s.STUDENT_NO, STUDENT_NAME, SCHOOL, AGE
-                            FROM tb_student s
-                            JOIN tb_course_detail c
-                            ON s.student_no = c.student_no
-                            WHERE c.COURSE_NO=@COURSE_NO and s.END_DATE IS NULL";
-
-            DataTable dt = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-            da.SelectCommand.Parameters.AddWithValue("@COURSE_NO", courseNo);
-            da.Fill(dt);
-
-            return dt;
-        }        
+           
 
         public int GetCountStudentInCourse(int studentNo, int courseNo)
         {
@@ -184,21 +170,35 @@ namespace StudentManager.Data.DAC
 
         public bool DeleteCourse(int courseNo)
         {
-            string sql = "DELETE FROM tb_course WHERE COURSE_NO=@COURSE_NO";
+            string[] sqls =
+            {
+                "DELETE FROM tb_course_detail WHERE COURSE_NO = @COURSE_NO;",
+                "DELETE FROM tb_course WHERE COURSE_NO=@COURSE_NO;"
+            };
+            
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlCommand cmd = new MySqlCommand();
+            MySqlTransaction trans = conn.BeginTransaction();           
+            cmd.Connection = conn;
+            cmd.Transaction = trans;
 
             cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
 
             try
             {
-                cmd.ExecuteNonQuery();
+                foreach (string sql in sqls)
+                {
+                    cmd.CommandText = sql;
+                    cmd.ExecuteNonQuery();
+                }
+                trans.Commit();
                 return true;
             }
             catch (Exception err)
             {
                 Debug.WriteLine(err.StackTrace);
                 Debug.WriteLine(err.Message);
+                trans.Rollback();
                 return false;
             }
         }

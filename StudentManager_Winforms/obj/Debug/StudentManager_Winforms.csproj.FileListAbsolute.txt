@@ -286,8 +286,6 @@ C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Win
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmAttendance.resources
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmCourseInsert.resources
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmChangePassword.resources
-C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmContest.resources
-C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmContestDetail.resources
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmCourse.resources
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmCourseDetail.resources
 C:\Users\admin\Desktop\StudentProject\StudentManager_Winforms\StudentManager_Winforms\obj\Debug\StudentManager_Winforms.frmSetDate.resources

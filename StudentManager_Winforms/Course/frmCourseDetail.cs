@@ -42,8 +42,8 @@ namespace StudentManager_Winforms
             string end = courseEmpVO.CourseEndDate.ToString("d");
             lblDate.Text = $"{start} ~ {end}";
 
-            CourseService courseService = new CourseService();
-            dgvList.DataSource = courseService.GetStudentListByCourse(int.Parse(lblCourseNo.Text));
+            StudentService stuService = new StudentService();
+            dgvList.DataSource = stuService.GetStudentListByCourse(int.Parse(lblCourseNo.Text));
         }
 
         private void txtStudentNo_KeyPress(object sender, KeyPressEventArgs e)
@@ -61,6 +61,11 @@ namespace StudentManager_Winforms
             }
             else
             {
+                if (string.IsNullOrWhiteSpace(txtStudentNo.Text.Trim()))
+                {
+                    MessageBox.Show("학생 번호를 입력해주세요.");
+                    return;
+                }
                 int studentNo = int.Parse(txtStudentNo.Text);
                 int courseNo = int.Parse(lblCourseNo.Text);
 
@@ -92,7 +97,7 @@ namespace StudentManager_Winforms
                         MessageBox.Show("수강 신청에 실패했습니다.");
 
                     txtStudentNo.Text = String.Empty;
-                    dgvList.DataSource = courseService.GetStudentListByCourse(courseNo);
+                    dgvList.DataSource = stuService.GetStudentListByCourse(courseNo);
                 }
             }
         }

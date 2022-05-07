@@ -32,9 +32,9 @@
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnInit = new System.Windows.Forms.Button();
-            this.ccTxtCourseNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ccTxtCourseName = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
-            this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ccTxtStudentName = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,43 +78,41 @@
             this.btnInit.UseVisualStyleBackColor = true;
             this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
             // 
-            // ccTxtCourseNo
+            // ccTxtCourseName
             // 
-            this.ccTxtCourseNo.Location = new System.Drawing.Point(118, 333);
-            this.ccTxtCourseNo.Name = "ccTxtCourseNo";
-            this.ccTxtCourseNo.PlaceHolder = "수업 번호 검색";
-            this.ccTxtCourseNo.Size = new System.Drawing.Size(100, 21);
-            this.ccTxtCourseNo.TabIndex = 114;
-            this.ccTxtCourseNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOnlyNumber_KeyPress);
+            this.ccTxtCourseName.Location = new System.Drawing.Point(118, 333);
+            this.ccTxtCourseName.Name = "ccTxtCourseName";
+            this.ccTxtCourseName.PlaceHolder = "수업 검색";
+            this.ccTxtCourseName.Size = new System.Drawing.Size(100, 21);
+            this.ccTxtCourseName.TabIndex = 114;
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 2, 15, 38, 42, 594);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 7, 15, 59, 45, 20);
             this.ucDateFilter.Location = new System.Drawing.Point(224, 333);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 2, 15, 38, 42, 594);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 7, 15, 59, 45, 20);
             this.ucDateFilter.TabIndex = 111;
             // 
-            // ccTxtStudentNo
+            // ccTxtStudentName
             // 
-            this.ccTxtStudentNo.Location = new System.Drawing.Point(12, 333);
-            this.ccTxtStudentNo.Name = "ccTxtStudentNo";
-            this.ccTxtStudentNo.PlaceHolder = "학생 번호 검색";
-            this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
-            this.ccTxtStudentNo.TabIndex = 109;
-            this.ccTxtStudentNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOnlyNumber_KeyPress);
+            this.ccTxtStudentName.Location = new System.Drawing.Point(12, 333);
+            this.ccTxtStudentName.Name = "ccTxtStudentName";
+            this.ccTxtStudentName.PlaceHolder = "학생 검색";
+            this.ccTxtStudentName.Size = new System.Drawing.Size(100, 21);
+            this.ccTxtStudentName.TabIndex = 109;
             // 
             // frmAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 362);
-            this.Controls.Add(this.ccTxtCourseNo);
+            this.Controls.Add(this.ccTxtCourseName);
             this.Controls.Add(this.btnInit);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.ucDateFilter);
-            this.Controls.Add(this.ccTxtStudentNo);
+            this.Controls.Add(this.ccTxtStudentName);
             this.Controls.Add(this.dgvList);
             this.Controls.Add(this.label1);
             this.Name = "frmAttendance";
@@ -131,8 +129,8 @@
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button btnSearch;
         private Controls.ucDateFilter ucDateFilter;
-        private ccTextBoxPlaceHolder ccTxtStudentNo;
+        private ccTextBoxPlaceHolder ccTxtStudentName;
         private System.Windows.Forms.Button btnInit;
-        private ccTextBoxPlaceHolder ccTxtCourseNo;
+        private ccTextBoxPlaceHolder ccTxtCourseName;
     }
 }

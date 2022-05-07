@@ -1,5 +1,6 @@
 ﻿using StudentManager.Service.Service;
 using System;
+using System.Text;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
@@ -45,6 +46,22 @@ namespace StudentManager_Winforms
         {
             frmFindPw frm = new frmFindPw();
             frm.ShowDialog();
+        }
+
+        private void txtPw_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                string[] textBoxValue = { txtId.Text, txtPw.Text };
+                string[] textBoxName = { "아이디", "비밀번호" };
+                StringBuilder sb = TextBoxUtil.IsEmptyOrWhiteSpaceArr(textBoxValue, textBoxName);
+                if (sb.Length > 0)
+                {
+                    MessageBox.Show($"{sb.ToString()}를 입력해주세요.");
+                    return;
+                }
+                btnLogin_Click(this, null);
+            }
         }
     }
 }

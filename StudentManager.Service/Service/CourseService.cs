@@ -26,14 +26,7 @@ namespace StudentManager.Service.Service
             dac.Dispose();
             return dt;
         }
-
-        public DataTable GetStudentListByCourse(int courseNo)
-        {
-            CourseDAC dac = new CourseDAC();
-            DataTable dt = dac.GetStudentListByCourse(courseNo);
-            dac.Dispose();
-            return dt;
-        }
+       
         public DataTable GetCourseName(string defaultMsg, bool isStop)
         {
             CourseDAC dac = new CourseDAC();

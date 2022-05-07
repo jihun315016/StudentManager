@@ -43,11 +43,11 @@ namespace StudentManager_Winforms
 
         private void btnInit_Click(object sender, EventArgs e)
         {
-            ccTxtCourseNo.Text = string.Empty;
-            ccTxtStudentNo.Text = string.Empty;
+            ccTxtCourseName.Text = string.Empty;
+            ccTxtStudentName.Text = string.Empty;
 
-            ccTxtStudentNo.SetTextBoxPlaceHolder();
-            ccTxtCourseNo.SetTextBoxPlaceHolder();
+            ccTxtStudentName.SetTextBoxPlaceHolder();
+            ccTxtCourseName.SetTextBoxPlaceHolder();
 
             AttendanceService attService = new AttendanceService();
             DateTime start = Convert.ToDateTime(ucDateFilter.StartDate.ToString("yyyy-MM-dd"));
@@ -60,14 +60,21 @@ namespace StudentManager_Winforms
             AttendanceService attService = new AttendanceService();
             DateTime start = Convert.ToDateTime(ucDateFilter.StartDate.ToString("yyyy-MM-dd"));
             DateTime end = Convert.ToDateTime(ucDateFilter.EndDate.ToString("yyyy-MM-dd"));
-            DataTable tempDt = attService.GetAllAttendanceList(start, end);            
-            dgvList.DataSource = attService.SearchAttInList(tempDt, ccTxtStudentNo.Text, ccTxtCourseNo.Text);
-        }
+            DataTable tempDt = attService.GetAllAttendanceList(start, end);
 
-        private void txtOnlyNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-                e.Handled = true;
+            if (!ccTxtCourseName.Text.Trim().Equals(ccTxtCourseName.PlaceHolder) && !ccTxtCourseName.Text.Trim().Equals(string.Empty))
+            {
+                CourseService courseService = new CourseService();
+                tempDt = courseService.SearchByCourseName(tempDt, ccTxtCourseName.Text.Trim());
+            }
+
+            if (!ccTxtStudentName.Text.Trim().Equals(ccTxtStudentName.PlaceHolder) && !ccTxtStudentName.Text.Trim().Equals(string.Empty))
+            {
+                StudentService stuService = new StudentService();
+                tempDt = stuService.SearchByStudentName(tempDt, ccTxtStudentName.Text.Trim());
+            }
+
+            dgvList.DataSource = tempDt;
         }
 
         public void LoadDgvList()
