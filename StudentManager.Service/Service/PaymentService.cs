@@ -1,4 +1,5 @@
 ﻿using StudentManager.Data.DAC;
+using StudentManager.Data.VO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,12 +24,11 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
-        public bool InsertPayment(int studentNo, int courseNo, DateTime date, int money, int empNo)
+        public bool InsertPayment(PaymentVO paymentVO)
         {
             PaymentDAC dac = new PaymentDAC();
-            bool result = dac.InsertPayment(studentNo, courseNo, date, money, empNo);
+            bool result = dac.InsertPayment(paymentVO);
             dac.Dispose();
-
             return result;
         }
 

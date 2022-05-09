@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using StudentManager.Data.VO;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -56,7 +57,7 @@ namespace StudentManager.Data.DAC
             return dt;
         }
 
-        public bool InsertPayment(int studentNo, int courseNo, DateTime date, int money, int empNo)
+        public bool InsertPayment(PaymentVO paymentVO)
         {
             string sql = @"INSERT INTO tb_payment 
                             (COURSE_NO, STUDENT_NO, PAYMENT_DATE, MONEY, EMP_NO) 
@@ -64,11 +65,11 @@ namespace StudentManager.Data.DAC
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-            cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
-            cmd.Parameters.AddWithValue("@STUDENT_NO", studentNo);
-            cmd.Parameters.AddWithValue("@PAYMENT_DATE", date);
-            cmd.Parameters.AddWithValue("@MONEY", money);
-            cmd.Parameters.AddWithValue("@EMP_NO", empNo);
+            cmd.Parameters.AddWithValue("@COURSE_NO", paymentVO.CourseNo);
+            cmd.Parameters.AddWithValue("@STUDENT_NO", paymentVO.StudentNo);
+            cmd.Parameters.AddWithValue("@PAYMENT_DATE", paymentVO.PaymentDate);
+            cmd.Parameters.AddWithValue("@MONEY", paymentVO.Money);
+            cmd.Parameters.AddWithValue("@EMP_NO", paymentVO.EmpNo);
 
             try
             {

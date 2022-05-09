@@ -34,7 +34,7 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtPayment = new System.Windows.Forms.TextBox();
+            this.txtMoney = new System.Windows.Forms.TextBox();
             this.cboStudent = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.chkCourseExist = new System.Windows.Forms.CheckBox();
@@ -102,14 +102,14 @@
             this.label2.TabIndex = 105;
             this.label2.Text = "결제 금액";
             // 
-            // txtPayment
+            // txtMoney
             // 
-            this.txtPayment.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtPayment.Location = new System.Drawing.Point(148, 103);
-            this.txtPayment.Name = "txtPayment";
-            this.txtPayment.Size = new System.Drawing.Size(102, 21);
-            this.txtPayment.TabIndex = 2;
-            this.txtPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPayment_KeyPress);
+            this.txtMoney.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtMoney.Location = new System.Drawing.Point(148, 103);
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.Size = new System.Drawing.Size(102, 21);
+            this.txtMoney.TabIndex = 2;
+            this.txtMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPayment_KeyPress);
             // 
             // cboStudent
             // 
@@ -119,7 +119,6 @@
             this.cboStudent.Name = "cboStudent";
             this.cboStudent.Size = new System.Drawing.Size(102, 20);
             this.cboStudent.TabIndex = 107;
-            this.cboStudent.SelectedIndexChanged += new System.EventHandler(this.cboStudent_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -161,6 +160,7 @@
             this.cboCourse.Name = "cboCourse";
             this.cboCourse.Size = new System.Drawing.Size(102, 20);
             this.cboCourse.TabIndex = 112;
+            this.cboCourse.SelectedIndexChanged += new System.EventHandler(this.cboCourse_SelectedIndexChanged);
             // 
             // frmPaymentInsert
             // 
@@ -173,7 +173,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboStudent);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtPayment);
+            this.Controls.Add(this.txtMoney);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.label5);
@@ -197,7 +197,7 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPayment;
+        private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.ComboBox cboTeacher;
         private System.Windows.Forms.ComboBox cboStudent;
         private System.Windows.Forms.Label label3;
