@@ -30,10 +30,10 @@ namespace StudentManager_Winforms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.ccTxtCourseNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ccTxtCourseName = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnSearch = new System.Windows.Forms.Button();
             this.ucDateFilter = new StudentManager_Winforms.Controls.ucDateFilter();
-            this.ccTxtStudentNo = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.ccTxtStudentName = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
@@ -45,13 +45,13 @@ namespace StudentManager_Winforms
             this.cmsSetting.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ccTxtCourseNo
+            // ccTxtCourseName
             // 
-            this.ccTxtCourseNo.Location = new System.Drawing.Point(118, 296);
-            this.ccTxtCourseNo.Name = "ccTxtCourseNo";
-            this.ccTxtCourseNo.PlaceHolder = "수업 번호 검색";
-            this.ccTxtCourseNo.Size = new System.Drawing.Size(100, 21);
-            this.ccTxtCourseNo.TabIndex = 1;
+            this.ccTxtCourseName.Location = new System.Drawing.Point(118, 296);
+            this.ccTxtCourseName.Name = "ccTxtCourseName";
+            this.ccTxtCourseName.PlaceHolder = "수업 검색";
+            this.ccTxtCourseName.Size = new System.Drawing.Size(100, 21);
+            this.ccTxtCourseName.TabIndex = 1;
             // 
             // btnSearch
             // 
@@ -66,21 +66,21 @@ namespace StudentManager_Winforms
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 9, 15, 10, 28, 341);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 9, 18, 2, 17, 886);
             this.ucDateFilter.Location = new System.Drawing.Point(224, 295);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 9, 15, 10, 28, 341);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 9, 18, 2, 17, 886);
             this.ucDateFilter.TabIndex = 106;
             // 
-            // ccTxtStudentNo
+            // ccTxtStudentName
             // 
-            this.ccTxtStudentNo.Location = new System.Drawing.Point(12, 296);
-            this.ccTxtStudentNo.Name = "ccTxtStudentNo";
-            this.ccTxtStudentNo.PlaceHolder = "학생 번호 검색";
-            this.ccTxtStudentNo.Size = new System.Drawing.Size(100, 21);
-            this.ccTxtStudentNo.TabIndex = 0;
-            this.ccTxtStudentNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOnlyNumber_KeyPress);
+            this.ccTxtStudentName.Location = new System.Drawing.Point(12, 296);
+            this.ccTxtStudentName.Name = "ccTxtStudentName";
+            this.ccTxtStudentName.PlaceHolder = "학생 검색";
+            this.ccTxtStudentName.Size = new System.Drawing.Size(100, 21);
+            this.ccTxtStudentName.TabIndex = 0;
+            this.ccTxtStudentName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOnlyNumber_KeyPress);
             // 
             // label1
             // 
@@ -132,10 +132,10 @@ namespace StudentManager_Winforms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 321);
-            this.Controls.Add(this.ccTxtCourseNo);
+            this.Controls.Add(this.ccTxtCourseName);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.ucDateFilter);
-            this.Controls.Add(this.ccTxtStudentNo);
+            this.Controls.Add(this.ccTxtStudentName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.dgvList);
@@ -156,8 +156,8 @@ namespace StudentManager_Winforms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearch;
         private Controls.ucDateFilter ucDateFilter;
-        private ccTextBoxPlaceHolder ccTxtStudentNo;
-        private ccTextBoxPlaceHolder ccTxtCourseNo;
+        private ccTextBoxPlaceHolder ccTxtStudentName;
+        private ccTextBoxPlaceHolder ccTxtCourseName;
         private System.Windows.Forms.BindingSource bdsPaymentSoarse;
         private System.Windows.Forms.ContextMenuStrip cmsSetting;
         private System.Windows.Forms.ToolStripMenuItem tsmCancelPayment;

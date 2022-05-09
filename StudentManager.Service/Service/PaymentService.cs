@@ -41,24 +41,10 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public DataTable SearchPaymentInList(DataTable dt, DateTime start, DateTime end, string stuNo, string courseNo)
+        public DataTable SearchPaymentInList(DataTable dt, DateTime start, DateTime end)
         {
             DataView dv = new DataView(dt);
-            List<string> list = new List<string>();
-
-            list.Add($"PAYMENT_DATE >=#{start.ToString("yyyy/MM/dd")}#");
-            list.Add($"PAYMENT_DATE <=#{end.ToString("yyyy/MM/dd")}#");
-            
-            // 아무것도 입력하지 않으면 텍스트박스의 PalceHolder 값(문자열)이 된다.
-            // 따라서 int 형 변환이 가능한지 체크가 필요함
-            if (int.TryParse(stuNo, out int temp1))
-                list.Add($"STUDENT_NO = {stuNo}");
-
-            if (int.TryParse(courseNo, out int temp2))
-                list.Add($"COURSE_NO = {courseNo}");
-
-            dv.RowFilter = String.Join(" and ", list);
-
+            dv.RowFilter = $"PAYMENT_DATE >=#{start.ToString("yyyy/MM/dd")}# and PAYMENT_DATE <=#{end.ToString("yyyy/MM/dd")}#";
             return dv.ToTable();
         }
     }

@@ -25,8 +25,8 @@ namespace StudentManager_Winforms
         {
             this.user = (EmployeeVO)this.Tag;
 
-            ccTxtStudentNo.SetTextBoxPlaceHolder();
-            ccTxtCourseNo.SetTextBoxPlaceHolder();
+            ccTxtStudentName.SetTextBoxPlaceHolder();
+            ccTxtCourseName.SetTextBoxPlaceHolder();
 
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO", alignContent:DataGridViewContentAlignment.MiddleCenter);
@@ -47,11 +47,23 @@ namespace StudentManager_Winforms
         private void btnSearch_Click(object sender, EventArgs e)
         {
             PaymentService payService = new PaymentService();
-            dgvList.DataSource = payService.SearchPaymentInList
-                (
-                    (DataTable)bdsPaymentSoarse.DataSource, ucDateFilter.StartDate, ucDateFilter.EndDate, ccTxtStudentNo.Text, ccTxtCourseNo.Text
-                )
-                .Copy();
+            DateTime start = Convert.ToDateTime(ucDateFilter.StartDate.ToString("yyyy-MM-dd"));
+            DateTime end = Convert.ToDateTime(ucDateFilter.EndDate.ToString("yyyy-MM-dd"));
+            DataTable tempDt = payService.GetAllPaymentList();
+
+            if (!ccTxtCourseName.Text.Trim().Equals(ccTxtCourseName.PlaceHolder) && !ccTxtCourseName.Text.Trim().Equals(string.Empty))
+            {
+                CourseService courseService = new CourseService();
+                tempDt = courseService.SearchByCourseName(tempDt, ccTxtCourseName.Text.Trim());
+            }
+
+            if (!ccTxtStudentName.Text.Trim().Equals(ccTxtStudentName.PlaceHolder) && !ccTxtStudentName.Text.Trim().Equals(string.Empty))
+            {
+                StudentService stuService = new StudentService();
+                tempDt = stuService.SearchByStudentName(tempDt, ccTxtStudentName.Text.Trim());
+            }
+
+            dgvList.DataSource = payService.SearchPaymentInList(tempDt, ucDateFilter.StartDate, ucDateFilter.EndDate);
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
