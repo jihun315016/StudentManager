@@ -84,12 +84,6 @@ namespace StudentManager_Winforms
             }
         }
 
-        private void txtOnlyNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-                e.Handled = true;
-        }
-
         private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (user.Position.Equals("원장") && e.Button == MouseButtons.Right)

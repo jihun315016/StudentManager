@@ -80,7 +80,6 @@ namespace StudentManager_Winforms
             this.ccTxtStudentName.PlaceHolder = "학생 검색";
             this.ccTxtStudentName.Size = new System.Drawing.Size(100, 21);
             this.ccTxtStudentName.TabIndex = 0;
-            this.ccTxtStudentName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOnlyNumber_KeyPress);
             // 
             // label1
             // 

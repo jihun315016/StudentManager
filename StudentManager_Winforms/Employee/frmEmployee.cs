@@ -264,6 +264,7 @@ namespace StudentManager_Winforms
         private void btnSearchEmp_Click(object sender, EventArgs e)
         {
             EmployeeService empService = new EmployeeService();
+            dgvList.DataSource = empService.GetAllEmployeeInfo(chkResignation.Checked);
 
             if (!ccTxtEmpName.Text.Trim().Equals(ccTxtEmpName.PlaceHolder) && !ccTxtEmpName.Text.Trim().Equals(string.Empty))            
                 dgvList.DataSource = empService.SearchByEmpName((DataTable)dgvList.DataSource, ccTxtEmpName.Text.Trim());

@@ -268,6 +268,7 @@ namespace StudentManager_Winforms
         private void btnSearchStu_Click(object sender, EventArgs e)
         {
             StudentService stuService = new StudentService();
+            dgvList.DataSource = stuService.GetAllStudentInfo(chkStop.Checked);
 
             if (!ccTxtStudentName.Text.Trim().Equals(ccTxtStudentName.PlaceHolder) & !ccTxtStudentName.Text.Trim().Equals(string.Empty))            
                 dgvList.DataSource = stuService.SearchByStudentName((DataTable)dgvList.DataSource, ccTxtStudentName.Text.Trim());

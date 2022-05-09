@@ -73,16 +73,17 @@ namespace StudentManager_Winforms
             bool selectedEmpInfo = false;
             bool selectedCourseName = false;
 
+            CourseService courseService = new CourseService();
+            dgvList.DataSource = courseService.GetAllCourseInfo(chkNotCouse.Checked);
+
             if (!cboEmpName.Text.Equals("선택"))
             {
-                CourseService courseService = new CourseService();
                 dgvList.DataSource = courseService.SearchByEmpInfo((DataTable)dgvList.DataSource, int.Parse(cboEmpName.SelectedValue.ToString()));
                 selectedEmpInfo = true;
             }
 
             if (!ccTxtCourseName.Text.Trim().Equals(ccTxtCourseName.PlaceHolder) && !ccTxtCourseName.Text.Trim().Equals(string.Empty))
             {
-                CourseService courseService = new CourseService();
                 dgvList.DataSource = courseService.SearchByCourseName((DataTable)dgvList.DataSource, ccTxtCourseName.Text.Trim());
                 selectedCourseName = true;
             }
