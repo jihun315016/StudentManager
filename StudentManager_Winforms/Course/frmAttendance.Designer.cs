@@ -49,6 +49,7 @@
             // 
             // dgvList
             // 
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(12, 35);
             this.dgvList.Name = "dgvList";
@@ -88,11 +89,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 7, 15, 59, 45, 20);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 9, 15, 9, 50, 938);
             this.ucDateFilter.Location = new System.Drawing.Point(224, 333);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 7, 15, 59, 45, 20);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 9, 15, 9, 50, 938);
             this.ucDateFilter.TabIndex = 111;
             // 
             // ccTxtStudentName

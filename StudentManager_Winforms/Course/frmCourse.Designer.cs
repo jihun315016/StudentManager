@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAttendanceNote = new System.Windows.Forms.Button();
             this.cboEmpName = new System.Windows.Forms.ComboBox();
             this.btnAttInsert = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.btnCourseInsert = new System.Windows.Forms.Button();
             this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAttendanceNote = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.cmsSetting.SuspendLayout();
@@ -63,6 +63,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(480, 333);
             this.panel2.TabIndex = 5;
+            // 
+            // btnAttendanceNote
+            // 
+            this.btnAttendanceNote.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnAttendanceNote.Location = new System.Drawing.Point(157, 29);
+            this.btnAttendanceNote.Name = "btnAttendanceNote";
+            this.btnAttendanceNote.Size = new System.Drawing.Size(75, 23);
+            this.btnAttendanceNote.TabIndex = 100;
+            this.btnAttendanceNote.Text = "출석부";
+            this.btnAttendanceNote.UseVisualStyleBackColor = true;
+            this.btnAttendanceNote.Click += new System.EventHandler(this.btnAttendanceNote_Click);
             // 
             // cboEmpName
             // 
@@ -127,6 +138,7 @@
             // 
             // dgvList
             // 
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(3, 58);
             this.dgvList.Name = "dgvList";
@@ -169,17 +181,6 @@
             this.tsmDelete.Size = new System.Drawing.Size(98, 22);
             this.tsmDelete.Text = "삭제";
             this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
-            // 
-            // btnAttendanceNote
-            // 
-            this.btnAttendanceNote.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAttendanceNote.Location = new System.Drawing.Point(157, 29);
-            this.btnAttendanceNote.Name = "btnAttendanceNote";
-            this.btnAttendanceNote.Size = new System.Drawing.Size(75, 23);
-            this.btnAttendanceNote.TabIndex = 100;
-            this.btnAttendanceNote.Text = "출석부";
-            this.btnAttendanceNote.UseVisualStyleBackColor = true;
-            this.btnAttendanceNote.Click += new System.EventHandler(this.btnAttendanceNote_Click);
             // 
             // frmCourse
             // 

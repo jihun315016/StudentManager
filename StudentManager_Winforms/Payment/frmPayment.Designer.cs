@@ -66,11 +66,11 @@ namespace StudentManager_Winforms
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 4, 30, 16, 49, 6, 498);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 9, 15, 10, 28, 341);
             this.ucDateFilter.Location = new System.Drawing.Point(224, 295);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 3, 30, 16, 49, 6, 498);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 9, 15, 10, 28, 341);
             this.ucDateFilter.TabIndex = 106;
             // 
             // ccTxtStudentNo
@@ -104,6 +104,7 @@ namespace StudentManager_Winforms
             // 
             // dgvList
             // 
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(12, 35);
             this.dgvList.Name = "dgvList";
