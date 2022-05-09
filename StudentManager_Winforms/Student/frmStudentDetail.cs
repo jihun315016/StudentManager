@@ -58,6 +58,16 @@ namespace StudentManager_Winforms
                 btnEditInfo.Tag = true;
             }
 
+            // 학생 수업 조회
+            DataGridViewUtil.SetInitGridView(dgvListCourse);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListCourse, "수업 번호", "COURSE_NO", alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListCourse, "수업", "COURSE_NAME", 140);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListCourse, "강사 번호", "EMP_NO", alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListCourse, "강사", "EMP_NAME", 80);
+
+            CourseService courseService = new CourseService();
+            dgvListCourse.DataSource = courseService.GetCourseInfoByStuNo(studentNo);
+            
             // 학생 출석 조회
             DataGridViewUtil.SetInitGridView(dgvListAtt);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvListAtt, "수업 번호", "COURSE_NO", alignContent: DataGridViewContentAlignment.MiddleCenter);

@@ -48,6 +48,7 @@ namespace StudentManager_Winforms
             // 
             // dgvList
             // 
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(137, 53);
             this.dgvList.Name = "dgvList";

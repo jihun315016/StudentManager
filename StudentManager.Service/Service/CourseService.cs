@@ -1,11 +1,6 @@
 ﻿using StudentManager.Data.DAC;
 using StudentManager.Data.VO;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentManager.Service.Service
 {
@@ -41,10 +36,32 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
-        public int GetCountStudentInCourse(int studentNo, int courseNo)
+        public DataTable GetCourseByEmpNo(string defaultMsg, int empNo, bool isStop)
         {
             CourseDAC dac = new CourseDAC();
-            int result = dac.GetCountStudentInCourse(studentNo, courseNo);
+            DataTable dt = dac.GetCourseByEmpNo(empNo, isStop);
+            dac.Dispose();
+
+            DataRow dr = dt.NewRow();
+            dr["COURSE_NO"] = -1;
+            dr["COURSE_NAME"] = defaultMsg;
+            dt.Rows.InsertAt(dr, 0);
+
+            return dt;
+        }
+
+        public DataTable GetCourseInfoByStuNo(int stuNo)
+        {
+            CourseDAC dac = new CourseDAC();
+            DataTable result = dac.GetCourseInfoByStuNo(stuNo);
+            dac.Dispose();
+            return result;
+        }
+
+        public int GetCountStudentInCourse(int stuNo, int courseNo)
+        {
+            CourseDAC dac = new CourseDAC();
+            int result = dac.GetCountStudentInCourse(stuNo, courseNo);
             dac.Dispose();
             return result;
         }

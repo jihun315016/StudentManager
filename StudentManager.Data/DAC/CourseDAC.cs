@@ -74,11 +74,26 @@ namespace StudentManager.Data.DAC
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
             da.Fill(dt);
-
             return dt;
         }
 
-           
+        public DataTable GetCourseInfoByStuNo(int stuNo)
+        {
+            string sql = @"SELECT c.COURSE_NO, c.EMP_NO, EMP_NAME, COURSE_NAME
+                            FROM tb_course c
+                            JOIN tb_course_detail cd ON c.COURSE_NO = cd.COURSE_NO
+                            JOIN tb_student s ON s.STUDENT_NO = cd.STUDENT_NO
+                            JOIN tb_employee e ON c.EMP_NO = e.EMP_NO
+                            WHERE date_format(now(), '%Y-%m-%d') >= c.START_DATE 
+                            and date_format(now(), '%Y-%m-%d') <= c.END_DATE
+                            and s.STUDENT_NO = @STUDENT_NO";
+
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.SelectCommand.Parameters.AddWithValue("@STUDENT_NO", stuNo);
+            da.Fill(dt);
+            return dt;
+        }
 
         public int GetCountStudentInCourse(int studentNo, int courseNo)
         {
@@ -87,7 +102,6 @@ namespace StudentManager.Data.DAC
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@STUDENT_NO", studentNo);
             cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
-
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
 
@@ -100,17 +114,36 @@ namespace StudentManager.Data.DAC
                 sql = @"SELECT COURSE_NO, concat('(', EMP_NAME, ')', ' ', COURSE_NAME) COURSE_INFO
                         FROM tb_course c
                         JOIN tb_employee e ON c.EMP_NO = e.EMP_NO
-                        WHERE c.START_DATE > '2022-03-10' or c.END_DATE < '2022-03-10'";
+                        WHERE c.START_DATE > now() or c.END_DATE < now()";
             }
             else
             {
                 sql = @"SELECT COURSE_NO, concat('(', EMP_NAME, ')', ' ', COURSE_NAME) COURSE_INFO
                         FROM tb_course c
                         JOIN tb_employee e ON c.EMP_NO = e.EMP_NO
-                        WHERE c.END_DATE >= '2022-03-10' and c.START_DATE <= '2022-03-10'";
+                        WHERE c.END_DATE >= now() and c.START_DATE <= now()";
             }
 
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        public DataTable GetCourseByEmpNo(int empNo, bool isStop)
+        {
+            string sql;
+            if (isStop)
+            {
+                sql = @"SELECT COURSE_NO, COURSE_NAME FROM tb_course WHERE EMP_NO = @EMP_NO and (START_DATE > now() or END_DATE < now())";
+            }
+            else
+            {
+                sql = @"SELECT COURSE_NO, COURSE_NAME FROM tb_course WHERE EMP_NO = @EMP_NO and (END_DATE >= now() and START_DATE <= now())";
+            }
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            da.SelectCommand.Parameters.AddWithValue("@EMP_NO", empNo);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;

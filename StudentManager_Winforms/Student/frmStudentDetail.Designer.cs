@@ -34,6 +34,7 @@
             this.pnlEndReason = new System.Windows.Forms.Panel();
             this.txtEndReason = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.lblGuardianRerationship = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtStudentNo = new System.Windows.Forms.TextBox();
@@ -64,7 +65,9 @@
             this.txtAge = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
+            this.tabCourse = new System.Windows.Forms.TabPage();
+            this.btnCourse = new System.Windows.Forms.Button();
+            this.dgvListCourse = new System.Windows.Forms.DataGridView();
             this.pnlEntire.SuspendLayout();
             this.pnlEndReason.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -73,6 +76,8 @@
             this.tabPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPayment)).BeginInit();
             this.pnlGuardianRerationship.SuspendLayout();
+            this.tabCourse.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListCourse)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEditInfo
@@ -97,6 +102,7 @@
             // 
             // pnlEntire
             // 
+            this.pnlEntire.Controls.Add(this.tabControl1);
             this.pnlEntire.Controls.Add(this.pnlEndReason);
             this.pnlEntire.Controls.Add(this.ccTxtSpecialNote);
             this.pnlEntire.Controls.Add(this.lblGuardianRerationship);
@@ -105,7 +111,6 @@
             this.pnlEntire.Controls.Add(this.dtpDate);
             this.pnlEntire.Controls.Add(this.btnCancel);
             this.pnlEntire.Controls.Add(this.btnEditInfo);
-            this.pnlEntire.Controls.Add(this.tabControl1);
             this.pnlEntire.Controls.Add(this.lblDate);
             this.pnlEntire.Controls.Add(this.pnlGuardianRerationship);
             this.pnlEntire.Controls.Add(this.txtGuardianContact);
@@ -149,6 +154,15 @@
             this.label1.Size = new System.Drawing.Size(69, 12);
             this.label1.TabIndex = 109;
             this.label1.Text = "그만둔 사유";
+            // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(511, 223);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(197, 174);
+            this.ccTxtSpecialNote.TabIndex = 107;
             // 
             // lblGuardianRerationship
             // 
@@ -199,6 +213,7 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabCourse);
             this.tabControl1.Controls.Add(this.tabAttendance);
             this.tabControl1.Controls.Add(this.tabPayment);
             this.tabControl1.Location = new System.Drawing.Point(32, 201);
@@ -215,7 +230,7 @@
             this.tabAttendance.Location = new System.Drawing.Point(4, 22);
             this.tabAttendance.Name = "tabAttendance";
             this.tabAttendance.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAttendance.Size = new System.Drawing.Size(479, 210);
+            this.tabAttendance.Size = new System.Drawing.Size(465, 210);
             this.tabAttendance.TabIndex = 0;
             this.tabAttendance.Text = "출석";
             // 
@@ -232,6 +247,7 @@
             // dgvListAtt
             // 
             this.dgvListAtt.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvListAtt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListAtt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListAtt.Location = new System.Drawing.Point(6, 6);
             this.dgvListAtt.Name = "dgvListAtt";
@@ -264,6 +280,7 @@
             // dgvListPayment
             // 
             this.dgvListPayment.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvListPayment.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListPayment.Location = new System.Drawing.Point(6, 6);
             this.dgvListPayment.Name = "dgvListPayment";
@@ -453,14 +470,37 @@
             this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 85;
             // 
-            // ccTxtSpecialNote
+            // tabCourse
             // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(511, 223);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(197, 174);
-            this.ccTxtSpecialNote.TabIndex = 107;
+            this.tabCourse.BackColor = System.Drawing.SystemColors.Control;
+            this.tabCourse.Controls.Add(this.btnCourse);
+            this.tabCourse.Controls.Add(this.dgvListCourse);
+            this.tabCourse.Location = new System.Drawing.Point(4, 22);
+            this.tabCourse.Name = "tabCourse";
+            this.tabCourse.Size = new System.Drawing.Size(465, 210);
+            this.tabCourse.TabIndex = 2;
+            this.tabCourse.Text = "수업";
+            // 
+            // btnCourse
+            // 
+            this.btnCourse.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCourse.Location = new System.Drawing.Point(382, 181);
+            this.btnCourse.Name = "btnCourse";
+            this.btnCourse.Size = new System.Drawing.Size(75, 23);
+            this.btnCourse.TabIndex = 105;
+            this.btnCourse.Text = "조회";
+            this.btnCourse.UseVisualStyleBackColor = true;
+            // 
+            // dgvListCourse
+            // 
+            this.dgvListCourse.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvListCourse.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListCourse.Location = new System.Drawing.Point(6, 6);
+            this.dgvListCourse.Name = "dgvListCourse";
+            this.dgvListCourse.RowTemplate.Height = 23;
+            this.dgvListCourse.Size = new System.Drawing.Size(449, 168);
+            this.dgvListCourse.TabIndex = 104;
             // 
             // frmStudentDetail
             // 
@@ -485,6 +525,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPayment)).EndInit();
             this.pnlGuardianRerationship.ResumeLayout(false);
             this.pnlGuardianRerationship.PerformLayout();
+            this.tabCourse.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListCourse)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -527,5 +569,8 @@
         private System.Windows.Forms.Panel pnlEndReason;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtEndReason;
+        private System.Windows.Forms.TabPage tabCourse;
+        private System.Windows.Forms.Button btnCourse;
+        private System.Windows.Forms.DataGridView dgvListCourse;
     }
 }
