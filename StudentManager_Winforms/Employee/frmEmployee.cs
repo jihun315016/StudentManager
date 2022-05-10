@@ -48,9 +48,18 @@ namespace StudentManager_Winforms
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
+            if (!user.Position.Equals("원장"))
+            {
+                MessageBox.Show("권한이 없습니다.");
+                return;
+            }
+
             EmployeeService empService = new EmployeeService();
 
-            string position = empService.NullCheck(cboPosition.SelectedItem);
+            string position = string.Empty;
+            if (cboPosition.SelectedItem is string)
+                position = cboPosition.SelectedItem.ToString();
+
             if (cboPosition.SelectedIndex == cboPosition.Items.Count - 1)
                 position = txtOtherPosition.Text;
 
@@ -218,7 +227,13 @@ namespace StudentManager_Winforms
                 {
 
                     EmployeeService empService = new EmployeeService();
-                    bool result = empService.UpdateEndDate(empNo , pop.CommitDate, true);
+                    EmployeeVO empVO = new EmployeeVO()
+                    {
+                        EmpNo = empNo,
+                        EndDate = pop.CommitDate
+                    };
+
+                    bool result = empService.UpdateEndDate(empVO, true);
 
                     if (result)
                     {
@@ -236,7 +251,7 @@ namespace StudentManager_Winforms
 
         private void tsmReJoin_Click(object sender, EventArgs e)
         {
-            int RejoinNo = int.Parse(dgvList.CurrentRow.Cells["EMP_NO"].Value.ToString());
+            int empNo = int.Parse(dgvList.CurrentRow.Cells["EMP_NO"].Value.ToString());
             string RejoinName = dgvList.CurrentRow.Cells["EMP_NAME"].Value.ToString();
             DialogResult msgBox = MessageBox.Show($"{RejoinName}님을 다시 입사 처리하시겠습니까?", "재입사 확인", MessageBoxButtons.YesNo);
             if (msgBox == DialogResult.Yes)
@@ -246,7 +261,13 @@ namespace StudentManager_Winforms
                 {
 
                     EmployeeService empService = new EmployeeService();
-                    bool result = empService.UpdateEndDate(RejoinNo, pop.CommitDate, false);
+                    EmployeeVO empVO = new EmployeeVO()
+                    {
+                        EmpNo = empNo,
+                        EndDate = pop.CommitDate
+                    };
+
+                    bool result = empService.UpdateEndDate(empVO, false);
 
                     if (result)
                     {

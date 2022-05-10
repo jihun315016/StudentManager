@@ -88,24 +88,6 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public DataTable SearchAttInList(DataTable dt, string stuNo, string courseNo)
-        {
-            DataView dv = new DataView(dt);
-            List<string> list = new List<string>();
-
-            // 아무것도 입력하지 않으면 텍스트박스의 PalceHolder 값(문자열)이 되기 때문에
-            // int 형 변환이 가능한지 체크가 필요함
-            if (int.TryParse(stuNo, out int temp1))
-                list.Add($"STUDENT_NO = {stuNo}");
-
-            if (int.TryParse(courseNo, out int temp2))
-                list.Add($"COURSE_NO = {courseNo}");
-
-            dv.RowFilter = String.Join(" and ", list);
-
-            return dv.ToTable();
-        }
-
         public bool ExportAttendanceBook(DataTable dt, string file, DateTime date, int period, int courseNo)
         {
             Excel.Application xlApp = new Excel.Application();
@@ -137,8 +119,7 @@ namespace StudentManager.Service.Service
             xlWorkSheet.Cells[3, 1] = $"{DateTime.Now.ToString("yyyy-MM-dd")} ~ {DateTime.Now.AddDays(period).ToString("yyyy-MM-dd")}";
 
             int startRow = 4;
-
-            // 여기부터
+           
             for (int c = 0; c < dt.Columns.Count; c++)
             {
                 xlWorkSheet.Cells[startRow, c + 1] = dt.Columns[c].Caption;

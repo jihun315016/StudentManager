@@ -90,23 +90,7 @@ namespace StudentManager_Winforms
 
             txtName.Enabled = ccTxtSpecialNote.Enabled = dtpDate.Enabled =
                 cboPosition.Enabled = ccTxtEmail.Enabled = txtContact.Enabled = false;
-            txtPosition.Visible = btnUpload.Visible = false;
-
-            if(cboPosition.Text.Equals("원장") || cboPosition.Text.Equals("강사"))
-            {
-                DataGridViewUtil.SetInitGridView(dgvList);
-                DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "학생 번호", "STUDENT_NO", 90, alignContent: DataGridViewContentAlignment.MiddleCenter);
-                DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이름", "STUDENT_NAME", 70);
-                DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "나이", "AGE", 60);
-                DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수업", "COURSE_NAME", 120);
-
-                StudentService studentService = new StudentService();
-                dgvList.DataSource = studentService.GetStudentListByEmp(int.Parse(txtEmpNo.Text));
-            }
-            else
-            {
-                dgvList.Visible = false;
-            }
+            txtPosition.Visible = btnUpload.Visible = false;            
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

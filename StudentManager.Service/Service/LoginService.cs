@@ -14,6 +14,13 @@ namespace StudentManager.Service.Service
 {
     public class LoginService
     {
+        /// <summary>
+        /// 로그인 체크
+        /// 결과값이 0보다 크면 로그인 성공
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="pw"></param>
+        /// <returns></returns>
         public bool LoginCheck(string id, string pw)
         {
             int emp_no;
@@ -28,6 +35,13 @@ namespace StudentManager.Service.Service
             return result;
         }
 
+        /// <summary>
+        /// 메일 전송
+        /// </summary>
+        /// <param name="name">수신자 이름</param>
+        /// <param name="recipient">수신자 메일</param>
+        /// <param name="newPassword">새로운 임시 비밀번호</param>
+        /// <returns></returns>
         public bool SendEmail(string name, string recipient, string newPassword)
         {            
             string sender = ConfigurationManager.AppSettings["email"]; // 보내는 메일
@@ -67,7 +81,11 @@ namespace StudentManager.Service.Service
             return false;
         }        
 
-
+        /// <summary>
+        /// 임시 비밀번호 제작
+        /// a ~ z, 0 ~ 9 까지의 조합으로 만들어 리턴한다.
+        /// </summary>
+        /// <returns></returns>
         public string MakePassword()
         {
             Random rnd = new Random();
@@ -88,15 +106,12 @@ namespace StudentManager.Service.Service
             return sb.ToString();
         }
 
-        public bool ChangePassword(int emp_no, string newPassword)
-        {
-            LoginDAC dac = new LoginDAC();
-            bool result = dac.ChangePassword(emp_no, newPassword);
-            dac.Dispose();
-
-            return result;
-        }
-
+        /// <summary>
+        /// 메일 전송 폼
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         string GetPassworkMessage(string name, string password)
         {
             StringBuilder sb = new StringBuilder();
@@ -106,6 +121,21 @@ namespace StudentManager.Service.Service
             sb.Append($"<h1>임시 비밀번호 : {password}</h1>");
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// 비밀번호 변경
+        /// </summary>
+        /// <param name="emp_no">변경 직원 번호</param>
+        /// <param name="newPassword">새로운 비밀번호</param>
+        /// <returns></returns>
+        public bool ChangePassword(int emp_no, string newPassword)
+        {
+            LoginDAC dac = new LoginDAC();
+            bool result = dac.ChangePassword(emp_no, newPassword);
+            dac.Dispose();
+
+            return result;
         }
     }
 };

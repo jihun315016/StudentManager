@@ -27,7 +27,7 @@ namespace StudentManager.Data.DAC
             conn.Close();
         }      
 
-        public StudentVO GetStudentInfoByPk(int stu_no)
+        public StudentVO GetStudentInfoByStuNo(int stu_no)
         {
             string sql = $@"SELECT 
                                 STUDENT_NO, STUDENT_NAME, STUDENT_CONTACT, GUARDIAN_CONTACT, GUARDIAN_RERATIONSHIP, 
@@ -251,7 +251,7 @@ namespace StudentManager.Data.DAC
             }
         }
 
-        public bool UpdateEndDate(int stuNo, DateTime newDate, int endReasonNo, bool isStop)
+        public bool UpdateEndDate(StudentVO student, bool isStop)
         {
             string sql;
             if (isStop) // 퇴원
@@ -261,9 +261,9 @@ namespace StudentManager.Data.DAC
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-            cmd.Parameters.AddWithValue("@STUDENT_NO", stuNo);
-            cmd.Parameters.AddWithValue("@NEW_DATE", newDate);
-            cmd.Parameters.AddWithValue("@END_REASON_NO", endReasonNo);
+            cmd.Parameters.AddWithValue("@STUDENT_NO", student.StudentNo);
+            cmd.Parameters.AddWithValue("@NEW_DATE", student.EndDate);
+            cmd.Parameters.AddWithValue("@END_REASON_NO", student.EndReasonNo);
 
             try
             {

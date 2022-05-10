@@ -203,7 +203,7 @@ namespace StudentManager.Data.DAC
             }
         }
 
-        public bool UpdateEndDate(int empNo, DateTime newDate, bool isResignation)
+        public bool UpdateEndDate(EmployeeVO empVO, bool isResignation)
         {
             string sql;
             if (isResignation) // 퇴사
@@ -213,8 +213,8 @@ namespace StudentManager.Data.DAC
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-            cmd.Parameters.AddWithValue("@EMP_NO", empNo);
-            cmd.Parameters.AddWithValue("@NEW_DATE", newDate);
+            cmd.Parameters.AddWithValue("@EMP_NO", empVO.EmpNo);
+            cmd.Parameters.AddWithValue("@NEW_DATE", empVO.EndDate);
             
             try
             {

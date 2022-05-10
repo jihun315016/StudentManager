@@ -23,7 +23,7 @@ namespace StudentManager_Winforms
         {
             int studentNo = int.Parse(txtStudentNo.Text);
             StudentService stuService = new StudentService();
-            StudentVO studentVO = stuService.GetStudentInfoByPk(studentNo);
+            StudentVO studentVO = stuService.GetStudentInfoByStuNo(studentNo);
 
             // 초기 데이터 입력
             lblStudentInfo.Text = $"[{studentVO.StudentNo}] {studentVO.StudentName}";

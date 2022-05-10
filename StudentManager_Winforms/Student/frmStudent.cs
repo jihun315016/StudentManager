@@ -223,7 +223,14 @@ namespace StudentManager_Winforms
                 {
 
                     StudentService stuService = new StudentService();
-                    bool result = stuService.UpdateEndDate(stuNo, pop.CommitDate, pop.EndReasonNo, true);
+                    StudentVO student = new StudentVO()
+                    {
+                        StudentNo = stuNo,
+                        EndDate = pop.CommitDate,
+                        EndReasonNo = pop.EndReasonNo
+                    };
+
+                    bool result = stuService.UpdateEndDate(student, true);
 
                     if (result)
                     {
@@ -250,7 +257,13 @@ namespace StudentManager_Winforms
                 {
 
                     StudentService stuService = new StudentService();
-                    bool result = stuService.UpdateEndDate(stuNo, pop.CommitDate, pop.EndReasonNo ,false);
+                    StudentVO student = new StudentVO()
+                    {
+                        StudentNo = stuNo,
+                        EndDate = pop.CommitDate,
+                        EndReasonNo = pop.EndReasonNo
+                    };
+                    bool result = stuService.UpdateEndDate(student, false);
 
                     if (result)
                     {

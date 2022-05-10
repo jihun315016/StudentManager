@@ -37,28 +37,26 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.pnlEntire = new System.Windows.Forms.Panel();
             this.btnChangePw = new System.Windows.Forms.Button();
+            this.ccTxtEmail = new StudentManager_Winforms.Controls.ucInputEmail();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmpNo = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.dgvList = new System.Windows.Forms.DataGridView();
             this.btnUpload = new System.Windows.Forms.Button();
             this.ptbEmployee = new System.Windows.Forms.PictureBox();
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.cboPosition = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.ccTxtEmail = new StudentManager_Winforms.Controls.ucInputEmail();
-            this.ccTxtSpecialNote = new StudentManager_Winforms.ccTextBoxPlaceHolder();
             this.pnlEntire.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEditInfo
             // 
             this.btnEditInfo.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnEditInfo.Location = new System.Drawing.Point(672, 448);
+            this.btnEditInfo.Location = new System.Drawing.Point(672, 342);
             this.btnEditInfo.Name = "btnEditInfo";
             this.btnEditInfo.Size = new System.Drawing.Size(75, 23);
             this.btnEditInfo.TabIndex = 82;
@@ -133,7 +131,6 @@
             this.pnlEntire.Controls.Add(this.dtpDate);
             this.pnlEntire.Controls.Add(this.ccTxtSpecialNote);
             this.pnlEntire.Controls.Add(this.btnCancel);
-            this.pnlEntire.Controls.Add(this.dgvList);
             this.pnlEntire.Controls.Add(this.btnUpload);
             this.pnlEntire.Controls.Add(this.ptbEmployee);
             this.pnlEntire.Controls.Add(this.txtPosition);
@@ -149,7 +146,7 @@
             this.pnlEntire.Controls.Add(this.txtName);
             this.pnlEntire.Location = new System.Drawing.Point(12, 12);
             this.pnlEntire.Name = "pnlEntire";
-            this.pnlEntire.Size = new System.Drawing.Size(770, 477);
+            this.pnlEntire.Size = new System.Drawing.Size(770, 373);
             this.pnlEntire.TabIndex = 3;
             this.pnlEntire.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlEntire_Paint);
             // 
@@ -163,6 +160,15 @@
             this.btnChangePw.Text = "비밀번호 변경";
             this.btnChangePw.UseVisualStyleBackColor = true;
             this.btnChangePw.Click += new System.EventHandler(this.btnChangePw_Click);
+            // 
+            // ccTxtEmail
+            // 
+            this.ccTxtEmail.FrontEmail = "";
+            this.ccTxtEmail.Location = new System.Drawing.Point(32, 201);
+            this.ccTxtEmail.Name = "ccTxtEmail";
+            this.ccTxtEmail.RearEmail = "";
+            this.ccTxtEmail.Size = new System.Drawing.Size(254, 22);
+            this.ccTxtEmail.TabIndex = 123;
             // 
             // label1
             // 
@@ -190,27 +196,25 @@
             this.dtpDate.Size = new System.Drawing.Size(169, 21);
             this.dtpDate.TabIndex = 120;
             // 
+            // ccTxtSpecialNote
+            // 
+            this.ccTxtSpecialNote.Location = new System.Drawing.Point(32, 252);
+            this.ccTxtSpecialNote.Multiline = true;
+            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
+            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
+            this.ccTxtSpecialNote.Size = new System.Drawing.Size(715, 84);
+            this.ccTxtSpecialNote.TabIndex = 119;
+            // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCancel.Location = new System.Drawing.Point(591, 448);
+            this.btnCancel.Location = new System.Drawing.Point(591, 342);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 118;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // dgvList
-            // 
-            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvList.Location = new System.Drawing.Point(377, 252);
-            this.dgvList.Name = "dgvList";
-            this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(370, 190);
-            this.dgvList.TabIndex = 116;
             // 
             // btnUpload
             // 
@@ -273,36 +277,17 @@
             this.label9.TabIndex = 101;
             this.label9.Text = "이메일";
             // 
-            // ccTxtEmail
-            // 
-            this.ccTxtEmail.FrontEmail = "";
-            this.ccTxtEmail.Location = new System.Drawing.Point(32, 201);
-            this.ccTxtEmail.Name = "ccTxtEmail";
-            this.ccTxtEmail.RearEmail = "";
-            this.ccTxtEmail.Size = new System.Drawing.Size(254, 22);
-            this.ccTxtEmail.TabIndex = 123;
-            // 
-            // ccTxtSpecialNote
-            // 
-            this.ccTxtSpecialNote.Location = new System.Drawing.Point(32, 252);
-            this.ccTxtSpecialNote.Multiline = true;
-            this.ccTxtSpecialNote.Name = "ccTxtSpecialNote";
-            this.ccTxtSpecialNote.PlaceHolder = "특이사항";
-            this.ccTxtSpecialNote.Size = new System.Drawing.Size(316, 190);
-            this.ccTxtSpecialNote.TabIndex = 119;
-            // 
             // frmEmployDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 496);
+            this.ClientSize = new System.Drawing.Size(794, 395);
             this.Controls.Add(this.pnlEntire);
             this.Name = "frmEmployDetail";
             this.Text = "frmEmployyDetail";
             this.Load += new System.EventHandler(this.frmEmployDetail_Load);
             this.pnlEntire.ResumeLayout(false);
             this.pnlEntire.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmployee)).EndInit();
             this.ResumeLayout(false);
 
@@ -322,7 +307,6 @@
         private System.Windows.Forms.ComboBox cboPosition;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.PictureBox ptbEmployee;
         private ccTextBoxPlaceHolder ccTxtSpecialNote;

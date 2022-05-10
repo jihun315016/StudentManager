@@ -81,25 +81,26 @@ namespace StudentManager.Service.Service
             return result;
         }
 
-        public bool UpdateEndDate(int empNo, DateTime newDate, bool isResignation)
+        /// <summary>
+        /// 직원 퇴사 또는 재입사 처리(퇴사 또는 입사 날짜 수정)
+        /// </summary>
+        /// <param name="empVO"></param>
+        /// <param name="isResignation"></param>
+        /// <returns></returns>
+        public bool UpdateEndDate(EmployeeVO empVO, bool isResignation)
         {
             EmployeeDAC dac = new EmployeeDAC();
-            bool result = dac.UpdateEndDate(empNo, newDate, isResignation);
+            bool result = dac.UpdateEndDate(empVO, isResignation);
             dac.Dispose();
             return result;
         }
 
-        // text가 null이면 ToString() 메서드를 사용할 때
-        // 오류가 발생하기 때문에 메서드로 만든 것
-        public string NullCheck(object text)
-        {
-            string result = string.Empty;
-            if (text is string)
-                result = text.ToString();
-
-            return result;
-        }
-
+        /// <summary>
+        /// 직원 리스트에서 직원 이름을 통해 검색한다.
+        /// </summary>
+        /// <param name="dt">기존 데이터 테이블</param>
+        /// <param name="empName">검색된 직원 이름 키워드</param>
+        /// <returns></returns>
         public DataTable SearchByEmpName(DataTable dt, string empName)
         {
             DataView dv = new DataView(dt);
@@ -107,6 +108,14 @@ namespace StudentManager.Service.Service
             return dv.ToTable();
         }
 
+        /// <summary>
+        /// 직원 리스트에서 입사 또는 퇴사 날짜를 통해 검색한다.
+        /// </summary>
+        /// <param name="start">검색할 날짜 범위 시작 지점</param>
+        /// <param name="end">검색할 날짜 범위 끝 지점</param>
+        /// <param name="dt">기존 데이터 테이블</param>
+        /// <param name="isResignations">퇴사 여부</param>
+        /// <returns></returns>
         public DataTable SearchDateInList(DateTime start, DateTime end, DataTable dt, bool isResignations)
         {
             DataView dv = new DataView(dt);

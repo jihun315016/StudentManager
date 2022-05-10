@@ -70,7 +70,7 @@ namespace StudentManager_Winforms
                 int courseNo = int.Parse(lblCourseNo.Text);
 
                 StudentService stuService = new StudentService();
-                StudentVO stuVO = stuService.GetStudentInfoByPk(studentNo);
+                StudentVO stuVO = stuService.GetStudentInfoByStuNo(studentNo);
 
                 if (stuVO == null)
                 {
