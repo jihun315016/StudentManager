@@ -1,6 +1,7 @@
 ﻿using StudentManager.Data.VO;
 using StudentManager.Service.Service;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace StudentManager_Winforms
@@ -36,7 +37,13 @@ namespace StudentManager_Winforms
             if (cboEmp.SelectedIndex > 0)
             {
                 CourseService courseService = new CourseService();
-                cboCourse.DataSource = courseService.GetCourseByEmpNo("선택", int.Parse(cboEmp.SelectedValue.ToString()), chkCourseExist.Checked);
+                DataTable dt = courseService.GetCourseByEmpNo(int.Parse(cboEmp.SelectedValue.ToString()), chkCourseExist.Checked);
+                DataRow dr = dt.NewRow();
+                dr["COURSE_NO"] = -1;
+                dr["COURSE_NAME"] = "선택";
+                dt.Rows.InsertAt(dr, 0);
+
+                cboCourse.DataSource = dt;
                 cboCourse.DisplayMember = "COURSE_NAME";
                 cboCourse.ValueMember = "COURSE_NO";
             }

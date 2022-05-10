@@ -51,7 +51,13 @@ namespace StudentManager_Winforms
             }
 
             CourseService courseService = new CourseService();
-            cboCourse.DataSource = courseService.GetCourseName("전체 출석부", false);
+            DataTable dt = courseService.GetCourseName(false);
+            DataRow dr = dt.NewRow();
+            dr["COURSE_NO"] = -1;
+            dr["COURSE_INFO"] = "전체 출석부";
+            dt.Rows.InsertAt(dr, 0);
+
+            cboCourse.DataSource = dt;
             cboCourse.DisplayMember = "COURSE_INFO";
             cboCourse.ValueMember = "COURSE_NO";            
         }
@@ -111,7 +117,12 @@ namespace StudentManager_Winforms
         private void chkNoneCourse_CheckedChanged(object sender, EventArgs e)
         {
             CourseService courseService = new CourseService();
-            cboCourse.DataSource = courseService.GetCourseName("모든 학생 조회", chkNoneCourse.Checked);
+            DataTable dt = courseService.GetCourseName(chkNoneCourse.Checked);
+            DataRow dr = dt.NewRow();
+            dr["COURSE_NO"] = -1;
+            dr["COURSE_INFO"] = "전체 출석부";
+            dt.Rows.InsertAt(dr, 0);
+            cboCourse.DataSource = dt;
             cboCourse.DisplayMember = "COURSE_INFO";
             cboCourse.ValueMember = "COURSE_NO";
         }     

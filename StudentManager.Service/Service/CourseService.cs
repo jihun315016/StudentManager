@@ -22,31 +22,19 @@ namespace StudentManager.Service.Service
             return dt;
         }
        
-        public DataTable GetCourseName(string defaultMsg, bool isStop)
+        public DataTable GetCourseName(bool isStop)
         {
             CourseDAC dac = new CourseDAC();
             DataTable dt = dac.GetCourseName(isStop);
             dac.Dispose();
-
-            DataRow dr = dt.NewRow();
-            dr["COURSE_NO"] = -1;
-            dr["COURSE_INFO"] = defaultMsg;
-            dt.Rows.InsertAt(dr, 0);
-
             return dt;
         }
 
-        public DataTable GetCourseByEmpNo(string defaultMsg, int empNo, bool isStop)
+        public DataTable GetCourseByEmpNo(int empNo, bool isStop)
         {
             CourseDAC dac = new CourseDAC();
             DataTable dt = dac.GetCourseByEmpNo(empNo, isStop);
             dac.Dispose();
-
-            DataRow dr = dt.NewRow();
-            dr["COURSE_NO"] = -1;
-            dr["COURSE_NAME"] = defaultMsg;
-            dt.Rows.InsertAt(dr, 0);
-
             return dt;
         }
 
@@ -80,17 +68,14 @@ namespace StudentManager.Service.Service
             CourseDAC dac = new CourseDAC();
             bool result = dac.InsertCourse(courseVO);
             dac.Dispose();
-
             return result;
         } 
 
         public bool DeleteCourse(int courseNo)
         {
-
             CourseDAC dac = new CourseDAC();
             bool result = dac.DeleteCourse(courseNo);
             dac.Dispose();
-
             return result;
         }
 

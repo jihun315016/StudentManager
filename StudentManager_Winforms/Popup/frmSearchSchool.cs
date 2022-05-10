@@ -34,29 +34,35 @@ namespace StudentManager_Winforms
                 ucSchoolLabel school = new ucSchoolLabel();
                 school.Location = new Point(0, 3 + 35 * cnt);
                 school.SchoolName = dr["SCHOOL_NAME"].ToString();
-                school.DisplaySchool += DisplaySchoolButton;
-                school.SelectSchoolName += SelectSchoolName;
+
+                school.DisplaySchool += (object senderControl, EventArgs eData) =>
+                {
+                    foreach (ucSchoolLabel schoolName in pnlSchool.Controls)
+                        schoolName.UnDisplaySchoolButton();
+
+                    ucSchoolLabel selected = senderControl as ucSchoolLabel;
+                    selected.DisplaySchoolButton();
+                };
+
+                school.SelectSchoolName += (object senderControl, EventArgs eData) =>
+                {
+                    ucSchoolLabel selected = senderControl as ucSchoolLabel;
+                    this.DialogResult = DialogResult.OK;
+                    this.SchoolName = selected.SchoolName;
+                    this.Close();
+                };
+
                 cnt++;
                 pnlSchool.Controls.Add(school);
             }
         }
 
-        void DisplaySchoolButton(object sender, EventArgs e)
-        {         
-            foreach (ucSchoolLabel school in pnlSchool.Controls)
-                school.UnDisplaySchoolButton();
-
-            ucSchoolLabel selected = sender as ucSchoolLabel;
-            selected.DisplaySchoolButton();
-        }
-
-        void SelectSchoolName(object sender, EventArgs e)
+        private void ccTxtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ucSchoolLabel selected = sender as ucSchoolLabel;
-
-            this.DialogResult = DialogResult.OK;
-            this.SchoolName = selected.SchoolName;
-            this.Close();
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                btnSearch_Click(this, null);
+            }
         }
     }
 }

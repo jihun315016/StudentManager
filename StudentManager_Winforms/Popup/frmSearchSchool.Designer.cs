@@ -70,6 +70,7 @@
             this.ccTxtSearch.PlaceHolder = "학교는 30개까지만 표시됩니다.";
             this.ccTxtSearch.Size = new System.Drawing.Size(253, 21);
             this.ccTxtSearch.TabIndex = 12;
+            this.ccTxtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ccTxtSearch_KeyPress);
             // 
             // frmSearchSchool
             // 
