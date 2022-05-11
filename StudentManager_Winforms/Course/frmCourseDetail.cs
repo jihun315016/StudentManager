@@ -19,6 +19,8 @@ namespace StudentManager_Winforms
 
         private void frmCourseDetail_Load(object sender, EventArgs e)
         {
+            tsmCancelCourse.Visible = false;
+
             foreach (Form form in Application.OpenForms)
             {
                 if (form.GetType() == typeof(frmCourse))
@@ -98,6 +100,40 @@ namespace StudentManager_Winforms
 
                     txtStudentNo.Text = String.Empty;
                     dgvList.DataSource = stuService.GetStudentListByCourse(courseNo);
+                }
+            }
+        }
+
+        private void dgvList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                dgvList.CurrentCell = dgvList[e.ColumnIndex, e.RowIndex];
+                cmsSetting.Show(Cursor.Position);
+                tsmCancelCourse.Visible = true;
+            }
+        }
+
+        private void tsmCancelCourse_Click(object sender, EventArgs e)
+        {
+            int stuNo = int.Parse(dgvList.CurrentRow.Cells["STUDENT_NO"].Value.ToString());
+            int courseNo = int.Parse(lblCourseNo.Text);
+
+            DialogResult deleteChk = MessageBox.Show("수강 취소하시겠습니까?", "수강 취소", MessageBoxButtons.YesNo);
+            if (deleteChk == DialogResult.Yes)
+            {
+                CourseService courseService = new CourseService();
+                bool deleteResult = courseService.DeleteStudent(stuNo, courseNo);
+                
+                if (deleteResult)
+                {
+                    MessageBox.Show("결제가 취소되었습니다.");
+                    StudentService stuService = new StudentService();
+                    dgvList.DataSource = stuService.GetStudentListByCourse(int.Parse(lblCourseNo.Text));
+                }
+                else
+                {
+                    MessageBox.Show("삭제에 실패했습니다.");
                 }
             }
         }

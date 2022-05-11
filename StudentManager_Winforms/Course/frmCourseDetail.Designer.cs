@@ -29,6 +29,7 @@ namespace StudentManager_Winforms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.txtStudentNo = new System.Windows.Forms.TextBox();
@@ -42,8 +43,11 @@ namespace StudentManager_Winforms
             this.btnApplyCourse = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmCancelCourse = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.pnlEntire.SuspendLayout();
+            this.cmsSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvList
@@ -55,6 +59,7 @@ namespace StudentManager_Winforms
             this.dgvList.RowTemplate.Height = 23;
             this.dgvList.Size = new System.Drawing.Size(330, 170);
             this.dgvList.TabIndex = 116;
+            this.dgvList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseClick);
             // 
             // button3
             // 
@@ -183,6 +188,20 @@ namespace StudentManager_Winforms
             this.label6.TabIndex = 98;
             this.label6.Text = "학생 번호";
             // 
+            // cmsSetting
+            // 
+            this.cmsSetting.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmCancelCourse});
+            this.cmsSetting.Name = "cmsSetting";
+            this.cmsSetting.Size = new System.Drawing.Size(181, 48);
+            // 
+            // tsmCancelCourse
+            // 
+            this.tsmCancelCourse.Name = "tsmCancelCourse";
+            this.tsmCancelCourse.Size = new System.Drawing.Size(180, 22);
+            this.tsmCancelCourse.Text = "수강 취소";
+            this.tsmCancelCourse.Click += new System.EventHandler(this.tsmCancelCourse_Click);
+            // 
             // frmCourseDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -197,6 +216,7 @@ namespace StudentManager_Winforms
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.pnlEntire.ResumeLayout(false);
             this.pnlEntire.PerformLayout();
+            this.cmsSetting.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -215,5 +235,7 @@ namespace StudentManager_Winforms
         private System.Windows.Forms.Label lblCourseNo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblStudentName;
+        private System.Windows.Forms.ContextMenuStrip cmsSetting;
+        private System.Windows.Forms.ToolStripMenuItem tsmCancelCourse;
     }
 }

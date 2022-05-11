@@ -235,5 +235,29 @@ namespace StudentManager.Data.DAC
                 return false;
             }
         }
+
+        public bool DeleteStudent(int stuNo, int courseNo)
+        {
+            string sql = @"DELETE FROM tb_course_detail 
+                            WHERE STUDENT_NO=@STUDENT_NO and COURSE_NO=@COURSE_NO";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+
+            cmd.Parameters.AddWithValue("@STUDENT_NO", stuNo);
+            cmd.Parameters.AddWithValue("@COURSE_NO", courseNo);
+
+            try
+            {
+                cmd.ExecuteNonQuery();                
+                return true;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.StackTrace);
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
     }
 }

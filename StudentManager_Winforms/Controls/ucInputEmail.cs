@@ -75,23 +75,5 @@ namespace StudentManager_Winforms.Controls
             cboEmail.Text = string.Empty;
             cboEmail.SelectedItem = null;
         }
-
-        public void ReadOnly(bool isReadOnly)
-        {
-            txtEmail1.ReadOnly = isReadOnly;
-            txtEmail2.ReadOnly = isReadOnly;
-            cboEmail.Visible = !isReadOnly;
-        }
-
-        private void txtEmail1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            bool isLower = e.KeyChar >= 'a' && e.KeyChar <= 'z';
-            bool isUpper = e.KeyChar >= 'A' && e.KeyChar <= 'Z';
-            bool isNumber = e.KeyChar >= 0 && e.KeyChar <= 9;
-            bool isSpecial = e.KeyChar == '\b';
-
-            if (!isLower && !isUpper && !isNumber && !isSpecial)                            
-                e.Handled = true;            
-        }
     }
 }

@@ -130,6 +130,20 @@ namespace StudentManager.Service.Service
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stuNo"></param>
+        /// <param name="courseNo"></param>
+        /// <returns></returns>
+        public bool DeleteStudent(int stuNo, int courseNo)
+        {
+            CourseDAC dac = new CourseDAC();
+            bool result = dac.DeleteStudent(stuNo, courseNo);
+            dac.Dispose();
+            return result;
+        }
+
+        /// <summary>
         /// 특정 강사 또는 원장의 직원 번호를 통해 이름 조회
         /// </summary>
         /// <param name="strEmpNo">조회할 직원 번호</param>
