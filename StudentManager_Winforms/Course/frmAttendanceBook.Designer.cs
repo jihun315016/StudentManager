@@ -81,6 +81,7 @@ namespace StudentManager_Winforms
             // 
             // cboCourse
             // 
+            this.cboCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCourse.FormattingEnabled = true;
             this.cboCourse.Location = new System.Drawing.Point(657, 34);
             this.cboCourse.Name = "cboCourse";
