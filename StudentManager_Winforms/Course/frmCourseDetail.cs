@@ -127,7 +127,7 @@ namespace StudentManager_Winforms
                 
                 if (deleteResult)
                 {
-                    MessageBox.Show("결제가 취소되었습니다.");
+                    MessageBox.Show("취소되었습니다.");
                     StudentService stuService = new StudentService();
                     dgvList.DataSource = stuService.GetStudentListByCourse(int.Parse(lblCourseNo.Text));
                 }
