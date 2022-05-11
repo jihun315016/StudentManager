@@ -192,7 +192,7 @@ namespace StudentManager_Winforms
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCourseDetail";
-            this.Text = "frmCourseDetail";
+            this.Text = "수업 상세";
             this.Load += new System.EventHandler(this.frmCourseDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.pnlEntire.ResumeLayout(false);

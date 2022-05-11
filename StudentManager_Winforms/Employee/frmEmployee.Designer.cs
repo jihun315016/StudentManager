@@ -277,11 +277,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 4, 18, 41, 8, 429);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 11, 14, 21, 7, 233);
             this.ucDateFilter.Location = new System.Drawing.Point(116, 364);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 4, 18, 41, 8, 429);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 11, 14, 21, 7, 233);
             this.ucDateFilter.TabIndex = 100;
             // 
             // ccTxtEmpName
@@ -332,7 +332,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEmployee";
-            this.Text = "frmEmployee";
+            this.Text = "직원";
             this.Load += new System.EventHandler(this.frmEmployee_Load);
             this.cmsSetting.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();

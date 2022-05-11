@@ -217,7 +217,7 @@ namespace StudentManager_Winforms
             DialogResult msgBox = MessageBox.Show($"{stuName} 학생을 퇴원 처리하시겠습니까?", "퇴원 확인", MessageBoxButtons.YesNo);
             if (msgBox == DialogResult.Yes)
             {
-                frmSetDate pop = new frmSetDate("퇴원 날짜", true);
+                frmSetDate pop = new frmSetDate("퇴원 날짜", "퇴원", true);
 
                 if (pop.ShowDialog() == DialogResult.OK)
                 {
@@ -252,7 +252,7 @@ namespace StudentManager_Winforms
             DialogResult msgBox = MessageBox.Show($"{stuName}님을 재등록 처리하시겠습니까?", "재등록 확인", MessageBoxButtons.YesNo);
             if (msgBox == DialogResult.Yes)
             {
-                frmSetDate pop = new frmSetDate("등록 날짜");
+                frmSetDate pop = new frmSetDate("등록 날짜", "재등록");
                 if (pop.ShowDialog() == DialogResult.OK)
                 {
 

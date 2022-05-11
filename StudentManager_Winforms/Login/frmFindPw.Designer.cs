@@ -150,7 +150,7 @@
             this.Controls.Add(this.pnlFindPw);
             this.Name = "frmFindPw";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmFindPw";
+            this.Text = "비밀번호 찾기";
             this.Load += new System.EventHandler(this.frmFindPw_Load);
             this.Resize += new System.EventHandler(this.frmFindPw_Resize);
             this.pnlFindPw.ResumeLayout(false);

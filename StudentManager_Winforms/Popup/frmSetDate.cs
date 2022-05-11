@@ -16,17 +16,20 @@ namespace StudentManager_Winforms
         public DateTime CommitDate { get; set; }
         public bool IsStudentStop { get; set; }
         public int EndReasonNo { get; set; }
+        public string FormText { get; set; }
 
-        public frmSetDate(string dateLabel, bool isStudentStop = false)
+        public frmSetDate(string dateLabel, string formText, bool isStudentStop = false)
         {
             InitializeComponent();
+
+            this.Text = formText;
 
             this.IsStudentStop = isStudentStop;
             lblDate.Text = dateLabel;
 
             if (this.IsStudentStop)
             {
-                this.Size = new Size(380, 260);
+                this.Size = new Size(390, 260);
 
                 StudentService stuService = new StudentService();
                 List<string> endReasonList = stuService.GetAllEndReason();
@@ -42,7 +45,7 @@ namespace StudentManager_Winforms
             }
             else
             {
-                this.Size = new Size(160, 120);
+                this.Size = new Size(170, 120);
             }
         }
 

@@ -89,11 +89,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 9, 15, 9, 50, 938);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 11, 14, 20, 23, 761);
             this.ucDateFilter.Location = new System.Drawing.Point(224, 333);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 9, 15, 9, 50, 938);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 11, 14, 20, 23, 761);
             this.ucDateFilter.TabIndex = 111;
             // 
             // ccTxtStudentName
@@ -117,7 +117,7 @@
             this.Controls.Add(this.dgvList);
             this.Controls.Add(this.label1);
             this.Name = "frmAttendance";
-            this.Text = "frmAttendance";
+            this.Text = "출석";
             this.Load += new System.EventHandler(this.frmAttendance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.ResumeLayout(false);

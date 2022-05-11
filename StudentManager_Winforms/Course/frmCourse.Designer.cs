@@ -192,7 +192,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCourse";
-            this.Text = "frmClass";
+            this.Text = "수업";
             this.Load += new System.EventHandler(this.frmCourse_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

@@ -142,7 +142,7 @@
             this.IsMdiContainer = true;
             this.Name = "frmManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmManager";
+            this.Text = "메뉴";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmManager_Load);
             this.panel2.ResumeLayout(false);

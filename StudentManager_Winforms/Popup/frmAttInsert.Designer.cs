@@ -114,7 +114,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAttInsert";
-            this.Text = "frmAttendanceInsert";
+            this.Text = "출석 등록";
             this.Load += new System.EventHandler(this.frmAttInsert_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.ResumeLayout(false);

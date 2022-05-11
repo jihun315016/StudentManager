@@ -122,7 +122,7 @@ namespace StudentManager_Winforms
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmChangePassword";
-            this.Text = "frmChangePassword";
+            this.Text = "비밀번호 변경";
             this.ResumeLayout(false);
             this.PerformLayout();
 

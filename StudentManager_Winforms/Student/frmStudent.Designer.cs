@@ -341,11 +341,11 @@
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 3, 21, 16, 0, 777);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 11, 14, 23, 0, 662);
             this.ucDateFilter.Location = new System.Drawing.Point(121, 356);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 3, 21, 16, 0, 777);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 11, 14, 23, 0, 662);
             this.ucDateFilter.TabIndex = 99;
             // 
             // ccTxtStudentName
@@ -387,7 +387,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmStudent";
-            this.Text = "frmStudent";
+            this.Text = "학생";
             this.Load += new System.EventHandler(this.frmStudent_Load);
             this.pnlGuardianRerationship.ResumeLayout(false);
             this.pnlGuardianRerationship.PerformLayout();

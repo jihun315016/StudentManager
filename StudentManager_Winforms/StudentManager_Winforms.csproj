@@ -272,9 +272,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\man.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\StudentManager.Data\StudentManager.Data.csproj">
       <Project>{13F5F55F-7F91-4C65-80D7-0A19B34E54A9}</Project>
       <Name>StudentManager.Data</Name>

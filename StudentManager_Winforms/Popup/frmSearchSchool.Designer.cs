@@ -85,7 +85,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSearchSchool";
-            this.Text = "frmSearchSchool";
+            this.Text = "학교 검색";
             this.Load += new System.EventHandler(this.frmSearchSchool_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

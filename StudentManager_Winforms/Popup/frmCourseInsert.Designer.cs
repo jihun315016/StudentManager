@@ -178,7 +178,7 @@ namespace StudentManager_Winforms
             this.MinimizeBox = false;
             this.Name = "frmCourseInsert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmCourseInsert";
+            this.Text = "수업 등록";
             this.Load += new System.EventHandler(this.frmCourseInsert_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

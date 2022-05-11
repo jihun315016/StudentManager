@@ -183,7 +183,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPaymentInsert";
-            this.Text = "frmPaymentInsert";
+            this.Text = "결제 등록";
             this.Load += new System.EventHandler(this.frmPaymentInsert_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

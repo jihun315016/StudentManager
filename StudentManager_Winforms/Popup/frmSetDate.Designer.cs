@@ -47,7 +47,7 @@ namespace StudentManager_Winforms
             // dtpDate
             // 
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(14, 24);
+            this.dtpDate.Location = new System.Drawing.Point(21, 24);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(120, 21);
             this.dtpDate.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace StudentManager_Winforms
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(12, 9);
+            this.lblDate.Location = new System.Drawing.Point(19, 9);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(29, 12);
             this.lblDate.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace StudentManager_Winforms
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(14, 51);
+            this.btnCancel.Location = new System.Drawing.Point(21, 51);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(57, 23);
             this.btnCancel.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace StudentManager_Winforms
             // 
             // btnCommit
             // 
-            this.btnCommit.Location = new System.Drawing.Point(77, 51);
+            this.btnCommit.Location = new System.Drawing.Point(84, 51);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(57, 23);
             this.btnCommit.TabIndex = 3;
@@ -90,7 +90,7 @@ namespace StudentManager_Winforms
             this.grbEndReason.Controls.Add(this.radioButton3);
             this.grbEndReason.Controls.Add(this.radioButton2);
             this.grbEndReason.Controls.Add(this.radioButton1);
-            this.grbEndReason.Location = new System.Drawing.Point(14, 100);
+            this.grbEndReason.Location = new System.Drawing.Point(21, 100);
             this.grbEndReason.Name = "grbEndReason";
             this.grbEndReason.Size = new System.Drawing.Size(340, 110);
             this.grbEndReason.TabIndex = 4;
@@ -178,15 +178,17 @@ namespace StudentManager_Winforms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 221);
+            this.ClientSize = new System.Drawing.Size(374, 221);
             this.Controls.Add(this.grbEndReason);
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.dtpDate);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmSetDate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmSetDate";
+            this.Text = "Stop or Restart";
             this.grbEndReason.ResumeLayout(false);
             this.grbEndReason.PerformLayout();
             this.ResumeLayout(false);

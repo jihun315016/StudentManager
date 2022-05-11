@@ -120,7 +120,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLogin";
+            this.Text = "로그인";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();

@@ -284,7 +284,7 @@
             this.ClientSize = new System.Drawing.Size(794, 395);
             this.Controls.Add(this.pnlEntire);
             this.Name = "frmEmployDetail";
-            this.Text = "frmEmployyDetail";
+            this.Text = "직원 상세";
             this.Load += new System.EventHandler(this.frmEmployDetail_Load);
             this.pnlEntire.ResumeLayout(false);
             this.pnlEntire.PerformLayout();

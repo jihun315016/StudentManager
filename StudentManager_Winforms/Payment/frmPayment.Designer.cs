@@ -64,11 +64,11 @@ namespace StudentManager_Winforms
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 11, 9, 46, 58, 169);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 11, 14, 21, 45, 296);
             this.ucDateFilter.Location = new System.Drawing.Point(224, 295);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 11, 9, 46, 58, 169);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 11, 14, 21, 45, 296);
             this.ucDateFilter.TabIndex = 106;
             // 
             // ccTxtStudentName
@@ -137,7 +137,7 @@ namespace StudentManager_Winforms
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.dgvList);
             this.Name = "frmPayment";
-            this.Text = " ";
+            this.Text = " 결제";
             this.Load += new System.EventHandler(this.frmPayment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.cmsSetting.ResumeLayout(false);
