@@ -88,6 +88,15 @@ namespace StudentManager.Service.Service
             return result;
         }
 
+        /// <summary>
+        /// 출석부 엑셀 Export
+        /// </summary>
+        /// <param name="dt">export할 데이터 테이블</param>
+        /// <param name="file">저장 경로</param>
+        /// <param name="date">출석 시작 날짜, 어느 날짜부터 출석부를 뽑을건지</param>
+        /// <param name="period">출석 기간, date로부터 어느 기간동안 출석부를 뽑을건지</param>
+        /// <param name="courseNo">export할 수업 번호</param>
+        /// <returns>export 성공 여부</returns>
         public bool ExportAttendanceBook(DataTable dt, string file, DateTime date, int period, int courseNo)
         {
             Excel.Application xlApp = new Excel.Application();

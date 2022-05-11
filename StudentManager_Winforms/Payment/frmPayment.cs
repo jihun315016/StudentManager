@@ -40,7 +40,6 @@ namespace StudentManager_Winforms
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "결제 번호", "PAYMENT_NO", isVisible: false);
 
             PaymentService payService = new PaymentService();
-            bdsPaymentSoarse.DataSource = payService.GetAllPaymentList();
             dgvList.DataSource = payService.GetAllPaymentList();
         }
 
@@ -80,7 +79,6 @@ namespace StudentManager_Winforms
             {
                 PaymentService payService = new PaymentService();
                 dgvList.DataSource = payService.GetAllPaymentList();
-                bdsPaymentSoarse.DataSource = payService.GetAllPaymentList();
             }
         }
 
@@ -108,7 +106,6 @@ namespace StudentManager_Winforms
                 {
                     MessageBox.Show("결제가 취소되었습니다.");
                     dgvList.DataSource = payService.GetAllPaymentList();
-                    bdsPaymentSoarse.DataSource = payService.GetAllPaymentList();
                 }
                 else
                 {

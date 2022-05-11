@@ -34,7 +34,8 @@ namespace StudentManager.Data.DAC
                             JOIN tb_course c ON p.COURSE_NO = c.COURSE_NO
                             JOIN tb_student s ON p.STUDENT_NO = s.STUDENT_NO
                             JOIN tb_employee e ON p.EMP_NO = e.EMP_NO
-                            ORDER BY PAYMENT_DATE ASC";
+                            ORDER BY PAYMENT_DATE ASC
+                            LIMIT 300";
 
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);

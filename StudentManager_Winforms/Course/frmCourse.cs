@@ -23,9 +23,16 @@ namespace StudentManager_Winforms
             ccTxtCourseName.SetTextBoxPlaceHolder();
 
             EmployeeService empService = new EmployeeService();
-            cboEmpName.DataSource = empService.GetAllEmpNoName("선택", true);
-            cboEmpName.DisplayMember = "EMP_INFO";
-            cboEmpName.ValueMember = "EMP_NO";
+            DataTable dt = empService.GetAllEmpNoName(true);
+            DataRow dr = dt.NewRow();
+            dr["EMP_NO"] = -1;
+            dr["EMP_NAME"] = string.Empty;
+            dr["EMP_INFO"] = "선택";
+            dt.Rows.InsertAt(dr, 0);
+
+            cboEmp.DataSource = dt;
+            cboEmp.DisplayMember = "EMP_INFO";
+            cboEmp.ValueMember = "EMP_NO";
 
             CourseService courseService = new CourseService();
             DataGridViewUtil.SetInitGridView(dgvList);
@@ -63,7 +70,7 @@ namespace StudentManager_Winforms
             else
                 dgvList.DataSource = courseService.GetAllCourseInfo(false);
 
-            cboEmpName.SelectedIndex = 0;
+            cboEmp.SelectedIndex = 0;
             ccTxtCourseName.Text = ccTxtCourseName.PlaceHolder;
             ccTxtCourseName.ForeColor = System.Drawing.Color.Gray;
         }
@@ -76,9 +83,9 @@ namespace StudentManager_Winforms
             CourseService courseService = new CourseService();
             dgvList.DataSource = courseService.GetAllCourseInfo(chkNotCouse.Checked);
 
-            if (!cboEmpName.Text.Equals("선택"))
+            if (!cboEmp.Text.Equals("선택"))
             {
-                dgvList.DataSource = courseService.SearchByEmpInfo((DataTable)dgvList.DataSource, int.Parse(cboEmpName.SelectedValue.ToString()));
+                dgvList.DataSource = courseService.SearchByEmpInfo((DataTable)dgvList.DataSource, int.Parse(cboEmp.SelectedValue.ToString()));
                 selectedEmpInfo = true;
             }
 

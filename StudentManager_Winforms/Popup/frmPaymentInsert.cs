@@ -26,7 +26,14 @@ namespace StudentManager_Winforms
             this.user = (EmployeeVO)this.Tag;
 
             EmployeeService empService = new EmployeeService();
-            cboEmp.DataSource = empService.GetAllEmpNoName("선택", true);
+            DataTable dt = empService.GetAllEmpNoName(true);
+            DataRow dr = dt.NewRow();
+            dr["EMP_NO"] = -1;
+            dr["EMP_NAME"] = string.Empty;
+            dr["EMP_INFO"] = "선택";
+            dt.Rows.InsertAt(dr, 0);
+
+            cboEmp.DataSource = dt;
             cboEmp.DisplayMember = "EMP_INFO";
             cboEmp.ValueMember = "EMP_NO";
         }

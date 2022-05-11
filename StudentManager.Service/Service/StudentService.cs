@@ -238,7 +238,7 @@ namespace StudentManager.Service.Service
         /// 학생 리스트에서 등록 또는 퇴원 날짜를 통해 검색한다.
         /// </summary>
         /// <param name="start">검색할 날짜 범위 시작 지점</param>
-        /// <param name="end">검색할 날짜 범위 끝 지점</param>
+        /// <param name="end">검색할 날짜 범위 종료 지점</param>
         /// <param name="dt">기존 데이터 테이블</param>
         /// <param name="isStop">퇴원 여부</param>
         /// <returns></returns>

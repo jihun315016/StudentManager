@@ -37,11 +37,9 @@ namespace StudentManager_Winforms
             this.label1 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
-            this.bdsPaymentSoarse = new System.Windows.Forms.BindingSource(this.components);
             this.cmsSetting = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmCancelPayment = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsPaymentSoarse)).BeginInit();
             this.cmsSetting.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,11 +64,11 @@ namespace StudentManager_Winforms
             // 
             // ucDateFilter
             // 
-            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 9, 18, 2, 17, 886);
+            this.ucDateFilter.EndDate = new System.DateTime(2022, 5, 11, 9, 46, 58, 169);
             this.ucDateFilter.Location = new System.Drawing.Point(224, 295);
             this.ucDateFilter.Name = "ucDateFilter";
             this.ucDateFilter.Size = new System.Drawing.Size(238, 22);
-            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 9, 18, 2, 17, 886);
+            this.ucDateFilter.StartDate = new System.DateTime(2022, 4, 11, 9, 46, 58, 169);
             this.ucDateFilter.TabIndex = 106;
             // 
             // ccTxtStudentName
@@ -142,7 +140,6 @@ namespace StudentManager_Winforms
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmPayment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsPaymentSoarse)).EndInit();
             this.cmsSetting.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -157,7 +154,6 @@ namespace StudentManager_Winforms
         private Controls.ucDateFilter ucDateFilter;
         private ccTextBoxPlaceHolder ccTxtStudentName;
         private ccTextBoxPlaceHolder ccTxtCourseName;
-        private System.Windows.Forms.BindingSource bdsPaymentSoarse;
         private System.Windows.Forms.ContextMenuStrip cmsSetting;
         private System.Windows.Forms.ToolStripMenuItem tsmCancelPayment;
     }

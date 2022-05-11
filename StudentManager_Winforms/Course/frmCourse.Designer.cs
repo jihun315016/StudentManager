@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAttendanceNote = new System.Windows.Forms.Button();
-            this.cboEmpName = new System.Windows.Forms.ComboBox();
+            this.cboEmp = new System.Windows.Forms.ComboBox();
             this.btnAttInsert = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
             this.chkNotCouse = new System.Windows.Forms.CheckBox();
@@ -50,7 +50,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnAttendanceNote);
-            this.panel2.Controls.Add(this.cboEmpName);
+            this.panel2.Controls.Add(this.cboEmp);
             this.panel2.Controls.Add(this.btnAttInsert);
             this.panel2.Controls.Add(this.btnAttendance);
             this.panel2.Controls.Add(this.chkNotCouse);
@@ -75,14 +75,14 @@
             this.btnAttendanceNote.UseVisualStyleBackColor = true;
             this.btnAttendanceNote.Click += new System.EventHandler(this.btnAttendanceNote_Click);
             // 
-            // cboEmpName
+            // cboEmp
             // 
-            this.cboEmpName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEmpName.FormattingEnabled = true;
-            this.cboEmpName.Location = new System.Drawing.Point(3, 310);
-            this.cboEmpName.Name = "cboEmpName";
-            this.cboEmpName.Size = new System.Drawing.Size(112, 20);
-            this.cboEmpName.TabIndex = 99;
+            this.cboEmp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEmp.FormattingEnabled = true;
+            this.cboEmp.Location = new System.Drawing.Point(3, 310);
+            this.cboEmp.Name = "cboEmp";
+            this.cboEmp.Size = new System.Drawing.Size(112, 20);
+            this.cboEmp.TabIndex = 99;
             // 
             // btnAttInsert
             // 
@@ -214,7 +214,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmDelete;
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnAttInsert;
-        private System.Windows.Forms.ComboBox cboEmpName;
+        private System.Windows.Forms.ComboBox cboEmp;
         private System.Windows.Forms.Button btnAttendanceNote;
     }
 }

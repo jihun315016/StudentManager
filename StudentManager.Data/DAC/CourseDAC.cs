@@ -59,10 +59,10 @@ namespace StudentManager.Data.DAC
             }
         }
 
-        public DataTable GetAllCourseInfo(bool isFinal)
+        public DataTable GetAllCourseInfo(bool isFinalOrPlan)
         {
             string sql;
-            if (isFinal)
+            if (isFinalOrPlan)
                 sql = @"SELECT COURSE_NO, EMP_NO, COURSE_NAME, PAYMENT, START_DATE, END_DATE 
                         FROM tb_course 
                         WHERE date_format(now(), '%Y-%m-%d') < START_DATE or date_format(now(), '%Y-%m-%d') > END_DATE";
@@ -105,11 +105,11 @@ namespace StudentManager.Data.DAC
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
 
-        public DataTable GetCourseName(bool isStop)
+        public DataTable GetCourseName(bool isFinalOrPlan)
         {
             string sql;
 
-            if (isStop) // 종강 or 개강 예정인 수업인 경우
+            if (isFinalOrPlan) // 종강 or 개강 예정인 수업인 경우
             {
                 sql = @"SELECT COURSE_NO, concat('(', EMP_NAME, ')', ' ', COURSE_NAME) COURSE_INFO
                         FROM tb_course c
@@ -130,10 +130,10 @@ namespace StudentManager.Data.DAC
             return dt;
         }
 
-        public DataTable GetCourseByEmpNo(int empNo, bool isStop)
+        public DataTable GetCourseByEmpNo(int empNo, bool isFinalOrPlan)
         {
             string sql;
-            if (isStop)
+            if (isFinalOrPlan)
             {
                 sql = @"SELECT COURSE_NO, COURSE_NAME FROM tb_course WHERE EMP_NO = @EMP_NO and (START_DATE > now() or END_DATE < now())";
             }

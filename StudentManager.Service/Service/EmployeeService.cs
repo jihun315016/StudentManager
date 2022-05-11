@@ -11,6 +11,11 @@ namespace StudentManager.Service.Service
 {
     public class EmployeeService
     {
+        /// <summary>
+        /// 재직 또는 퇴사한 직원 정보 조회
+        /// </summary>
+        /// <param name="isResignation">퇴사 여부</param>
+        /// <returns></returns>
         public DataTable GetAllEmployeeInfo(bool isResignation)
         {
             EmployeeDAC dac = new EmployeeDAC();
@@ -19,21 +24,25 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
-        public DataTable GetAllEmpNoName(string defaultMsg, bool isOnlyTeacher = false)
+        /// <summary>
+        /// 직원 정보 조회
+        /// "직원 번호 - 이름" 형태로 조회한다.
+        /// </summary>
+        /// <param name="isOnlyTeacher">원장, 강사 직급만 조회할지, 모든 직원을 조회할지 선택</param>
+        /// <returns></returns>
+        public DataTable GetAllEmpNoName(bool isOnlyTeacher = false)
         {
             EmployeeDAC dac = new EmployeeDAC();
             DataTable dt = dac.GetAllEmpNoName(isOnlyTeacher);
             dac.Dispose();
-
-            DataRow dr = dt.NewRow();
-            dr["EMP_NO"] = -1;
-            dr["EMP_NAME"] = string.Empty;
-            dr["EMP_INFO"] = defaultMsg;
-            dt.Rows.InsertAt(dr, 0);
-            
             return dt;
         }
 
+        /// <summary>
+        /// 특정 직원에 대한 정보 조회
+        /// </summary>
+        /// <param name="empNo">가져올 직원 번호</param>
+        /// <returns></returns>
         public EmployeeVO GetEmpInfoByPk(int empNo)
         {
             EmployeeDAC dac = new EmployeeDAC();
@@ -42,6 +51,11 @@ namespace StudentManager.Service.Service
             return emploeyeeVO;
         }
 
+        /// <summary>
+        /// 직원 직급 리스트 조회
+        /// 등록, 수정 시 콤보 박스에서 사용
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetPosition()
         {
             EmployeeDAC dac = new EmployeeDAC();
@@ -54,6 +68,11 @@ namespace StudentManager.Service.Service
             return list;
         }
 
+        /// <summary>
+        /// 직원 등록 처리
+        /// </summary>
+        /// <param name="empVO">등록할 직원 정보</param>
+        /// <returns></returns>
         public bool InsertEmployee(EmployeeVO empVO)            
         {
             EmployeeDAC dac = new EmployeeDAC();
@@ -63,6 +82,12 @@ namespace StudentManager.Service.Service
             return result;
         }
 
+        /// <summary>
+        /// 직원 정보 수정 처리
+        /// </summary>
+        /// <param name="empVO">변경할 직원 정보</param>
+        /// <param name="imagePath">이미지 URL, 이미지가 없다면 null</param>
+        /// <returns></returns>
         public bool UpdateEmployeeInfo(EmployeeVO empVO, string imagePath)
         {
             EmployeeDAC dac = new EmployeeDAC();
@@ -72,6 +97,12 @@ namespace StudentManager.Service.Service
             return result;
         }
 
+        /// <summary>
+        /// 비밀번호 변경 처리
+        /// </summary>
+        /// <param name="empNo">변경할 직원 번호</param>
+        /// <param name="newPassword">변경할 비밀번호</param>
+        /// <returns></returns>
         public bool UpdateEmployeePassword(int empNo, string newPassword)
         {
             EmployeeDAC dac = new EmployeeDAC();
