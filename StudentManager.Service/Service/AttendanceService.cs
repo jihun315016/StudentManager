@@ -11,6 +11,12 @@ namespace StudentManager.Service.Service
 {
     public class AttendanceService
     {
+        /// <summary>
+        /// 특정 날짜 범위의 모든 출석 번호를 가져온다.
+        /// </summary>
+        /// <param name="start">시작 날짜</param>
+        /// <param name="end">종료 날짜</param>
+        /// <returns></returns>
         public DataTable GetAllAttendanceList(DateTime start, DateTime end)
         {
             AttendanceDAC dac = new AttendanceDAC();
@@ -35,6 +41,11 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
+        /// <summary>
+        /// 특정 학생의 출석 정보를 가져온다.
+        /// </summary>
+        /// <param name="stuNo">학생 정보</param>
+        /// <returns></returns>
         public DataTable GetAttendanceListByStuNo(int stuNo)
         {
             AttendanceDAC dac = new AttendanceDAC();
@@ -43,6 +54,14 @@ namespace StudentManager.Service.Service
             return dt;
         }
 
+        /// <summary>
+        /// 특정 날짜에 특정 수업에 대한 출석 여부 리스트를 가져오는데
+        /// 1과 0으로 구성된 출석 여부를 O와 X로 바꾸어 리턴한다.
+        /// </summary>
+        /// <param name="stuNoList">학생 번호 리스트</param>
+        /// <param name="courseNo">수업 정보</param>
+        /// <param name="attDate">날짜</param>
+        /// <returns></returns>
         public List<bool> GetIsAttendance(List<int> stuNoList, int courseNo, DateTime attDate)
         {
             AttendanceDAC dac = new AttendanceDAC();
@@ -60,7 +79,16 @@ namespace StudentManager.Service.Service
             return list;
         }
 
-        // 출석 정보를 INSERT 할지 UPDATE 할지 확인
+
+        /// <summary>
+        /// InsertAttendance()와 UpdateAttendance() 메서드 중
+        /// 어떤 메서드를 호출할지 결정
+        /// 결과가 true면 UpdateAttendance() 호출,
+        /// false라면 InsertAttendance() 메서드를 호출한다.
+        /// </summary>
+        /// <param name="courseNo">수업 번호</param>
+        /// <param name="attDate">출석 날짜</param>
+        /// <returns></returns>
         public bool isAttendance(int courseNo, DateTime attDate)
         {
             AttendanceDAC dac = new AttendanceDAC();
@@ -70,6 +98,14 @@ namespace StudentManager.Service.Service
                 return false;
         }
 
+        /// <summary>
+        /// 특정 수업이 특정 날짜에 처음 출석하는 경우 출석 로그 수정
+        /// </summary>
+        /// <param name="stuNoList">입력될 학생 번호 리스트</param>
+        /// <param name="courseNo">수업 번호</param>
+        /// <param name="date">출석 날짜</param>
+        /// <param name="isAttList">출석 여부 리스트</param>
+        /// <returns></returns>
         public bool InsertAttendance(List<int> stuNoList, int courseNo, DateTime date, List<int> isAttList)
         {
             AttendanceDAC dac = new AttendanceDAC();
@@ -79,6 +115,14 @@ namespace StudentManager.Service.Service
             return result;
         }
 
+        /// <summary>
+        /// 특정 수업이 특정 날짜에 이미 한 번 출석한 경우 출석 로그 수정
+        /// </summary>
+        /// <param name="stuNoList">수정될 학생 번호 리스트</param>
+        /// <param name="courseNo">수업 번호</param>
+        /// <param name="date">수정될 날짜</param>
+        /// <param name="isAttList">출석 여부 리스트</param>
+        /// <returns></returns>
         public bool UpdateAttendance(List<int> stuNoList, int courseNo, DateTime date, List<int> isAttList)
         {
             AttendanceDAC dac = new AttendanceDAC();

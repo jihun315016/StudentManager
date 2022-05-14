@@ -48,6 +48,8 @@ namespace StudentManager.Service.Service
 
         /// <summary>
         /// 특정 강사의 진행중인 또는 종강, 예정인 수업 조회
+        /// 각 데이터는 5개 까지만 제공된다.
+        /// 학원이 오래돼서 진행된 수업이 많아지면 가독성이 떨어질 수 있기 때문
         /// </summary>
         /// <param name="empNo">조회할 강사 번호</param>
         /// <param name="isFinalOrPlan">수업 종강, 예정 여부</param>

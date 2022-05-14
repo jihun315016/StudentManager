@@ -135,11 +135,17 @@ namespace StudentManager.Data.DAC
             string sql;
             if (isFinalOrPlan)
             {
-                sql = @"SELECT COURSE_NO, COURSE_NAME FROM tb_course WHERE EMP_NO = @EMP_NO and (START_DATE > now() or END_DATE < now())";
+                sql = @"SELECT COURSE_NO, COURSE_NAME 
+                        FROM tb_course 
+                        WHERE EMP_NO = @EMP_NO and (START_DATE > now() or END_DATE < now()) 
+                        LIMIT 5";
             }
             else
             {
-                sql = @"SELECT COURSE_NO, COURSE_NAME FROM tb_course WHERE EMP_NO = @EMP_NO and (END_DATE >= now() and START_DATE <= now())";
+                sql = @"SELECT COURSE_NO, COURSE_NAME 
+                        FROM tb_course 
+                        WHERE EMP_NO = @EMP_NO and (END_DATE >= now() and START_DATE <= now())
+                        LIMIT 5";
             }
 
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
